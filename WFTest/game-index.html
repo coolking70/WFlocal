@@ -49,9 +49,31 @@
 	</script>
 	
 	<script>
-		window.WF_MOD_BUILD = "0.2.7";
+		window.WF_MOD_BUILD = "0.2.8";
 		window.WF_DEMO_BOOT_MODE = new URLSearchParams(window.location.search).get("wfmode") || "tutorial";
-		console.info("[WFMod] build=" + window.WF_MOD_BUILD + " mode=" + window.WF_DEMO_BOOT_MODE + " master=merged-trial global=exclusive-full-bridge diag=throw-source-7051");
+		console.info("[WFMod] build=" + window.WF_MOD_BUILD + " mode=" + window.WF_DEMO_BOOT_MODE + " master=merged-trial global=exclusive-full-bridge diag=stall-trace");
+
+		// v0.2.8 loading/stall diagnostics.
+		window.WF_TRACE = { pending: {}, recent: [], seq: 0, lastActivity: Date.now() };
+		window.WF_TRACE_NOTE = function(kind, url, detail) {
+			var t = window.WF_TRACE;
+			t.lastActivity = Date.now();
+			t.recent.push({ t: new Date().toISOString(), kind: kind, url: String(url || ""), detail: detail || "" });
+			if (t.recent.length > 30) t.recent.shift();
+		};
+		window.addEventListener("error", function(e) {
+			console.error("[WFERR] window.error message=" + String(e.message || "") + " source=" + String(e.filename || "") + ":" + String(e.lineno || "") + ":" + String(e.colno || ""), e.error || e);
+		});
+		window.addEventListener("unhandledrejection", function(e) {
+			console.error("[WFERR] unhandledrejection", e.reason);
+		});
+		setInterval(function() {
+			var t = window.WF_TRACE;
+			if (!t || Date.now() - t.lastActivity < 8000) return;
+			var pending = Object.keys(t.pending).map(function(k){ return t.pending[k]; });
+			console.warn("[WFSTALL] no resource activity for >=8s pending=" + pending.length, { pending: pending, recent: t.recent.slice() });
+			t.lastActivity = Date.now();
+		}, 2000);
 
 		// OpenFL/Lime loads most runtime assets via XMLHttpRequest. Node's `http-server`
 		// caches static paths by default, which can mix a new JS bundle with an older
@@ -67,6 +89,8 @@
 						url = u.href;
 					}
 				} catch (e) {}
+				this.__wfTraceUrl = String(url);
+				this.__wfTraceMethod = String(method || "GET");
 				var args = Array.prototype.slice.call(arguments);
 				args[1] = url;
 				return originalOpen.apply(this, args);
@@ -74,11 +98,28 @@
 			var originalSend = XMLHttpRequest.prototype.send;
 			XMLHttpRequest.prototype.send = function () {
 				try { this.setRequestHeader("Cache-Control", "no-cache"); } catch (e) {}
+				var xhr = this, trace = window.WF_TRACE, id = ++trace.seq;
+				var url = xhr.__wfTraceUrl || "(unknown)";
+				var important = /\.(orderedmap|json|xml)(?:\?|$)/i.test(url);
+				trace.pending[id] = { id:id, method:xhr.__wfTraceMethod || "GET", url:url, started:new Date().toISOString() };
+				window.WF_TRACE_NOTE("start", url, "id=" + id);
+				if (important) console.debug("[WFLOAD] start #" + id + " " + url);
+				var finish = function(kind) {
+					if (!trace.pending[id]) return;
+					delete trace.pending[id];
+					var detail = "id=" + id + " status=" + String(xhr.status || 0);
+					window.WF_TRACE_NOTE(kind, url, detail);
+					if (important || kind !== "loadend") console.debug("[WFLOAD] " + kind + " #" + id + " status=" + String(xhr.status || 0) + " " + url);
+				};
+				xhr.addEventListener("loadend", function(){ finish("loadend"); });
+				xhr.addEventListener("error", function(){ finish("error"); });
+				xhr.addEventListener("abort", function(){ finish("abort"); });
+				xhr.addEventListener("timeout", function(){ finish("timeout"); });
 				return originalSend.apply(this, arguments);
 			};
 		})();
 	</script>
-	<script type="text/javascript" src="lib/pako.min.js?wfbuild=0.2.7"></script>
+	<script type="text/javascript" src="lib/pako.min.js?wfbuild=0.2.8"></script>
 	<script type="text/javascript">
 		(function () {
 			function startWorldFlipper() {
@@ -132,7 +173,7 @@
 				var builderPos = source.indexOf(builderMarker);
 				var nextPos = builderPos < 0 ? -1 : source.indexOf(";var _0x4b4098=", builderPos);
 				if (builderPos < 0 || nextPos < 0 || source.indexOf(builderMarker, builderPos + 1) >= 0) {
-					throw new Error("WFMod v0.2.7 patch anchor mismatch; refusing to run an unverified bundle");
+					throw new Error("WFMod v0.2.8 patch anchor mismatch; refusing to run an unverified bundle");
 				}
 
 				var bridge = "if(typeof window!==\"undefined\"&&window.WF_DEMO_BOOT_MODE===\"challenge\"&&_0x3d4eef){var _wfIos=_0x316d35['iosBundledPaths'];var _wfBundled=_0x316d35['bundledPaths'];var _wfHasIos=_0x12a81b[_0x21232a]!=null?_wfIos['existsReserved'](_0x21232a):_wfIos['h']['hasOwnProperty'](_0x21232a);var _wfHasBundled=_0x12a81b[_0x21232a]!=null?_wfBundled['existsReserved'](_0x21232a):_wfBundled['h']['hasOwnProperty'](_0x21232a);if(!_wfHasIos&&!_wfHasBundled){_0x550674['filePaths']['unshift'](_0x1b0e4b['path']);}}";
@@ -145,7 +186,7 @@
 				var dupThrow = "throw new _0x57a685(new _0x34e26d(0x1b8b,'\\u30de\\u30b9\\u30bf\\u30fc\\u306e\\u30d7\\u30e9\\u30a4\\u30de\\u30ea\\u30fc\\u30ad\\u30fc\\u304c\\u91cd\\u8907\\u3057\\u3066\\u3044\\u307e\\u3059'));";
 				var dupParts = source.split(dupThrow);
 				if (dupParts.length !== 8) {
-					throw new Error("WFMod v0.2.7 duplicate-key throw anchor mismatch: expected 7 sites, got " + (dupParts.length - 1));
+					throw new Error("WFMod v0.2.8 duplicate-key throw anchor mismatch: expected 7 sites, got " + (dupParts.length - 1));
 				}
 				var dupDiag = [
 					"console.error('[WFDiag] MasterBinary.getIntMap duplicate key='+String(_0x85bbff)+' slice='+String(_0x4f34b3['debugInfo']));",
@@ -161,7 +202,7 @@
 					rebuilt += dupDiag[dupI] + dupThrow + dupParts[dupI + 1];
 				}
 				source = rebuilt;
-				console.info("[WFMod] v0.2.7 runtime patch applied: challenge full-only bridge + source-level 7051 diagnostics");
+				console.info("[WFMod] v0.2.8 runtime patch applied: challenge full-only bridge + source-level 7051 diagnostics + stall trace");
 
 				var blobUrl = URL.createObjectURL(new Blob([source], { type: "text/javascript" }));
 				appendGameScript(blobUrl, true);

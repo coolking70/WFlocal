@@ -49,9 +49,9 @@
 	</script>
 	
 	<script>
-		window.WF_MOD_BUILD = "0.2.4";
+		window.WF_MOD_BUILD = "0.2.5";
 		window.WF_DEMO_BOOT_MODE = new URLSearchParams(window.location.search).get("wfmode") || "tutorial";
-		console.info("[WFMod] build=" + window.WF_MOD_BUILD + " mode=" + window.WF_DEMO_BOOT_MODE + " master=merged-trial global=full-only-bridge");
+		console.info("[WFMod] build=" + window.WF_MOD_BUILD + " mode=" + window.WF_DEMO_BOOT_MODE + " master=merged-trial global=exclusive-full-bridge");
 
 		// OpenFL/Lime loads most runtime assets via XMLHttpRequest. Node's `http-server`
 		// caches static paths by default, which can mix a new JS bundle with an older
@@ -78,7 +78,7 @@
 			};
 		})();
 	</script>
-	<script type="text/javascript" src="lib/pako.min.js?wfbuild=0.2.4"></script>
+	<script type="text/javascript" src="lib/pako.min.js?wfbuild=0.2.5"></script>
 	<script type="text/javascript">
 		(function () {
 			function startWorldFlipper() {
@@ -119,10 +119,11 @@
 			// Challenge boot happens before the official post-tutorial Global(false)
 			// master load. v0.2.3 already merged full data into every iosbundled
 			// table that has an iosbundled counterpart. What is still missing are
-			// full-only master tables such as quest/main_chapter. Patch the
-			// Global(true) builder in memory so those full-only tables are loaded
-			// during the initial bootstrap, without loading duplicate full tables
-			// for merged iosbundled groups.
+			// masters that have no bundled or iosbundled counterpart, such as
+			// quest/main_chapter. A Row-type master cannot span multiple files, so
+			// adding a full file next to an existing bundled file triggers ClientError
+			// 7051 even when both files are empty. Only add full files for master
+			// classes that have neither bundled nor iosbundled variants.
 			fetch(gameUrl, { cache: "no-store" }).then(function (response) {
 				if (!response.ok) throw new Error("HTTP " + response.status + " while loading " + gameUrl);
 				return response.text();
@@ -131,12 +132,12 @@
 				var builderPos = source.indexOf(builderMarker);
 				var nextPos = builderPos < 0 ? -1 : source.indexOf(";var _0x4b4098=", builderPos);
 				if (builderPos < 0 || nextPos < 0 || source.indexOf(builderMarker, builderPos + 1) >= 0) {
-					throw new Error("WFMod v0.2.4 patch anchor mismatch; refusing to run an unverified bundle");
+					throw new Error("WFMod v0.2.5 patch anchor mismatch; refusing to run an unverified bundle");
 				}
 
-				var bridge = "if(typeof window!==\"undefined\"&&window.WF_DEMO_BOOT_MODE===\"challenge\"&&_0x3d4eef){var _wfIos=_0x316d35['iosBundledPaths'];var _wfHasIos=_0x12a81b[_0x21232a]!=null?_wfIos['existsReserved'](_0x21232a):_wfIos['h']['hasOwnProperty'](_0x21232a);if(!_wfHasIos){_0x550674['filePaths']['unshift'](_0x1b0e4b['path']);}}";
+				var bridge = "if(typeof window!==\"undefined\"&&window.WF_DEMO_BOOT_MODE===\"challenge\"&&_0x3d4eef){var _wfIos=_0x316d35['iosBundledPaths'];var _wfBundled=_0x316d35['bundledPaths'];var _wfHasIos=_0x12a81b[_0x21232a]!=null?_wfIos['existsReserved'](_0x21232a):_wfIos['h']['hasOwnProperty'](_0x21232a);var _wfHasBundled=_0x12a81b[_0x21232a]!=null?_wfBundled['existsReserved'](_0x21232a):_wfBundled['h']['hasOwnProperty'](_0x21232a);if(!_wfHasIos&&!_wfHasBundled){_0x550674['filePaths']['unshift'](_0x1b0e4b['path']);}}";
 				source = source.slice(0, nextPos + 1) + bridge + source.slice(nextPos + 1);
-				console.info("[WFMod] v0.2.4 runtime patch applied: challenge Global(true) now loads full-only master tables");
+				console.info("[WFMod] v0.2.5 runtime patch applied: challenge Global(true) now loads masters with no bundled/iosbundled counterpart");
 
 				var blobUrl = URL.createObjectURL(new Blob([source], { type: "text/javascript" }));
 				appendGameScript(blobUrl, true);

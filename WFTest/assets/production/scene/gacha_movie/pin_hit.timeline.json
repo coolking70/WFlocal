@@ -1,0 +1,1 @@
+{"sequences":[{"begin":1,"end":1,"name":"neutral","kind":"stop"},{"begin":2,"end":16,"name":"effect","kind":"once"}],"sounds":[{"path":"sound_effect/gacha/se_pin_hit","begin":2,"loop":1,"end":-1,"volume":-1}],"points":[],"circles":[],"rectangles":[],"matrices":[]}

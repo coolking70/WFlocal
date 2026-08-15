@@ -1,0 +1,1 @@
+{"sequences":[{"begin":1,"end":41,"name":"start","kind":"pass"},{"begin":42,"end":112,"name":"loop","kind":"loop"},{"begin":113,"end":118,"name":"none","kind":"stop"},{"begin":119,"end":130,"name":"open","kind":"goto","target":"start"}],"sounds":[],"points":[],"circles":[],"rectangles":[],"matrices":[]}

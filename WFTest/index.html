@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>WORLD FLIPPER Web Demo · Mod Runtime</title>
+<style>
+:root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:#171717;background:#f4f6f8}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at top,#fff 0,#f4f6f8 48%,#e8edf2 100%)}
+.shell{width:min(760px,100%);background:rgba(255,255,255,.94);border:1px solid #dfe5ea;border-radius:24px;box-shadow:0 18px 60px rgba(26,41,55,.13);overflow:hidden}
+.hero{padding:32px 32px 22px;border-bottom:1px solid #e7ebee}.eyebrow{font-size:12px;letter-spacing:.16em;font-weight:800;color:#71808c}.hero h1{font-size:30px;line-height:1.15;margin:8px 0 8px}.hero p{margin:0;color:#66727c;line-height:1.7}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;padding:24px 32px}.card{display:flex;flex-direction:column;min-height:218px;padding:22px;border:1px solid #dfe6eb;border-radius:18px;text-decoration:none;color:inherit;background:#fff;transition:.16s transform,.16s box-shadow,.16s border-color}.card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(29,48,65,.10);border-color:#b9c7d2}.tag{font-size:12px;font-weight:800;color:#667b8b}.card h2{font-size:21px;margin:8px 0}.card p{font-size:14px;color:#66727c;line-height:1.65;margin:0}.go{margin-top:auto;padding-top:20px;font-weight:800}.challenge{border-color:#9fb8ca;background:linear-gradient(155deg,#fff,#f4f9fc)}
+.note{margin:0 32px 28px;padding:16px 18px;border-radius:14px;background:#f5f7f9;color:#596772;font-size:13px;line-height:1.65}.note b{color:#293740}
+@media(max-width:620px){body{padding:0;background:#fff}.shell{min-height:100vh;border:0;border-radius:0;box-shadow:none}.hero{padding:28px 22px 20px}.grid{grid-template-columns:1fr;padding:20px 22px}.note{margin:0 22px 26px}}
+</style>
+</head>
+<body>
+<main class="shell">
+  <section class="hero">
+    <div class="eyebrow">WORLD FLIPPER · WEB TRIAL MOD RUNTIME</div>
+    <h1>启动模式</h1>
+    <p>保留原版教程，同时允许直接进入官方挑战关卡选择界面。后续自制关卡将沿用同一套原生列表。</p>
+  </section>
+  <section class="grid">
+    <a class="card" href="game-index.html?wfmode=tutorial&wfbuild=0.2.2">
+      <div class="tag">ORIGINAL FLOW</div>
+      <h2>原版教程</h2>
+      <p>从序章开始运行官方 Web 体验版完整教程流程，行为保持原样。</p>
+      <div class="go">进入教程 →</div>
+    </a>
+    <a class="card challenge" href="game-index.html?wfmode=challenge&wfbuild=0.2.2">
+      <div class="tag">STAGE SELECT</div>
+      <h2>挑战 / 自制关卡</h2>
+      <p>跳过教程，直接载入教程结束后的 Trial 玩家数据，并进入官方原生关卡选择界面。</p>
+      <div class="go">选择关卡 →</div>
+    </a>
+  </section>
+  <div class="note"><b>本 PoC：</b>原版 3 个挑战关保持不变，并额外追加第 4 张 <code>CUSTOM STAGE PoC - Guardian Mirror</code> 卡片。它暂时克隆第 1 关内容，用来验证“新增关卡记录 → 原生列表 → 正常启动”的扩展路径。</div>
+</main>
+</body>
+</html>

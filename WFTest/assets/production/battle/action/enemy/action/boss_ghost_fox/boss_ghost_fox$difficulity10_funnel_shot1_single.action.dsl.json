@@ -1,0 +1,1 @@
+["ActionDsl", 1, false, false, ["Block", [["Command", ["SpawnFunnel", ["Funnel", "funnel_ghost_fox_left_single"], 1, ["FunnelGroup", 4]]], ["Command", ["SpawnFunnel", ["Funnel", "funnel_ghost_fox_right_single"], 1, ["FunnelGroup", 2]]]]]]

@@ -1,0 +1,1 @@
+{"sequences":[{"begin":1,"end":11,"name":"neutral","kind":"once"},{"begin":12,"end":44,"name":"start","kind":"once"},{"begin":45,"end":85,"name":"pushback","kind":"once"}],"sounds":[{"path":"sound_effect/situation/se_funny_bump","begin":45,"loop":1,"end":-1,"volume":-1}],"points":[],"circles":[],"rectangles":[],"matrices":[]}

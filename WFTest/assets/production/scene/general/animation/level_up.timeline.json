@@ -1,0 +1,1 @@
+{"sequences":[{"begin":1,"end":5,"name":"none","kind":"once"},{"begin":6,"end":33,"name":"level_up","kind":"pass"},{"begin":34,"end":95,"name":"level_up_loop","kind":"loop"},{"begin":96,"end":160,"name":"level_max","kind":"pass"},{"begin":161,"end":185,"name":"level_max_loop","kind":"loop"}],"sounds":[],"points":[],"circles":[],"rectangles":[],"matrices":[]}

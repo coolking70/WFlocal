@@ -1,0 +1,1 @@
+{"sequences":[{"begin":1,"end":1,"name":"neutral","kind":"stop"},{"begin":2,"end":31,"name":"on","kind":"once"},{"begin":32,"end":36,"name":"off","kind":"goto","target":"neutral"},{"begin":37,"end":66,"name":"bar_on","kind":"once"},{"begin":67,"end":71,"name":"bar_off","kind":"goto","target":"neutral"}],"sounds":[],"points":[],"circles":[],"rectangles":[],"matrices":[]}

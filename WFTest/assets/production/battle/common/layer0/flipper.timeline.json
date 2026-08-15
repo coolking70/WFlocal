@@ -1,0 +1,1 @@
+{"sequences":[{"begin":1,"end":40,"name":"appearance","kind":"once"},{"begin":41,"end":50,"name":"neutral","kind":"once"},{"begin":51,"end":55,"name":"charge","kind":"loop"},{"begin":56,"end":60,"name":"full","kind":"loop"}],"sounds":[],"points":[],"circles":[],"rectangles":[],"matrices":[]}

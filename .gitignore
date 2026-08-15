@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.pyc
+
+# OS / editor
+.DS_Store
+.AppleDouble
+.idea/
+.vscode/
+
+# Local memory / workbuddy internals
+.workbuddy/

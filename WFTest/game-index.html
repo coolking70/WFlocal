@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>WORLD FLIPPER</title>
+	<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+
+	
+	<link rel="shortcut icon" type="image/png" href="favicon.png">
+
+	<style>
+		html,body { margin: 0; padding: 0; height: 100%; overflow: hidden; }
+		#openfl-content { background: #000000; width: 100%; height: 100%; }
+		#openfl-error-content { display: none; justify-content: center; align-items: center; width: 100%; height: 100%; }
+		#openfl-loading { display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; }
+		@font-face {
+			font-family: 'WF_r';
+			src: url('assets/fonts/WF_r.eot?#iefix') format('embedded-opentype'),
+			url('assets/fonts/WF_r.woff') format('woff'),
+			url('assets/fonts/WF_r.ttf') format('truetype'),
+			url('assets/fonts/WF_r.svg#WF_r') format('svg');
+			font-weight: normal;
+			font-style: normal;
+		}
+
+	</style>
+</head>
+<body>
+	<noscript>This webpage makes extensive use of JavaScript. Please enable JavaScript in your web browser to view this page.</noscript>
+
+	<div id="openfl-loading"><img src="loading.gif"></div>
+	<div id="openfl-error-content"><img src="error_splash.png"></div>
+	<div id="openfl-content"></div>
+
+	<script>
+		document.getElementById("openfl-content").style.display = "none";
+
+		function onApplicationLoaded() {
+			document.getElementById("openfl-loading").remove();
+			document.getElementById("openfl-content").style.display = "block";
+		}
+
+		function handledApplicationError() {
+			document.getElementById("openfl-error-content").style.display = "flex";
+			let content = document.getElementById("openfl-content");
+			if (content != null) { content.remove(); }
+		}
+	</script>
+	
+	<script>
+		window.WF_MOD_BUILD = "0.2.3";
+		window.WF_DEMO_BOOT_MODE = new URLSearchParams(window.location.search).get("wfmode") || "tutorial";
+		console.info("[WFMod] build=" + window.WF_MOD_BUILD + " mode=" + window.WF_DEMO_BOOT_MODE + " master=merged-trial");
+
+		// OpenFL/Lime loads most runtime assets via XMLHttpRequest. Node's `http-server`
+		// caches static paths by default, which can mix a new JS bundle with an older
+		// .orderedmap. Give every same-origin runtime XHR a build-specific URL and ask
+		// the browser not to reuse its cache.
+		(function () {
+			var originalOpen = XMLHttpRequest.prototype.open;
+			XMLHttpRequest.prototype.open = function (method, url) {
+				try {
+					var u = new URL(String(url), window.location.href);
+					if (u.origin === window.location.origin) {
+						u.searchParams.set("wfbuild", window.WF_MOD_BUILD);
+						url = u.href;
+					}
+				} catch (e) {}
+				var args = Array.prototype.slice.call(arguments);
+				args[1] = url;
+				return originalOpen.apply(this, args);
+			};
+			var originalSend = XMLHttpRequest.prototype.send;
+			XMLHttpRequest.prototype.send = function () {
+				try { this.setRequestHeader("Cache-Control", "no-cache"); } catch (e) {}
+				return originalSend.apply(this, arguments);
+			};
+		})();
+	</script>
+	<script type="text/javascript" src="lib/pako.min.js?wfbuild=0.2.3"></script>
+	<script type="text/javascript" src="world-flipper.js?wfbuild=0.2.3" onload="onApplicationLoaded()"></script>
+	<script type="text/javascript">
+		lime.embed ("world-flipper", "openfl-content", 540, 960, {
+			parameters: {},
+			onApplicationError: function (e) {
+				// error handling
+				handledApplicationError();
+			}
+		});
+
+		window.addEventListener("touchmove", function (event) { event.preventDefault(); }, { capture: false, passive: false });
+		if (typeof window.devicePixelRatio != 'undefined' && window.devicePixelRatio > 2) {
+			var meta = document.getElementById("viewport");
+			meta.setAttribute('content', 'width=device-width, initial-scale=' + (2 / window.devicePixelRatio) + ', user-scalable=no');
+		}
+	</script>
+</body>
+</html>

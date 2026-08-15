@@ -1,0 +1,1 @@
+{"sequences":[{"begin":1,"end":20,"name":"appear_phase_a","kind":"pass"},{"begin":21,"end":60,"name":"appear_phase_b","kind":"once"},{"begin":61,"end":66,"name":"ejection","kind":"once"}],"sounds":[],"points":[],"circles":[],"rectangles":[],"matrices":[]}

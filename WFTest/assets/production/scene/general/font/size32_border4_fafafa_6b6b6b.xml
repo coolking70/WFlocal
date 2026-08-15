@@ -1,0 +1,24 @@
+<font>
+	<info face="C:\pb\ui\asset\scene\general\font\size32_border4_fafafa_6b6b6b-assets\..\..\font\size32_border4_fafafa_6b6b6b" size="53" />
+	<common lineHeight="53" scaleW="116" scaleH="118" pages="1" />
+	<pages>
+		<page id="0" file="C:\pb\ui\asset\scene\general\font\size32_border4_fafafa_6b6b6b-assets\..\..\font\size32_border4_fafafa_6b6b6b.png" />
+	</pages>
+	<chars count="13">
+		<char id="47" x="59" y="80" width="22" height="33" xoffset="0" yoffset="20" xadvance="20" /><!-- / -->
+		<char id="49" x="88" y="79" width="22" height="35" xoffset="0" yoffset="18" xadvance="20" /><!-- 1 -->
+		<char id="50" x="60" y="0" width="25" height="36" xoffset="0" yoffset="17" xadvance="23" /><!-- 2 -->
+		<char id="51" x="59" y="40" width="25" height="36" xoffset="0" yoffset="17" xadvance="23" /><!-- 3 -->
+		<char id="52" x="0" y="79" width="26" height="35" xoffset="0" yoffset="18" xadvance="24" /><!-- 4 -->
+		<char id="53" x="0" y="40" width="26" height="35" xoffset="0" yoffset="18" xadvance="24" /><!-- 5 -->
+		<char id="54" x="30" y="40" width="25" height="35" xoffset="0" yoffset="18" xadvance="23" /><!-- 6 -->
+		<char id="55" x="88" y="40" width="24" height="35" xoffset="0" yoffset="18" xadvance="22" /><!-- 7 -->
+		<char id="56" x="30" y="0" width="26" height="36" xoffset="0" yoffset="17" xadvance="24" /><!-- 8 -->
+		<char id="57" x="30" y="79" width="25" height="35" xoffset="0" yoffset="18" xadvance="23" /><!-- 9 -->
+		<char id="48" x="0" y="0" width="26" height="36" xoffset="0" yoffset="17" xadvance="24" /><!-- 0 -->
+		<char id="32" x="0" y="0" width="0" height="0" xoffset="0" yoffset="0" xadvance="0" /><!--   -->
+		<char id="9" x="0" y="0" width="0" height="0" xoffset="0" yoffset="0" xadvance="0" /><!-- 	 -->
+	</chars>
+	<kernings count="0">
+	</kernings>
+</font>

@@ -1,0 +1,1 @@
+["ActionDsl", 1, false, false, ["Block", [["Command", ["FindAllSubjects", 0, 33, [], ["DoNothing"], ["Block", [["Command", ["CreateRatioHeal", 0, 2, {"min":0.25,"max":0.25}, [], {"min":0.0,"max":0.0}, ["GenericHealHitEffect"]]]]]]]]]]

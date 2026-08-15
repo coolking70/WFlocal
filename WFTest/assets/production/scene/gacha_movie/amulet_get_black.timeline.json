@@ -1,0 +1,1 @@
+{"sequences":[{"begin":1,"end":1,"name":"neutral","kind":"stop"},{"begin":2,"end":18,"name":"effect","kind":"goto","target":"neutral"}],"sounds":[],"points":[],"circles":[],"rectangles":[],"matrices":[]}

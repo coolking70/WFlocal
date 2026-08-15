@@ -1,0 +1,24 @@
+<font>
+	<info face="C:\pb\ui\asset\scene\general\font\size30_ffffff_bold-assets\..\..\font\size30_ffffff_bold" size="30" />
+	<common lineHeight="30" scaleW="78" scaleH="88" pages="1" />
+	<pages>
+		<page id="0" file="C:\pb\ui\asset\scene\general\font\size30_ffffff_bold-assets\..\..\font\size30_ffffff_bold.png" />
+	</pages>
+	<chars count="13">
+		<char id="48" x="21" y="29" width="16" height="26" xoffset="0" yoffset="4" xadvance="18" /><!-- 0 -->
+		<char id="49" x="41" y="30" width="14" height="25" xoffset="0" yoffset="5" xadvance="16" /><!-- 1 -->
+		<char id="50" x="59" y="30" width="15" height="26" xoffset="0" yoffset="4" xadvance="17" /><!-- 2 -->
+		<char id="51" x="41" y="0" width="16" height="26" xoffset="0" yoffset="4" xadvance="18" /><!-- 3 -->
+		<char id="52" x="0" y="0" width="17" height="25" xoffset="0" yoffset="5" xadvance="19" /><!-- 4 -->
+		<char id="53" x="20" y="59" width="16" height="25" xoffset="0" yoffset="5" xadvance="18" /><!-- 5 -->
+		<char id="54" x="21" y="0" width="16" height="25" xoffset="0" yoffset="5" xadvance="18" /><!-- 6 -->
+		<char id="55" x="40" y="59" width="15" height="25" xoffset="0" yoffset="5" xadvance="17" /><!-- 7 -->
+		<char id="56" x="0" y="29" width="17" height="26" xoffset="0" yoffset="4" xadvance="19" /><!-- 8 -->
+		<char id="57" x="0" y="59" width="16" height="25" xoffset="0" yoffset="5" xadvance="18" /><!-- 9 -->
+		<char id="44" x="59" y="60" width="6" height="8" xoffset="0" yoffset="25" xadvance="8" /><!-- , -->
+		<char id="32" x="0" y="0" width="0" height="0" xoffset="0" yoffset="0" xadvance="4" /><!--   -->
+		<char id="9" x="0" y="0" width="0" height="0" xoffset="0" yoffset="0" xadvance="0" /><!-- 	 -->
+	</chars>
+	<kernings count="0">
+	</kernings>
+</font>

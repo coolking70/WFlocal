@@ -141,19 +141,24 @@ for (const patch of patches) {
 		const pairs = [...block[1].matchAll(/\["([^"]+)",\s*\n?\s*"([^"]+)"\]/g)];
 		let bad = 0;
 		for (const [, added, model] of pairs) {
-			const onDisk = resolve(root, "WFTest", added);
+			// Entries are root-relative; runtime.js prepends each asset root. A
+			// fully-qualified path here gets the root prepended twice, the model is
+			// never found, and registration silently does nothing - which is exactly
+			// how a forked skill DSL failed to load.
+			if (added.startsWith("assets/") || model.startsWith("assets/")) {
+				fail(`ADDED_ASSETS: ${added} must be root-relative, not start with assets/`);
+				bad++;
+				continue;
+			}
+			const onDisk = resolve(root, "WFTest/assets/production", added);
 			if (!existsSync(onDisk)) {
-				// Only assets/production/... exist on disk; the trial-rooted variants
-				// are alternates the game may ask for, so tolerate those.
-				if (added.startsWith("assets/production/")) {
-					fail(`ADDED_ASSETS: ${added} is registered but not on disk`);
-					bad++;
-				}
+				fail(`ADDED_ASSETS: ${added} is registered but not under WFTest/assets/production`);
+				bad++;
 				continue;
 			}
 			// The manifest lives in the bundle with \xNN-escaped, URL-encoded paths.
-			const encoded = model.split("/").map(encodeURIComponent).join("%2F");
-			if (model.startsWith("assets/production/") && !manifestText().includes(encoded)) {
+			const encoded = ("assets/production/" + model).split("/").map(encodeURIComponent).join("%2F");
+			if (!manifestText().includes(encoded)) {
 				fail(`ADDED_ASSETS: model ${model} is not in the bundle manifest`);
 				bad++;
 			}

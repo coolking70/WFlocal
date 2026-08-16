@@ -147,8 +147,10 @@ def main():
         set_column(level, COL_PROGRAM_PATH, new_relative)
         print(f"  level {level['key']}: {original}")
         print(f"        -> {new_relative}")
-        for root in ("assets/production/", "assets/trial/production/"):
-            registrations.append((root + new_relative + DSL_SUFFIX, root + original + DSL_SUFFIX))
+        # ADDED_ASSETS holds root-relative paths; runtime.js prepends each asset
+        # root itself. Writing fully-qualified paths here made it prepend twice,
+        # so the model was never found and registration silently did nothing.
+        registrations.append((new_relative + DSL_SUFFIX, original + DSL_SUFFIX))
 
     skills = [e for e in skills if e["key"] != new_key] + [fork]
     save(ACTION_SKILL, skills)

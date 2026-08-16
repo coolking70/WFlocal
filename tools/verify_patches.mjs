@@ -150,15 +150,30 @@ for (const patch of patches) {
 				bad++;
 				continue;
 			}
-			const onDisk = resolve(root, "WFTest/assets/production", added);
-			if (!existsSync(onDisk)) {
-				fail(`ADDED_ASSETS: ${added} is registered but not under WFTest/assets/production`);
+			// The added file has to sit in the same asset root as the file it is
+			// modelled on. The roots are disjoint for some asset kinds - tutorial
+			// terrains exist only under assets/production, main_quest terrains only
+			// under assets/trial/production - and a fork written to the wrong root
+			// is invisible to the game however correct its contents are. That
+			// failure is silent: no 8100, no console line, the shipped file just
+			// loads instead, which cost a browser run to notice.
+			const roots = ["WFTest/assets/production", "WFTest/assets/trial/production"];
+			const modelRoots = roots.filter((r) => existsSync(resolve(root, r, model)));
+			if (!modelRoots.length) {
+				fail(`ADDED_ASSETS: model ${model} is on disk in neither asset root`);
+				bad++;
+				continue;
+			}
+			if (!modelRoots.some((r) => existsSync(resolve(root, r, added)))) {
+				fail(`ADDED_ASSETS: ${added} is not in the same asset root as its model ` +
+					`${model}, which lives in ${modelRoots.join(", ")}`);
 				bad++;
 				continue;
 			}
 			// The manifest lives in the bundle with \xNN-escaped, URL-encoded paths.
-			const encoded = ("assets/production/" + model).split("/").map(encodeURIComponent).join("%2F");
-			if (!manifestText().includes(encoded)) {
+			const known = modelRoots.some((r) => manifestText().includes(
+				(r.replace("WFTest/", "") + "/" + model).split("/").map(encodeURIComponent).join("%2F")));
+			if (!known) {
 				fail(`ADDED_ASSETS: model ${model} is not in the bundle manifest`);
 				bad++;
 			}

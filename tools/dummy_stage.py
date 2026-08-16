@@ -58,8 +58,13 @@ ZONE_KEY = "main_3_6_2_trial"
 SOURCE_TERRAIN = TRIAL / "battle/terrain/main_quest/chapter_03/main_chapter_03_06_02.json"
 MOB_ROOM_TERRAIN = PROD / "battle/terrain/tutorial/tutorial_01_01_04.json"
 FORK_RELATIVE = "battle/terrain/wfmod/wfmod_dummy_stage"
-FORK_FILE = PROD / (FORK_RELATIVE + ".json")
-MODEL_ASSET = "battle/terrain/tutorial/tutorial_01_01_04.json"
+# The two asset roots are disjoint for terrain: tutorial terrains are only under
+# assets/production, main_quest terrains only under assets/trial/production. This
+# quest's terrain is resolved in the trial root, so the fork has to live there and
+# be modelled on a file that exists there - a fork written to the other root is
+# invisible to the game no matter how correct its contents are.
+FORK_FILE = TRIAL / (FORK_RELATIVE + ".json")
+MODEL_ASSET = "battle/terrain/main_quest/chapter_03/main_chapter_03_06_02.json"
 
 # Object ids are unique within a terrain; the copied room keeps its own numbering
 # from another file, so push it clear of anything in the host terrain.

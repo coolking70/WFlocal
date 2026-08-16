@@ -117,7 +117,7 @@
 	// command runs; they are a placeholder, not artwork.
 	var ADDED_ASSETS = [
 		["battle/terrain/wfmod/wfmod_dummy_stage.json",
-			"battle/terrain/main_quest/chapter_03/main_chapter_03_06_02.json"],
+			"battle/terrain/main_quest/chapter_02/main_chapter_02_09_05.json"],
 		["battle/action/skill/action/wfmod/wfmod_001$wfmod_001_1.action.dsl.json",
 			"battle/action/skill/action/rare5/brown_fighter$brown_fighter_1.action.dsl.json"],
 		["battle/boss/common/boss_shield/boss_shield.timeline.json",

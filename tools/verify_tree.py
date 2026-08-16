@@ -65,6 +65,7 @@ EXPECTED_ADDED_PREFIX = (
     "assets/production/battle/boss/common/boss_shield/",
     "assets/production/battle/action/skill/action/wfmod/",
     "assets/trial/production/battle/terrain/wfmod/",
+    "assets/production/battle/terrain/wfmod/",
 )
 
 

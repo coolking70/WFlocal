@@ -54,17 +54,37 @@ BASELINE = ROOT / "tools" / "baseline"
 ZONE = MASTER / "zone.orderedmap"
 FIELD_DATA = MASTER / "field_data.orderedmap"
 
-ZONE_KEY = "main_3_6_2_trial"
-SOURCE_TERRAIN = TRIAL / "battle/terrain/main_quest/chapter_03/main_chapter_03_06_02.json"
+# Which zone a quest runs is not guessable from the quest's position in the menu.
+# Everything here is keyed off the zone name that ZoneMapTools is actually handed,
+# which ?wfdev=trace reports:
+#
+#   quest 111/1/1  VS ガーディアンゴーレム  main_2_9_5        <- first in the list
+#   quest 111/1/2  VS クラーケン           main_3_6_2_trial
+#   quest 111/1/3  VS 妖狐                main_6_6_2
+#
+DEFAULT_ZONE = "main_2_9_5"
 MOB_ROOM_TERRAIN = PROD / "battle/terrain/tutorial/tutorial_01_01_04.json"
 FORK_RELATIVE = "battle/terrain/wfmod/wfmod_dummy_stage"
-# The two asset roots are disjoint for terrain: tutorial terrains are only under
-# assets/production, main_quest terrains only under assets/trial/production. This
-# quest's terrain is resolved in the trial root, so the fork has to live there and
-# be modelled on a file that exists there - a fork written to the other root is
-# invisible to the game no matter how correct its contents are.
-FORK_FILE = TRIAL / (FORK_RELATIVE + ".json")
-MODEL_ASSET = "battle/terrain/main_quest/chapter_03/main_chapter_03_06_02.json"
+
+# The asset roots are disjoint per file: chapter_02 and chapter_06 terrains exist
+# only under assets/production, chapter_03 only under assets/trial/production. The
+# fork must land in the same root as the terrain it replaces, or the game silently
+# loads the shipped one - no error, just the old content.
+ROOTS = (PROD, TRIAL)
+
+
+def terrain_of(zone_key):
+    """(source terrain path, its root) from field_data, not from a guess."""
+    entries = load_master(FIELD_DATA)
+    entry = find(entries, zone_key)
+    if entry is None:
+        sys.exit(f"field_data has no {zone_key}; have: "
+                 f"{', '.join(e['key'] for e in entries)}")
+    relative = row_columns(entry)[1] + ".json"
+    for root in ROOTS:
+        if (root / relative).exists():
+            return relative, root
+    sys.exit(f"terrain {relative} for {zone_key} is in neither asset root")
 
 # Object ids are unique within a terrain; the copied room keeps its own numbering
 # from another file, so push it clear of anything in the host terrain.
@@ -138,40 +158,45 @@ def mob_room_layer(count):
     return layer, len(spawns)
 
 
-def build(zako, count):
+def build(zone_key, zako, count):
     print("terrain")
-    terrain = json.loads(SOURCE_TERRAIN.read_text(encoding="utf-8"))
+    model, root = terrain_of(zone_key)
+    source_terrain = root / model
+    fork_file = root / (FORK_RELATIVE + ".json")
+    print(f"  {zone_key} currently uses {model}")
+    print(f"  asset root: {root.relative_to(ROOT)}")
+    terrain = json.loads(source_terrain.read_text(encoding="utf-8"))
     if len(terrain["layers"]) != 1:
-        sys.exit(f"expected 1 layer in {SOURCE_TERRAIN.name}, found {len(terrain['layers'])}")
+        sys.exit(f"expected 1 layer in {source_terrain.name}, found {len(terrain['layers'])}")
     boss_room = copy.deepcopy(terrain["layers"][0])
     boss_room["name"] = "1"
     room, available = mob_room_layer(count)
     terrain["layers"] = [room, boss_room]
-    FORK_FILE.parent.mkdir(parents=True, exist_ok=True)
-    FORK_FILE.write_text(json.dumps(terrain, ensure_ascii=False), encoding="utf-8")
+    fork_file.parent.mkdir(parents=True, exist_ok=True)
+    fork_file.write_text(json.dumps(terrain, ensure_ascii=False), encoding="utf-8")
     print(f"  layer '0' mob room from {MOB_ROOM_TERRAIN.name} "
           f"({count} of {available} spawn points)")
-    print(f"  layer '1' kraken room from {SOURCE_TERRAIN.name}")
-    print(f"  wrote {FORK_FILE.relative_to(ROOT)}")
+    print(f"  layer '1' boss room from {source_terrain.name}")
+    print(f"  wrote {fork_file.relative_to(ROOT)}")
 
     print("field_data")
     save_original(FIELD_DATA)
     entries = load_master(FIELD_DATA)
-    entry = find(entries, ZONE_KEY)
+    entry = find(entries, zone_key)
     if entry is None:
-        sys.exit(f"field_data has no {ZONE_KEY}")
+        sys.exit(f"field_data has no {zone_key}")
     cols = row_columns(entry)
     cols[1] = FORK_RELATIVE
     set_row(entry, cols)
     FIELD_DATA.write_bytes(orderedmap.encode(entries))
-    print(f"  {ZONE_KEY} terrain -> {FORK_RELATIVE}")
+    print(f"  {zone_key} terrain -> {FORK_RELATIVE}")
 
     print("zone")
     save_original(ZONE)
     entries = load_master(ZONE)
-    entry = find(entries, ZONE_KEY)
+    entry = find(entries, zone_key)
     if entry is None or entry["kind"] != "map":
-        sys.exit(f"zone {ZONE_KEY} missing or not a nested table")
+        sys.exit(f"zone {zone_key} missing or not a nested table")
     waves = entry["entries"]
     boss_wave = copy.deepcopy(waves[0])
     boss_wave["key"] = "1"
@@ -198,9 +223,9 @@ def build(zako, count):
     entry["entries"] = [mob_wave, boss_wave]
     ZONE.write_bytes(orderedmap.encode(entries))
     print(f"  wave 0  ZakoKill({count})  {count} x {zako}")
-    print("  wave 1  BossClear    kraken_single")
+    print("  wave 1  BossClear    (the shipped boss row)")
 
-    register(FORK_RELATIVE + ".json", MODEL_ASSET)
+    register(FORK_RELATIVE + ".json", model)
     print("\nNow the quest is a mob room that leads into the kraken room, which is the "
           "shape the tutorial already uses.")
 
@@ -225,20 +250,25 @@ def revert():
         if not restore(path):
             print(f"  {path.name} had no backup, left alone")
     text = RUNTIME.read_text(encoding="utf-8")
-    needle = f'\n\t\t["{FORK_RELATIVE}.json",\n\t\t\t"{MODEL_ASSET}"],'
-    if needle in text:
-        RUNTIME.write_text(text.replace(needle, ""), encoding="utf-8")
+    import re
+    pattern = re.compile(r'\n\t\t\["' + re.escape(FORK_RELATIVE) + r'\.json",\n\t\t\t"[^"]+"\],')
+    if pattern.search(text):
+        RUNTIME.write_text(pattern.sub("", text), encoding="utf-8")
         print("  removed the terrain from runtime.js ADDED_ASSETS")
         subprocess.run([sys.executable, str(ROOT / "tools" / "stamp_assets.py")], check=True)
-    if FORK_FILE.exists():
-        FORK_FILE.unlink()
-        print(f"  removed {FORK_FILE.relative_to(ROOT)}")
+    for root in ROOTS:
+        fork = root / (FORK_RELATIVE + ".json")
+        if fork.exists():
+            fork.unlink()
+            print(f"  removed {fork.relative_to(ROOT)}")
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--build", action="store_true")
     ap.add_argument("--revert", action="store_true")
+    ap.add_argument("--zone", default=DEFAULT_ZONE,
+                    help="zone key as reported by ?wfdev=trace on ZoneMapTools")
     ap.add_argument("--zako", default="enemy_eviltower_tutorial")
     ap.add_argument("--count", type=int, default=6)
     args = ap.parse_args()
@@ -247,7 +277,7 @@ def main():
         return 0
     if not args.build:
         sys.exit("pass --build or --revert")
-    build(args.zako, args.count)
+    build(args.zone, args.zako, args.count)
     return 0
 
 

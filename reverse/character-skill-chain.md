@@ -94,3 +94,38 @@ python3 tools/master_schema.py --show CharacterStatusValues
 R3（原创角色 001）需要的依据齐了。还缺的是**参数单位**（帧/像素/角度）和
 `character_status` 的数值曲线含义，这两项建议在 R3 做第一个角色时按需反推，
 比现在空推更有效。
+
+## 被动（ability）的设计边界
+
+做原创角色时会撞到的一条限制，实测确认：
+
+`AbilityTriggerConditionKind` 只有三种：`Instant` / `During` / `Opening`。
+
+- `Opening`（开场）的效果种类是 `OpeningAbilityKind`，只有
+  `MyselfExpBoost` / `AllyExpBoost` / `ManaBoost`——**都是战斗外的养成收益**；
+- `Instant` 的触发器是 `Fever` / `SkillInvoke` / `SkillMax` / `Condition*`，
+  **没有"战斗开始"**；
+- 与技能槽相关的效果是 `SkillGauge`（一次性）和 `SkillGaugeCharging`（持续速率），
+  但它们只能挂在上面那些触发器上。
+
+结论：**"开场获得满能量"在这个 build 的数据模型里做不成被动**。原版里类似的效果，
+要么走的是这个 build 没有的触发器，要么是别的机制。
+
+测试需要这个效果时，用运行时开关（见下），不要试图硬凑 ability 数据。
+
+## 开发用开关
+
+都默认关闭，从启动 URL 打开，开启时控制台会打 `[WFMod] DEV AID active`：
+
+| 开关 | 效果 | 实现入口 |
+| --- | --- | --- |
+| `?wfdev=fullskill` | 开场满技能槽，之后正常充能 | `BattleContinuationData.getSkillPointRatio` |
+| `?wfdev=fastskill` | 持续快速充能 | `MemberAbilityTotalizer.getTotalSkillGaugeCharging` |
+
+`fullskill` 可带比例（`fullskill:0.5`），`fastskill` 可带加成（`fastskill:2000`）。
+
+`fullskill` 的原理是：成员初始化时执行 `skillPoint.setRatio(restore.getSkillPointRatio(index))`，
+开场能量取自**续战数据**；新战斗没有记录所以返回 0，抬高它等于让游戏以为上次退出时槽是满的。
+取 `max(原值, ratio)`，真实续战不会被调低。
+
+两者都是 hook，**不改任何数据**，所以它们不是"被动技能"，只是测试辅助。

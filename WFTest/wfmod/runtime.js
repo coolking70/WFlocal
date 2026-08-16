@@ -177,6 +177,26 @@
 	}
 
 	function applyDevAids() {
+		// Members take their opening gauge from the battle-continuation data:
+		//   skillPoint.setRatio(restore.getSkillPointRatio(index))
+		// A fresh battle has no entry, so that returns 0 and everyone starts empty.
+		// Raising it fills the gauge once, at the start, and never again - unlike
+		// fastskill, which keeps refilling it.
+		var full = devFlag("fullskill");
+		if (full !== null) {
+			var ratio = typeof full === "number" ? full : 1.0;
+			hook("pinball.common.data.battle.restore.BattleContinuationData",
+				"getSkillPointRatio", function (original) {
+					return function (index) {
+						// Never reduce a real continuation, only raise the opening value.
+						var actual = original.call(this, index);
+						return actual > ratio ? actual : ratio;
+					};
+				});
+			console.warn("[WFMod] DEV AID active: opening skill gauge set to " + ratio +
+				" (?wfdev=fullskill)");
+		}
+
 		var fast = devFlag("fastskill");
 		if (fast !== null) {
 			// The skill gauge fills from MemberAbilityTotalizer.getTotalSkillGaugeCharging(),
@@ -188,7 +208,7 @@
 					return function () { return original.call(this) + bonus; };
 				});
 			console.warn("[WFMod] DEV AID active: skill gauge charging +" + bonus +
-				" for every member (?wfdev=fastskill)");
+				" for every member, continuously (?wfdev=fastskill)");
 		}
 	}
 

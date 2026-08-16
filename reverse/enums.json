@@ -1,0 +1,8160 @@
+{
+ "count": 729,
+ "enums": [
+  {
+   "name": "ValueType",
+   "offset": 35473,
+   "constructs": [
+    "TNull",
+    "TInt",
+    "TFloat",
+    "TBool",
+    "TObject",
+    "TFunction",
+    "TClass",
+    "TEnum",
+    "TUnknown"
+   ]
+  },
+  {
+   "name": "flatomo.animation.AnimationSourceKind",
+   "offset": 1661778,
+   "constructs": [
+    "Parts",
+    "Frame"
+   ]
+  },
+  {
+   "name": "flatomo.timeline.ControlCode",
+   "offset": 1717335,
+   "constructs": [
+    "Goto",
+    "Stop"
+   ]
+  },
+  {
+   "name": "format.csv.ReaderError",
+   "offset": 1736419,
+   "constructs": [
+    "InvalidOpeningQuote",
+    "InvalidClosingQuote",
+    "UnclosedQuote",
+    "InvalidRowWidth"
+   ]
+  },
+  {
+   "name": "gacha_physics.collision.broadphase.BroadPhaseType",
+   "offset": 1742319,
+   "constructs": [
+    "BruteForce",
+    "SelectiveSweep",
+    "DynamicTree",
+    "Unknown"
+   ]
+  },
+  {
+   "name": "gacha_physics.collision.shape.ShapeType",
+   "offset": 1816489,
+   "constructs": [
+    "Circle",
+    "Line",
+    "Flipper",
+    "Rect",
+    "Sector",
+    "Unknown"
+   ]
+  },
+  {
+   "name": "gacha_physics.dynamics.BodyType",
+   "offset": 1825384,
+   "constructs": [
+    "Static",
+    "Dynamic",
+    "Kinematic"
+   ]
+  },
+  {
+   "name": "gacha_physics.dynamics.constraint.ConstraintType",
+   "offset": 1838129,
+   "constructs": [
+    "Contact",
+    "RevoluteJoint",
+    "Unknown"
+   ]
+  },
+  {
+   "name": "haxe.StackItem",
+   "offset": 1877004,
+   "constructs": [
+    "CFunction",
+    "Module",
+    "FilePos",
+    "Method",
+    "LocalFunction"
+   ]
+  },
+  {
+   "name": "haxe._Template.TemplateExpr",
+   "offset": 1891752,
+   "constructs": [
+    "OpVar",
+    "OpExpr",
+    "OpIf",
+    "OpStr",
+    "OpBlock",
+    "OpForeach",
+    "OpMacro"
+   ]
+  },
+  {
+   "name": "haxe.ds.Option",
+   "offset": 1946898,
+   "constructs": [
+    "Some",
+    "None"
+   ]
+  },
+  {
+   "name": "haxe.io.Encoding",
+   "offset": 1956563,
+   "constructs": [
+    "UTF8",
+    "RawNative"
+   ]
+  },
+  {
+   "name": "haxe.io.Error",
+   "offset": 1957093,
+   "constructs": [
+    "Blocked",
+    "Overflow",
+    "OutsideBounds",
+    "Custom"
+   ]
+  },
+  {
+   "name": "haxe.zip.ExtraField",
+   "offset": 1978593,
+   "constructs": [
+    "FUnknown",
+    "FInfoZipUnicodePath",
+    "FUtf8"
+   ]
+  },
+  {
+   "name": "haxe.zip.Huffman",
+   "offset": 1979311,
+   "constructs": [
+    "Found",
+    "NeedBit",
+    "NeedBits"
+   ]
+  },
+  {
+   "name": "haxe.zip._InflateImpl.State",
+   "offset": 1984183,
+   "constructs": [
+    "Head",
+    "Block",
+    "CData",
+    "Flat",
+    "Crc",
+    "Dist",
+    "DistOne",
+    "Done"
+   ]
+  },
+  {
+   "name": "jp.sipo.gipo.core.GearNeedTask",
+   "offset": 2025407,
+   "constructs": [
+    "Core"
+   ]
+  },
+  {
+   "name": "jp.sipo.gipo.core.GearPhase",
+   "offset": 2004015,
+   "constructs": [
+    "Create",
+    "Preparation",
+    "Fulfill",
+    "Middle",
+    "Dispose",
+    "Invalid"
+   ]
+  },
+  {
+   "name": "jp.sipo.gipo.core.config.GearNoteTag",
+   "offset": 2027184,
+   "constructs": [
+    "GearSystem",
+    "StateChange",
+    "Reproduce"
+   ]
+  },
+  {
+   "name": "jp.sipo.gipo.core.state.StateGearNeedTask",
+   "offset": 2029765,
+   "constructs": [
+    "Core"
+   ]
+  },
+  {
+   "name": "jp.sipo.gipo.reproduce.BookReplay",
+   "offset": 2044688,
+   "constructs": [
+    "None",
+    "Book"
+   ]
+  },
+  {
+   "name": "jp.sipo.gipo.reproduce.LogwayKind",
+   "offset": 2035704,
+   "constructs": [
+    "Instant",
+    "Ready",
+    "Snapshot"
+   ]
+  },
+  {
+   "name": "jp.sipo.gipo.reproduce.ReproduceEvent",
+   "offset": 2038441,
+   "constructs": [
+    "LogUpdate"
+   ]
+  },
+  {
+   "name": "jp.sipo.util._Note.TagState",
+   "offset": 2052342,
+   "constructs": [
+    "Yet",
+    "DisplayWarning",
+    "Ready"
+   ]
+  },
+  {
+   "name": "lime.graphics.ImageChannel",
+   "offset": 2210719,
+   "constructs": [
+    "RED",
+    "GREEN",
+    "BLUE",
+    "ALPHA"
+   ]
+  },
+  {
+   "name": "lime.graphics.ImageType",
+   "offset": 2211318,
+   "constructs": [
+    "CANVAS",
+    "DATA",
+    "FLASH",
+    "CUSTOM"
+   ]
+  },
+  {
+   "name": "lime.system.Endian",
+   "offset": 2234935,
+   "constructs": [
+    "LITTLE_ENDIAN",
+    "BIG_ENDIAN"
+   ]
+  },
+  {
+   "name": "lime.system.SensorType",
+   "offset": 2235829,
+   "constructs": [
+    "ACCELEROMETER"
+   ]
+  },
+  {
+   "name": "lime.ui.MouseCursor",
+   "offset": 2243627,
+   "constructs": [
+    "ARROW",
+    "CROSSHAIR",
+    "DEFAULT",
+    "MOVE",
+    "POINTER",
+    "RESIZE_NESW",
+    "RESIZE_NS",
+    "RESIZE_NWSE",
+    "RESIZE_WE",
+    "TEXT",
+    "WAIT",
+    "WAIT_ARROW",
+    "CUSTOM"
+   ]
+  },
+  {
+   "name": "lime.ui.MouseWheelMode",
+   "offset": 2245249,
+   "constructs": [
+    "PIXELS",
+    "LINES",
+    "PAGES",
+    "UNKNOWN"
+   ]
+  },
+  {
+   "name": "lime.utils.CompressionAlgorithm",
+   "offset": 2299981,
+   "constructs": [
+    "DEFLATE",
+    "GZIP",
+    "LZMA",
+    "ZLIB"
+   ]
+  },
+  {
+   "name": "openfl._internal.formats.agal._AGALConverter.ProgramType",
+   "offset": 2338298,
+   "constructs": [
+    "VERTEX",
+    "FRAGMENT"
+   ]
+  },
+  {
+   "name": "openfl._internal.formats.agal._AGALConverter.RegisterUsage",
+   "offset": 2344179,
+   "constructs": [
+    "UNUSED",
+    "VECTOR_4",
+    "MATRIX_4_4",
+    "SAMPLER_2D",
+    "SAMPLER_2D_ALPHA",
+    "SAMPLER_CUBE",
+    "SAMPLER_CUBE_ALPHA",
+    "VECTOR_4_ARRAY"
+   ]
+  },
+  {
+   "name": "openfl._internal.renderer.DisplayObjectType",
+   "offset": 2410417,
+   "constructs": [
+    "BITMAP",
+    "DISPLAY_OBJECT",
+    "DISPLAY_OBJECT_CONTAINER",
+    "DOM_ELEMENT",
+    "SHAPE",
+    "SIMPLE_BUTTON",
+    "TEXTFIELD",
+    "TILEMAP",
+    "VIDEO"
+   ]
+  },
+  {
+   "name": "openfl._internal.renderer.DrawCommandType",
+   "offset": 2448469,
+   "constructs": [
+    "BEGIN_BITMAP_FILL",
+    "BEGIN_FILL",
+    "BEGIN_GRADIENT_FILL",
+    "BEGIN_SHADER_FILL",
+    "CUBIC_CURVE_TO",
+    "CURVE_TO",
+    "DRAW_CIRCLE",
+    "DRAW_ELLIPSE",
+    "DRAW_QUADS",
+    "DRAW_RECT",
+    "DRAW_ROUND_RECT",
+    "DRAW_TILES",
+    "DRAW_TRIANGLES",
+    "END_FILL",
+    "LINE_BITMAP_STYLE",
+    "LINE_GRADIENT_STYLE",
+    "LINE_STYLE",
+    "LINE_TO",
+    "MOVE_TO",
+    "OVERRIDE_BLEND_MODE",
+    "OVERRIDE_MATRIX",
+    "WINDING_EVEN_ODD",
+    "WINDING_NON_ZERO",
+    "UNKNOWN"
+   ]
+  },
+  {
+   "name": "openfl._internal.renderer.context3D.Context3DElementType",
+   "offset": 2684396,
+   "constructs": [
+    "QUADS",
+    "TRIANGLES",
+    "TRIANGLE_INDICES"
+   ]
+  },
+  {
+   "name": "openfl._internal.symbols.timeline.FrameObjectType",
+   "offset": 2934089,
+   "constructs": [
+    "CREATE",
+    "UPDATE",
+    "DESTROY"
+   ]
+  },
+  {
+   "name": "physics.collision.broadphase.BroadPhaseType",
+   "offset": 3423005,
+   "constructs": [
+    "BruteForce",
+    "SelectiveSweep",
+    "DynamicTree",
+    "Unknown"
+   ]
+  },
+  {
+   "name": "physics.collision.shape.ShapeType",
+   "offset": 3518529,
+   "constructs": [
+    "Circle",
+    "Line",
+    "Flipper",
+    "Rect",
+    "Sector",
+    "Donut",
+    "Wifi",
+    "Unknown"
+   ]
+  },
+  {
+   "name": "physics.dynamics.BodyType",
+   "offset": 3534253,
+   "constructs": [
+    "Static",
+    "Dynamic",
+    "Kinematic"
+   ]
+  },
+  {
+   "name": "physics.dynamics.constraint.ConstraintType",
+   "offset": 3551926,
+   "constructs": [
+    "Contact",
+    "RevoluteJoint",
+    "Unknown"
+   ]
+  },
+  {
+   "name": "pinball.asset.AssetGroupKind",
+   "offset": 3613059,
+   "constructs": [
+    "Loading",
+    "Title",
+    "AssetLoadMinigame",
+    "Global",
+    "GeneralUi",
+    "Toast",
+    "Item",
+    "Home",
+    "FeatureBanner",
+    "PlayerProfile",
+    "TutorialTitleMovie",
+    "TutorialGachaMovie",
+    "TutorialGachaResult",
+    "TutorialLightBallMovie",
+    "TriggeredScenario",
+    "EquipmentSelect",
+    "EquipmentList",
+    "OrbDetail",
+    "AbilitySoulList",
+    "ManaBoard",
+    "Expod",
+    "PartySelect",
+    "StageSelect",
+    "StoryQuest",
+    "StoryQuestResult",
+    "EpisodeCharacterSelect",
+    "CharacterQuestSelect",
+    "QuestResult",
+    "Evolution",
+    "PracticeQuestSelect",
+    "Event",
+    "ChallengeDungeonEventQuestSelect",
+    "ScoreAttackEventQuestSelect",
+    "ScoreAttackEventRanking",
+    "ScoreAttackEventPlayerDetail",
+    "Shop",
+    "SingleBattle",
+    "GachaSkillPreviewCommon",
+    "GachaSkillPreviewPart",
+    "SkillPreview",
+    "MultiBattle",
+    "GachaReleaseCharacterList",
+    "GachaMovie",
+    "GachaResult",
+    "GachaEquipmentMovie",
+    "GachaEquipmentResult",
+    "GachaBanner",
+    "CharacterInformation",
+    "CharacterGetBase",
+    "CharacterGetCharacter",
+    "CharacterGetTutorialLight",
+    "MultiBattleRoom",
+    "BossBattle",
+    "ItemSearchQuest",
+    "ItemThumbnail",
+    "QuestThumbnail",
+    "PartyCharacterThumbnail",
+    "CharacterFaceThumbnail",
+    "CharacterLevelUpThumbnail",
+    "PixelArtCharacterAnimation",
+    "StarCrumbExchange",
+    "BondTokenExchange",
+    "TreasureShop",
+    "AwakingCrystalExchange",
+    "News",
+    "DelayLoadSoundAsset",
+    "BattleDelayLoadSoundAsset",
+    "Html",
+    "ComicList",
+    "ComicListHelp",
+    "ComicDetail",
+    "PresentDialog",
+    "TakeOver",
+    "TitleWithHowToGet",
+    "StoneManaConfirm",
+    "LimitedLoginBonus",
+    "PrologueScenarioEnd",
+    "TrialStageSelect"
+   ]
+  },
+  {
+   "name": "pinball.asset.AssetLoadingState",
+   "offset": 3646270,
+   "constructs": [
+    "Loading",
+    "Loaded",
+    "Disposed"
+   ]
+  },
+  {
+   "name": "pinball.asset.file.FileNotFoundInput",
+   "offset": 3769838,
+   "constructs": [
+    "Error"
+   ]
+  },
+  {
+   "name": "pinball.asset.logic.MovieLoadInput",
+   "offset": 3837486,
+   "constructs": [
+    "Complete"
+   ]
+  },
+  {
+   "name": "pinball.asset.logic.TimelineLoadInput",
+   "offset": 3837864,
+   "constructs": [
+    "Complete"
+   ]
+  },
+  {
+   "name": "pinball.asset.logic.UiDataLoadInput",
+   "offset": 3838251,
+   "constructs": [
+    "Complete"
+   ]
+  },
+  {
+   "name": "pinball.asset.view.BattleDynamicTextureKind",
+   "offset": 3877895,
+   "constructs": [
+    "CoopUserName",
+    "BossHumanReadable",
+    "EnemyAttackCutin",
+    "ActionSkillName",
+    "ToastAnnihilated",
+    "ToastContinued",
+    "BossGroupName",
+    "AssistCharacterName",
+    "AssistCharacterWord"
+   ]
+  },
+  {
+   "name": "pinball.authentication.signatureGenerator.SignatureGeneratorInput",
+   "offset": 3932078,
+   "constructs": [
+    "Finished"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.ActionDsl",
+   "offset": 3932687,
+   "constructs": [
+    "ActionDsl"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.ActionDslCommand",
+   "offset": 3933312,
+   "constructs": [
+    "Trace",
+    "RemoveEvent",
+    "FindAllSubjects",
+    "FindNearSubjects",
+    "ShakeCamera",
+    "AddSkillPoint",
+    "SubtractSkillPoint",
+    "AddFeverPoint",
+    "SubtractFeverPoint",
+    "ShowEffect",
+    "HideEffect",
+    "MoveBall",
+    "StopBall",
+    "CreateNormalAttack",
+    "CreateRatioAttack",
+    "CreateFixedAttack",
+    "CreateNormalHeal",
+    "CreateRatioHeal",
+    "CreateCondition",
+    "DeleteCondition",
+    "CreateHitArea",
+    "MoveHitArea",
+    "CreateReferencePoint",
+    "CreateShockWaveAttack",
+    "CreateBombMultiball",
+    "CreateSummonsMultiball",
+    "DecreaseCoffinCount",
+    "HideCharacter",
+    "CreateWindAttack",
+    "CreateGravitationalField",
+    "CreateTornado",
+    "CreateTargetAttack",
+    "SpawnFunnel",
+    "CreateShield"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.ActionDslEvent",
+   "offset": 3947759,
+   "constructs": [
+    "Wait",
+    "Repeat",
+    "CollisionOfBallAndEnemy"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.ActionDslExpression",
+   "offset": 3948939,
+   "constructs": [
+    "Block",
+    "Event",
+    "Command"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.ActionHitAreaLifetime",
+   "offset": 3969509,
+   "constructs": [
+    "SpecifyHitAreaLifetimeDirectly",
+    "RemainingFramesOfCurrentStateGroup"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.AdditionalConditionKind",
+   "offset": 3970217,
+   "constructs": [
+    "ACAttackPoint",
+    "ACSkillDamage",
+    "ACToleranceOfElement",
+    "ACDamageOfElement",
+    "ACSpecialEfficacy",
+    "ACRegeneration",
+    "ACPoison",
+    "ACInvincible",
+    "ACParalysis",
+    "ACFrozen",
+    "ACFeverPoint",
+    "ACStun",
+    "ACOiuchi",
+    "ACToleranceOfDebuff",
+    "ACPiercing",
+    "ACFlying",
+    "ACPowerFlipDamage"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.AttackHitEffect",
+   "offset": 3974867,
+   "constructs": [
+    "None",
+    "Fine",
+    "Coarse",
+    "Dark",
+    "Explosion",
+    "Fire",
+    "Frozen",
+    "Shine",
+    "Slash",
+    "CriticalSlash",
+    "Splash",
+    "ThunderLight",
+    "ThunderSmall",
+    "Tornado",
+    "SpecifyHitEffectDirectly"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.ConditionHitEffect",
+   "offset": 3977344,
+   "constructs": [
+    "None",
+    "GenericConditionHitEffect",
+    "SpecifyConditionHitEffectDirectly"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.CoordSys",
+   "offset": 3978156,
+   "constructs": [
+    "AB",
+    "CD",
+    "EF",
+    "GH"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.CoordSysSource",
+   "offset": 3978910,
+   "constructs": [
+    "AB",
+    "CD",
+    "EF",
+    "GH"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.DecreaseCoffinCountHitEffect",
+   "offset": 3979682,
+   "constructs": [
+    "Generic",
+    "Specific"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.DeletionalConditionKind",
+   "offset": 3980295,
+   "constructs": [
+    "DCAll",
+    "DCAttackPoint",
+    "DCSkillDamage",
+    "DCToleranceOfElement",
+    "DCDamageOfElement",
+    "DCSpecialEfficacy",
+    "DCRegeneration",
+    "DCPoison",
+    "DCInvincible",
+    "DCParalysis",
+    "DCFrozen",
+    "DCFeverPoint",
+    "DCStun",
+    "DCOiuchi",
+    "DCToleranceOfDebuff",
+    "DCPiercing",
+    "DCFlying",
+    "DCPowerFlipDamage"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.Easing",
+   "offset": 3984135,
+   "constructs": [
+    "Linear",
+    "QuadIn",
+    "QuadOut",
+    "CubicIn",
+    "CubicOut",
+    "QuartIn",
+    "QuartOut",
+    "QuintIn",
+    "QuintOut",
+    "SineIn",
+    "SineOut",
+    "CircIn",
+    "CircOut",
+    "ExpoIn",
+    "ExpoOut",
+    "BackIn",
+    "BackOut"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.Effect",
+   "offset": 3986547,
+   "constructs": [
+    "SpecifyEffectDirectly",
+    "ResolveByElement"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.EffectLifetime",
+   "offset": 3988129,
+   "constructs": [
+    "SpecifyEffectLifetimeDirectly",
+    "PlayOnlyFirstSequence",
+    "UntilTargetTerminates"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.EndingSpeedKind",
+   "offset": 3988950,
+   "constructs": [
+    "Stop",
+    "KeepGoing",
+    "RestoreToSpeedBeforeCommandExecution",
+    "RestoreToSpeedBeforeActionExecution"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.FixedAttackHitEffect",
+   "offset": 3990215,
+   "constructs": [
+    "Generic",
+    "Specific"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.Formation",
+   "offset": 3990850,
+   "constructs": [
+    "Single",
+    "Line",
+    "File",
+    "Circle",
+    "AShaped",
+    "WShaped",
+    "NWay"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.HAlign",
+   "offset": 3992728,
+   "constructs": [
+    "Left",
+    "Center",
+    "Right"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.HealHitEffect",
+   "offset": 3993282,
+   "constructs": [
+    "None",
+    "GenericHealHitEffect",
+    "SpecifyHealEffectDirectly"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.IfTargetNotFound",
+   "offset": 3994036,
+   "constructs": [
+    "DoNothing",
+    "CreateImaginaryTarget"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.LayerZDepth",
+   "offset": 3994623,
+   "constructs": [
+    "ForesideOfCharacter",
+    "BacksideOfCharacter",
+    "SuperForesideOfCharacter",
+    "NonPixelArt"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.MinHitInterval",
+   "offset": 3995492,
+   "constructs": [
+    "CalculatedUsingMaxNumOfHits",
+    "SpecifyMinHitIntervalDirectly"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.MultiballReadyEffect",
+   "offset": 3996243,
+   "constructs": [
+    "E1",
+    "E2"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.Shape",
+   "offset": 3996930,
+   "constructs": [
+    "Circle",
+    "Rectangle",
+    "Donut",
+    "Arc"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.ShieldLifetime",
+   "offset": 3998055,
+   "constructs": [
+    "UntilStateGroupChanges",
+    "Specify"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.ShieldMovementKind",
+   "offset": 3998653,
+   "constructs": [
+    "Fixed",
+    "Smart",
+    "RotateClockwise",
+    "RotateAnticlockwise"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.ShockWaveShape",
+   "offset": 3999852,
+   "constructs": [
+    "Donut",
+    "Arc"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.SpawnFunnelKind",
+   "offset": 4000391,
+   "constructs": [
+    "Funnel",
+    "Zako"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.SpawnFunnelPoint",
+   "offset": 4001010,
+   "constructs": [
+    "FunnelGroup",
+    "Specific"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.TargetAttackLifetime",
+   "offset": 4001705,
+   "constructs": [
+    "StateGroupChangedAndWait",
+    "Specify"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.TweenSource",
+   "offset": 4002398,
+   "constructs": [
+    "None",
+    "Some"
+   ]
+  },
+  {
+   "name": "pinball.battle.action.dsl.const.VAlign",
+   "offset": 4002962,
+   "constructs": [
+    "Top",
+    "Center",
+    "Bottom"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.AbilityDescriptionMode",
+   "offset": 4003923,
+   "constructs": [
+    "FirstAquire",
+    "FirstAquireNoHighlight",
+    "Add",
+    "Current"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.AbilityEffectKind",
+   "offset": 4004833,
+   "constructs": [
+    "Ability",
+    "ActionSkillLevel",
+    "ActionSkillEvolution"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.AbilityTargetKind",
+   "offset": 4011167,
+   "constructs": [
+    "Myself",
+    "ExceptMyself",
+    "Party",
+    "UnisonParty",
+    "Member",
+    "TriggerPuller",
+    "Multiball"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.AbilityTargetMasterValue",
+   "offset": 4013768,
+   "constructs": [
+    "Myself",
+    "ExceptMyself",
+    "Leader",
+    "Second",
+    "Third",
+    "Party",
+    "UnisonParty",
+    "TriggerPuller",
+    "Multiball"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.AbilityTrigger",
+   "offset": 4015558,
+   "constructs": [
+    "Instant",
+    "During",
+    "Opening"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.AbilityTriggerMasterValue",
+   "offset": 4034856,
+   "constructs": [
+    "Instant",
+    "During",
+    "Opening"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.AbilityTriggerPullerKind",
+   "offset": 4035751,
+   "constructs": [
+    "Myself",
+    "OneOfExceptMyself",
+    "OneOfParty",
+    "TotalOfExceptMyself",
+    "TotalOfParty",
+    "Member"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.AbilityTriggerPullerMasterValue",
+   "offset": 4038307,
+   "constructs": [
+    "Myself",
+    "OneOfExceptMyself",
+    "Leader",
+    "Second",
+    "Third",
+    "OneOfParty",
+    "TotalOfExceptMyself",
+    "TotalOfParty"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.CharacterGroup",
+   "offset": 4043450,
+   "constructs": [
+    "Element",
+    "Speciality",
+    "Race",
+    "Gender",
+    "CharacterTag"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.ManaNodeKind",
+   "offset": 4060407,
+   "constructs": [
+    "Ability",
+    "Episode"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.OpeningAbilityKind",
+   "offset": 4061809,
+   "constructs": [
+    "MyselfExpBoost",
+    "AllyExpBoost",
+    "ManaBoost"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.OpeningAbilityMasterValue",
+   "offset": 4063264,
+   "constructs": [
+    "MyselfExpBoost",
+    "AllyExpBoost",
+    "ManaBoost"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.description.AbilityTriggerConditionKind",
+   "offset": 4136327,
+   "constructs": [
+    "Instant",
+    "During",
+    "Opening"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.during.CommonAbilityBattleContent",
+   "offset": 4153497,
+   "constructs": [
+    "PowerFlipDamage",
+    "FeverTime",
+    "PowerFlipComboCountDown"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.during.CommonAbilityCharacterContent",
+   "offset": 4154498,
+   "constructs": [
+    "AttackPoint",
+    "SkillDamage",
+    "SkillGaugeCharging",
+    "ElementResistance",
+    "ElementDamageCut",
+    "FeverPoint",
+    "Stunify",
+    "CharacterSlayer",
+    "PinchSlayer",
+    "DebuffResistance",
+    "EaseOfHeal",
+    "Scapegoat",
+    "AdditionalDirectAttack",
+    "PoisonStrength",
+    "ConditionPrevent",
+    "ConditionSlayer"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.during.CommonAbilityContent",
+   "offset": 4158953,
+   "constructs": [
+    "Battle",
+    "Character"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.during.CommonAbilityContentMasterValue",
+   "offset": 4159660,
+   "constructs": [
+    "AttackPoint",
+    "SkillDamage",
+    "SkillGaugeCharging",
+    "ResistanceAllElement",
+    "ResistanceRed",
+    "ResistanceBlue",
+    "ResistanceYellow",
+    "ResistanceGreen",
+    "ResistanceWhite",
+    "ResistanceBlack",
+    "DamageCutAllElement",
+    "DamageCutRed",
+    "DamageCutBlue",
+    "DamageCutYellow",
+    "DamageCutGreen",
+    "DamageCutWhite",
+    "DamageCutBlack",
+    "FeverPoint",
+    "Stunify",
+    "CharacterSlayer",
+    "StunWinceSlayer",
+    "DebuffResistance",
+    "PowerFlipDamage",
+    "AllConditionPrevent",
+    "DebuffPrevent",
+    "AttackPointDownPrevent",
+    "SkillDamageDownPrevent",
+    "ResistanceAllDownPrevent",
+    "ResistanceRedDownPrevent",
+    "ResistanceBlueDownPrevent",
+    "ResistanceYellowDownPrevent",
+    "ResistanceGreenDownPrevent",
+    "ResistanceWhiteDownPrevent",
+    "ResistanceBlackDownPrevent",
+    "PoisonPrevent",
+    "ParalysisPrevent",
+    "FrozenPrevent",
+    "FeverPointDownPrevent",
+    "StunifyDownPrevent",
+    "CharacterSlayerDownPrevent",
+    "StanWinceSlayerDownPrevent",
+    "PowerFlipDamageDownPrevent",
+    "EaseOfHeal",
+    "Scapegoat",
+    "DirectAttack2",
+    "DirectAttack3"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.during.DuringAbilityTriggerKind",
+   "offset": 4187882,
+   "constructs": [
+    "Character",
+    "Battle"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.during.DuringAbilityTriggerMasterValue",
+   "offset": 4188619,
+   "constructs": [
+    "HpHigh",
+    "HpLow",
+    "ComboHigh",
+    "ComboLow",
+    "Fever",
+    "Multiball",
+    "ConditionAll",
+    "ConditionDebuff",
+    "ConditionBuff",
+    "ConditionAttackPointUp",
+    "ConditionAttackPointDown",
+    "ConditionSkillDamageUp",
+    "ConditionSkillDamageDown",
+    "ConditionResistanceUp",
+    "ConditionResistanceDown",
+    "ConditionDamageCut",
+    "ConditionInvincible",
+    "ConditionRegeneration",
+    "ConditionPoison",
+    "ConditionParalysis",
+    "ConditionFrozen",
+    "ConditionFeverPointUp",
+    "ConditionFeverPointDown",
+    "ConditionStunifyUp",
+    "ConditionStunifyDown",
+    "ConditionCharacterSlayerUp",
+    "ConditionCharacterSlayerDown",
+    "ConditionStanWinceSlayerUp",
+    "ConditionStanWinceSlayerDown",
+    "ConditionDebuffResistanceUp",
+    "ConditionPiercing",
+    "ConditionFlying",
+    "ConditionPowerFlipDamageUp",
+    "ConditionPowerFlipDamageDown"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.during.DuringBattleAbilityTriggerKind",
+   "offset": 4197548,
+   "constructs": [
+    "Combo",
+    "Fever",
+    "Multiball",
+    "Condition"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.during.DuringCharacterAbilityTriggerKind",
+   "offset": 4198727,
+   "constructs": [
+    "Hp",
+    "Condition"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.instant.InitialAbilityTriggerKind",
+   "offset": 4199508,
+   "constructs": [
+    "Always",
+    "Member",
+    "MySelf",
+    "UnisonMyself",
+    "Variety"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.instant.InstantAbilityContent",
+   "offset": 4201056,
+   "constructs": [
+    "ConditionCharacter",
+    "ConditionBattle",
+    "Common",
+    "DurationTimeCharacter",
+    "InstantCharacter",
+    "InstantBattle"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.instant.InstantAbilityContentMasterValue",
+   "offset": 4203141,
+   "constructs": [
+    "ConditionAttackPoint",
+    "ConditionSkillDamage",
+    "ConditionResistanceAllElement",
+    "ConditionResistanceRed",
+    "ConditionResistanceBlue",
+    "ConditionResistanceYellow",
+    "ConditionResistanceGreen",
+    "ConditionResistanceWhite",
+    "ConditionResistanceBlack",
+    "ConditionDamageCutAllElement",
+    "ConditionDamageCutRed",
+    "ConditionDamageCutBlue",
+    "ConditionDamageCutYellow",
+    "ConditionDamageCutGreen",
+    "ConditionDamageCutWhite",
+    "ConditionDamageCutBlack",
+    "ConditionInvincible",
+    "ConditionRegeneration",
+    "ConditionPoison",
+    "ConditionParalysis",
+    "ConditionFrozen",
+    "ConditionFeverPoint",
+    "ConditionStunify",
+    "ConditionCharacterSlayer",
+    "ConditionStunWinceSlayer",
+    "ConditionDebuffResistance",
+    "ConditionPiercing",
+    "ConditionFlying",
+    "ConditionPowerFlipDamage",
+    "AttackPoint",
+    "SkillDamage",
+    "SkillGaugeCharging",
+    "ResistanceAllElement",
+    "ResistanceRed",
+    "ResistanceBlue",
+    "ResistanceYellow",
+    "ResistanceGreen",
+    "ResistanceWhite",
+    "ResistanceBlack",
+    "DamageCutAllElement",
+    "DamageCutRed",
+    "DamageCutBlue",
+    "DamageCutYellow",
+    "DamageCutGreen",
+    "DamageCutWhite",
+    "DamageCutBlack",
+    "FeverPoint",
+    "Stunify",
+    "CharacterSlayer",
+    "StunWinceSlayer",
+    "DebuffResistance",
+    "PowerFlipDamage",
+    "FeverTimeExtension",
+    "AllConditionPrevent",
+    "DebuffPrevent",
+    "AttackPointDownPrevent",
+    "SkillDamageDownPrevent",
+    "ResistanceAllDownPrevent",
+    "ResistanceRedDownPrevent",
+    "ResistanceBlueDownPrevent",
+    "ResistanceYellowDownPrevent",
+    "ResistanceGreenDownPrevent",
+    "ResistanceWhiteDownPrevent",
+    "ResistanceBlackDownPrevent",
+    "PoisonPrevent",
+    "ParalysisPrevent",
+    "FrozenPrevent",
+    "FeverPointDownPrevent",
+    "StunifyDownPrevent",
+    "CharacterSlayerDownPrevent",
+    "StanWinceSlayerDownPrevent",
+    "PowerFlipDamageDownPrevent",
+    "AllConditionPreventWithLength",
+    "DebuffPreventWithLength",
+    "AttackPointDownPreventWithLength",
+    "SkillDamageDownPreventWithLength",
+    "ResistanceAllDownPreventWithLength",
+    "ResistanceRedDownPreventWithLength",
+    "ResistanceBlueDownPreventWithLength",
+    "ResistanceYellowDownPreventWithLength",
+    "ResistanceGreenDownPreventWithLength",
+    "ResistanceWhiteDownPreventWithLength",
+    "ResistanceBlackDownPreventWithLength",
+    "PoisonPreventWithLength",
+    "ParalysisPreventWithLength",
+    "FrozenPreventWithLength",
+    "FeverPointDownPreventWithLength",
+    "StunifyDownPreventWithLength",
+    "CharacterSlayerDownPreventWithLength",
+    "StanWinceSlayerDownPreventWithLength",
+    "PowerFlipDamageDownPreventWithLength",
+    "AllConditionSlayer",
+    "DebuffSlayer",
+    "BuffSlayer",
+    "AttackPointUpSlayer",
+    "AttackPointDownSlayer",
+    "ResistanceAllUpSlayer",
+    "ResistanceRedUpSlayer",
+    "ResistanceBlueUpSlayer",
+    "ResistanceYellowUpSlayer",
+    "ResistanceGreenUpSlayer",
+    "ResistanceWhiteUpSlayer",
+    "ResistanceBlackUpSlayer",
+    "ResistanceAllDownSlayer",
+    "ResistanceRedDownSlayer",
+    "ResistanceBlueDownSlayer",
+    "ResistanceYellowDownSlayer",
+    "ResistanceGreenDownSlayer",
+    "ResistanceWhiteDownSlayer",
+    "ResistanceBlackDownSlayer",
+    "DamageCutSlayer",
+    "InvincibleSlayer",
+    "RegenerationSlayer",
+    "PoisonSlayer",
+    "ParalysisSlayer",
+    "FrozenSlayer",
+    "CharacterSlayerUpSlayer",
+    "CharacterSlayerDownSlayer",
+    "DebuffResistanceUpSlayer",
+    "AllConditionExtend",
+    "DebuffExtend",
+    "BuffExtend",
+    "AttackPointUpExtend",
+    "AttackPointDownExtend",
+    "SkillDamageUpExtend",
+    "SkillDamageDownExtend",
+    "ResistanceAllUpExtend",
+    "ResistanceRedUpExtend",
+    "ResistanceBlueUpExtend",
+    "ResistanceYellowUpExtend",
+    "ResistanceGreenUpExtend",
+    "ResistanceWhiteUpExtend",
+    "ResistanceBlackUpExtend",
+    "ResistanceAllDownExtend",
+    "ResistanceRedDownExtend",
+    "ResistanceBlueDownExtend",
+    "ResistanceYellowDownExtend",
+    "ResistanceGreenDownExtend",
+    "ResistanceWhiteDownExtend",
+    "ResistanceBlackDownExtend",
+    "DamageCutExtend",
+    "InvincibleExtend",
+    "RegenerationExtend",
+    "PoisonExtend",
+    "ParalysisExtend",
+    "FrozenExtend",
+    "FeverPointUpExtend",
+    "FeverPointDownExtend",
+    "StunifyUpExtend",
+    "StunifyDownExtend",
+    "CharacterSlayerUpExtend",
+    "CharacterSlayerDownExtend",
+    "StanWinceSlayerUpExtend",
+    "StanWinceSlayerDownExtend",
+    "DebuffResistanceUpExtend",
+    "PiercingExtend",
+    "FlyingExtend",
+    "PowerFlipDamageUpExtend",
+    "PowerFlipDamageDownExtend",
+    "EaseOfHeal",
+    "EaseOfHealWithLength",
+    "Scapegoat",
+    "ScapegoatWithLength",
+    "PoisonStrength",
+    "PowerFlipComboCountDown",
+    "DirectAttack2",
+    "DirectAttack2WithLength",
+    "DirectAttack3",
+    "DirectAttack3WithLength",
+    "CoffinBaseCountDown",
+    "CoffinBaseCountUp",
+    "Hp",
+    "RatioHeal",
+    "FixedHeal",
+    "RatioDamageCurrentHp",
+    "RatioDamageMaxHp",
+    "FixedDamage",
+    "SkillGauge",
+    "AddFeverPoint"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.instant.InstantAbilityDurationTimeCharacterContent",
+   "offset": 4252829,
+   "constructs": [
+    "EaseOfHeal",
+    "Scapegoat",
+    "AdditionalDirectAttack",
+    "ConditionPrevent"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.instant.InstantAbilityInstantBattleContent",
+   "offset": 4254094,
+   "constructs": [
+    "AddFeverPoint"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.instant.InstantAbilityInstantCharacterContent",
+   "offset": 4254592,
+   "constructs": [
+    "CoffinBaseCountDown",
+    "CoffinBaseCountUp",
+    "Hp",
+    "RatioHeal",
+    "FixedHeal",
+    "RatioDamageMaxHp",
+    "RatioDamageCurrentHp",
+    "FixedDamage",
+    "SkillGauge",
+    "ConditionExtend"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.instant.InstantAbilityTriggerKind",
+   "offset": 4317605,
+   "constructs": [
+    "Initial",
+    "Battle"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.instant.InstantAbilityTriggerMasterValue",
+   "offset": 4318342,
+   "constructs": [
+    "Initial",
+    "FirstFlip",
+    "PowerFlip",
+    "Dash",
+    "BallFlip",
+    "Fever",
+    "MultiballAppear",
+    "EnemyKill",
+    "Combo",
+    "Revival",
+    "HealCount",
+    "MemberDirectAttack",
+    "DamageCount",
+    "SkillInvoke",
+    "SkillMax",
+    "HpLow",
+    "ConditionAll",
+    "ConditionDebuff",
+    "ConditionBuff",
+    "ConditionAttackPointUp",
+    "ConditionAttackPointDown",
+    "ConditionSkillDamageUp",
+    "ConditionSkillDamageDown",
+    "ConditionResistanceUp",
+    "ConditionResistanceDown",
+    "ConditionDamageCut",
+    "ConditionInvincible",
+    "ConditionRegeneration",
+    "ConditionPoison",
+    "ConditionParalysis",
+    "ConditionFrozen",
+    "ConditionFeverPointUp",
+    "ConditionFeverPointDown",
+    "ConditionStunifyUp",
+    "ConditionStunifyDown",
+    "ConditionCharacterSlayerUp",
+    "ConditionCharacterSlayerDown",
+    "ConditionStanWinceSlayerUp",
+    "ConditionStanWinceSlayerDown",
+    "ConditionDebuffResistanceUp",
+    "ConditionPiercing",
+    "ConditionFlying",
+    "ConditionPowerFlipDamageUp",
+    "ConditionPowerFlipDamageDown",
+    "Member",
+    "MySelf",
+    "UnisonMyself",
+    "ElementVariety",
+    "RaceVariety",
+    "SpecialityVariety"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.instant.InstantBattleAbilityTriggerKind",
+   "offset": 4331977,
+   "constructs": [
+    "Count",
+    "CharacterCount",
+    "Combo",
+    "HpLow",
+    "Condition"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ability.instant.PartyCharacterVarietyKind",
+   "offset": 4333712,
+   "constructs": [
+    "Element",
+    "Race",
+    "Speciality"
+   ]
+  },
+  {
+   "name": "pinball.common.data.banner.FeatureBannerLinkKind",
+   "offset": 4342299,
+   "constructs": [
+    "Gacha",
+    "MultiTop",
+    "Event",
+    "Comic",
+    "News"
+   ]
+  },
+  {
+   "name": "pinball.common.data.banner.FeatureBannerPopKind",
+   "offset": 4343522,
+   "constructs": [
+    "Period",
+    "Session"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.BattleLocalIndex",
+   "offset": 4344075,
+   "constructs": [
+    "Me",
+    "Other"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.BattleSceneKind",
+   "offset": 4344597,
+   "constructs": [
+    "Single",
+    "Cooperative"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.CameraShakeSize",
+   "offset": 4346359,
+   "constructs": [
+    "Small",
+    "Medium",
+    "Large"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.PlayerMode",
+   "offset": 4349240,
+   "constructs": [
+    "SinglePlayer",
+    "Cooperative"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.ZoneObjective",
+   "offset": 4350124,
+   "constructs": [
+    "ZakoKill",
+    "BossClear",
+    "Unspecified"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.asset.BattleBgmGroupKind",
+   "offset": 4394983,
+   "constructs": [
+    "NormalAndTsunagi",
+    "NormalAndBoss",
+    "Custom",
+    "CustomGeneralTsunagi"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.asset.ElementParticleEmissionTiming",
+   "offset": 4399457,
+   "constructs": [
+    "Continuous",
+    "Once",
+    "End"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.boss.BossKind",
+   "offset": 4406722,
+   "constructs": [
+    "GeneralBoss",
+    "Kraken",
+    "Orochi"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.boss.BossSourceKind",
+   "offset": 4407534,
+   "constructs": [
+    "GeneralBoss",
+    "Kraken",
+    "Orochi"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.enemy.BossElementKind",
+   "offset": 4433600,
+   "constructs": [
+    "Inherit",
+    "Red",
+    "Blue",
+    "Yellow",
+    "Green",
+    "White",
+    "Black"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.enemy.EnemyElementKind",
+   "offset": 4437950,
+   "constructs": [
+    "Inherit",
+    "Red",
+    "Blue",
+    "Yellow",
+    "Green",
+    "White",
+    "Black"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.enemy.EnemyHpCurveKind",
+   "offset": 4441777,
+   "constructs": [
+    "Hit",
+    "Fix"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.enemy.GeneralEnemyMovementKind",
+   "offset": 4444796,
+   "constructs": [
+    "Absolute",
+    "Relative"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.enemy.GeneralEnemyStateTerminationCondition",
+   "offset": 4446433,
+   "constructs": [
+    "None",
+    "Immediately",
+    "Time",
+    "Loop",
+    "Move",
+    "ReferTo",
+    "TimeVariable",
+    "LoopVariable",
+    "MoveVariable"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.enemy.GeneralEnemyTest",
+   "offset": 4448675,
+   "constructs": [
+    "Always",
+    "Paralysis",
+    "Frozen",
+    "Poison",
+    "GoodCondition",
+    "Funnel",
+    "Level"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.enemy._EnemySourceBase.ConstructorParameter",
+   "offset": 4442694,
+   "constructs": [
+    "Boss",
+    "Funnel",
+    "Zako"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.funnel.FunnelKind",
+   "offset": 4451429,
+   "constructs": [
+    "Zako",
+    "Funnel"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.funnel.FunnelSourceKind",
+   "offset": 4456743,
+   "constructs": [
+    "Zako",
+    "Funnel"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.restore.BattleRestoreKind",
+   "offset": 4465987,
+   "constructs": [
+    "Single",
+    "Multi"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.restore.BattleRestoreMode",
+   "offset": 4466636,
+   "constructs": [
+    "None",
+    "Restore"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.score.ScoreBonusKind",
+   "offset": 4469459,
+   "constructs": [
+    "Clear",
+    "Combo",
+    "SkillInvoke",
+    "WeakPoint",
+    "LastHp",
+    "Guard",
+    "FlightDuration",
+    "SkillChain",
+    "Contribution",
+    "FollowBonus",
+    "PowerFlip",
+    "Once",
+    "Never"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.yakumono.BumperSize",
+   "offset": 4478700,
+   "constructs": [
+    "Big",
+    "Small"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.yakumono.DashPanelRotationDirection",
+   "offset": 4479154,
+   "constructs": [
+    "Anticlockwise",
+    "Clockwise"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.yakumono.DirectInstantItemKind",
+   "offset": 4479714,
+   "constructs": [
+    "Executable",
+    "Obtainable"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.yakumono.OneWayWallDirection",
+   "offset": 4488451,
+   "constructs": [
+    "North",
+    "Northeast",
+    "East",
+    "Southeast",
+    "South",
+    "Southwest",
+    "West",
+    "Northwest"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.yakumono.YakumonoAvailableTime",
+   "offset": 4492761,
+   "constructs": [
+    "Always",
+    "OnlyFeverMode",
+    "OnlyUsual"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.yakumono.YakumonoLayerDepth",
+   "offset": 4493692,
+   "constructs": [
+    "Background",
+    "Middleground",
+    "Foreground"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.yakumono.YakumonoMasterSourceKind",
+   "offset": 4494377,
+   "constructs": [
+    "Bumper",
+    "Decoration",
+    "Yuremono",
+    "WarpHole",
+    "BreakableDecoration",
+    "DashPanelFixed",
+    "DashPanelSmart",
+    "DashPanelSerial",
+    "DashPanelRotating"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.yakumono.YakumonoTmxSourceKind",
+   "offset": 4496827,
+   "constructs": [
+    "Bumper",
+    "Block",
+    "Slingshot",
+    "Decoration",
+    "OneWayWall",
+    "Yuremono",
+    "SkillInvoker",
+    "TalkyYakumono",
+    "AssistYakumono",
+    "DirectInstantItem",
+    "WarpHole",
+    "BreakableBlock",
+    "BreakableDecoration",
+    "DashPanelFixed",
+    "DashPanelSmart",
+    "DashPanelSerial",
+    "DashPanelRotating"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.yakumono.slingshot.SlingshotPosition",
+   "offset": 4509740,
+   "constructs": [
+    "LeftSide",
+    "RightSide"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.zone.ZoneActionKind",
+   "offset": 4514366,
+   "constructs": [
+    "Replay",
+    "HintTap",
+    "RequestTouch",
+    "RequestDash",
+    "RequestSkill",
+    "MovieDialog",
+    "EnableSkill",
+    "EnableControlBoard",
+    "CompleteZoneObjective",
+    "Scenario"
+   ]
+  },
+  {
+   "name": "pinball.common.data.battle.zone.ZoneActionTriggerKind",
+   "offset": 4516344,
+   "constructs": [
+    "Start",
+    "NoTap",
+    "SkillInvokerEnd"
+   ]
+  },
+  {
+   "name": "pinball.common.data.bonus.LoginBonusKind",
+   "offset": 4517249,
+   "constructs": [
+    "None",
+    "Stone",
+    "Item",
+    "Character",
+    "Mana"
+   ]
+  },
+  {
+   "name": "pinball.common.data.campaign.CampaignRepeatKind",
+   "offset": 4522045,
+   "constructs": [
+    "Once",
+    "Weekly"
+   ]
+  },
+  {
+   "name": "pinball.common.data.campaign.CampaignRewardMultiplierKind",
+   "offset": 4524341,
+   "constructs": [
+    "Item",
+    "Exp",
+    "Mana"
+   ]
+  },
+  {
+   "name": "pinball.common.data.character.BattleCharacterOwner",
+   "offset": 4557182,
+   "constructs": [
+    "Me",
+    "Somebody"
+   ]
+  },
+  {
+   "name": "pinball.common.data.character.EquipmentPlusValueKind",
+   "offset": 4573520,
+   "constructs": [
+    "Attack",
+    "Hp"
+   ]
+  },
+  {
+   "name": "pinball.common.data.character.EvolutionPlusValueKind",
+   "offset": 4573998,
+   "constructs": [
+    "Attack",
+    "Hp"
+   ]
+  },
+  {
+   "name": "pinball.common.data.character.ManaNodePlusValueKind",
+   "offset": 4574893,
+   "constructs": [
+    "ActionSkillLevel",
+    "ActionSkillEvolution",
+    "Ability"
+   ]
+  },
+  {
+   "name": "pinball.common.data.character.condition.ConditionChangeContent",
+   "offset": 4582339,
+   "constructs": [
+    "AttackPoint",
+    "SkillDamage",
+    "ElementResistance",
+    "ElementDamageCut",
+    "CharacterSlayer",
+    "Regeneration",
+    "Poison",
+    "Invincible",
+    "Paralysis",
+    "Frozen",
+    "FeverPoint",
+    "Stunify",
+    "PinchSlayer",
+    "DebuffResistance",
+    "Piercing",
+    "Flying",
+    "PowerFlipDamage"
+   ]
+  },
+  {
+   "name": "pinball.common.data.character.condition.ConditionDirection",
+   "offset": 4591640,
+   "constructs": [
+    "Good",
+    "Bad"
+   ]
+  },
+  {
+   "name": "pinball.common.data.character.condition.ConditionSign",
+   "offset": 4592546,
+   "constructs": [
+    "Good",
+    "Bad",
+    "Both"
+   ]
+  },
+  {
+   "name": "pinball.common.data.character.condition.ConditionTargetKind",
+   "offset": 4593163,
+   "constructs": [
+    "All",
+    "AttackPoint",
+    "SkillDamage",
+    "AllElementResistance",
+    "ElementResistance",
+    "ElementDamageCut",
+    "CharacterSlayer",
+    "Regeneration",
+    "Poison",
+    "Invincible",
+    "Paralysis",
+    "Frozen",
+    "FeverPoint",
+    "Stunify",
+    "PinchSlayer",
+    "DebuffResistance",
+    "Piercing",
+    "Flying",
+    "PowerFlipDamage"
+   ]
+  },
+  {
+   "name": "pinball.common.data.character.condition.ElementTargetKind",
+   "offset": 4597773,
+   "constructs": [
+    "All",
+    "Red",
+    "Blue",
+    "Yellow",
+    "Green",
+    "White",
+    "Black"
+   ]
+  },
+  {
+   "name": "pinball.common.data.character.image.CharacterFaceImageKind",
+   "offset": 4599668,
+   "constructs": [
+    "SquareLarge",
+    "SquareSmall",
+    "RoundedSquareLarge",
+    "RoundedSquareSmall",
+    "BattleMemberStatus"
+   ]
+  },
+  {
+   "name": "pinball.common.data.character.joinMovie.JoinMovieKind",
+   "offset": 4605458,
+   "constructs": [
+    "NewEntry",
+    "Duplicated",
+    "Reentry",
+    "TutorialLight"
+   ]
+  },
+  {
+   "name": "pinball.common.data.character.speech.CharacterSpeechKind",
+   "offset": 4607806,
+   "constructs": [
+    "Home",
+    "Evolution",
+    "Join"
+   ]
+  },
+  {
+   "name": "pinball.common.data.config.SceneReference",
+   "offset": 4612326,
+   "constructs": [
+    "CompanyLogo",
+    "Title",
+    "Battle",
+    "Home",
+    "Town",
+    "MailList",
+    "Mission",
+    "LimitedLoginBonus",
+    "CharacterMenu",
+    "Character",
+    "EquipmentSelect",
+    "ManaBoard",
+    "Expod",
+    "EpisodeCharacterSelect",
+    "CharacterEpisodeList",
+    "Voice",
+    "ChapterSelect",
+    "StageSelect",
+    "ExStageSelect",
+    "QuestSelect",
+    "ExQuestSelect",
+    "PartySelect",
+    "QuestResult",
+    "StoryQuest",
+    "StoryQuestResult",
+    "Evolution",
+    "PracticeQuestSelect",
+    "BossBattleModeSelect",
+    "BossBattleTop",
+    "BossBattleQuestSelect",
+    "MultiBattleRoom",
+    "EventTop",
+    "PlayKindSelect",
+    "AdventEventQuestSelect",
+    "ChallengeDungeonQuestSelect",
+    "ScoreAttackEventQuestSelect",
+    "ScoreAttackEventRanking",
+    "ScoreAttackEventPlayerDetail",
+    "StoryEventQuestSelect",
+    "DailyWeekEventQuestSelect",
+    "DailyExpManaEventQuestSelect",
+    "EventItemExchangeTop",
+    "EventItemExchangeShop",
+    "Gacha",
+    "GachaReleaseCharacterList",
+    "GachaBallMovie",
+    "GachaJoinMovie",
+    "GachaResult",
+    "GachaEquipmentSearchingMovie",
+    "GachaEquipmentUnsealingMovie",
+    "GachaEquipmentResult",
+    "CharacterInformation",
+    "MenuTop",
+    "OtherMenu",
+    "FollowFollowerList",
+    "UserSearchTop",
+    "UserSearchResult",
+    "PlayerProfile",
+    "ApplicationOption",
+    "NewsDetail",
+    "NewsList",
+    "RichText",
+    "RichTextData",
+    "Help",
+    "HelpList",
+    "HelpRichText",
+    "StoneManaConfirm",
+    "ItemList",
+    "EquipmentList",
+    "OrbDetail",
+    "AbilitySoulList",
+    "ShopTop",
+    "SpecialPackShop",
+    "TreasureShop",
+    "StarCrumbExchange",
+    "BondTokenExchange",
+    "AwakingCrystalExchange",
+    "ItemHowToGet",
+    "ItemSearchQuest",
+    "ItemSearchShop",
+    "TakeOver",
+    "TakeOverChooseAccountMethod",
+    "TakeOverChoosePasswordMethod",
+    "TakeOverInputPassword",
+    "TakeOverConfirmPassword",
+    "TakeOverSetPassword",
+    "TakeOverRegisterSocialAccount",
+    "TakeOverDisableSocialAccount",
+    "TakeOverShowSocialAccount",
+    "TakeOverConfirmSocialAccount",
+    "ReceiveHistory",
+    "AssetLoad",
+    "Debug",
+    "Minigame",
+    "ComicList",
+    "ComicListHelp",
+    "ComicDetail",
+    "PlayerNameInput",
+    "TutorialTitleMovie",
+    "TutorialLightBallMovie",
+    "TutorialGachaFocus",
+    "TutorialGacha",
+    "TutorialGachaBallMovie",
+    "TutorialGachaResult",
+    "TutorialGachaForPresent",
+    "ShortPrologue",
+    "BossCoinExchangeTop",
+    "BossCoinExchangeShop",
+    "WaitUserTap",
+    "PrologueScenarioEnd",
+    "TrialQuestSelect"
+   ]
+  },
+  {
+   "name": "pinball.common.data.cooperation.ReadyState",
+   "offset": 4630342,
+   "constructs": [
+    "Preparation",
+    "Ready"
+   ]
+  },
+  {
+   "name": "pinball.common.data.cooperation.RoomIdKind",
+   "offset": 4630804,
+   "constructs": [
+    "RoomNumber",
+    "AccessToken"
+   ]
+  },
+  {
+   "name": "pinball.common.data.emotion.EmotionKind",
+   "offset": 4631459,
+   "constructs": [
+    "Help",
+    "Nice",
+    "Sorry",
+    "NiceToMeetYou"
+   ]
+  },
+  {
+   "name": "pinball.common.data.invoke.InvokeUrl",
+   "offset": 4640891,
+   "constructs": [
+    "TwitterOauthCallback",
+    "Room",
+    "PlayerProfile"
+   ]
+  },
+  {
+   "name": "pinball.common.data.item.EquipmentKind",
+   "offset": 4647529,
+   "constructs": [
+    "Equipment",
+    "Orb"
+   ]
+  },
+  {
+   "name": "pinball.common.data.item.EquipmentOrOrb",
+   "offset": 4647963,
+   "constructs": [
+    "Equipment",
+    "Orb"
+   ]
+  },
+  {
+   "name": "pinball.common.data.item.InstantItem",
+   "offset": 4654871,
+   "constructs": [
+    "Executable",
+    "Obtainable"
+   ]
+  },
+  {
+   "name": "pinball.common.data.item.InstantItemKind",
+   "offset": 4655482,
+   "constructs": [
+    "Executable",
+    "Obtainable"
+   ]
+  },
+  {
+   "name": "pinball.common.data.item.ItemEffectKind",
+   "offset": 4657302,
+   "constructs": [
+    "Growth",
+    "StaminaFixed",
+    "StaminaRate",
+    "OverLimitAwakingCrystal",
+    "OverLimitAwakingCrystalPiece",
+    "GachaTicket",
+    "EventTrade",
+    "Entry",
+    "AbilitySoul",
+    "Etc",
+    "TradeItem",
+    "CraftPoint"
+   ]
+  },
+  {
+   "name": "pinball.common.data.item.search.SearchItemKind",
+   "offset": 4663988,
+   "constructs": [
+    "Item",
+    "Equipment"
+   ]
+  },
+  {
+   "name": "pinball.common.data.overflow.OverflowItemKind",
+   "offset": 4669639,
+   "constructs": [
+    "Character",
+    "Item",
+    "Equipment",
+    "FreeStone",
+    "PaidStone",
+    "FreeMana",
+    "StarCrumb"
+   ]
+  },
+  {
+   "name": "pinball.common.data.overflow.OverflowProcessKind",
+   "offset": 4674112,
+   "constructs": [
+    "Mail",
+    "Sold",
+    "Discard",
+    "ConvertPooledExperience",
+    "DissolveEquipment"
+   ]
+  },
+  {
+   "name": "pinball.common.data.party.InventoryPlaceKind",
+   "offset": 4687067,
+   "constructs": [
+    "Character",
+    "Remaining"
+   ]
+  },
+  {
+   "name": "pinball.common.data.party.PartyEditingState",
+   "offset": 4687616,
+   "constructs": [
+    "NotModified",
+    "Modified"
+   ]
+  },
+  {
+   "name": "pinball.common.data.party.PartyPlace",
+   "offset": 4695377,
+   "constructs": [
+    "Party",
+    "Inventory"
+   ]
+  },
+  {
+   "name": "pinball.common.data.payment.PaymentProductKind",
+   "offset": 4696886,
+   "constructs": [
+    "Stone",
+    "Item",
+    "Bonus"
+   ]
+  },
+  {
+   "name": "pinball.common.data.payment.PaymentStatus",
+   "offset": 4698542,
+   "constructs": [
+    "Supported",
+    "Unsupported"
+   ]
+  },
+  {
+   "name": "pinball.common.data.payment.PurchaseRestrictionPeriod",
+   "offset": 4699369,
+   "constructs": [
+    "Permanently",
+    "Monthly"
+   ]
+  },
+  {
+   "name": "pinball.common.data.player.BoostPointKind",
+   "offset": 4700040,
+   "constructs": [
+    "BoostPoint",
+    "BossBoostPoint"
+   ]
+  },
+  {
+   "name": "pinball.common.data.player.ShopProductBuyableState",
+   "offset": 4729638,
+   "constructs": [
+    "Possible",
+    "OutOfStock",
+    "StoneShortage",
+    "ManaShortage",
+    "CurrencyItemShortage",
+    "Overflow"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.battle.BattleResultLogicKind",
+   "offset": 4785057,
+   "constructs": [
+    "Normal",
+    "NoClearRank",
+    "Fixed"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.battle._BattleQuestClearParameter.ContributionPlayerKind",
+   "offset": 4781775,
+   "constructs": [
+    "Me",
+    "Other"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.common.BattleQuestKind",
+   "offset": 4791359,
+   "constructs": [
+    "Normal",
+    "Tower",
+    "Tutorial",
+    "SkillPreview",
+    "DailyEvent"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.common.DailyEventQuestKind",
+   "offset": 4797936,
+   "constructs": [
+    "Story",
+    "Battle"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.common.NormalQuestKind",
+   "offset": 4801159,
+   "constructs": [
+    "Story",
+    "Battle"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.common.PlayKind",
+   "offset": 4804931,
+   "constructs": [
+    "Single",
+    "Multi"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.common.QuestKind",
+   "offset": 4806351,
+   "constructs": [
+    "Battle",
+    "Story"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.common.QuestValuesKind",
+   "offset": 4806984,
+   "constructs": [
+    "Story",
+    "Battle"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.common.TowerQuestKind",
+   "offset": 4810829,
+   "constructs": [
+    "Story",
+    "Battle"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.cost.StaminaCostKind",
+   "offset": 4846781,
+   "constructs": [
+    "AsIs",
+    "Halved",
+    "Zero",
+    "HasCampaign",
+    "HalvedAndHasCampaign"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.cost._StaminaCostCalculator.TemporaryReducedStaminaCostKind",
+   "offset": 4845678,
+   "constructs": [
+    "AsIs",
+    "Halved",
+    "Zero"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.event.EventIdKind",
+   "offset": 4848267,
+   "constructs": [
+    "AdventEvent",
+    "ScoreAttackEvent",
+    "StoryEvent",
+    "DailyWeekEvent",
+    "ChallengeDungeonEvent",
+    "DailyExpManaEvent"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.event.common.EventLogicKind",
+   "offset": 4863112,
+   "constructs": [
+    "AdventEvent",
+    "ScoreAttackEvent",
+    "StoryEvent",
+    "DailyWeekEvent",
+    "ChallengeDungeonEvent",
+    "DailyExpManaEvent"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.event.scoreAttack.reward.ScoreAttackEventRewardKind",
+   "offset": 4878600,
+   "constructs": [
+    "Mana",
+    "Stone",
+    "Item",
+    "Character",
+    "Equipment"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.id.MultiQuestIdKind",
+   "offset": 4886731,
+   "constructs": [
+    "Normal",
+    "AdventEvent",
+    "ScoreAttackEvent"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.id.QuestGroupKind",
+   "offset": 4888237,
+   "constructs": [
+    "Single",
+    "Multi"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.id.QuestIdGroupKind",
+   "offset": 4888684,
+   "constructs": [
+    "Single",
+    "Multi"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.id.QuestRangeReferenceIdKind",
+   "offset": 4893968,
+   "constructs": [
+    "Main",
+    "Ex",
+    "BossBattle",
+    "DailyWeekEvent",
+    "ScoreAttackEventSingle",
+    "ScoreAttackEventMulti",
+    "StoryEventSingle",
+    "AdventEventSingle",
+    "AdventEventMulti",
+    "ChallengeDungeonEvent",
+    "DailyExpManaEvent",
+    "Practice",
+    "DailyWeekEventAndDailyExpManaEventAndChallengeDungeonEvent"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.id.QuestReferenceIdKind",
+   "offset": 4925619,
+   "constructs": [
+    "Main",
+    "Ex",
+    "BossBattle",
+    "DailyWeekEvent",
+    "ScoreAttackEventSingle",
+    "ScoreAttackEventMulti",
+    "StoryEventSingle",
+    "AdventEventSingle",
+    "AdventEventMulti",
+    "ChallengeDungeonEvent",
+    "DailyExpManaEvent"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.id.SingleChapterIdKind",
+   "offset": 4933911,
+   "constructs": [
+    "Main",
+    "Ex"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.id.SingleQuestIdKind",
+   "offset": 4934851,
+   "constructs": [
+    "Normal",
+    "Ex",
+    "Character",
+    "Tutorial",
+    "AdventEvent",
+    "ScoreAttackEvent",
+    "StoryEvent",
+    "DailyWeekEvent",
+    "DailyExpManaEvent",
+    "ChallengeDungeonEvent",
+    "Practice",
+    "SkillPreview",
+    "GachaSkillPreview",
+    "BossBattle",
+    "AdventBossBattle"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.reward.QuestRewardCategoryKind",
+   "offset": 4995777,
+   "constructs": [
+    "ScoreReward",
+    "FirstTimeClearReward",
+    "FirstTimeSSRankReward"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.reward.QuestRewardKind",
+   "offset": 4997064,
+   "constructs": [
+    "Item",
+    "Equipment",
+    "Character",
+    "Stone",
+    "Mana",
+    "PooledExp"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.reward.QuestRewardLotteryKind",
+   "offset": 4999525,
+   "constructs": [
+    "Common",
+    "Rare"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.score.BattleClearStatus",
+   "offset": 5005943,
+   "constructs": [
+    "NotCleared",
+    "Cleared",
+    "ClearedWithoutRank"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.stageNode.QuestSelectBackgroundStyle",
+   "offset": 5015331,
+   "constructs": [
+    "StageNode",
+    "Image"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.stageNode.StageNodeReleaseResult",
+   "offset": 5016014,
+   "constructs": [
+    "None",
+    "MainStageNode",
+    "ExStageNode"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.stageNode.VignetteKind",
+   "offset": 5016883,
+   "constructs": [
+    "Small",
+    "Medium",
+    "Large"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.status.QuestStatusKind",
+   "offset": 5017745,
+   "constructs": [
+    "None",
+    "Complete",
+    "Clear",
+    "Next",
+    "New",
+    "AllClear"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.transition.QuestResultTransitionRouterResult",
+   "offset": 5027302,
+   "constructs": [
+    "MultiBattleRoomPrepare",
+    "BossBattleTop",
+    "Immediately"
+   ]
+  },
+  {
+   "name": "pinball.common.data.quest.transition.QuestSceneTransitionSource",
+   "offset": 5028562,
+   "constructs": [
+    "MainQuest",
+    "ExQuest",
+    "MultiQuest",
+    "BossBattleAsSingle",
+    "CharacterQuestSelect",
+    "EventSingleQuestSelect",
+    "Tutorial",
+    "Attention",
+    "PartyEdit"
+   ]
+  },
+  {
+   "name": "pinball.common.data.save.restore.RestoreState",
+   "offset": 5041471,
+   "constructs": [
+    "Tutorial",
+    "SingleBattle",
+    "SingleBattleClear",
+    "SingleBattleAbort",
+    "CooperationRoom",
+    "None"
+   ]
+  },
+  {
+   "name": "pinball.common.data.scene.ChangeSceneBackKind",
+   "offset": 5043131,
+   "constructs": [
+    "Replace",
+    "NotChange",
+    "FromHome",
+    "FromHomeWithState",
+    "FromTitle",
+    "Empty",
+    "AddCurrent",
+    "Add"
+   ]
+  },
+  {
+   "name": "pinball.common.data.scene.ChangeSceneNextKind",
+   "offset": 5044860,
+   "constructs": [
+    "Transition",
+    "Scene",
+    "Loading"
+   ]
+  },
+  {
+   "name": "pinball.common.data.scene.ChangeSceneOrLoading",
+   "offset": 5045745,
+   "constructs": [
+    "Scene",
+    "Loading"
+   ]
+  },
+  {
+   "name": "pinball.common.data.scene.ChangeSceneRelationKind",
+   "offset": 5046776,
+   "constructs": [
+    "RootToRootRightward",
+    "RootToRootLeftward",
+    "Normal"
+   ]
+  },
+  {
+   "name": "pinball.common.data.scene.LoadingTaskKind",
+   "offset": 5047469,
+   "constructs": [
+    "Empty",
+    "Global",
+    "SingleBattleStart",
+    "SingleBattleRestore",
+    "MultiBattleStart",
+    "EnterCooprationRoom",
+    "SingleBattleRestoreSelect",
+    "AssetSufficiencyCheckLoading",
+    "NewsDialogInterruption",
+    "QuestFinish",
+    "StoryQuestFinish",
+    "QuestAbort",
+    "ScoreAttackEventPlayerDetail",
+    "Gacha",
+    "FollowList",
+    "FollowResumeTwitterSearch",
+    "ProfileGetProfile",
+    "GetProfileAndAutoFollow",
+    "TutorialBattleStart",
+    "TutorialGacha",
+    "TutorialPresent",
+    "TutorialEnd",
+    "BattleReplay",
+    "AutoPartyEdit",
+    "SkillPreviewBattleStart",
+    "TakeOver",
+    "TermsOfService"
+   ]
+  },
+  {
+   "name": "pinball.common.data.scene.SceneKind",
+   "offset": 5054978,
+   "constructs": [
+    "CompanyLogo",
+    "Title",
+    "Home",
+    "MailList",
+    "Mission",
+    "LimitedLoginBonus",
+    "TutorialTitleMovie",
+    "TutorialLightBallMovie",
+    "PlayerNameInput",
+    "TutorialGachaFocus",
+    "TutorialGacha",
+    "TutorialGachaBallMovie",
+    "TutorialGachaResult",
+    "TutorialGachaForPresent",
+    "ShortPrologue",
+    "Character",
+    "EquipmentSelect",
+    "ManaBoard",
+    "EpisodeCharacterSelect",
+    "CharacterQuestSelect",
+    "Voice",
+    "Expod",
+    "StageSelect",
+    "QuestSelect",
+    "ExQuestSelect",
+    "PartySelect",
+    "QuestResult",
+    "StoryQuest",
+    "StoryQuestResult",
+    "Evolution",
+    "PracticeQuestSelect",
+    "EventTop",
+    "PlayKindSelect",
+    "AdventEventQuestSelect",
+    "ChallengeDungeonQuestSelect",
+    "ScoreAttackEventQuestSelect",
+    "ScoreAttackEventRanking",
+    "ScoreAttackEventPlayerDetail",
+    "StoryEventQuestSelect",
+    "DailyWeekEventQuestSelect",
+    "DailyExpManaEventQuestSelect",
+    "EventItemExchangeTop",
+    "EventItemExchangeShop",
+    "BossCoinExchangeTop",
+    "BossCoinExchangeShop",
+    "BossBattleModeSelect",
+    "BossBattleTop",
+    "BossBattleQuestSelect",
+    "MultiBattleRoom",
+    "Gacha",
+    "GachaReleaseCharacterList",
+    "GachaBallMovie",
+    "GachaResult",
+    "CharacterInformation",
+    "CharacterGetJoinMovie",
+    "GachaEquipmentSearchingMovie",
+    "GachaEquipmentUnsealingMovie",
+    "GachaEquipmentResult",
+    "Battle",
+    "MenuTop",
+    "OtherMenu",
+    "FollowFollowerList",
+    "UserSearchTop",
+    "UserSearchResult",
+    "PlayerProfile",
+    "ApplicationOption",
+    "RichText",
+    "RichTextData",
+    "Help",
+    "HelpList",
+    "HelpRichText",
+    "StoneManaConfirm",
+    "ItemList",
+    "EquipmentList",
+    "OrbDetail",
+    "AbilitySoulList",
+    "ShopTop",
+    "SpecialPackShop",
+    "TreasureShop",
+    "StarCrumbExchange",
+    "BondTokenExchange",
+    "AwakingCrystalExchange",
+    "ItemHowToGet",
+    "ItemSearchQuest",
+    "TakeOver",
+    "TakeOverChooseAccountMethod",
+    "TakeOverChoosePasswordMethod",
+    "TakeOverInputPassword",
+    "TakeOverConfirmPassword",
+    "TakeOverSetPassword",
+    "TakeOverRegisterSocialAccount",
+    "TakeOverDisableSocialAccount",
+    "TakeOverShowSocialAccount",
+    "TakeOverConfirmSocialAccount",
+    "ReceiveHistory",
+    "ComicList",
+    "ComicListHelp",
+    "ComicDetail",
+    "AssetLoadMinigame",
+    "WaitUserTap",
+    "PrologueScenarioEnd",
+    "TrialQuestSelect"
+   ]
+  },
+  {
+   "name": "pinball.common.data.scene.TransitionKind",
+   "offset": 5081454,
+   "constructs": [
+    "Immediate",
+    "BlackOut",
+    "SimpleOut",
+    "BlackOutWithDelay",
+    "Slide"
+   ]
+  },
+  {
+   "name": "pinball.common.data.scene.character.CharacterDetailSource",
+   "offset": 5086530,
+   "constructs": [
+    "Party",
+    "Inventory",
+    "UneditableParty",
+    "Any"
+   ]
+  },
+  {
+   "name": "pinball.common.data.scene.character.CharacterDetailTransitionFrom",
+   "offset": 5085982,
+   "constructs": [
+    "Party",
+    "Inventory"
+   ]
+  },
+  {
+   "name": "pinball.common.data.scene.character.CharacterListMode",
+   "offset": 5084970,
+   "constructs": [
+    "Edit",
+    "EditOnce",
+    "ManaBoard",
+    "CharacterDetail"
+   ]
+  },
+  {
+   "name": "pinball.common.data.scene.character.CharacterSceneState",
+   "offset": 5083881,
+   "constructs": [
+    "Menu",
+    "Top",
+    "CharacterList",
+    "Detail"
+   ]
+  },
+  {
+   "name": "pinball.common.data.skill.action.ActionSkillOwner",
+   "offset": 5091467,
+   "constructs": [
+    "MainCharacter",
+    "UnisonCharacter"
+   ]
+  },
+  {
+   "name": "pinball.common.data.skill.autoplay.AutoplayActionSkillAreaShapeKind",
+   "offset": 5091993,
+   "constructs": [
+    "Circle",
+    "BeamUpper",
+    "BeamMiddle",
+    "Cross",
+    "Sector"
+   ]
+  },
+  {
+   "name": "pinball.common.data.skill.autoplay.AutoplayAutoInvocationConditionKind",
+   "offset": 5093450,
+   "constructs": [
+    "Always",
+    "Area"
+   ]
+  },
+  {
+   "name": "pinball.common.data.skill_preview.SkillPreviewQuestKind",
+   "offset": 5095547,
+   "constructs": [
+    "Battle"
+   ]
+  },
+  {
+   "name": "pinball.common.data.story.ScenarioCommandKind",
+   "offset": 5096178,
+   "constructs": [
+    "Text",
+    "Bgm",
+    "BgmStop",
+    "BgmFadeIn",
+    "BgmFadeOut",
+    "MovieSequence",
+    "CharacterIn",
+    "CharacterOut",
+    "CharacterOutAll",
+    "CharacterActive",
+    "CharacterActiveOnly",
+    "CharacterInactive",
+    "CharacterFace",
+    "CharacterAnimation",
+    "ScreenShake",
+    "ScreenShakeStop",
+    "ScreenFadeIn",
+    "ScreenFadeOut",
+    "ScreenColorEffect",
+    "ScreenColorEffectCustom",
+    "ScreenColorEffectDisable",
+    "Background",
+    "MessageWindowShow",
+    "MessageWindowHide"
+   ]
+  },
+  {
+   "name": "pinball.common.data.tutorial.StartTutorialProgressKind",
+   "offset": 5106350,
+   "constructs": [
+    "Shortened",
+    "Full"
+   ]
+  },
+  {
+   "name": "pinball.common.data.tutorial.StartTutorialStepKind",
+   "offset": 5109879,
+   "constructs": [
+    "Quest",
+    "TitleMovie",
+    "LightMovie",
+    "Name",
+    "GachaDraw",
+    "Gacha",
+    "Present",
+    "ShortPrologue",
+    "PrologueScenarioEnd",
+    "End"
+   ]
+  },
+  {
+   "name": "pinball.common.data.tutorial.TriggeredTutorialContentsKind",
+   "offset": 5111732,
+   "constructs": [
+    "ForceFooterButtonWithDialog",
+    "OkDialog",
+    "OkDialogWithTitle",
+    "OkDialogChangeScene",
+    "PlayScenario",
+    "VideoDialog",
+    "RequestStoreReview",
+    "SpecificContents",
+    "SpecificContentsWithMessage"
+   ]
+  },
+  {
+   "name": "pinball.common.data.tutorial.TriggeredTutorialProgress",
+   "offset": 5116847,
+   "constructs": [
+    "None",
+    "Showing",
+    "WaitingTriggerForNextStep",
+    "Finished"
+   ]
+  },
+  {
+   "name": "pinball.common.data.tutorial.TriggeredTutorialTriggerKind",
+   "offset": 5127423,
+   "constructs": [
+    "EnterScene",
+    "SpecificTrigger"
+   ]
+  },
+  {
+   "name": "pinball.common.data.tutorial.TutorialBattleResultKind",
+   "offset": 5128128,
+   "constructs": [
+    "Skip",
+    "Fixed"
+   ]
+  },
+  {
+   "name": "pinball.common.data.tutorial.TutorialQuestKind",
+   "offset": 5130726,
+   "constructs": [
+    "Battle",
+    "Story"
+   ]
+  },
+  {
+   "name": "pinball.common.data.tutorial.VideoDialogContentKind",
+   "offset": 5132808,
+   "constructs": [
+    "Image",
+    "Movie"
+   ]
+  },
+  {
+   "name": "pinball.common.data.ui.UiStringKind",
+   "offset": 5134294,
+   "constructs": [
+    "Key",
+    "KeyWithContext",
+    "Dynamic"
+   ]
+  },
+  {
+   "name": "pinball.common.geom.IsometricDirection",
+   "offset": 5145358,
+   "constructs": [
+    "LeftUp",
+    "RightUp",
+    "LeftDown",
+    "RightDown"
+   ]
+  },
+  {
+   "name": "pinball.common.lock.MultiLockState",
+   "offset": 5146475,
+   "constructs": [
+    "Unlocked",
+    "Locked"
+   ]
+  },
+  {
+   "name": "pinball.common.time.DayOfWeek",
+   "offset": 5170981,
+   "constructs": [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+   ]
+  },
+  {
+   "name": "pinball.config.kind.ApiServerKind",
+   "offset": 5208883,
+   "constructs": [
+    "Production",
+    "Staging"
+   ]
+  },
+  {
+   "name": "pinball.config.kind.BroadcastingConfigKind",
+   "offset": 5210350,
+   "constructs": [
+    "Disabled",
+    "Mirrativ"
+   ]
+  },
+  {
+   "name": "pinball.config.kind.ContactServerKind",
+   "offset": 5210888,
+   "constructs": [
+    "Custom",
+    "Production"
+   ]
+  },
+  {
+   "name": "pinball.config.kind.NewsServerKind",
+   "offset": 5211725,
+   "constructs": [
+    "Production"
+   ]
+  },
+  {
+   "name": "pinball.config.kind.PaymentKind",
+   "offset": 5212265,
+   "constructs": [
+    "DummyPayment",
+    "RealPayment"
+   ]
+  },
+  {
+   "name": "pinball.config.kind.RemoteKind",
+   "offset": 5212803,
+   "constructs": [
+    "DummyRemote",
+    "EmptyRemote"
+   ]
+  },
+  {
+   "name": "pinball.config.kind.SocketDelayMode",
+   "offset": 5213312,
+   "constructs": [
+    "None",
+    "Delay"
+   ]
+  },
+  {
+   "name": "pinball.config.kind.TitleMenuConfigKind",
+   "offset": 5213856,
+   "constructs": [
+    "Disabled",
+    "Enabled"
+   ]
+  },
+  {
+   "name": "pinball.config.kind.TutorialBundleKind",
+   "offset": 5214303,
+   "constructs": [
+    "Android",
+    "IOs"
+   ]
+  },
+  {
+   "name": "pinball.config.kind.ViewKind",
+   "offset": 5214731,
+   "constructs": [
+    "ProductionView",
+    "EmptyView"
+   ]
+  },
+  {
+   "name": "pinball.config.kind.WebSiteServerKind",
+   "offset": 5215158,
+   "constructs": [
+    "Production"
+   ]
+  },
+  {
+   "name": "pinball.context.LogicReadyInput",
+   "offset": 5256182,
+   "constructs": [
+    "Snapshot"
+   ]
+  },
+  {
+   "name": "pinball.context.NoteTag",
+   "offset": 5256472,
+   "constructs": [
+    "CancelInput",
+    "Remote",
+    "Activity",
+    "Loading",
+    "Socket",
+    "Payment",
+    "Asset",
+    "Invoke",
+    "FlipperAjust",
+    "Battle",
+    "BattleEnemyBasicParameter",
+    "Achievement",
+    "Scene",
+    "AssetDownloader",
+    "BattleScore",
+    "BattleRestore",
+    "CommonRestore",
+    "DownloadedCache",
+    "News",
+    "Attention",
+    "NatsConnection",
+    "ActionEvaluator",
+    "ScoreAttackEventRankingCellContentView",
+    "UiDisplayObjectContainer",
+    "Physics",
+    "Share",
+    "SettingsAndPreferences",
+    "Fps",
+    "StatusBar",
+    "StoreReview",
+    "Battery",
+    "Adjust"
+   ]
+  },
+  {
+   "name": "pinball.context.SectionCommand",
+   "offset": 5261178,
+   "constructs": [
+    "LogicReady",
+    "CooperationRoomSocket",
+    "BattleSocket",
+    "GlobalDebug",
+    "FollowFollowerListSceneDebug",
+    "DebugBlankView",
+    "PaymentCommon",
+    "PaymentItemListRemote",
+    "PaymentFinish",
+    "PaymentStart",
+    "PaymentPurchase",
+    "PaymentUpdateBirthRemote",
+    "PaymentPlayerLoaded",
+    "PaymentDetailItems",
+    "LocalLoading",
+    "AdditionLoading",
+    "GlobalLoading",
+    "InitialLoading",
+    "AssetDownloadLoading",
+    "FileNotFound",
+    "AssetRecoveryLoading",
+    "AssetSufficiencyCheckLoading",
+    "RemoteCommon",
+    "StoreCommonToastResponse",
+    "ReceiveCommonResponse",
+    "ApplyCommonConfig",
+    "AgreementRemote",
+    "TutorialUpdateStepRemote",
+    "QuestStartRemote",
+    "QuestFinishRemote",
+    "QuestAbortRemote",
+    "QuestPlayContinueRemote",
+    "StoryQuestFinishRemote",
+    "MultiBattleQuestAvailableRoomsCountRemote",
+    "MultiBattleQuestCreateRoomRemote",
+    "MultiBattleQuestPrepareRemote",
+    "MultiBattleQuestGetRoomsRemote",
+    "MultiBattleQuestSearchRoomRemote",
+    "MultiBattleQuestverifyAccessTokenRemote",
+    "MultiBattleQuestSelectRoomRemote",
+    "ScoreAttackGetSummaryRemote",
+    "ScoreAttackGetRankingsRemote",
+    "ScoreAttackGetSelfRankingsRemote",
+    "ScoreAttackGetMutualFollowerRankingsRemote",
+    "ScoreAttackGetPlayerDetailRemote",
+    "CharacterAddCharacterFromTownRemote",
+    "CharacterOverLimitRemote",
+    "CharacterLearnManaNodeRemote",
+    "CharacterReceiveBondToken",
+    "CharacterGetShareUrl",
+    "CharacterSetAbilitySoulRemote",
+    "ItemSellRemote",
+    "ItemUseItemRemote",
+    "EquipmentSellRemote",
+    "EquipmentUpgrade",
+    "ShopRecoverStaminaRemote",
+    "ShopBuyRemote",
+    "ShopGetSalesListRemote",
+    "ExchangeStarCrumbRemote",
+    "ExchangeBondTokenRemote",
+    "ExchangeGetBondTokenExchangeListRemote",
+    "ExpodInjectExp",
+    "ExpodStackToExp",
+    "ExpodCharacterToExp",
+    "GachaRemote",
+    "ProfileGetProfileRemote",
+    "ProfileRenameRemote",
+    "ProfileUpdateCommentRemote",
+    "FollowListsRemote",
+    "FollowSearchIdRemote",
+    "FollowAddRemote",
+    "FollowSearchTwitterRemote",
+    "SnsGetRemote",
+    "SnsUpdateTwitterRemote",
+    "FriendsIdsRemote",
+    "FollowersIdsRemote",
+    "UsersShowRemote",
+    "OAuthRequestTokenRemote",
+    "OAuthAccessTokenRemote",
+    "MailRemote",
+    "HistoryReceiveRemote",
+    "NewsInterruptFlag",
+    "NewsIndexRemote",
+    "NewsLatestForcedRemote",
+    "NewsGetInfoRemote",
+    "MissionRemote",
+    "ComicRemote",
+    "TakeOverGetUserDataBySocialAccountRemote",
+    "TakeOverGetUserDataByTakeOverDataRemote",
+    "TakeOverTakeOverBySocialAccountRemote",
+    "TakeOverTakeOverByTakeOverDataRemote",
+    "TakeOverRegisterGetTakeOverSettingRemote",
+    "TakeOverRegisterRegisterSocialAccountRemote",
+    "TakeOverRegisterDisableSocialAccountRemote",
+    "TakeOverRegisterRegisterTakeOverDataRemote",
+    "LoadRemote",
+    "ToolUserResetRemote",
+    "ToolAgreementRemote",
+    "FpsMeasuring",
+    "BatteryMeasuring",
+    "AssetDownloaderCommon",
+    "AssetDelete",
+    "LocalStoreLoad",
+    "Invoke",
+    "Clock",
+    "Activity",
+    "BackButton",
+    "Battery",
+    "Attention",
+    "SignatureGenerator",
+    "TownView",
+    "HomeView",
+    "BattlePauseMenuView",
+    "VideoDialogView",
+    "BattleStartView",
+    "BattleView",
+    "CharacterDetailView",
+    "RichTextView",
+    "UserSearchResultView",
+    "GachaJoinMovieView",
+    "CharacterInformaion",
+    "MultiBattleRoomView",
+    "CharacterSceneView",
+    "ManaBoardView",
+    "ExpodSceneView",
+    "ExpodSceneExpodTopView",
+    "ExpodSceneOverLimitWindowsView",
+    "ExpodSceneCharacterSelectView",
+    "ExpodSceneCharacterProtectionView",
+    "ExpodSceneExpodInjectExpView",
+    "ExpodSceneConvertToExpWindowView",
+    "QuestResultView",
+    "SplashView",
+    "StageSelectView",
+    "CompanyLogoView",
+    "LoginBonusDialogView",
+    "LimitedLoginBonusView",
+    "EvolutionView",
+    "MinigameSceneView",
+    "PracticeQuestSelectView",
+    "GachaFeatureDisplayView",
+    "ThanksIllustDialogView",
+    "QuestResultDebug",
+    "StoryQuestDebug",
+    "TouchEffect",
+    "Toast",
+    "VerticalList",
+    "Scroll",
+    "ButtonGroup",
+    "Button",
+    "Carousel",
+    "InputText",
+    "ZoomScroll",
+    "SwitchButton",
+    "Slider",
+    "TimelineLoad",
+    "MovieLoad",
+    "UiDataLoad",
+    "WaitUserTapView"
+   ]
+  },
+  {
+   "name": "pinball.context.TopDiffuseKey",
+   "offset": 5315654,
+   "constructs": [
+    "ReproduceKey"
+   ]
+  },
+  {
+   "name": "pinball.context.ViewDialogKind",
+   "offset": 5315950,
+   "constructs": [
+    "Primitive",
+    "GeneralDialog",
+    "InputDialog",
+    "VideoDialog",
+    "RichText",
+    "CharacterListSetting",
+    "RecommendedParty",
+    "AgeVerificationDialog",
+    "AgeVerificationConfirmDialog",
+    "BattlePauseMenu",
+    "RoomNumberInputDialog",
+    "RoomShareDialog",
+    "ProcessingDialog",
+    "PowerFlipFailureDialog",
+    "ManaBoardLearnDialog",
+    "NormalQuestDetailDialog",
+    "SingleAttentionQuestDetailDialog",
+    "MultiAttentionQuestDetailDialog",
+    "MultiRoomQuestDetailDialog",
+    "LoginBonus",
+    "BulkPremiumLoginBonus",
+    "UserPolicyDialog",
+    "ContinueDialog",
+    "TitleMenuDialog",
+    "ModelessNoticeDialog",
+    "PresentDialog",
+    "Scenario",
+    "ScoreEvent",
+    "Broadcast",
+    "NewsDialog",
+    "NewsDetailDialog",
+    "PaymentAlert",
+    "PreparationMaintenanceDialog",
+    "BondTokenAcquired",
+    "AbilitySoulInUseDialog",
+    "ThanksIllust",
+    "TrialQuestDetailDialog"
+   ]
+  },
+  {
+   "name": "pinball.context.ViewSceneKind",
+   "offset": 5324391,
+   "constructs": [
+    "BlankScene",
+    "Splash",
+    "Logo",
+    "Title",
+    "Loading",
+    "AssetLoadMinigame",
+    "TutorialTitleMovie",
+    "TutorialLightBallMovie",
+    "PlayerNameInput",
+    "TutorialGachaFocus",
+    "TutorialGacha",
+    "TutorialGachaBallMovie",
+    "TutorialGachaResult",
+    "TutorialGachaForPresent",
+    "ShortPrologue",
+    "StageNodeSelect",
+    "QuestSelect",
+    "ExQuestSelect",
+    "PracticeQuestSelect",
+    "PartySelect",
+    "StoryQuest",
+    "StoryQuestResult",
+    "Evolution",
+    "ManaBoard",
+    "AbilitySoulList",
+    "Character",
+    "EquipmentSelect",
+    "CharacterQuestSelect",
+    "Expod",
+    "EpisodeCharacterSelect",
+    "BossBattleModeSelect",
+    "BossBattleTop",
+    "BossBattleQuestSelect",
+    "MultiBattleRoom",
+    "EventTop",
+    "PlayKindSelect",
+    "AdventEventQuestSelect",
+    "ChallengeDungeonQuestSelect",
+    "StoryEventQuestSelect",
+    "DailyWeekEventQuestSelect",
+    "DailyExpManaEventQuestSelect",
+    "ScoreAttackEventQuestSelect",
+    "ScoreAttackEventRanking",
+    "ScoreAttackEventPlayerDetail",
+    "Gacha",
+    "CharacterInformation",
+    "GachaReleaseCharacterList",
+    "GachaBallMovie",
+    "GachaJoinMovie",
+    "GachaResult",
+    "GachaEquipmentSearchingMovie",
+    "GachaEquipmentUnsealingMovie",
+    "GachaEquipmentResult",
+    "Home",
+    "MailList",
+    "Mission",
+    "Battle",
+    "QuestResult",
+    "MenuTop",
+    "OtherMenu",
+    "FollowFollowerList",
+    "FollowFollowerSearchTop",
+    "FollowFollowerSearchResult",
+    "PlayerProfile",
+    "ApplicationOption",
+    "Help",
+    "HelpList",
+    "RichText",
+    "RichTextData",
+    "StoneManaConfirm",
+    "ItemList",
+    "EquipmentList",
+    "OrbDetail",
+    "ItemHowToGet",
+    "ItemSearchQuest",
+    "TakeOver",
+    "ReceiveHistory",
+    "Voice",
+    "ComicList",
+    "ComicListHelp",
+    "ComicDetail",
+    "LimitedLoginBonus",
+    "WaitUserTap",
+    "PrologueScenarioEnd",
+    "TrialQuestSelect"
+   ]
+  },
+  {
+   "name": "pinball.context.ViewTransitionKind",
+   "offset": 5343395,
+   "constructs": [
+    "Blank",
+    "PartyTopToCharacterListTransiton",
+    "BlackOut",
+    "SimpleOut",
+    "Slide"
+   ]
+  },
+  {
+   "name": "pinball.context.activity.ActivityInput",
+   "offset": 5345816,
+   "constructs": [
+    "Activate",
+    "Deactivate"
+   ]
+  },
+  {
+   "name": "pinball.context.assetDownloader.AssetCheckResult",
+   "offset": 5346517,
+   "constructs": [
+    "NoNeedToDownload",
+    "NeedToDownload"
+   ]
+  },
+  {
+   "name": "pinball.context.assetDownloader.AssetDeleteInput",
+   "offset": 5347131,
+   "constructs": [
+    "Complete"
+   ]
+  },
+  {
+   "name": "pinball.context.assetDownloader.AssetDownloaderCommonInput",
+   "offset": 5354378,
+   "constructs": [
+    "Error"
+   ]
+  },
+  {
+   "name": "pinball.context.assetDownloader.AssetDownloaderErrorKind",
+   "offset": 5355839,
+   "constructs": [
+    "ResponseError",
+    "VerifyError",
+    "NoEnoughStorage",
+    "DownloadError",
+    "IoError",
+    "TimeoutError"
+   ]
+  },
+  {
+   "name": "pinball.context.attention.AttentionInput",
+   "offset": 5358949,
+   "constructs": [
+    "ReceiveSingle",
+    "ReceiveMulti",
+    "EnterRoom",
+    "AnyQuestEnded",
+    "IgnorableRemoteError"
+   ]
+  },
+  {
+   "name": "pinball.context.attention.data.AttentionLogKind",
+   "offset": 5377343,
+   "constructs": [
+    "Receive",
+    "Open",
+    "Accept",
+    "Decline",
+    "Close"
+   ]
+  },
+  {
+   "name": "pinball.context.attention.data.AttentionPollingState",
+   "offset": 5378224,
+   "constructs": [
+    "Stop",
+    "Booked",
+    "Running"
+   ]
+  },
+  {
+   "name": "pinball.context.attention.data.AttentionScoreActionKind",
+   "offset": 5379151,
+   "constructs": [
+    "Decline",
+    "Expire",
+    "Neglect",
+    "Disconnect",
+    "Parasite"
+   ]
+  },
+  {
+   "name": "pinball.context.attention.data.AttentionSystemState",
+   "offset": 5380115,
+   "constructs": [
+    "Enabled",
+    "DisabledByFinished",
+    "DisabledByManyDecline",
+    "DisabledByDisconnect",
+    "DisabledByRemoteError"
+   ]
+  },
+  {
+   "name": "pinball.context.attention.data.MultiAttentionState",
+   "offset": 5381510,
+   "constructs": [
+    "Unopened",
+    "Opened",
+    "Participate"
+   ]
+  },
+  {
+   "name": "pinball.context.attention.data.SingleAttentionState",
+   "offset": 5382154,
+   "constructs": [
+    "Unopened",
+    "Active",
+    "Playing"
+   ]
+  },
+  {
+   "name": "pinball.context.battery.BatteryInput",
+   "offset": 5394172,
+   "constructs": [
+    "UpdateBatteryInfo"
+   ]
+  },
+  {
+   "name": "pinball.context.clock.ClockInput",
+   "offset": 5400086,
+   "constructs": [
+    "Initialize",
+    "UpdateTime",
+    "VerifyTime",
+    "ChangeDate"
+   ]
+  },
+  {
+   "name": "pinball.context.clock.ClockState",
+   "offset": 5401172,
+   "constructs": [
+    "None",
+    "NeedVerifyTime",
+    "VerifyingTime",
+    "ChangeDate"
+   ]
+  },
+  {
+   "name": "pinball.context.debug.GlobalDebugInput",
+   "offset": 5402473,
+   "constructs": []
+  },
+  {
+   "name": "pinball.context.debug.batteryCounter.BatteryMeasuringInput",
+   "offset": 5402651,
+   "constructs": []
+  },
+  {
+   "name": "pinball.context.debug.batteryCounter.BatteryMeasuringState",
+   "offset": 5402869,
+   "constructs": [
+    "None"
+   ]
+  },
+  {
+   "name": "pinball.context.debug.fpsCounter.FpsMeasuringInput",
+   "offset": 5403228,
+   "constructs": []
+  },
+  {
+   "name": "pinball.context.debug.fpsCounter.FpsMeasuringState",
+   "offset": 5403430,
+   "constructs": [
+    "None"
+   ]
+  },
+  {
+   "name": "pinball.context.invokeObserver.InvokeInput",
+   "offset": 5432489,
+   "constructs": [
+    "OpenUrl"
+   ]
+  },
+  {
+   "name": "pinball.context.localStore.LocalStoreLoadInput",
+   "offset": 5436387,
+   "constructs": [
+    "ApplicationOptionLoaded",
+    "MiscDataLoaded"
+   ]
+  },
+  {
+   "name": "pinball.context.remote.RemoteCommonInput",
+   "offset": 5442285,
+   "constructs": [
+    "Error"
+   ]
+  },
+  {
+   "name": "pinball.context.remote.RemoteErrorKind",
+   "offset": 5445516,
+   "constructs": [
+    "SecurityError",
+    "IoError",
+    "HttpStatusError",
+    "ParseError",
+    "AgreementVersionError",
+    "ResourceVersionError",
+    "ApplicationVersionError",
+    "FailureResult",
+    "WholeMaintenanceError",
+    "TaskMaintenanceError",
+    "PreparationMaintenanceError",
+    "TakeOverOldAccessError",
+    "AccountBlockError",
+    "HashError",
+    "Timeout",
+    "Debug"
+   ]
+  },
+  {
+   "name": "pinball.context.remote.RequestState",
+   "offset": 5452568,
+   "constructs": [
+    "Requesting",
+    "WaitForRetry",
+    "None"
+   ]
+  },
+  {
+   "name": "pinball.context.reproduce.RecordStatus",
+   "offset": 5493141,
+   "constructs": [
+    "GENERATED",
+    "RUNNING",
+    "CLOSED",
+    "DISPOSED"
+   ]
+  },
+  {
+   "name": "pinball.context.reproduce.ReproduceLogEntry",
+   "offset": 5490788,
+   "constructs": [
+    "ReproduceLog",
+    "BattleLog"
+   ]
+  },
+  {
+   "name": "pinball.context.reproduce.SnapshotKind",
+   "offset": 5494298,
+   "constructs": [
+    "Initialize",
+    "Blank",
+    "Scene",
+    "ChangeScene"
+   ]
+  },
+  {
+   "name": "pinball.context.scene.LogicSceneDialogState",
+   "offset": 5552642,
+   "constructs": [
+    "FadeIn",
+    "Main",
+    "FadeOut"
+   ]
+  },
+  {
+   "name": "pinball.context.scene.instantMessage.InstantMessagePosition",
+   "offset": 5563948,
+   "constructs": [
+    "Upper",
+    "Center",
+    "Lower"
+   ]
+  },
+  {
+   "name": "pinball.context.scene.instantMessage.SceneInstantMessageState",
+   "offset": 5567349,
+   "constructs": [
+    "Active",
+    "ActiveInAnimation",
+    "ActiveOutAnimation",
+    "Inactive"
+   ]
+  },
+  {
+   "name": "pinball.context.screenSize.ImageScale",
+   "offset": 5568793,
+   "constructs": [
+    "Medium",
+    "Small"
+   ]
+  },
+  {
+   "name": "pinball.context.share.SharedItem",
+   "offset": 5571647,
+   "constructs": [
+    "Text",
+    "BitmapData"
+   ]
+  },
+  {
+   "name": "pinball.dialog.DialogOpenSoundKind",
+   "offset": 5611558,
+   "constructs": [
+    "None",
+    "Default"
+   ]
+  },
+  {
+   "name": "pinball.dialog.battlePauseMenu.BattlePauseMenuMode",
+   "offset": 5731110,
+   "constructs": [
+    "ReceivedMultiAttention",
+    "Normal"
+   ]
+  },
+  {
+   "name": "pinball.dialog.battlePauseMenu.BattlePauseMenuSkillDescriptionState",
+   "offset": 5760111,
+   "constructs": [
+    "Hidden",
+    "ShowingMain",
+    "ShowingUnison"
+   ]
+  },
+  {
+   "name": "pinball.dialog.battlePauseMenu.BattlePauseMenuSwitchButtonKind",
+   "offset": 5761007,
+   "constructs": [
+    "AutoPlayMode"
+   ]
+  },
+  {
+   "name": "pinball.dialog.battlePauseMenu.BattlePauseMenuViewInput",
+   "offset": 5770849,
+   "constructs": [
+    "TapOutside"
+   ]
+  },
+  {
+   "name": "pinball.dialog.battlePauseMenu.BattlePauseMenuViewKind",
+   "offset": 5771217,
+   "constructs": [
+    "Normal",
+    "Attention"
+   ]
+  },
+  {
+   "name": "pinball.dialog.battlePauseMenu.condition.PauseMenuConditionMode",
+   "offset": 5777376,
+   "constructs": [
+    "RealTime",
+    "InitialConditions"
+   ]
+  },
+  {
+   "name": "pinball.dialog.general.DialogButtonLayoutKind",
+   "offset": 5879561,
+   "constructs": [
+    "One",
+    "Select",
+    "OneWithHelp"
+   ]
+  },
+  {
+   "name": "pinball.dialog.general.DialogButtonStateResolverResult",
+   "offset": 5880714,
+   "constructs": [
+    "Enabled",
+    "Disabled",
+    "DisabledButCloseable"
+   ]
+  },
+  {
+   "name": "pinball.dialog.general.DialogContent",
+   "offset": 5881568,
+   "constructs": [
+    "Title",
+    "ItemTitle",
+    "ItemTitleWithHowToGet",
+    "Text",
+    "TextWithContext",
+    "TextWithPixelArtCharacter",
+    "TextWithPixelArtEquipment",
+    "ItemDetail",
+    "ItemDetailWithExpiryTime",
+    "GeneralEquipmentDetail",
+    "GeneralEquipmentDetailWithMaxLevel",
+    "BattleEquipmentDetail",
+    "OwnedEquipmentDetailWithProtection",
+    "AbilitySoulDetail",
+    "AbilitySoulDetailWithBox",
+    "CheckBox",
+    "CheckBoxMulti",
+    "DynamicText",
+    "DynamicNoticeText",
+    "NoticeText",
+    "NoticeTextWithUiStringKey",
+    "CustomText",
+    "CustomTextWithUiStringKey",
+    "Separator",
+    "Margin",
+    "Item",
+    "ItemButton",
+    "Equipment",
+    "EquipmentButton",
+    "Stone",
+    "StoneButton",
+    "Mana",
+    "ManaButton",
+    "StarCrumb",
+    "StarCrumbButton",
+    "BondToken",
+    "BondTokenButton",
+    "BossBoostPointButton",
+    "BoostPointButton",
+    "OrbBrowseButton",
+    "PooledExp",
+    "PooledExpButton",
+    "ShopItem",
+    "ShopProductDetailItemButtons",
+    "Slider",
+    "HiddenSlider",
+    "InputText",
+    "GeneralCharacter",
+    "GeneralCharacterButton",
+    "OwnedCharacter",
+    "PixelArtCharacter",
+    "Variation",
+    "VariationWithHeadingImage",
+    "VariationWithHeadingImageAndLabel",
+    "ItemVariation",
+    "HiddenItemVariation",
+    "AbilityDescriptionVariation",
+    "SelectButton"
+   ]
+  },
+  {
+   "name": "pinball.dialog.general.GeneralDialogCheckBoxKind",
+   "offset": 5899398,
+   "constructs": [
+    "Normal",
+    "Custom"
+   ]
+  },
+  {
+   "name": "pinball.dialog.general.accessory.DialogAccessoryKind",
+   "offset": 5923292,
+   "constructs": [
+    "PixelArtCharacter",
+    "PixelArtItem"
+   ]
+  },
+  {
+   "name": "pinball.dialog.general.accessory.DialogAccessoryPixelArtCharacterState",
+   "offset": 5924075,
+   "constructs": [
+    "Neutral",
+    "Lost"
+   ]
+  },
+  {
+   "name": "pinball.dialog.general.accessory.DialogAccessoryPixelArtItemState",
+   "offset": 5924634,
+   "constructs": [
+    "Neutral",
+    "Lost"
+   ]
+  },
+  {
+   "name": "pinball.dialog.general.button.DialogButton",
+   "offset": 5925173,
+   "constructs": [
+    "Ok",
+    "Yes",
+    "No",
+    "Cancel",
+    "Close",
+    "NeutralCancel",
+    "General",
+    "Positive",
+    "Negative",
+    "Help"
+   ]
+  },
+  {
+   "name": "pinball.dialog.general.variation.DialogAbilityDescriptionVariationKind",
+   "offset": 5927525,
+   "constructs": [
+    "BindToSlider",
+    "Fix",
+    "FixOnlyAfter"
+   ]
+  },
+  {
+   "name": "pinball.dialog.general.variation.DialogItemVariationContentKind",
+   "offset": 5930230,
+   "constructs": [
+    "Item",
+    "Equipment",
+    "Exp",
+    "Mana"
+   ]
+  },
+  {
+   "name": "pinball.dialog.general.variation.DialogItemVariationKind",
+   "offset": 5931211,
+   "constructs": [
+    "BindToSlider",
+    "Fix"
+   ]
+  },
+  {
+   "name": "pinball.dialog.general.variation.DialogVariationHeadingImageKind",
+   "offset": 5940050,
+   "constructs": [
+    "ItemThumbnail",
+    "PixelArtCharacter"
+   ]
+  },
+  {
+   "name": "pinball.dialog.general.variation.DialogVariationHeadingImageViewKind",
+   "offset": 5940855,
+   "constructs": [
+    "ItemThumbnail",
+    "PixelArtCharacter"
+   ]
+  },
+  {
+   "name": "pinball.dialog.general.variation.DialogVariationIconKind",
+   "offset": 5941680,
+   "constructs": [
+    "None",
+    "Image",
+    "Price"
+   ]
+  },
+  {
+   "name": "pinball.dialog.general.variation.DialogVariationKind",
+   "offset": 5942503,
+   "constructs": [
+    "BindToSlider",
+    "Fix",
+    "FixOnlyAfter"
+   ]
+  },
+  {
+   "name": "pinball.dialog.general.variation.DialogVariationMaxValueIndicateKind",
+   "offset": 5943569,
+   "constructs": [
+    "Suffix",
+    "Max",
+    "Value"
+   ]
+  },
+  {
+   "name": "pinball.dialog.general.variation.DialogVariationSliderFormatterKind",
+   "offset": 5944539,
+   "constructs": [
+    "Default",
+    "CustomString",
+    "EquipmentAwakeningLevel"
+   ]
+  },
+  {
+   "name": "pinball.dialog.input.InputDialogButtonLayoutKind",
+   "offset": 6027582,
+   "constructs": [
+    "OkOnly",
+    "Select"
+   ]
+  },
+  {
+   "name": "pinball.dialog.item.ItemDetailKind",
+   "offset": 6036069,
+   "constructs": [
+    "Item",
+    "Equipment",
+    "Mana",
+    "Stone",
+    "StarCrumb",
+    "BondToken",
+    "Exp",
+    "BossBoostPoint",
+    "BoostPoint"
+   ]
+  },
+  {
+   "name": "pinball.dialog.openUrlConfirm.OpenUrlConfirmKind",
+   "offset": 6054650,
+   "constructs": [
+    "WebBrowser",
+    "OtherApplication"
+   ]
+  },
+  {
+   "name": "pinball.dialog.primitive.PrimitiveDialogButtonLayoutKind",
+   "offset": 6074347,
+   "constructs": [
+    "Ok",
+    "ErrorReport"
+   ]
+  },
+  {
+   "name": "pinball.dialog.processing.CloseBehavior",
+   "offset": 6078627,
+   "constructs": [
+    "Close",
+    "CloseThen",
+    "CloseThenOpenDialog",
+    "Continue"
+   ]
+  },
+  {
+   "name": "pinball.dialog.processing.ProcessingDialogKind",
+   "offset": 6083449,
+   "constructs": [
+    "Loading",
+    "Connecting",
+    "Searching",
+    "WaitingMate",
+    "Text"
+   ]
+  },
+  {
+   "name": "pinball.dialog.questDetail.QuestDetailDialogKind",
+   "offset": 6107324,
+   "constructs": [
+    "Quest"
+   ]
+  },
+  {
+   "name": "pinball.dialog.thanksIllust.ThanksIllustDialogState",
+   "offset": 6138934,
+   "constructs": [
+    "Loading",
+    "FadeIn",
+    "WaitingForTap",
+    "FadeOut"
+   ]
+  },
+  {
+   "name": "pinball.dialog.thanksIllust.ThanksIllustDialogViewInput",
+   "offset": 6144063,
+   "constructs": [
+    "Tap"
+   ]
+  },
+  {
+   "name": "pinball.dialog.triggerTutorialDialog.ModelessNoticeDialogAnchor",
+   "offset": 6150048,
+   "constructs": [
+    "SafeAreaTop",
+    "Center"
+   ]
+  },
+  {
+   "name": "pinball.dialog.userPolicyDialog.UserPolicyDialogButtonMode",
+   "offset": 6158162,
+   "constructs": [
+    "TermsAndPolicy",
+    "Terms",
+    "Policy"
+   ]
+  },
+  {
+   "name": "pinball.dialog.userPolicyDialog.UserPolicyDialogResultKind",
+   "offset": 6158846,
+   "constructs": [
+    "Terms",
+    "Policy",
+    "Agree",
+    "Disagree"
+   ]
+  },
+  {
+   "name": "pinball.dialog.videoDialog.VideoDialogViewInput",
+   "offset": 6181334,
+   "constructs": [
+    "ContentLoaded"
+   ]
+  },
+  {
+   "name": "pinball.gacha.ballMovie.element.AmuletPlaceId",
+   "offset": 6184182,
+   "constructs": [
+    "Circle",
+    "Bar"
+   ]
+  },
+  {
+   "name": "pinball.loading.addition.AdditionLoadingInput",
+   "offset": 6208047,
+   "constructs": [
+    "Complete",
+    "LeadingLogicAssetLoaded",
+    "FollowingLogicAssetLoaded"
+   ]
+  },
+  {
+   "name": "pinball.loading.assetDownload.AssetDownloadLoadingInput",
+   "offset": 6208759,
+   "constructs": [
+    "Progress",
+    "Complete",
+    "Error"
+   ]
+  },
+  {
+   "name": "pinball.loading.assetDownload.check.AssetSufficiencyCheckLoadingInput",
+   "offset": 6210127,
+   "constructs": [
+    "Progress",
+    "Complete"
+   ]
+  },
+  {
+   "name": "pinball.loading.assetDownload.recovery.AssetRecoveryLoadingInput",
+   "offset": 6214720,
+   "constructs": [
+    "Progress",
+    "Complete",
+    "Error"
+   ]
+  },
+  {
+   "name": "pinball.loading.battle.BattleStartViewInput",
+   "offset": 6231284,
+   "constructs": [
+    "Complete",
+    "Progress"
+   ]
+  },
+  {
+   "name": "pinball.loading.battle.SkillPreviewCharacterStatusKind",
+   "offset": 6236787,
+   "constructs": [
+    "OWN",
+    "INFOMATION"
+   ]
+  },
+  {
+   "name": "pinball.loading.global.GlobalLoadingInput",
+   "offset": 6251564,
+   "constructs": [
+    "Loaded",
+    "Reloaded",
+    "NeedToDownload",
+    "StartLoading",
+    "PaymentInitialized",
+    "Progress",
+    "Complete",
+    "AgreementVersionError",
+    "ApplicationVersionError",
+    "Error",
+    "LeadingLogicAssetLoaded",
+    "FollowingLogicAssetLoaded",
+    "GooglePlayServiceNotAvailable"
+   ]
+  },
+  {
+   "name": "pinball.loading.initial.InitialLoadingInput",
+   "offset": 6271590,
+   "constructs": [
+    "Complete",
+    "LeadingLogicAssetLoaded",
+    "FollowingLogicAssetLoaded"
+   ]
+  },
+  {
+   "name": "pinball.loading.local.LocalLoadingInput",
+   "offset": 6275546,
+   "constructs": [
+    "Progress",
+    "Complete",
+    "LeadingLogicAssetLoaded",
+    "FollowingLogicAssetLoaded"
+   ]
+  },
+  {
+   "name": "pinball.loading.quest.QuestAbortLoadingTaskTransitionSource",
+   "offset": 6289495,
+   "constructs": [
+    "Normal",
+    "QuestFinishLoadingTaskRestoreBroken"
+   ]
+  },
+  {
+   "name": "pinball.online.BattleCoopCommand",
+   "offset": 7477044,
+   "constructs": [
+    "PrimarySquadLaunched",
+    "SendImpactToMate",
+    "OfZone",
+    "MateActionSkill",
+    "CreateSkillChain",
+    "SkillChainReady",
+    "TryAgain",
+    "Annihilated",
+    "HealScore"
+   ]
+  },
+  {
+   "name": "pinball.online.BattleUserCommand",
+   "offset": 7479302,
+   "constructs": [
+    "TryAgain",
+    "Withdraw",
+    "TryToInvokeActionSkill",
+    "Ball",
+    "OperationOfFlipper",
+    "TryToEscape",
+    "SkipAnnihilatedCutin",
+    "InvokeStuckReset",
+    "StampButtonSelected",
+    "SendEmotion1",
+    "SendEmotion2",
+    "SendEmotion3",
+    "SendEmotion4",
+    "ChangeAutoplayMode",
+    "ChangeAutoskillMode",
+    "UpdateTime",
+    "Leave",
+    "SpeedRateLimit",
+    "Nop"
+   ]
+  },
+  {
+   "name": "pinball.online.BattleZoneCoopCommand",
+   "offset": 7482932,
+   "constructs": [
+    "Impact",
+    "Coffin",
+    "Finish",
+    "EnemySync",
+    "EnemyActionConditionOverwrite",
+    "FeverStart",
+    "WeakPointCrack"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.action.ActionKind",
+   "offset": 7484773,
+   "constructs": [
+    "EnemyAction",
+    "ActionSkill",
+    "SummonsMultiball",
+    "BombMultiball",
+    "PowerFlip",
+    "InstantItem",
+    "SkillInvoker"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.address.ActionEvaluatorAddress",
+   "offset": 7486546,
+   "constructs": [
+    "ActionSkill",
+    "PowerFlipAction",
+    "BombMultiballExplosion",
+    "EnemyAction",
+    "GeneralBossTargetAction",
+    "GeneralBossTornadoAction",
+    "ExecutableInstantItemAction",
+    "SkillInvokerAction"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.address.ActionHitAreaAddress",
+   "offset": 7489025,
+   "constructs": [
+    "ActionHitAreaAddress"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.address.ActionHitAreaGroupAddress",
+   "offset": 7489515,
+   "constructs": [
+    "ActionHitAreaGroupAddress"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.address.ActionHitAreaTargetAddress",
+   "offset": 7490030,
+   "constructs": [
+    "Member",
+    "Enemy",
+    "Coffin"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.address.Address",
+   "offset": 7490940,
+   "constructs": [
+    "ActionEvaluator",
+    "ActionHitArea",
+    "ActionHitAreaGroup",
+    "ActionHitAreaTarget",
+    "GeneralBossTarget",
+    "GeneralBossTornado",
+    "Enemy",
+    "EnemyState",
+    "Unit",
+    "WeakPoint",
+    "Squad",
+    "Member",
+    "ZakoEmitter",
+    "Zone",
+    "Coffin",
+    "SkillInvoker",
+    "InstantAbility"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.address.CoffinAddress",
+   "offset": 7501210,
+   "constructs": [
+    "CoffinAddress"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.address.EnemyAddress",
+   "offset": 7501667,
+   "constructs": [
+    "Boss",
+    "Zako",
+    "Funnel",
+    "Block"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.address.EnemyStateAddress",
+   "offset": 7502854,
+   "constructs": [
+    "EnemyStateAddress"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.address.GeneralBossTargetAddress",
+   "offset": 7503329,
+   "constructs": [
+    "GeneralBossTargetAddress"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.address.GeneralBossTornadoAddress",
+   "offset": 7503837,
+   "constructs": [
+    "GeneralBossTornadoAddress"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.address.InstantAbilityAddress",
+   "offset": 7504352,
+   "constructs": [
+    "Initial",
+    "Instant"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.address.MemberAddress",
+   "offset": 7505083,
+   "constructs": [
+    "MemberAddress"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.address.SkillInvokerAddress",
+   "offset": 7505538,
+   "constructs": [
+    "SkillInvokerAddress"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.address.SquadAddress",
+   "offset": 7506023,
+   "constructs": [
+    "Primary",
+    "Summons",
+    "Bomb"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.address.UnitAddress",
+   "offset": 7506771,
+   "constructs": [
+    "UnitAddress"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.address.WeakPointAddress",
+   "offset": 7507216,
+   "constructs": [
+    "WeakPointAddress"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.address.ZakoEmitterAddress",
+   "offset": 7507686,
+   "constructs": [
+    "ZakoEmitterAddress"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.address.ZoneAddress",
+   "offset": 7508166,
+   "constructs": [
+    "ZoneAddress"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.coffin.BattleCoffinCoopCommand",
+   "offset": 7508573,
+   "constructs": [
+    "Hold",
+    "Release"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.impact.EnemyMasterId",
+   "offset": 7509060,
+   "constructs": [
+    "Boss",
+    "Zako",
+    "Funnel"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.impact.ImpactHitEffectPosition",
+   "offset": 7509872,
+   "constructs": [
+    "CenterOfTarget",
+    "PointOfContact"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.impact.ImpactResultContent",
+   "offset": 7512896,
+   "constructs": [
+    "Attack",
+    "Heal",
+    "ConditionChanges",
+    "ConditionCancels",
+    "DecreaseCoffinCount",
+    "SkillChain"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.impact.SendableImpactSourceContent",
+   "offset": 7514756,
+   "constructs": [
+    "NormalHeal",
+    "RatioHeal",
+    "ConditionChanges",
+    "ConditionCancels"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.impact.attack.RatioAttackKind",
+   "offset": 7523166,
+   "constructs": [
+    "UseAttackeesCurrentHealthPoint",
+    "UseAttackeesMaximumHealthPoint"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.impact.condition.ConditionChangeDerivation",
+   "offset": 7528641,
+   "constructs": [
+    "ActionEvaluator",
+    "InstantAbility"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.impact.condition.ConditionOverwriteStrategy",
+   "offset": 7533947,
+   "constructs": [
+    "ChooseOneWithLongerRemainingTime",
+    "ApplyDecreaseToNewOneAndThenMergeTwo"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.impact.heal.RatioHealKind",
+   "offset": 7537701,
+   "constructs": [
+    "UseHealeesCurrentHealthPoint",
+    "UseHealeesMaximumHealthPoint"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.message.BattleBroadcastMessage",
+   "offset": 7538303,
+   "constructs": [
+    "Command"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.message.BattleNotifyMessage",
+   "offset": 7539483,
+   "constructs": [
+    "SceneReady",
+    "Finalize",
+    "Measurement",
+    "LineSpeedWarning",
+    "Heartbeat"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.message.BattleSendMessage",
+   "offset": 7540634,
+   "constructs": [
+    "ForceUserCommand"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.message.BattleServerMessage",
+   "offset": 7541073,
+   "constructs": [
+    "Leave",
+    "BattleStart",
+    "Finalized",
+    "Measurement",
+    "LineSpeedWarning"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.message.BattleSocketCommand",
+   "offset": 7542409,
+   "constructs": [
+    "User",
+    "Speed",
+    "Heartbeat"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.message.BattleSocketInput",
+   "offset": 7552937,
+   "constructs": [
+    "Error",
+    "Denied",
+    "Connected",
+    "ServerMessage",
+    "BroadcastMessage",
+    "SendMessage"
+   ]
+  },
+  {
+   "name": "pinball.online.battle.sync.EnemySynchronizeOwnerKind",
+   "offset": 7554556,
+   "constructs": [
+    "Kraken",
+    "Tentacle",
+    "Orochi",
+    "GeneralEnemy"
+   ]
+  },
+  {
+   "name": "pinball.online.meeting.message.MeetingBroadcastMessage",
+   "offset": 7556479,
+   "constructs": [
+    "Emotion"
+   ]
+  },
+  {
+   "name": "pinball.online.meeting.message.MeetingNotifyMessage",
+   "offset": 7556915,
+   "constructs": [
+    "Enter",
+    "Bye",
+    "ChangeParty",
+    "Ready",
+    "Heartbeat",
+    "Suspend",
+    "StartBattle",
+    "ChangeAutoplayMode"
+   ]
+  },
+  {
+   "name": "pinball.online.meeting.message.MeetingServerMessage",
+   "offset": 7558629,
+   "constructs": [
+    "Welcome",
+    "Mates",
+    "StateChanged",
+    "AutoplayModeChanged",
+    "Start",
+    "Disbanded",
+    "RemainingTime",
+    "Update"
+   ]
+  },
+  {
+   "name": "pinball.online.protocol.ServerErrorMessage",
+   "offset": 7560808,
+   "constructs": [
+    "Exception",
+    "Database",
+    "Fatal",
+    "Timeout"
+   ]
+  },
+  {
+   "name": "pinball.online.room.CooperationRoomConnectionReason",
+   "offset": 7562586,
+   "constructs": [
+    "Select",
+    "Resume"
+   ]
+  },
+  {
+   "name": "pinball.online.room.CooperationRoomSocketInput",
+   "offset": 7563479,
+   "constructs": [
+    "Error",
+    "Denied",
+    "Ready",
+    "Message",
+    "Messages"
+   ]
+  },
+  {
+   "name": "pinball.online.socket.SocketErrorKind",
+   "offset": 7566600,
+   "constructs": [
+    "Closed",
+    "Denied",
+    "Timeout",
+    "ContinueTimeout",
+    "Server",
+    "SecurityError",
+    "IoError",
+    "Error",
+    "NotSupported"
+   ]
+  },
+  {
+   "name": "pinball.operation.Operation",
+   "offset": 7568718,
+   "constructs": [
+    "Disabled"
+   ]
+  },
+  {
+   "name": "pinball.productionView.ProductionViewDiffuseKey",
+   "offset": 7597821,
+   "constructs": [
+    "StarlingSceneLayer",
+    "StarlingSlideTransitionLayer",
+    "StarlingGeneralMenuLayer",
+    "StarlingTutorialFocusLayer",
+    "StarlingTransitionLayer",
+    "StarlingDialogLayer",
+    "StarlingToastLayer",
+    "StarlingLetterboxLayer",
+    "StarlingTouchEffectLayer",
+    "StarlingInstantMessageLayer",
+    "FlashGameLayer"
+   ]
+  },
+  {
+   "name": "pinball.productionView.ProductionViewStateKind",
+   "offset": 7600064,
+   "constructs": [
+    "Scene",
+    "Transition",
+    "Dialog"
+   ]
+  },
+  {
+   "name": "pinball.productionView.ViewSceneBaseDiffuseKey",
+   "offset": 7605334,
+   "constructs": [
+    "ActivateDispatcher"
+   ]
+  },
+  {
+   "name": "pinball.productionView.dialogFade.DialogFadeKind",
+   "offset": 7609376,
+   "constructs": [
+    "Scale",
+    "ScaleFromZero",
+    "None",
+    "Toast",
+    "Custom"
+   ]
+  },
+  {
+   "name": "pinball.productionView.toast.ToastInput",
+   "offset": 7630803,
+   "constructs": [
+    "Skip"
+   ]
+  },
+  {
+   "name": "pinball.productionView.toast.ToastState",
+   "offset": 7633294,
+   "constructs": [
+    "None",
+    "Show",
+    "FadeIn",
+    "FadeOut"
+   ]
+  },
+  {
+   "name": "pinball.productionView.touchEffect.TouchEffectInput",
+   "offset": 7639237,
+   "constructs": [
+    "Begin",
+    "Move",
+    "End",
+    "Cancel"
+   ]
+  },
+  {
+   "name": "pinball.productionView.touchEffect.TouchEffectState",
+   "offset": 7647193,
+   "constructs": [
+    "None",
+    "Touching",
+    "Dragging"
+   ]
+  },
+  {
+   "name": "pinball.remote.agreement.AgreementKind",
+   "offset": 7655669,
+   "constructs": [
+    "Terms",
+    "Privacy",
+    "All"
+   ]
+  },
+  {
+   "name": "pinball.remote.agreement.AgreementRemoteInput",
+   "offset": 7656581,
+   "constructs": [
+    "Complete"
+   ]
+  },
+  {
+   "name": "pinball.remote.asset.AssetDownloadKind",
+   "offset": 7656913,
+   "constructs": [
+    "ServerResponse",
+    "AssetRecovery"
+   ]
+  },
+  {
+   "name": "pinball.remote.attention.check.DummyAttentionRandomizerAction",
+   "offset": 7664306,
+   "constructs": [
+    "ReceiveMulti",
+    "NotReceive"
+   ]
+  },
+  {
+   "name": "pinball.remote.exchange.bondToken.ExchangeBondTokenRemoteInput",
+   "offset": 7677190,
+   "constructs": [
+    "Finished",
+    "ShopPeriodError",
+    "ShopStepOverDay"
+   ]
+  },
+  {
+   "name": "pinball.remote.exchange.getBondTokenExchangeList.ExchangeGetBondTokenExchangeListRemoteInput",
+   "offset": 7677933,
+   "constructs": [
+    "Finished"
+   ]
+  },
+  {
+   "name": "pinball.remote.exchange.starCrumb.ExchangeStarCrumbRemoteInput",
+   "offset": 7678493,
+   "constructs": [
+    "Finished",
+    "ShopPeriodError",
+    "ShopStepOverDay"
+   ]
+  },
+  {
+   "name": "pinball.remote.follow.add.FollowAddRemoteInput",
+   "offset": 7679236,
+   "constructs": [
+    "Finished",
+    "FollowCountOver",
+    "PartnerFollowedCountOver"
+   ]
+  },
+  {
+   "name": "pinball.remote.follow.lists.FollowListsRemoteInput",
+   "offset": 7679926,
+   "constructs": [
+    "Finished"
+   ]
+  },
+  {
+   "name": "pinball.remote.follow.searchId.FollowSearchIdRemoteInput",
+   "offset": 7680360,
+   "constructs": [
+    "Finished"
+   ]
+  },
+  {
+   "name": "pinball.remote.follow.searchTwitter.FollowSearchTwitterRemoteInput",
+   "offset": 7680820,
+   "constructs": [
+    "Finished",
+    "NoCache"
+   ]
+  },
+  {
+   "name": "pinball.remote.history.receive.HistoryReceiveRemoteInput",
+   "offset": 7682283,
+   "constructs": [
+    "Finished"
+   ]
+  },
+  {
+   "name": "pinball.remote.initialize.LoadRemoteInput",
+   "offset": 7688158,
+   "constructs": [
+    "Loaded"
+   ]
+  },
+  {
+   "name": "pinball.remote.item.sell.ItemSellRemoteInput",
+   "offset": 7688553,
+   "constructs": [
+    "Finished"
+   ]
+  },
+  {
+   "name": "pinball.remote.mail.MailRemoteInput",
+   "offset": 7689011,
+   "constructs": [
+    "IndexFinished",
+    "ReceiveFinished",
+    "ReceiveAllFinished",
+    "ReceiveError",
+    "MaxOverError"
+   ]
+  },
+  {
+   "name": "pinball.remote.news.NewsInterruptInput",
+   "offset": 7695352,
+   "constructs": [
+    "SetFlag"
+   ]
+  },
+  {
+   "name": "pinball.remote.news.getInfo.NewsGetInfoRemoteInput",
+   "offset": 7695742,
+   "constructs": [
+    "GetInfoFinished"
+   ]
+  },
+  {
+   "name": "pinball.remote.news.index.NewsIndexRemoteInput",
+   "offset": 7703257,
+   "constructs": [
+    "IndexFinished"
+   ]
+  },
+  {
+   "name": "pinball.remote.news.latestForced.NewsLatestForcedRemoteInput",
+   "offset": 7705976,
+   "constructs": [
+    "LatestForcedFinished"
+   ]
+  },
+  {
+   "name": "pinball.remote.profile.getProfile.ProfileGetProfileRemoteInput",
+   "offset": 7706464,
+   "constructs": [
+    "Finished"
+   ]
+  },
+  {
+   "name": "pinball.remote.profile.rename.ProfileRenameRemoteInput",
+   "offset": 7706986,
+   "constructs": [
+    "Finished",
+    "NgWordError"
+   ]
+  },
+  {
+   "name": "pinball.remote.profile.updateComment.ProfileUpdateCommentRemoteInput",
+   "offset": 7707659,
+   "constructs": [
+    "Finished",
+    "NgWordError"
+   ]
+  },
+  {
+   "name": "pinball.remote.quest.abort.QuestAbortRemoteInput",
+   "offset": 7710465,
+   "constructs": [
+    "Finished",
+    "RestoreNotAvailable"
+   ]
+  },
+  {
+   "name": "pinball.remote.quest.abort.QuestAbortResult",
+   "offset": 7711246,
+   "constructs": [
+    "Success",
+    "RestoreNotAvailable"
+   ]
+  },
+  {
+   "name": "pinball.remote.quest.finish.BattleQuestFinishLoadingTaskKind",
+   "offset": 7726031,
+   "constructs": [
+    "Single",
+    "Multi"
+   ]
+  },
+  {
+   "name": "pinball.remote.quest.finish.BattleQuestFinishRemoteInput",
+   "offset": 7726944,
+   "constructs": [
+    "Finished",
+    "RestoreNotAvailable"
+   ]
+  },
+  {
+   "name": "pinball.remote.quest.playContinue.QuestPlayContinueRemoteInput",
+   "offset": 7730089,
+   "constructs": [
+    "Finished"
+   ]
+  },
+  {
+   "name": "pinball.remote.quest.start.QuestStartRemoteInput",
+   "offset": 7735084,
+   "constructs": [
+    "Finished",
+    "OutOfPeriodError"
+   ]
+  },
+  {
+   "name": "pinball.remote.quest.storyFinish.StoryQuestFinishRemoteInput",
+   "offset": 7736985,
+   "constructs": [
+    "Finished"
+   ]
+  },
+  {
+   "name": "pinball.remote.sns.get.SnsGetRemoteInput",
+   "offset": 7737449,
+   "constructs": [
+    "Finished",
+    "NoData"
+   ]
+  },
+  {
+   "name": "pinball.remote.sns.updateTwitter.SnsUpdateTwitterRemoteInput",
+   "offset": 7737983,
+   "constructs": [
+    "Finished"
+   ]
+  },
+  {
+   "name": "pinball.remote.takeOverRegister.disableSocialAccount.TakeOverRegisterDisableSocialAccountRemoteInput",
+   "offset": 7738360,
+   "constructs": [
+    "Finished"
+   ]
+  },
+  {
+   "name": "pinball.remote.takeOverRegister.getTakeOverSetting.TakeOverRegisterGetTakeOverSettingRemoteInput",
+   "offset": 7738944,
+   "constructs": [
+    "Finished"
+   ]
+  },
+  {
+   "name": "pinball.remote.takeOverRegister.registerSocialAccount.TakeOverRegisterRegisterSocialAccountRemoteInput",
+   "offset": 7739516,
+   "constructs": [
+    "Finished",
+    "TutorialIsNotYetFinished"
+   ]
+  },
+  {
+   "name": "pinball.remote.takeOverRegister.registerTakeOverData.TakeOverRegisterRegisterTakeOverDataRemoteInput",
+   "offset": 7740352,
+   "constructs": [
+    "Finished"
+   ]
+  },
+  {
+   "name": "pinball.remote.tool.agreement.ToolAgreementRemoteInput",
+   "offset": 7740936,
+   "constructs": [
+    "Finished"
+   ]
+  },
+  {
+   "name": "pinball.remote.tool.userReset.ToolUserResetRemoteInput",
+   "offset": 7742753,
+   "constructs": [
+    "Complete",
+    "GooglePlayServiceNotAvailable"
+   ]
+  },
+  {
+   "name": "pinball.remote.tutorial.updateStep.TutorialUpdateStepKind",
+   "offset": 7747227,
+   "constructs": [
+    "BeginFullTutorial",
+    "BeginShortenedTutorial",
+    "CompleteStep",
+    "CompleteStepWithChangingName",
+    "CompleteStepWithGachaDraw",
+    "CompleteStepWithPresent",
+    "CompleteStepToEnd"
+   ]
+  },
+  {
+   "name": "pinball.remote.tutorial.updateStep.TutorialUpdateStepRemoteInput",
+   "offset": 7749226,
+   "constructs": [
+    "NameChangeComplete",
+    "NgWordError",
+    "GachaDrawn",
+    "Present",
+    "End"
+   ]
+  },
+  {
+   "name": "pinball.remote.twitter.followers.FollowersIdsRemoteInput",
+   "offset": 7750461,
+   "constructs": [
+    "Finished"
+   ]
+  },
+  {
+   "name": "pinball.remote.twitter.friend.FriendsIdsRemoteInput",
+   "offset": 7750913,
+   "constructs": [
+    "Finished"
+   ]
+  },
+  {
+   "name": "pinball.remote.twitter.oAuth.accessToken.OAuthAccessTokenRemoteInput",
+   "offset": 7751350,
+   "constructs": [
+    "Finished",
+    "Error"
+   ]
+  },
+  {
+   "name": "pinball.remote.twitter.oAuth.requestToken.OAuthRequestTokenRemoteInput",
+   "offset": 7752077,
+   "constructs": [
+    "Finished",
+    "AlreadyAuthenticated"
+   ]
+  },
+  {
+   "name": "pinball.remote.twitter.user.UsersShowRemoteInput",
+   "offset": 7752852,
+   "constructs": [
+    "Finished"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.BattleSceneDiffuseKey",
+   "offset": 7795048,
+   "constructs": [
+    "PlayerMode",
+    "ScreenSize"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.BattleDiffuseKey",
+   "offset": 7844641,
+   "constructs": [
+    "Username",
+    "IsPrimaryBattle",
+    "KBattleId"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.BattleState",
+   "offset": 7845276,
+   "constructs": [
+    "Ready",
+    "Playing",
+    "Annihilated",
+    "QuestClear",
+    "NextFloor",
+    "TimeOver",
+    "GameOver"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.SkippableLogicKind",
+   "offset": 7871549,
+   "constructs": [
+    "Action",
+    "Locus",
+    "HealthPointAlert",
+    "TapIndicator",
+    "ForegroundAdded",
+    "ForegroundFixed",
+    "Tiled"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.action.ActionEffectMode",
+   "offset": 7967140,
+   "constructs": [
+    "Smoothing",
+    "Snapping"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.action.ActionEffectState",
+   "offset": 7967719,
+   "constructs": [
+    "Normal",
+    "Fading"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.action.ActionEvent",
+   "offset": 8031918,
+   "constructs": [
+    "ExecutorsStateGroupIsChanged",
+    "CollisionOfBallAndEnemy"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.action.ActionHitAreaName",
+   "offset": 8072533,
+   "constructs": [
+    "Some",
+    "UUID"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.action.ActionType",
+   "offset": 8077447,
+   "constructs": [
+    "EnemyAction",
+    "ActionSkill",
+    "PowerFlip",
+    "InstantItem",
+    "SkillInvoker"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.boss.generalBoss.GeneralBossFunnelSpawnPoint",
+   "offset": 8235013,
+   "constructs": [
+    "FunnelGroup",
+    "Specific"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.boss.generalBoss.GeneralBossTargetState",
+   "offset": 8260712,
+   "constructs": [
+    "Wait",
+    "Loop",
+    "End"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.boss.generalBoss.GeneralBossWindKind",
+   "offset": 8273069,
+   "constructs": [
+    "WesterlyWind",
+    "EasterlyWind"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.boss.generalBoss.GeneralBossWindState",
+   "offset": 8274955,
+   "constructs": [
+    "Windlessness",
+    "WesterlyWind",
+    "EasterlyWind"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.boss.kraken.KrakenUniqueState",
+   "offset": 8316766,
+   "constructs": [
+    "Start",
+    "FunnnelCharge11",
+    "FunnnelAttack11",
+    "Neutral12",
+    "ShotCharge11",
+    "ShotAttack11",
+    "Neutral13",
+    "ShotCharge12",
+    "ShotAttack12",
+    "Neutral14",
+    "SpecialCharge1",
+    "SpecialAttack1",
+    "FunnnelCharge21",
+    "FunnnelAttack21",
+    "Neutral22",
+    "ShotCharge21",
+    "ShotAttack21",
+    "Neutral23",
+    "ShotCharge22",
+    "ShotAttack22",
+    "Neutral24",
+    "SpecialCharge2",
+    "SpecialAttack2",
+    "FunnnelCharge31",
+    "FunnnelAttack31",
+    "Neutral32",
+    "ShotCharge31",
+    "ShotAttack31",
+    "Neutral33",
+    "ShotCharge32",
+    "ShotAttack32",
+    "Neutral34",
+    "SpecialCharge3",
+    "SpecialAttack3"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.boss.orochi.OrochiUniqueState",
+   "offset": 8337593,
+   "constructs": [
+    "Hidden",
+    "Start",
+    "SkillCharge",
+    "SkillShot"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.chain.SkillChainEffectSize",
+   "offset": 8340181,
+   "constructs": [
+    "Small",
+    "Medium",
+    "Large"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.chain.SkillChainElementKind",
+   "offset": 8340818,
+   "constructs": [
+    "Element",
+    "None"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.chain.SkillChainManagerState",
+   "offset": 8357973,
+   "constructs": [
+    "Inactive",
+    "PlayingCutin",
+    "PlayingEffect",
+    "InvokingChain"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.condition.ConditionBufferOwner",
+   "offset": 8363999,
+   "constructs": [
+    "Member",
+    "Enemy"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.condition.ConditionSlotOwner",
+   "offset": 8414578,
+   "constructs": [
+    "xBall",
+    "xMember",
+    "xEnemy"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.cutin.CutinActionSkillKind",
+   "offset": 8420698,
+   "constructs": [
+    "None",
+    "Single",
+    "Double",
+    "Assist"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.cutin.CutinKind",
+   "offset": 8435333,
+   "constructs": [
+    "Simple",
+    "ActionSkill",
+    "SkillChain",
+    "GameOver",
+    "TimeOver",
+    "QuestClear"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.cutin.SimpleCutinKind",
+   "offset": 8457421,
+   "constructs": [
+    "ZoneClear",
+    "ZoneObjective1",
+    "ZoneObjective2",
+    "JoiningAssistCharacter"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.effect.DamageEffectKind",
+   "offset": 8473789,
+   "constructs": [
+    "ToFriendlyAura",
+    "ToFriendlyNormal",
+    "ToFriendlyPoison",
+    "ToHostilePoison",
+    "ToHostileNormal",
+    "ToHostileStun",
+    "ToHostileStunAndWeak",
+    "ToHostileWeak",
+    "CureToFriendly",
+    "CureToHostile"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.effect.EffectKind",
+   "offset": 8480042,
+   "constructs": [
+    "Simple",
+    "DamageToHostile",
+    "DamageToFriendly",
+    "CureToFriendly",
+    "CureToHostile",
+    "SpeechBalloon",
+    "AcquiredInstantItem"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.effect.SimpleEffectKind",
+   "offset": 8509651,
+   "constructs": [
+    "SaturatedLinework",
+    "PowerFlip1",
+    "PowerFlip2",
+    "PowerFlip3",
+    "WarningOfHostileAttack",
+    "SkillReady",
+    "SkillReadyTop1",
+    "SkillReadyTop2",
+    "SkillReadyTop3",
+    "BreakZakoRipple",
+    "BreakZakoIcon",
+    "FallIntoOuthole",
+    "TimeLimit30s",
+    "TimeLimit10s",
+    "TimeLimit5s",
+    "TimeLimit4s",
+    "TimeLimit3s",
+    "TimeLimit2s",
+    "TimeLimit1s",
+    "EscapeLine",
+    "EscapeParticle",
+    "EscapeShine",
+    "AuraExplosion",
+    "BossDisappear",
+    "ZakoAppear",
+    "ZakoDisappear",
+    "ZakoVanishingSmokeA",
+    "ZakoVanishingSmokeB",
+    "ZakoWince",
+    "BossWince1",
+    "BossStun",
+    "BossTextBreak",
+    "BossTextCancel",
+    "WeakPointBroken",
+    "AttackToFriendlyAura",
+    "AttackToFriendlyHit",
+    "AttackToHostileSmash",
+    "DashCloud",
+    "LaunchCracker",
+    "LaunchMagic",
+    "LaunchSaturatedLinework",
+    "LaunchAppearance",
+    "CoffinRevival",
+    "CoffinSet",
+    "SkillFlash",
+    "OpenTransitPod",
+    "RotationPanelOpen",
+    "RotationPanelClose",
+    "WarpBegin",
+    "WarpEnd",
+    "InstantItemAppeared",
+    "ObtainableInstantItemAcquired",
+    "ObtainableInstantItemEffect",
+    "MultiballReady",
+    "MultiballAppeared",
+    "MultiballDisappeared",
+    "ActionSkillCutin",
+    "SkillChain",
+    "SquadGenerationNotice",
+    "AttackResist",
+    "DamageEffectResist",
+    "SubroutineChange",
+    "NextFloor",
+    "HitEffect",
+    "AbilityMoment",
+    "AbilityPerpetuity",
+    "SkillPointIncreased1",
+    "SkillPointIncreased2",
+    "SkillPointDecreased1",
+    "SkillPointDecreased2",
+    "FeverPointIncreased1",
+    "FeverPointIncreased2",
+    "FeverPointDecreased1",
+    "FeverPointDecreased2"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.effect.SimpleEffectPosition",
+   "offset": 8529796,
+   "constructs": [
+    "TrackingTarget",
+    "FixedPosition"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.enemy.DetoughnessTiming",
+   "offset": 8542916,
+   "constructs": [
+    "Always",
+    "OnlyFeverMode",
+    "Never"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.enemy.EnemyCommonState",
+   "offset": 8543562,
+   "constructs": [
+    "Dead",
+    "Stun",
+    "Wince"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.enemy.EnemyState",
+   "offset": 8547397,
+   "constructs": [
+    "Common",
+    "Unique"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.enemy.GeneralEnemyNextState",
+   "offset": 8550822,
+   "constructs": [
+    "None",
+    "SbChange",
+    "StChange"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.enemy.GeneralEnemySbChangeTest",
+   "offset": 8551744,
+   "constructs": [
+    "HealthPoint"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.enemy.WeakPointFrame",
+   "offset": 8567104,
+   "constructs": [
+    "None",
+    "Some",
+    "Keep"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.enemy.WeakPointState",
+   "offset": 8581992,
+   "constructs": [
+    "Closed",
+    "Opened",
+    "Broken"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.escape.ScoutPriority",
+   "offset": 8586528,
+   "constructs": [
+    "Equality",
+    "OnlyWeakPoint",
+    "WeakPointAndBoss",
+    "OnlyBossUnit"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.feature.BattleFeaturePermitKind",
+   "offset": 8589650,
+   "constructs": [
+    "SkillPreview",
+    "GachaSkillPreview",
+    "NormalSingleBattle",
+    "TutorialSingleBattle",
+    "MultiBattle"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.field.FieldAnimationKind",
+   "offset": 8596810,
+   "constructs": [
+    "Background",
+    "Foreground",
+    "ForegroundAdded",
+    "ForegroundFixed",
+    "Tiled"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.flipper.BattleFlipperGuidePointState",
+   "offset": 8604954,
+   "constructs": [
+    "Init",
+    "AfterShot"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.flipper.FlipperPosition",
+   "offset": 8635547,
+   "constructs": [
+    "LeftSide",
+    "RightSide"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.flipper.FlipperTouchPhase",
+   "offset": 8636048,
+   "constructs": [
+    "Began",
+    "Ended"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.funnel.FunnelAdditionalStrategy",
+   "offset": 8637251,
+   "constructs": [
+    "Random",
+    "Static"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.funnel.FunnelSubManagerNo",
+   "offset": 8655590,
+   "constructs": [
+    "No01",
+    "No02",
+    "No03",
+    "No04",
+    "No05",
+    "No06",
+    "No07",
+    "No08",
+    "No09",
+    "No10"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.funnel.tentacle.TentacleUniqueState",
+   "offset": 8669397,
+   "constructs": [
+    "Start",
+    "Neutral",
+    "AttackCharge",
+    "Attack",
+    "SpecialStart",
+    "Special",
+    "End"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.hud.HudToastKind",
+   "offset": 8726692,
+   "constructs": [
+    "T1",
+    "T2"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.hud.HudToastManagerState",
+   "offset": 8729189,
+   "constructs": [
+    "None",
+    "Some"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.impact.GreatestImpactResultContent",
+   "offset": 8739890,
+   "constructs": [
+    "Attack",
+    "Heal",
+    "SkillChain"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.impact.ImpactSourceContent",
+   "offset": 8767283,
+   "constructs": [
+    "NormalAttack",
+    "RatioAttack",
+    "FixedAttack",
+    "NormalHeal",
+    "RatioHeal",
+    "ContinuationRatioHeal",
+    "FixedHeal",
+    "ConditionChanges",
+    "ConditionCancels",
+    "DecreaseCoffinCount",
+    "SkillChain"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.particle.ElementParticleSize",
+   "offset": 8778374,
+   "constructs": [
+    "Large",
+    "Medium",
+    "Small"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.physics.HitTestKind",
+   "offset": 8788722,
+   "constructs": [
+    "ContactExists",
+    "OnlyContactCreated",
+    "OnlyContactDestroyed"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.sound.BattleBgmKind",
+   "offset": 8806537,
+   "constructs": [
+    "Normal",
+    "Tsunagi",
+    "Fanfare"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.sound.BattleSoundMode",
+   "offset": 8807235,
+   "constructs": [
+    "Me",
+    "Both"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.squad.ActionSkillInnovationState",
+   "offset": 8815808,
+   "constructs": [
+    "ProhibitedBySystem",
+    "ProhibitedBySkillMoving",
+    "ProhibitedByDeath",
+    "ProhibitedByLackingOfSkillPoint",
+    "ProhibitedByParalysis",
+    "InvocationReady"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.squad.EmitterPlace",
+   "offset": 8827631,
+   "constructs": [
+    "Left",
+    "Right"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.squad.EmitterState",
+   "offset": 8828088,
+   "constructs": [
+    "Ready",
+    "Deploying",
+    "Cooldown"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.squad.MultiballReadyEffectKind",
+   "offset": 8840542,
+   "constructs": [
+    "E1",
+    "E2"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.squad.SquadDiffuseKey",
+   "offset": 8841950,
+   "constructs": [
+    "KConditionSlot"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.squad.SquadKind",
+   "offset": 8867459,
+   "constructs": [
+    "Primary",
+    "Summons",
+    "Bomb"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.squad.SquadSpawnerKind",
+   "offset": 8887600,
+   "constructs": [
+    "ActionSkill",
+    "ExecutableInstantItem",
+    "SkillInvoker",
+    "AssistCharacter"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.squad.SquadState",
+   "offset": 8888553,
+   "constructs": [
+    "Active",
+    "Inactive"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.squad.SquadSteppingMode",
+   "offset": 8889017,
+   "constructs": [
+    "AllSquads",
+    "OnlyActiveSquads"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.squad._EctoplasmicSquad.SpawnSide",
+   "offset": 8818991,
+   "constructs": [
+    "LeftSide",
+    "RightSide"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.squad.ball.BallState",
+   "offset": 8936687,
+   "constructs": [
+    "Appearance",
+    "PhysicalMoving",
+    "SkillMoving",
+    "ZoneTransition",
+    "Swinging",
+    "Returning",
+    "Escaping",
+    "SkillCutin",
+    "Warping",
+    "Stay",
+    "Eliminated"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.squad.ball.CollisionalState",
+   "offset": 8955270,
+   "constructs": [
+    "Never",
+    "Usual"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.squad.ball.EndingSpeed",
+   "offset": 8955766,
+   "constructs": [
+    "Stop",
+    "KeepGoing",
+    "RestoreToSpeedBeforeCommandExecution",
+    "RestoreToSpeedBeforeActionExecution"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.squad.ball.EscapeTarget",
+   "offset": 8956863,
+   "constructs": [
+    "Forbidden",
+    "NotFound",
+    "TargetFound"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.squad.ball.PhysicalBehavior",
+   "offset": 8959045,
+   "constructs": [
+    "ActionSkill",
+    "DashPanel",
+    "GravitationalField",
+    "Tornado",
+    "Slingshot",
+    "Wind"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.squad.member.AnnihilationState",
+   "offset": 9037291,
+   "constructs": [
+    "Tracking",
+    "Coffin"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.squad.member.MemberState",
+   "offset": 9035301,
+   "constructs": [
+    "Tracking",
+    "Encoffinment",
+    "Coffin",
+    "Reallocation",
+    "Revival",
+    "Annihilated"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.zone.SpawnPointState",
+   "offset": 9093043,
+   "constructs": [
+    "Held",
+    "Subscribed",
+    "Released",
+    "Downtime"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.zone.ZoneDiffuseKey",
+   "offset": 9104088,
+   "constructs": [
+    "FunnelManager1",
+    "FunnelManager2",
+    "FunnelManager3",
+    "FunnelManager4",
+    "FunnelManager5",
+    "FunnelManager6",
+    "FunnelManager7",
+    "FunnelManager8",
+    "FunnelManager9",
+    "FunnelManager10",
+    "Bounds",
+    "GlobalCustomPositions",
+    "GravitationalFields"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.zone.ZoneManagerState",
+   "offset": 9147872,
+   "constructs": [
+    "Usual",
+    "Transition"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.zone.ZoneObjective",
+   "offset": 9149088,
+   "constructs": [
+    "EliminateZakoes",
+    "EliminateBosses",
+    "Unspecified"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.zone.ZoneState",
+   "offset": 9149922,
+   "constructs": [
+    "Initial",
+    "Belligerency",
+    "Overkill",
+    "Vanishing",
+    "Completed",
+    "Transition"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.zone.ZoneTransitionKind",
+   "offset": 9152029,
+   "constructs": [
+    "Launch"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.zone.coffin.CoffinState",
+   "offset": 9169674,
+   "constructs": [
+    "Own",
+    "Somebodys"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.zone.fever.FeverPointGaugeState",
+   "offset": 9195026,
+   "constructs": [
+    "Disabled",
+    "Usual",
+    "Fever"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.zone.item.InstantItemDrawnBy",
+   "offset": 9212205,
+   "constructs": [
+    "EliminatedEnemy",
+    "BreakableDecoration",
+    "BreakableBlock"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.zone.transitPod.TransitPodState",
+   "offset": 9248510,
+   "constructs": [
+    "Closed",
+    "Opening",
+    "Opened",
+    "Invalid"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.zone.yakumono.assist.AssistYakumonoState",
+   "offset": 9281141,
+   "constructs": [
+    "Activated",
+    "Deactivated",
+    "Opening",
+    "Cooldown"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.zone.yakumono.dashPanel.DashPanelState",
+   "offset": 9351290,
+   "constructs": [
+    "Activated",
+    "Deactivated",
+    "Cooldown"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.zone.yakumono.directInstantItem.DirectInstantItemState",
+   "offset": 9375944,
+   "constructs": [
+    "Activated",
+    "Inactivated",
+    "Acquired"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.zone.yakumono.skillInvoker.SkillInvokerState",
+   "offset": 9423524,
+   "constructs": [
+    "Activated",
+    "Deactivated",
+    "Opening",
+    "Cooldown"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.zone.yakumono.talky.TalkyYakumonoState",
+   "offset": 9460424,
+   "constructs": [
+    "Activated",
+    "Deactivated",
+    "Opening",
+    "Cooldown"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.battle.zone.yakumono.warpHole.WarpHoleState",
+   "offset": 9478122,
+   "constructs": [
+    "Activated",
+    "Deactivated",
+    "Cooldown"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.camera.CameraState",
+   "offset": 9501949,
+   "constructs": [
+    "Stopping",
+    "TutorialPan",
+    "ShakeSmall",
+    "ShakeMedium",
+    "ShakeLarge"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.command.BattleCommand",
+   "offset": 9504107,
+   "constructs": [
+    "User",
+    "Coop"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.command.BattleOutputCommand",
+   "offset": 9506701,
+   "constructs": [
+    "Scene",
+    "Coop",
+    "ZoneFinish"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.command.BattleSceneCommand",
+   "offset": 9507492,
+   "constructs": [
+    "StartAnnihilatedCutIn",
+    "Annihilated",
+    "GameOver",
+    "AutoLaunch",
+    "FeedbackToViewInputProcessor",
+    "ShowInstantMessage",
+    "OpenWaitingMateDialog",
+    "StartReplay",
+    "OpenMovieDialog",
+    "OpenScenarioDialog",
+    "StartTutorial",
+    "ScreenCapture"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.derailleur.BattleDerailleurInput",
+   "offset": 9521401,
+   "constructs": [
+    "User",
+    "Leave"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.derailleur.BattleDerailleurOutput",
+   "offset": 9521974,
+   "constructs": [
+    "OutputCommandsWithFrame",
+    "Remove"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.lifeCycle.LifeCycleSteppingMode",
+   "offset": 9527589,
+   "constructs": [
+    "NoEntity",
+    "OnlySquad",
+    "SkillChain",
+    "AllEntities"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.tutorial.TutorialInstructionState",
+   "offset": 9563608,
+   "constructs": [
+    "None",
+    "Touch",
+    "Dash",
+    "SkillFocusing",
+    "SkillFocused",
+    "SkillInvoke"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.tutorial.dialog.PowerFlipFailureDialogState",
+   "offset": 9569970,
+   "constructs": [
+    "Stay",
+    "BlackOut",
+    "End"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.view.BattleViewKind",
+   "offset": 9709846,
+   "constructs": [
+    "SkillPointGauge",
+    "SkillPointIndicator",
+    "TapIndicator",
+    "ComboCounter",
+    "ComboIncreased",
+    "FieldBack",
+    "FieldFore",
+    "FieldAdded",
+    "FieldFixed",
+    "FieldTiled",
+    "SpawnPoint",
+    "FeverPointGauge",
+    "HealthPointAlert",
+    "TutorialInstruction",
+    "HudToast",
+    "HudElapsedTime",
+    "HudEmotionButton",
+    "HudMemberStatus",
+    "HudObtainedScore",
+    "HudZoneObjective",
+    "HudSkillChainHistory",
+    "HudTitle",
+    "MemberConditionBuffer4",
+    "MemberConditionBuffer1",
+    "SummonConditionBuffer",
+    "EnemyConditionBuffer",
+    "ConditionEffect",
+    "AbilityEffect",
+    "SubroutineChangeIndicator",
+    "UiPauseButton",
+    "UiAutoplayButton",
+    "UiAutoskillButton",
+    "StuckResetButton",
+    "Ball",
+    "Member",
+    "EctoplasmicSquad",
+    "DamageEffect",
+    "SpeechBalloon",
+    "Cutin",
+    "Effect",
+    "Locus",
+    "AcquiredInstantItem",
+    "MemberHealthPointIndicator",
+    "BallUsername",
+    "CutinActionSkill",
+    "CutinSkillChain",
+    "CutinGameOver",
+    "CutinQuestClear",
+    "ActionEffect",
+    "BossHealthPointGauge",
+    "WeakPoint",
+    "WeakPointCountdown",
+    "GeneralBossWind",
+    "GeneralBossTarget",
+    "GeneralBossTornado",
+    "GeneralBossGravitationalField",
+    "GeneralBossShield",
+    "Boss",
+    "Funnel",
+    "General16DotsAura",
+    "General16DotsPiyo",
+    "VanishingSweat",
+    "Zako",
+    "ZakoEctoplasm",
+    "Gate",
+    "Outhole",
+    "TransitPod",
+    "Flipper",
+    "Bumper",
+    "Block",
+    "Slingshot",
+    "Decoration",
+    "Yuremono",
+    "WarpHole",
+    "DashPanel",
+    "OneWayWall",
+    "SkillInvoker",
+    "TalkyYakumono",
+    "DirectInstantItem",
+    "BreakableBlock",
+    "BreakableDecoration",
+    "AssistYakumono",
+    "CharacterSprite",
+    "FlipButtonProcessor"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.view.BattleViewMode",
+   "offset": 9729573,
+   "constructs": [
+    "Playing",
+    "Restore",
+    "SkillPreview"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.viewInput.EmotionSelectorState",
+   "offset": 9744063,
+   "constructs": [
+    "Closed",
+    "Opened"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.viewInput.dispatcher.BattleViewInput",
+   "offset": 9744912,
+   "constructs": [
+    "TouchBegin",
+    "TouchMove",
+    "TouchEnd",
+    "Direct"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.viewInput.dispatcher.touch.TouchRegionKind",
+   "offset": 9756350,
+   "constructs": [
+    "FlipButtonBoth",
+    "StuckResetButton",
+    "SkipButton",
+    "ShowEmotionsSlector",
+    "HideEmotionsSlector",
+    "Emotion1",
+    "Emotion2",
+    "Emotion3",
+    "Emotion4",
+    "PauseButton",
+    "AutoplayButton",
+    "AutoskillButton"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.viewInput.processor.BattleViewInputProcessorCommand",
+   "offset": 9774483,
+   "constructs": [
+    "ToPauseButton",
+    "ToFlipperProcessor"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.viewInput.processor.ToFlipperProcessorCommand",
+   "offset": 9775264,
+   "constructs": [
+    "PrimarySquadFlipped",
+    "ActionSkillInnovationSucceeded",
+    "ActionSkillInnovationFailed1",
+    "ActionSkillInnovationFailed2",
+    "CancelState"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.viewInput.processor.ToPauseButtonCommand",
+   "offset": 9776717,
+   "constructs": [
+    "CancelState"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.viewInput.processor.autoplayButton.AutoplayButtonState",
+   "offset": 9779601,
+   "constructs": [
+    "Up",
+    "Down"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.viewInput.processor.autoskillButton.AutoskillButtonState",
+   "offset": 9785950,
+   "constructs": [
+    "Up",
+    "Down"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.viewInput.processor.flipButton.ControlBoardArea",
+   "offset": 9814404,
+   "constructs": [
+    "ActionSkill1",
+    "ActionSkill2",
+    "ActionSkill3"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.viewInput.processor.flipButton.ControlBoardState",
+   "offset": 9815171,
+   "constructs": [
+    "Inactive",
+    "Active"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.viewInput.processor.pauseButton.PauseButtonState",
+   "offset": 9836253,
+   "constructs": [
+    "Up",
+    "Down"
+   ]
+  },
+  {
+   "name": "pinball.scene.battle.viewInput.processor.resetButton.ResetButtonState",
+   "offset": 9842308,
+   "constructs": [
+    "Up",
+    "Down"
+   ]
+  },
+  {
+   "name": "pinball.scene.character.CharacterSceneViewInput",
+   "offset": 9845734,
+   "constructs": [
+    "CharacterList",
+    "Detail",
+    "CharacterTableInput",
+    "PartyCarouselInput",
+    "CharacterButtonProcessor"
+   ]
+  },
+  {
+   "name": "pinball.scene.character.cell.CharacterCellViewAlign",
+   "offset": 9874715,
+   "constructs": [
+    "Center",
+    "Bottom"
+   ]
+  },
+  {
+   "name": "pinball.scene.character.cell.CharacterCellViewDataSourceKind",
+   "offset": 9875201,
+   "constructs": [
+    "DragTarget",
+    "Carousel",
+    "List"
+   ]
+  },
+  {
+   "name": "pinball.scene.character.cell.button.CharacterCellButtonProcessorViewInput",
+   "offset": 9891518,
+   "constructs": [
+    "Begin",
+    "Move",
+    "End",
+    "Cancel"
+   ]
+  },
+  {
+   "name": "pinball.scene.character.characterList.CharacterListViewInput",
+   "offset": 9901723,
+   "constructs": [
+    "SetDropCharacterAreas"
+   ]
+  },
+  {
+   "name": "pinball.scene.character.partyCarousel.PartyCarouselViewInput",
+   "offset": 9926660,
+   "constructs": [
+    "SetRegion"
+   ]
+  },
+  {
+   "name": "pinball.scene.character.scroll.CharacterSceneScrollViewInput",
+   "offset": 9927737,
+   "constructs": [
+    "Began",
+    "Move",
+    "End",
+    "Cancel"
+   ]
+  },
+  {
+   "name": "pinball.scene.character.translator.InventoryCharacterAccessoryKind",
+   "offset": 9929621,
+   "constructs": [
+    "Rarity",
+    "Attack",
+    "Hp",
+    "Level",
+    "SkillLevel"
+   ]
+  },
+  {
+   "name": "pinball.scene.character.translator.InventoryCharacterState",
+   "offset": 9931047,
+   "constructs": [
+    "Neutral",
+    "Participant",
+    "Protected",
+    "Remaining"
+   ]
+  },
+  {
+   "name": "pinball.scene.character.translator.PixelArtCharacterKind",
+   "offset": 9929035,
+   "constructs": [
+    "Animation",
+    "Doll"
+   ]
+  },
+  {
+   "name": "pinball.scene.characterGet.CharacterGetBgmKind",
+   "offset": 9933089,
+   "constructs": [
+    "Normal",
+    "Continuation"
+   ]
+  },
+  {
+   "name": "pinball.scene.characterGet.CharacterGetKind",
+   "offset": 9935300,
+   "constructs": [
+    "Gacha",
+    "General",
+    "TutorialLight"
+   ]
+  },
+  {
+   "name": "pinball.scene.characterGet.ballMovie.BallMovieKind",
+   "offset": 9961755,
+   "constructs": [
+    "Gacha",
+    "SingleMovie"
+   ]
+  },
+  {
+   "name": "pinball.scene.characterGet.ballMovie.BallMovieState",
+   "offset": 9962606,
+   "constructs": [
+    "Transition",
+    "EntryBeforeSkip",
+    "Entry",
+    "Starting",
+    "EndStarting",
+    "Falling",
+    "FallingSlow",
+    "FallingRarity5",
+    "FadeOut"
+   ]
+  },
+  {
+   "name": "pinball.scene.characterGet.ballMovie.displayElement.DisplayElementShape",
+   "offset": 9977649,
+   "constructs": [
+    "Circle",
+    "Rectangle"
+   ]
+  },
+  {
+   "name": "pinball.scene.characterGet.ballMovie.displayElement.DisplayElementUpdateKind",
+   "offset": 9978426,
+   "constructs": [
+    "FullFrame",
+    "SubFrame"
+   ]
+  },
+  {
+   "name": "pinball.scene.characterGet.joinMovie.CharacterGetJoinMovieViewInput",
+   "offset": 10009929,
+   "constructs": [
+    "SkipSelected",
+    "FullShotCharacterLoadCompleted"
+   ]
+  },
+  {
+   "name": "pinball.scene.characterGet.joinMovie.JoinMovieRenderMode",
+   "offset": 10025532,
+   "constructs": [
+    "Normal",
+    "Dotnize"
+   ]
+  },
+  {
+   "name": "pinball.scene.characterGet.joinMovie._CharacterGetJoinMovieScene.CharacterGetJoinMovieSceneState",
+   "offset": 10000523,
+   "constructs": [
+    "WaitLoadingFullShotCharacter",
+    "FullShotCharacterLoadCompleted",
+    "StartMovie"
+   ]
+  },
+  {
+   "name": "pinball.scene.companyLogo.CompanyLogoViewInput",
+   "offset": 10050724,
+   "constructs": [
+    "DisplayCompleted",
+    "DisplayTapped"
+   ]
+  },
+  {
+   "name": "pinball.scene.companyLogo.FadeState",
+   "offset": 10043149,
+   "constructs": [
+    "FadeIn",
+    "FadePause",
+    "FadeOut",
+    "FadeEnd"
+   ]
+  },
+  {
+   "name": "pinball.scene.debug.blank.DebugBlankViewInput",
+   "offset": 10053143,
+   "constructs": [
+    "Click"
+   ]
+  },
+  {
+   "name": "pinball.scene.home.HomeSceneState",
+   "offset": 10087728,
+   "constructs": [
+    "Main",
+    "Town",
+    "ChapterSelect"
+   ]
+  },
+  {
+   "name": "pinball.scene.home.HomeViewInput",
+   "offset": 10088388,
+   "constructs": [
+    "SwipeGesture"
+   ]
+  },
+  {
+   "name": "pinball.scene.home.town.TownViewInput",
+   "offset": 10095600,
+   "constructs": [
+    "Position"
+   ]
+  },
+  {
+   "name": "pinball.scene.questResult.QuestResultDebugInput",
+   "offset": 10141705,
+   "constructs": [
+    "Reload"
+   ]
+  },
+  {
+   "name": "pinball.scene.questResult.QuestResultSceneContinuation",
+   "offset": 10163570,
+   "constructs": [
+    "None",
+    "ScoreReward",
+    "SpecialReward"
+   ]
+  },
+  {
+   "name": "pinball.scene.questResult.QuestResultSceneDiffuseKey",
+   "offset": 10164326,
+   "constructs": [
+    "SpecialRewardQueue",
+    "NextButton",
+    "DisbandButton",
+    "RoomButton"
+   ]
+  },
+  {
+   "name": "pinball.scene.questResult.QuestResultSceneState",
+   "offset": 10165183,
+   "constructs": [
+    "Initialize",
+    "Title",
+    "MvpCard",
+    "MvpCardClosing",
+    "ScoreCard",
+    "ClearRankApearance",
+    "PlayerRankAndExperienceCardAppear",
+    "PlayerRankCardGaugeAnimation",
+    "PlayerRankUp",
+    "PlayerRankUpAfterInterval",
+    "ExperienceCardGaugeAnimation",
+    "ItemCard",
+    "ShootingStar",
+    "OpenRareRewards",
+    "JoinedCharacterForItemCard",
+    "SpecialRewardCard",
+    "JoinedCharacterForSpecialRewardCard",
+    "MultiCardAppearance",
+    "ShowingButton",
+    "WaitingForTappingNextButton",
+    "Finished"
+   ]
+  },
+  {
+   "name": "pinball.scene.questResult.QuestResultViewDiffuseKey",
+   "offset": 10206655,
+   "constructs": [
+    "ButtonGroup",
+    "BackgroundLayer",
+    "UiLayer",
+    "ScreenEffectLayer"
+   ]
+  },
+  {
+   "name": "pinball.scene.questResult.QuestResultViewInput",
+   "offset": 10207503,
+   "constructs": [
+    "Skip",
+    "RegionSetup"
+   ]
+  },
+  {
+   "name": "pinball.scene.questResult._QuestResultSceneStateMachine.SkipResult",
+   "offset": 10185046,
+   "constructs": [
+    "Skipped",
+    "Nothing"
+   ]
+  },
+  {
+   "name": "pinball.scene.questResult.item._ItemCardLogic.RewardOpeningState",
+   "offset": 10262913,
+   "constructs": [
+    "NormalRewards",
+    "RareRewards",
+    "AllDone"
+   ]
+  },
+  {
+   "name": "pinball.scene.questResult.score._CountUpTextLogic.CountUpTextState",
+   "offset": 10338450,
+   "constructs": [
+    "Idle",
+    "Playing",
+    "Finished"
+   ]
+  },
+  {
+   "name": "pinball.scene.questResult.score.scoreBonusList._ScoreBonusListLogic.ScoreBonusScrollState",
+   "offset": 10363907,
+   "constructs": [
+    "Idle",
+    "Scrolling"
+   ]
+  },
+  {
+   "name": "pinball.scene.questResult.starShoot._ShootingStarAnimationLogic.ShootingStarAnimationState",
+   "offset": 10379480,
+   "constructs": [
+    "Idle",
+    "Playing",
+    "Finished"
+   ]
+  },
+  {
+   "name": "pinball.scene.splash.SplashViewInput",
+   "offset": 10394857,
+   "constructs": [
+    "DisplayCompleted",
+    "DisplayTapped"
+   ]
+  },
+  {
+   "name": "pinball.scene.storyQuest.ScenarioLayerDebugInput",
+   "offset": 10396281,
+   "constructs": [
+    "Next",
+    "Finish"
+   ]
+  },
+  {
+   "name": "pinball.scene.storyQuest.ScenarioLoadingKind",
+   "offset": 10396749,
+   "constructs": [
+    "TriggeredScenario",
+    "StoryQuest"
+   ]
+  },
+  {
+   "name": "pinball.scene.storyQuest.ScenarioSourceKind",
+   "offset": 10397602,
+   "constructs": [
+    "TriggeredScenario",
+    "StoryQuest"
+   ]
+  },
+  {
+   "name": "pinball.scene.storyQuest.StoryQuestSceneDiffuseKey",
+   "offset": 10410456,
+   "constructs": [
+    "MovieLayer",
+    "BackgroundLayer",
+    "CharacterLayer",
+    "ScreenEffectLayer",
+    "MessageWindowLayer",
+    "CharacterData"
+   ]
+  },
+  {
+   "name": "pinball.scene.storyQuest.StoryQuestSceneState",
+   "offset": 10411655,
+   "constructs": [
+    "Process",
+    "MovieSkip",
+    "WaitSequence",
+    "WaitScreenFadeInOut",
+    "WaitScreenColorEffect"
+   ]
+  },
+  {
+   "name": "pinball.scene.storyQuest.character.state.StoryCharacterActiveState",
+   "offset": 10448537,
+   "constructs": [
+    "None",
+    "Active",
+    "Inactive"
+   ]
+  },
+  {
+   "name": "pinball.scene.storyQuest.character.state.StoryCharacterVisibleState",
+   "offset": 10449482,
+   "constructs": [
+    "Hide",
+    "ShowDelay",
+    "Show"
+   ]
+  },
+  {
+   "name": "pinball.scene.storyQuest.character.tween.StoryCharacterTweenKind",
+   "offset": 10453323,
+   "constructs": [
+    "None",
+    "ActiveIn",
+    "InactiveOut"
+   ]
+  },
+  {
+   "name": "pinball.scene.storyQuest.character.tween._StoryCharacterTween.TweenPhase",
+   "offset": 10452615,
+   "constructs": [
+    "Idle",
+    "Playing"
+   ]
+  },
+  {
+   "name": "pinball.scene.storyQuest.message.balloon.MessageBalloonState",
+   "offset": 10465286,
+   "constructs": [
+    "Latest",
+    "Readed",
+    "Log"
+   ]
+  },
+  {
+   "name": "pinball.scene.storyQuest.messageWindow.MessageWindowState",
+   "offset": 10481569,
+   "constructs": [
+    "Hide",
+    "Neutral",
+    "ShowingBalloon",
+    "TextAppearing",
+    "TextAppearedWaitFrame",
+    "VisibleChangeAnimating",
+    "Log"
+   ]
+  },
+  {
+   "name": "pinball.scene.storyQuest.movie._StoryMoviePlayer.StoryMovieState",
+   "offset": 10493864,
+   "constructs": [
+    "Stop",
+    "Playing",
+    "PlayingWaitSequence",
+    "Skipping"
+   ]
+  },
+  {
+   "name": "pinball.scene.storyQuest.note.StoryQuestNote",
+   "offset": 10497220,
+   "constructs": [
+    "Command"
+   ]
+  },
+  {
+   "name": "pinball.scene.storyQuest.scenario.AutoPlayState",
+   "offset": 10508351,
+   "constructs": [
+    "None",
+    "Wait"
+   ]
+  },
+  {
+   "name": "pinball.scene.storyQuest.scenario.ScenarioLayerParentCommand",
+   "offset": 10508901,
+   "constructs": [
+    "MovieSequence",
+    "ScreenShake",
+    "ScreenShakeStop",
+    "ScreenFadeIn",
+    "ScreenFadeOut",
+    "Background",
+    "ScreenColorEffect",
+    "ScreenColorEffectCustom",
+    "ScreenColorEffectDisable"
+   ]
+  },
+  {
+   "name": "pinball.scene.storyQuest.screenEffect._ScreenEffect.FadeDirection",
+   "offset": 10529912,
+   "constructs": [
+    "In",
+    "Out"
+   ]
+  },
+  {
+   "name": "pinball.scene.storyQuest.screenEffect._ScreenEffect.ShakeDuration",
+   "offset": 10528252,
+   "constructs": [
+    "Frame",
+    "Loop"
+   ]
+  },
+  {
+   "name": "pinball.scene.storyQuest.state.ScenarioLayerState",
+   "offset": 10536529,
+   "constructs": [
+    "Initialize",
+    "Message",
+    "MessageWindowVisibleChanging",
+    "WaitParent"
+   ]
+  },
+  {
+   "name": "pinball.scene.title._TitleView.ButtonsTween",
+   "offset": 10564611,
+   "constructs": [
+    "Appearing",
+    "Shown",
+    "Hidden"
+   ]
+  },
+  {
+   "name": "pinball.scene.title._TitleView.TouchToStartLabelTween",
+   "offset": 10563541,
+   "constructs": [
+    "AlphaDecrease",
+    "AlphaIncrease",
+    "Wait",
+    "None"
+   ]
+  },
+  {
+   "name": "pinball.scene.trial.waitUserTap.FadeState",
+   "offset": 10589999,
+   "constructs": [
+    "FadeIn",
+    "FadePause",
+    "FadeOut",
+    "FadeEnd"
+   ]
+  },
+  {
+   "name": "pinball.scene.trial.waitUserTap.WaitUserTapViewInput",
+   "offset": 10596559,
+   "constructs": [
+    "DisplayTapped",
+    "FadeOutCompleted"
+   ]
+  },
+  {
+   "name": "pinball.sound.BgmFadeKind",
+   "offset": 10622815,
+   "constructs": [
+    "Immediate",
+    "FadeOutImmediate",
+    "FadeOutIn",
+    "FadeIn"
+   ]
+  },
+  {
+   "name": "pinball.sound.production.bgm.BeatSnapKind",
+   "offset": 10633254,
+   "constructs": [
+    "None",
+    "Snap"
+   ]
+  },
+  {
+   "name": "pinball.sound.production.bgm.BeatSnappedTask",
+   "offset": 10633808,
+   "constructs": [
+    "PlayBgm"
+   ]
+  },
+  {
+   "name": "pinball.sound.production.bgm.BgmOffsetKind",
+   "offset": 10659493,
+   "constructs": [
+    "Continue",
+    "Reset"
+   ]
+  },
+  {
+   "name": "pinball.sound.production.bgm.TargetBgmChannel",
+   "offset": 10661535,
+   "constructs": [
+    "Specific",
+    "All"
+   ]
+  },
+  {
+   "name": "pinball.sound.production.bgm._BgmChannel.BgmState",
+   "offset": 10646603,
+   "constructs": [
+    "Stay",
+    "Playing",
+    "FadingOutIn",
+    "FadingOutImmediate",
+    "FadingIn",
+    "FadingOut"
+   ]
+  },
+  {
+   "name": "pinball.sound.production.bgm._BgmChannel.VolumeChangeTween",
+   "offset": 10648555,
+   "constructs": [
+    "Stay",
+    "Tweening"
+   ]
+  },
+  {
+   "name": "pinball.sound.production.soundEffect.SoundEffectState",
+   "offset": 10675645,
+   "constructs": [
+    "Playing",
+    "FadingOut",
+    "Stopped",
+    "Pause"
+   ]
+  },
+  {
+   "name": "pinball.transition.slide.SlideDirection",
+   "offset": 10700595,
+   "constructs": [
+    "RightToLeft",
+    "LeftToRight"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.button.ButtonInput",
+   "offset": 10786509,
+   "constructs": [
+    "Began",
+    "Cancel",
+    "End"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.button.ButtonState",
+   "offset": 10793868,
+   "constructs": [
+    "Up",
+    "Down"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.button._BoxButtonView.BoxButtonDownBlurKind",
+   "offset": 10768917,
+   "constructs": [
+    "Common",
+    "Separately"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.button.behavior.ButtonAnimationBehaviorKind",
+   "offset": 10803371,
+   "constructs": [
+    "Any",
+    "None",
+    "Scale",
+    "CustomScale",
+    "ScaleAndBlur",
+    "Darken",
+    "Alpha",
+    "Down"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.button.config.core.ButtonConfig",
+   "offset": 10812793,
+   "constructs": [
+    "Box",
+    "Circle"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.carousel.CarouselViewInput",
+   "offset": 10839273,
+   "constructs": [
+    "Touch"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.carousel.TouchState",
+   "offset": 10839686,
+   "constructs": [
+    "Began",
+    "Moved",
+    "End"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.carousel.appearance.CarouselAreaConfig",
+   "offset": 10844845,
+   "constructs": [
+    "SinglePagePerArea",
+    "Custom"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.carousel.appearance.CarouselLayerConfig",
+   "offset": 10845692,
+   "constructs": [
+    "Single",
+    "Lazy",
+    "Detail"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.carousel.button.CarouselSideButtonStyle",
+   "offset": 10844022,
+   "constructs": [
+    "Transparent",
+    "Custom"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.chapterLogo.ChapterLogoKind",
+   "offset": 10850386,
+   "constructs": [
+    "StageNodeSelect",
+    "QuestSelect"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.characterDetail.CharacterDetailCoreState",
+   "offset": 10854321,
+   "constructs": [
+    "Status",
+    "StatusToZoomIn",
+    "EnlargedCharacter",
+    "EnlargedCharacterToStatus"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.characterDetail.CharacterDetailDiffuseKey",
+   "offset": 10871112,
+   "constructs": [
+    "ButtonGroupView",
+    "InstantInputHandler"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.characterDetail.CharacterDetailViewInput",
+   "offset": 10873456,
+   "constructs": [
+    "CharacterScroll",
+    "StatusWindow",
+    "CharacterTextureChanged"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.characterDetail.CharacterDetailViewOrderCommand",
+   "offset": 10874451,
+   "constructs": [
+    "ChangeCharacter",
+    "ChangeFullShotCharacterImage",
+    "LoadFullShotCharacterImage"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.characterDetail.scroll.CharacterScrollViewInput",
+   "offset": 10882364,
+   "constructs": [
+    "TouchBegan",
+    "TouchMove",
+    "TouchEnd",
+    "TouchCancel"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.characterDetail.statusWindow.StatusWindowFadeMotion",
+   "offset": 10891226,
+   "constructs": [
+    "Dismiss",
+    "Present"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.characterDetail.statusWindow.StatusWindowViewInput",
+   "offset": 10937493,
+   "constructs": [
+    "LayoutPoint",
+    "TouchBegan",
+    "TouchMove",
+    "TouchEnd"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.characterThumbnail.CharacterFaceAttachmentKind",
+   "offset": 10958180,
+   "constructs": [
+    "PixelArtCharacter",
+    "Item"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.characterThumbnail.CharacterFaceThumbnailSource",
+   "offset": 10938938,
+   "constructs": [
+    "None",
+    "GeneralCharacter",
+    "BattleCharacter",
+    "OwnedCharacter"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.fullShotCharacter._FullShotCharacterView.FullShotCharacterAnimationState",
+   "offset": 10991652,
+   "constructs": [
+    "None",
+    "Loading",
+    "FadeInAnimation",
+    "ShadowAnimation",
+    "Show"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.inputText.InputTextErrorAnimationState",
+   "offset": 11008597,
+   "constructs": [
+    "Hide",
+    "Show",
+    "Stop"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.inputText.InputTextInput",
+   "offset": 11002741,
+   "constructs": [
+    "Began",
+    "Ended",
+    "Edit",
+    "EditPassword"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.inputText.SoftKeyboardKind",
+   "offset": 11023721,
+   "constructs": [
+    "Default",
+    "Number"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.item.ItemThumbnailKind",
+   "offset": 11029831,
+   "constructs": [
+    "Item",
+    "Equipment",
+    "Stone",
+    "Mana",
+    "StarCrumb",
+    "BondToken",
+    "PooledExp",
+    "BossBoostPoint",
+    "BoostPoint",
+    "Custom",
+    "Empty"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.item.ThumbnailLabelKind",
+   "offset": 11053812,
+   "constructs": [
+    "FirstClearReward",
+    "RankSSClearReward",
+    "Item",
+    "HowToGet",
+    "Evolution",
+    "RequiredNumber",
+    "AchievementReward",
+    "Equipped",
+    "Protected",
+    "Hide"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.levelUp.LevelUpCardViewLayerDiffuseKey",
+   "offset": 11082605,
+   "constructs": [
+    "CurrentAdditive",
+    "CurrentFront",
+    "CurrentCharacter",
+    "CurrentBack",
+    "PreviousFront",
+    "PreviousCharacter",
+    "PreviousBack"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.list.VerticalListPagerConfig",
+   "offset": 11085243,
+   "constructs": [
+    "NotSet",
+    "Set"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.list.VerticalListViewDiffuseKey",
+   "offset": 11088730,
+   "constructs": [
+    "ContentLayer",
+    "InnerButtonGroup",
+    "DrawDispatcher"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.list.VerticalListViewInput",
+   "offset": 11089435,
+   "constructs": [
+    "CellCoordinates"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.list.cell.CellEnabledState",
+   "offset": 11094864,
+   "constructs": [
+    "Enabled",
+    "Disabled",
+    "DisabledVisual"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.list.pager.VerticalListPagerPosition",
+   "offset": 11099740,
+   "constructs": [
+    "FixedToListBottom",
+    "FollowingBottomCell"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.number.DigitsViewAlign",
+   "offset": 11107529,
+   "constructs": [
+    "Center",
+    "Left",
+    "Right"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.panel.BottomDecorationPanelViewKind",
+   "offset": 11111269,
+   "constructs": [
+    "Ground",
+    "Floating"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.panelContainerList.PanelContainerViewTitleKind",
+   "offset": 11129482,
+   "constructs": [
+    "None",
+    "Text",
+    "TextWithIcon"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.panelContainerList.content.ButtonPanelContentLayoutKind",
+   "offset": 11130859,
+   "constructs": [
+    "One",
+    "Two"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.pixelArtCharacter.PixelArtCharacterAnimationKind",
+   "offset": 11160727,
+   "constructs": [
+    "None",
+    "Neutral",
+    "WalkFront",
+    "WalkBack",
+    "SkillReady",
+    "Kachidoki",
+    "KachidokiOnce",
+    "Special",
+    "SpecialThenWalkFront",
+    "SpecialThenKachidoki"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.quest.QuestPresentationDataDetail",
+   "offset": 11179907,
+   "constructs": [
+    "Battle",
+    "Story"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.questList.QuestListDataDetail",
+   "offset": 11199543,
+   "constructs": [
+    "Selectable",
+    "Unselectable"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.questReward.BattleClearStampViewKind",
+   "offset": 11265842,
+   "constructs": [
+    "Rank",
+    "Cleared",
+    "None"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.questReward.QuestRewardSource",
+   "offset": 11266573,
+   "constructs": [
+    "None",
+    "ClearRank",
+    "JustCleared",
+    "Reward"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.rarity.RarityViewBackgroundStyle",
+   "offset": 11278669,
+   "constructs": [
+    "None",
+    "Plate",
+    "Thumbnail"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.rewardThumbnail.RewardThumbnailViewSource",
+   "offset": 11295549,
+   "constructs": [
+    "Item",
+    "Character",
+    "Empty"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.scoreGauge.ReachEffectState",
+   "offset": 11296467,
+   "constructs": [
+    "NotStarted",
+    "Playing",
+    "Finished"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.scoreGauge._ScoreGaugeLogic.ScoreGaugeState",
+   "offset": 11300502,
+   "constructs": [
+    "Idle",
+    "Playing",
+    "Finished"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.scroll.ScrollBarKind",
+   "offset": 11310609,
+   "constructs": [
+    "Horizontal",
+    "Vertical"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.scroll.ScrollDirection",
+   "offset": 11319189,
+   "constructs": [
+    "Both",
+    "Horizontal",
+    "Vertical"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.scroll.ScrollInput",
+   "offset": 11319784,
+   "constructs": [
+    "Setup",
+    "ChangeMaxY",
+    "ScrollTo",
+    "Began",
+    "Move",
+    "End",
+    "Cancel"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.scroll.ScrollOperator",
+   "offset": 11340811,
+   "constructs": [
+    "UserInput",
+    "Auto"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.scroll.ScrollState",
+   "offset": 11341426,
+   "constructs": [
+    "Up",
+    "Down"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.scroll.ScrollTouchStatus",
+   "offset": 11342022,
+   "constructs": [
+    "TouchDown",
+    "TouchUp"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.scroll._ScrollLogic.ReleaseDirection",
+   "offset": 11321501,
+   "constructs": [
+    "Positive",
+    "Negative",
+    "None"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.scroll.zoomScroll.ZoomScrollInput",
+   "offset": 11356745,
+   "constructs": [
+    "Setup",
+    "Begin",
+    "Move",
+    "End",
+    "Cancel"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.scroll.zoomScroll.ZoomScrollState",
+   "offset": 11371587,
+   "constructs": [
+    "Up",
+    "Touching",
+    "Pinching"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.slider.SliderInput",
+   "offset": 11378868,
+   "constructs": [
+    "Began",
+    "Move",
+    "End",
+    "Cancel"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.slider.SliderState",
+   "offset": 11384516,
+   "constructs": [
+    "Down",
+    "Up"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.stageNode.StageNodeMapDiffuseKey",
+   "offset": 11403703,
+   "constructs": [
+    "PathLayer",
+    "VignetteLayer",
+    "CharacterLayer",
+    "StageLabelLayer"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.stageNode.StageNodeMapViewInput",
+   "offset": 11410642,
+   "constructs": [
+    "SetPathNumber"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.stageNode.character.StageLeaderCharacterState",
+   "offset": 11415492,
+   "constructs": [
+    "Usual",
+    "Walking"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.stageNode.state.NewStageAppearanceAnimationPhase",
+   "offset": 11426476,
+   "constructs": [
+    "Path",
+    "Vignette",
+    "Walk"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.stageNode.state.StageNodeMapFocusTween",
+   "offset": 11425109,
+   "constructs": [
+    "Idle",
+    "Focusing"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.stageNode.state.StageNodeMapState",
+   "offset": 11425785,
+   "constructs": [
+    "Usual",
+    "NewStageAppear"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.switchButton.SwitchButtonInput",
+   "offset": 11450909,
+   "constructs": [
+    "Began",
+    "Move",
+    "End",
+    "Cancel"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.switchButton.SwitchButtonState",
+   "offset": 11456389,
+   "constructs": [
+    "Up",
+    "Down",
+    "Switching"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.tab.TabGroupViewStyle",
+   "offset": 11484268,
+   "constructs": [
+    "Normal",
+    "PanelHeader"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.tab.TabState",
+   "offset": 11473414,
+   "constructs": [
+    "Waiting",
+    "TabSwitchingAnimation",
+    "HidingAnimation",
+    "ShowingAnimation",
+    "Hidden"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.template.BorderFrameSceneTemplateStyle",
+   "offset": 11484733,
+   "constructs": [
+    "NoTitle",
+    "Title"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.template.CharacterImageKind",
+   "offset": 11508429,
+   "constructs": [
+    "FullShot",
+    "Cutin",
+    "None"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.template.ListLayoutConstraint",
+   "offset": 11507923,
+   "constructs": [
+    "FitScreenWidth",
+    "Center"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.template.QuestLikeSceneTemplateTitleName",
+   "offset": 11509202,
+   "constructs": [
+    "UiString",
+    "Any"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.thumbnail.ThumbnailViewEmptyStyle",
+   "offset": 11543279,
+   "constructs": [
+    "EmptyLabel",
+    "Plus"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.titleLabel.TitleStatusKind",
+   "offset": 11549144,
+   "constructs": [
+    "None",
+    "New",
+    "Clear",
+    "Next",
+    "Complete"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.titleLabel._TitleLabelView.TitleLabelMotionState",
+   "offset": 11548422,
+   "constructs": [
+    "None",
+    "Switching"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.toast.ToastKind",
+   "offset": 11550334,
+   "constructs": [
+    "Mission",
+    "Shop",
+    "Overflow"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.toast.ToastShopKind",
+   "offset": 11551248,
+   "constructs": [
+    "Common",
+    "BondToken",
+    "StarCrumb"
+   ]
+  },
+  {
+   "name": "pinball.ui.component.wheel.WheelViewColor",
+   "offset": 11580986,
+   "constructs": [
+    "Light",
+    "Dark"
+   ]
+  },
+  {
+   "name": "pinball.ui.dialog.button.DialogButtonPosition",
+   "offset": 11581423,
+   "constructs": [
+    "Positive",
+    "Negative",
+    "Center",
+    "Help"
+   ]
+  },
+  {
+   "name": "pinball.ui.dialog.container.DialogVerticalAlignKind",
+   "offset": 11586961,
+   "constructs": [
+    "Center",
+    "BetweenHeaderFooterArea",
+    "PositionCenter"
+   ]
+  },
+  {
+   "name": "pinball.ui.dialog.content.DialogContentDisplayStyle",
+   "offset": 11645403,
+   "constructs": [
+    "Static",
+    "Relative",
+    "Absolute",
+    "Fixed"
+   ]
+  },
+  {
+   "name": "pinball.ui.dialog.content.DialogInnerBoxBackgroundKind",
+   "offset": 11665558,
+   "constructs": [
+    "None",
+    "Normal",
+    "WhiteBackgroundGrayBorder",
+    "PureWhiteBackgroundGrayBorder"
+   ]
+  },
+  {
+   "name": "pinball.ui.dialog.content.DialogListViewLayoutKind",
+   "offset": 11697962,
+   "constructs": [
+    "FixedHeight",
+    "FittedHeight"
+   ]
+  },
+  {
+   "name": "pinball.ui.dialog.content.DialogTextViewTextAlign",
+   "offset": 11721221,
+   "constructs": [
+    "Head",
+    "Center",
+    "Tail"
+   ]
+  },
+  {
+   "name": "pinball.ui.dialog.content.DialogTextViewTextColor",
+   "offset": 11721827,
+   "constructs": [
+    "Normal",
+    "Notice"
+   ]
+  },
+  {
+   "name": "pinball.ui.dialog.content._DialogContentAccessory.AccessoryViewKind",
+   "offset": 11641417,
+   "constructs": [
+    "PixelArtCharacter",
+    "PixelArtCharacterWithImage",
+    "PixelArtItem",
+    "PixelArtItemWithImage"
+   ]
+  },
+  {
+   "name": "pinball.ui.dialog.layout.DialogContentIndentKind",
+   "offset": 11764924,
+   "constructs": [
+    "None",
+    "Left",
+    "Right",
+    "Both"
+   ]
+  },
+  {
+   "name": "pinball.ui.display.label.LabelLength",
+   "offset": 11799626,
+   "constructs": [
+    "Tiny",
+    "Short",
+    "Middle",
+    "Long",
+    "Custom"
+   ]
+  },
+  {
+   "name": "pinball.ui.layout.HorizontalAlign",
+   "offset": 11803519,
+   "constructs": [
+    "Left",
+    "Center",
+    "Right"
+   ]
+  },
+  {
+   "name": "pinball.ui.layout.HorizontalAnchor",
+   "offset": 11804048,
+   "constructs": [
+    "Left",
+    "Right",
+    "None"
+   ]
+  },
+  {
+   "name": "pinball.ui.layout.LayoutConstraint",
+   "offset": 11804576,
+   "constructs": [
+    "Anchor",
+    "None"
+   ]
+  },
+  {
+   "name": "pinball.ui.layout.TableDirection",
+   "offset": 11805122,
+   "constructs": [
+    "Row",
+    "Column"
+   ]
+  },
+  {
+   "name": "pinball.ui.layout.VerticalAnchor",
+   "offset": 11805523,
+   "constructs": [
+    "Top",
+    "Bottom",
+    "None"
+   ]
+  },
+  {
+   "name": "pinball.ui.linkResolver.LinkDialogKind",
+   "offset": 11806041,
+   "constructs": [
+    "Terms"
+   ]
+  },
+  {
+   "name": "pinball.ui.linkResolver.LinkKind",
+   "offset": 11806343,
+   "constructs": [
+    "Url",
+    "Scene",
+    "Dialog"
+   ]
+  },
+  {
+   "name": "pinball.ui.provider.GuideKind",
+   "offset": 11810799,
+   "constructs": [
+    "Point",
+    "Rectangle"
+   ]
+  },
+  {
+   "name": "pinball.ui.provider.UiChildElementKind",
+   "offset": 11810029,
+   "constructs": [
+    "Text",
+    "Image",
+    "Container",
+    "Guide"
+   ]
+  },
+  {
+   "name": "pinball.ui.richText.RichTextViewInput",
+   "offset": 11827848,
+   "constructs": [
+    "SetButton"
+   ]
+  },
+  {
+   "name": "pinball.ui.richText._RichTextImageLoader.RichTextLoadingSource",
+   "offset": 11818487,
+   "constructs": [
+    "LocalAsset",
+    "RemoteAsset"
+   ]
+  },
+  {
+   "name": "pinball.ui.richText.layout.RichTextLayoutButtonTypeKind",
+   "offset": 11852221,
+   "constructs": [
+    "Button",
+    "Image"
+   ]
+  },
+  {
+   "name": "pinball.ui.richText.layout.RichTextLayoutManagerIntarctionState",
+   "offset": 11865327,
+   "constructs": [
+    "Initialize",
+    "Prepare",
+    "Working"
+   ]
+  },
+  {
+   "name": "pinball.ui.richText.layout.element.RichTextTagKind",
+   "offset": 11874323,
+   "constructs": [
+    "Html",
+    "Body",
+    "Div",
+    "H1",
+    "H2",
+    "H3",
+    "P",
+    "Img",
+    "Button",
+    "B",
+    "Table",
+    "Th",
+    "Tr",
+    "Td",
+    "Hr",
+    "Br",
+    "Ul",
+    "Ol",
+    "Li",
+    "_Text_"
+   ]
+  },
+  {
+   "name": "pinball.ui.richText.style.RichTextDirectionKind",
+   "offset": 11894904,
+   "constructs": [
+    "Top",
+    "Left",
+    "Bottom",
+    "Right"
+   ]
+  },
+  {
+   "name": "pinball.ui.richText.style.RichTextFontSizeKind",
+   "offset": 11895632,
+   "constructs": [
+    "Length"
+   ]
+  },
+  {
+   "name": "pinball.ui.richText.style.RichTextFontWeightKind",
+   "offset": 11896046,
+   "constructs": [
+    "Normal",
+    "Bold"
+   ]
+  },
+  {
+   "name": "pinball.ui.richText.style.RichTextStyleBackgroundColorKind",
+   "offset": 11899085,
+   "constructs": [
+    "Transparent",
+    "Color"
+   ]
+  },
+  {
+   "name": "pinball.ui.richText.style.RichTextStyleBackgroundImageKind",
+   "offset": 11898508,
+   "constructs": [
+    "None",
+    "Url"
+   ]
+  },
+  {
+   "name": "pinball.ui.richText.style.RichTextStyleBackgroundPositionKind",
+   "offset": 11900282,
+   "constructs": [
+    "Left",
+    "Center",
+    "Right"
+   ]
+  },
+  {
+   "name": "pinball.ui.richText.style.RichTextStyleBackgroundRepeatKind",
+   "offset": 11900951,
+   "constructs": [
+    "NoRepeat"
+   ]
+  },
+  {
+   "name": "pinball.ui.richText.style.RichTextStyleBackgroundSizeKind",
+   "offset": 11899694,
+   "constructs": [
+    "Auto",
+    "Length"
+   ]
+  },
+  {
+   "name": "pinball.ui.richText.style.RichTextStyleBorderStyleKind",
+   "offset": 11901325,
+   "constructs": [
+    "None",
+    "Solid",
+    "Dashed"
+   ]
+  },
+  {
+   "name": "pinball.ui.richText.style.RichTextStyleLineHeightKind",
+   "offset": 11901959,
+   "constructs": [
+    "None",
+    "Length"
+   ]
+  },
+  {
+   "name": "pinball.ui.richText.style.RichTextTextAlignKind",
+   "offset": 11920324,
+   "constructs": [
+    "Left",
+    "Right",
+    "Center"
+   ]
+  },
+  {
+   "name": "pinball.ui.richText.style.RichTextUnitKind",
+   "offset": 11897792,
+   "constructs": [
+    "Em",
+    "Pixel",
+    "Percentage",
+    "Numelic"
+   ]
+  },
+  {
+   "name": "pinball.ui.richText.style.RichTextVerticalAlignKind",
+   "offset": 11920923,
+   "constructs": [
+    "Baseline"
+   ]
+  },
+  {
+   "name": "typepacker.core.TypeInformation",
+   "offset": 12234458,
+   "constructs": [
+    "ANONYMOUS",
+    "CLASS",
+    "ENUM",
+    "MAP",
+    "ABSTRACT",
+    "COLLECTION",
+    "PRIMITIVE",
+    "STRING",
+    "CLASS_TYPE",
+    "ENUM_TYPE",
+    "BYTES"
+   ]
+  }
+ ]
+}

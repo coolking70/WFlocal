@@ -109,6 +109,50 @@ for (const mode of MODES) {
 	console.log(`  ok   ${mode.padEnd(10)} ${result.applied.length} patches, ${result.source.length} chars, parses`);
 }
 
+// The runtime layer depends on expose-internals having published the registry,
+// and on hook() actually replacing a prototype method. Both are checkable here:
+// build a stand-in registry shaped like the real one and run the real file.
+console.log("");
+{
+	const challenge = win.WF_APPLY_PATCHES(pristine, "challenge").source;
+	if (!challenge.includes("window.WF_INTERNALS={classes:")) {
+		fail("expose-internals: patched bundle does not publish window.WF_INTERNALS");
+	} else {
+		console.log("  ok   expose-internals publishes window.WF_INTERNALS");
+	}
+
+	class FakeBattleScene {
+		get_autoPlayUnlocked() { return false; }
+	}
+	const sandbox = {
+		console: { info() {}, warn() {}, error() {} },
+		window: {
+			WF_INTERNALS: {
+				classes: { "pinball.scene.battle.BattleScene": FakeBattleScene },
+				enums: {}
+			}
+		}
+	};
+	sandbox.globalThis = sandbox;
+	vm.createContext(sandbox);
+	try {
+		new vm.Script(readFileSync(resolve(root, "WFTest/wfmod/runtime.js"), "utf8"), {
+			filename: "wfmod/runtime.js"
+		}).runInContext(sandbox);
+		const result = sandbox.window.WFMod.runtime.applyHooks();
+		const instance = new FakeBattleScene();
+		if (result.failed.length) {
+			fail(`runtime hooks reported failures: ${result.failed.join(", ")}`);
+		} else if (instance.get_autoPlayUnlocked() !== true) {
+			fail("runtime hook did not take effect on the prototype");
+		} else {
+			console.log(`  ok   runtime hooks apply (${result.applied.join(", ")})`);
+		}
+	} catch (error) {
+		fail(`wfmod/runtime.js failed to run: ${error.message}`);
+	}
+}
+
 console.log("");
 if (failures) {
 	console.error(`${failures} problem(s) found`);

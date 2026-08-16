@@ -49,7 +49,7 @@
 	</script>
 	
 	<script>
-		window.WF_MOD_BUILD = "0.3.1";
+		window.WF_MOD_BUILD = "0.3.2";
 		window.WF_DEMO_BOOT_MODE = new URLSearchParams(window.location.search).get("wfmode") || "tutorial";
 		console.info("[WFMod] build=" + window.WF_MOD_BUILD + " mode=" + window.WF_DEMO_BOOT_MODE + " bundle=pristine+patches data=pristine");
 
@@ -78,10 +78,18 @@
 			};
 		})();
 	</script>
-	<script type="text/javascript" src="lib/pako.min.js?wfbuild=0.3.1"></script>
+	<script type="text/javascript" src="lib/pako.min.js?wfbuild=0.3.2"></script>
+	<script type="text/javascript" src="wfmod/runtime.js?wfbuild=0.3.2"></script>
 	<script type="text/javascript">
 		(function () {
 			function startWorldFlipper() {
+				// The bundle has run, so its class registry is populated. Hooks must be
+				// installed before lime.embed() starts building scenes.
+				if (window.WFMod && window.WFMod.runtime) {
+					window.WFMod.runtime.applyHooks();
+				} else {
+					console.error("[WFMod] wfmod/runtime.js did not load; runtime hooks skipped");
+				}
 				onApplicationLoaded();
 				lime.embed("world-flipper", "openfl-content", 540, 960, {
 					parameters: {},
@@ -162,19 +170,15 @@
 			var CLIENT_ERROR_CTOR = "var _0x34e26d=function(_0x44c93d,_0x94baad){this['" + esc("internalMessage") +
 				"']=_0x94baad;this['" + esc("code") + "']=_0x44c93d;};";
 
+			// Haxe leaves its class and enum registries behind, keyed by real names
+			// ("pinball.scene.battle.BattleScene"), but they are locals inside the
+			// bundle's IIFE and never reach window. Publishing them is one insertion
+			// at the point they are declared.
+			var REGISTRY_DECL = "_0x7f6db2=_0x7f6db2||{},_0x38be24;";
+
 			// modes: which boot modes the patch applies to.
 			// Each `find` must occur exactly once, or the bootstrap refuses to run.
 			var PATCHES = [
-				{
-					id: "auto-unlock",
-					modes: ["tutorial", "challenge"],
-					note: "BattleScene.get_autoPlayUnlocked() asked isGameSystemUnlocked('auto_play'). " +
-						"Master game_system_unlock is empty in this Trial build, so the AUTO button was " +
-						"never unlocked (and the lookup would throw 8601 outside tutorial state).",
-					find: "'" + esc("get_autoPlayUnlocked") + "':function(){return this['" + esc("globalLogic") + "']['" +
-						esc("isGameSystemUnlocked") + "']('" + esc("auto_play") + "');}",
-					replace: "'" + esc("get_autoPlayUnlocked") + "':function(){return!0x0;}"
-				},
 				{
 					id: "auto-button-mode",
 					modes: ["tutorial", "challenge"],
@@ -182,6 +186,16 @@
 						"Return 1 (OFF) so the button is present and toggleable.",
 					find: "else{return 0x2;}},'" + esc("get_autoskillButtonMode") + "':function()",
 					replace: "else{return 0x1;}},'" + esc("get_autoskillButtonMode") + "':function()"
+				},
+				{
+					id: "expose-internals",
+					modes: ["tutorial", "challenge"],
+					note: "Publish Haxe's class and enum registries as window.WF_INTERNALS. They hold every " +
+						"class under its real name, so wfmod/runtime.js can look a class up and hook its " +
+						"prototype instead of adding another string replacement. Read-only exposure; the " +
+						"registries are the bundle's own objects, not copies.",
+					find: REGISTRY_DECL,
+					replace: REGISTRY_DECL + "window.WF_INTERNALS={classes:_0x2cc772,enums:_0x7f6db2};"
 				},
 				{
 					id: "challenge-boot",

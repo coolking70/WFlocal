@@ -31,6 +31,9 @@ EXPECTED = {
     "assets/trial/production/master/quest/main_quest.orderedmap": "added quest 111001004 (custom stage slot)",
 }
 
+# Everything under this prefix is WFMod's own code, added alongside the game.
+EXPECTED_PREFIX = ("wfmod/",)
+
 
 def sha256(path):
     h = hashlib.sha256()
@@ -53,7 +56,11 @@ def load_manifest():
 
 
 def describe(path):
-    return EXPECTED.get(path)
+    if path in EXPECTED:
+        return EXPECTED[path]
+    if path.startswith(EXPECTED_PREFIX):
+        return "added: WFMod runtime layer"
+    return None
 
 
 def main():

@@ -1,0 +1,1274 @@
+{
+ "commandEnum": "pinball.battle.action.dsl.ActionDslCommand",
+ "supported": [
+  "Trace",
+  "RemoveEvent",
+  "FindAllSubjects",
+  "FindNearSubjects",
+  "ShakeCamera",
+  "AddSkillPoint",
+  "SubtractSkillPoint",
+  "AddFeverPoint",
+  "SubtractFeverPoint",
+  "ShowEffect",
+  "HideEffect",
+  "MoveBall",
+  "StopBall",
+  "CreateNormalAttack",
+  "CreateRatioAttack",
+  "CreateFixedAttack",
+  "CreateNormalHeal",
+  "CreateRatioHeal",
+  "CreateCondition",
+  "DeleteCondition",
+  "CreateHitArea",
+  "MoveHitArea",
+  "CreateReferencePoint",
+  "CreateShockWaveAttack",
+  "CreateBombMultiball",
+  "CreateSummonsMultiball",
+  "DecreaseCoffinCount",
+  "HideCharacter",
+  "CreateWindAttack",
+  "CreateGravitationalField",
+  "CreateTornado",
+  "CreateTargetAttack",
+  "SpawnFunnel",
+  "CreateShield"
+ ],
+ "used": {
+  "AddFeverPoint": {
+   "count": 3,
+   "files": [
+    "production/battle/action/skill/action/rare3/oni_girl$oni_girl_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/mermaid$mermaid_1.action.dsl.json",
+    "production/battle/action/skill/action/rare5/ruin_girl$ruin_girl_2.action.dsl.json"
+   ],
+   "signatures": [
+    [
+     "dict",
+     3
+    ]
+   ]
+  },
+  "AddSkillPoint": {
+   "count": 1,
+   "files": [
+    "production/battle/action/item/action/skill_charge_middle.action.dsl.json"
+   ],
+   "signatures": [
+    [
+     "int, dict",
+     1
+    ]
+   ]
+  },
+  "CreateBombMultiball": {
+   "count": 1,
+   "files": [
+    "production/battle/action/skill/action/rare5/ruin_girl$ruin_girl_2.action.dsl.json"
+   ],
+   "signatures": [
+    [
+     "int, str, E2(SpecifyEffectDirectly(str),SpecifyEffectDirectly(str),SpecifyEffectDirectly(str)), SpecifyEffectDirectly(str), SpecifyEffectDirectly(str), str",
+     1
+    ]
+   ]
+  },
+  "CreateCondition": {
+   "count": 28,
+   "files": [
+    "production/battle/action/enemy/action/boss_ghost_fox/boss_ghost_fox$difficulity10_skill_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_guardian_golem/boss_guardian_golem_fire$difficulity10_ex1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_guardian_golem/boss_guardian_golem_fire$difficulity10_skill_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_kraken/boss_kraken$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_kraken/boss_kraken$difficulity10_shot2.action.dsl.json",
+    "production/battle/action/enemy/action/boss_kraken/boss_kraken$difficulity10_skill_shot1.action.dsl.json",
+    "production/battle/action/skill/action/rare3/half_knight$half_knight_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/alk$alk_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/battle_guild_staff$battle_guild_staff_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/bishop_girl$bishop_girl_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/palpebra_knight$palpebra_knight_2.action.dsl.json",
+    "production/battle/action/skill/action/rare5/brown_fighter$brown_fighter_1.action.dsl.json",
+    "production/battle/action/skill/action/rare5/fox_oracle$fox_oracle_1.action.dsl.json",
+    "production/battle/action/skill/action/rare5/prince_zero$prince_zero_2.action.dsl.json"
+   ],
+   "signatures": [
+    [
+     "int, [ACAttackPoint(dict,dict)], dict, GenericConditionHitEffect",
+     8
+    ],
+    [
+     "int, [ACFrozen(dict,bool)], dict, GenericConditionHitEffect",
+     6
+    ],
+    [
+     "int, [ACToleranceOfElement(dict,int,dict)], dict, GenericConditionHitEffect",
+     5
+    ],
+    [
+     "int, [ACSkillDamage(dict,dict)], dict, GenericConditionHitEffect",
+     3
+    ],
+    [
+     "int, [ACAttackPoint(dict,dict)], dict, None",
+     2
+    ],
+    [
+     "int, [ACRegeneration(dict,dict)], dict, GenericConditionHitEffect",
+     2
+    ],
+    [
+     "int, [ACParalysis(dict,bool)], dict, GenericConditionHitEffect",
+     1
+    ],
+    [
+     "int, [ACToleranceOfDebuff(dict,dict)], dict, GenericConditionHitEffect",
+     1
+    ]
+   ]
+  },
+  "CreateHitArea": {
+   "count": 75,
+   "files": [
+    "production/battle/action/enemy/action/boss_ghost_fox/boss_ghost_fox$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_ghost_fox/funnel_ghost_fox$funnel_difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_guardian_golem/boss_guardian_golem_fire$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_kraken/boss_kraken$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_kraken/boss_kraken$difficulity10_shot2.action.dsl.json",
+    "production/battle/action/enemy/action/boss_kraken/boss_kraken$difficulity10_skill_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_kraken/funnel_kraken$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_maou/boss_maou$difficulity10_normal_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_maou/boss_maou$difficulity10_normal_shot2.action.dsl.json",
+    "production/battle/action/enemy/action/boss_maou/boss_maou$difficulity10_skill_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_maou/funnel_maou$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_maou/kaminari.action.dsl.json",
+    "production/battle/action/enemy/action/general_boss/boss_evil_tutorial$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/general_boss/boss_evil_tutorial$difficulity10_skill_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/zako/zako_curse_eye_tutorial$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/zako/zako_enemy_demonspider_tutorial$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/zako/zako_enemy_evilgiant_tutorial$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/zako/zako_enemy_eviltower_tutorial$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/power_flip/action/knight$knight_lv1.action.dsl.json",
+    "production/battle/action/power_flip/action/knight$knight_lv2.action.dsl.json",
+    "production/battle/action/power_flip/action/knight$knight_lv3.action.dsl.json",
+    "production/battle/action/power_flip/action/special$special_lv1.action.dsl.json",
+    "production/battle/action/power_flip/action/special$special_lv2.action.dsl.json",
+    "production/battle/action/power_flip/action/special$special_lv3.action.dsl.json",
+    "production/battle/action/skill/action/rare3/oni_girl$oni_girl_1.action.dsl.json",
+    "production/battle/action/skill/action/rare3/twin_blader$twin_blader_1.action.dsl.json",
+    "production/battle/action/skill/action/rare3/urban_soldier$urban_soldier_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/alk$alk_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/battle_guild_staff$battle_guild_staff_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/lightbullet_wiz$lightbullet_wiz_2.action.dsl.json",
+    "production/battle/action/skill/action/rare4/mermaid$mermaid_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/palpebra_knight$palpebra_knight_2.action.dsl.json",
+    "production/battle/action/skill/action/rare4/palpebra_knight_lady$palpebra_knight_lady_2.action.dsl.json",
+    "production/battle/action/skill/action/rare4/rec_android$rec_android_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/thunder_dragon$thunder_dragon_1.action.dsl.json",
+    "production/battle/action/skill/action/rare5/brown_fighter$brown_fighter_1.action.dsl.json",
+    "production/battle/action/skill/action/rare5/fox_oracle$fox_oracle_1.action.dsl.json",
+    "production/battle/action/skill/action/rare5/light_origin_1.action.dsl.json",
+    "production/battle/action/skill/action/rare5/ruin_girl_multiball_2.action.dsl.json"
+   ],
+   "signatures": [
+    [
+     "str, int, AB, int, int, float, bool, bool, Circle(int), Center, Center, NWay(int,float), SpecifyHitAreaLifetimeDirectly(int), SpecifyMinHitIntervalDirectly(int), None, bool, bool, int, Block(...), int, int, Block(...)",
+     15
+    ],
+    [
+     "str, int, EF, int, int, float, bool, bool, Circle(int), Center, Center, Single, SpecifyHitAreaLifetimeDirectly(int), CalculatedUsingMaxNumOfHits(int), None, bool, bool, int, Block(...), int, int, Block(...)",
+     14
+    ],
+    [
+     "str, int, AB, int, int, float, bool, bool, Circle(int), Center, Center, Single, SpecifyHitAreaLifetimeDirectly(int), SpecifyMinHitIntervalDirectly(int), None, bool, bool, int, Block(...), int, int, Block(...)",
+     13
+    ],
+    [
+     "str, int, AB, int, int, float, bool, bool, Circle(int), Center, Center, Single, SpecifyHitAreaLifetimeDirectly(int), CalculatedUsingMaxNumOfHits(int), None, bool, bool, int, Block(...), int, int, Block(...)",
+     12
+    ],
+    [
+     "str, int, AB, int, int, float, bool, bool, Circle(int), Center, Center, Circle(int,int), SpecifyHitAreaLifetimeDirectly(int), SpecifyMinHitIntervalDirectly(int), None, bool, bool, int, Block(...), int, int, Block(...)",
+     5
+    ],
+    [
+     "str, int, GH(int), int, int, float, bool, bool, Circle(int), Center, Center, Single, SpecifyHitAreaLifetimeDirectly(int), SpecifyMinHitIntervalDirectly(int), None, bool, bool, int, Block(...), int, int, Block(...)",
+     4
+    ],
+    [
+     "str, int, CD, int, int, float, bool, bool, Circle(int), Center, Center, Single, SpecifyHitAreaLifetimeDirectly(int), CalculatedUsingMaxNumOfHits(int), None, bool, bool, int, Block(...), int, int, Block(...)",
+     4
+    ],
+    [
+     "str, int, AB, int, int, float, bool, bool, Rectangle(int,int), Center, Bottom, Single, SpecifyHitAreaLifetimeDirectly(int), SpecifyMinHitIntervalDirectly(int), None, bool, bool, int, Block(...), int, int, Block(...)",
+     2
+    ],
+    [
+     "str, int, AB, int, int, float, bool, bool, Circle(int), Center, Center, Single, SpecifyHitAreaLifetimeDirectly(int), CalculatedUsingMaxNumOfHits(int), Some(int), bool, bool, int, Block(...), int, int, Block(...)",
+     2
+    ],
+    [
+     "str, int, EF, int, int, float, bool, bool, Rectangle(int,int), Center, Bottom, Single, SpecifyHitAreaLifetimeDirectly(int), CalculatedUsingMaxNumOfHits(int), None, bool, bool, int, Block(...), int, int, Block(...)",
+     1
+    ],
+    [
+     "str, int, GH(int), int, int, float, bool, bool, Rectangle(int,int), Center, Bottom, Single, SpecifyHitAreaLifetimeDirectly(int), CalculatedUsingMaxNumOfHits(int), None, bool, bool, int, Block(...), int, int, Block(...)",
+     1
+    ],
+    [
+     "str, int, AB, int, int, float, bool, bool, Rectangle(int,int), Center, Center, Single, SpecifyHitAreaLifetimeDirectly(int), CalculatedUsingMaxNumOfHits(int), None, bool, bool, int, Block(...), int, int, Block(...)",
+     1
+    ],
+    [
+     "str, int, AB, int, int, float, bool, bool, Rectangle(int,int), Center, Bottom, Single, SpecifyHitAreaLifetimeDirectly(int), CalculatedUsingMaxNumOfHits(int), None, bool, bool, int, Block(...), int, int, Block(...)",
+     1
+    ]
+   ]
+  },
+  "CreateNormalAttack": {
+   "count": 84,
+   "files": [
+    "production/battle/action/enemy/action/boss_ghost_fox/boss_ghost_fox$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_ghost_fox/boss_ghost_fox$difficulity10_skill_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_ghost_fox/funnel_ghost_fox$avator_ghost_fox_difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_ghost_fox/funnel_ghost_fox$funnel_difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_guardian_golem/boss_guardian_golem_fire$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_guardian_golem/boss_guardian_golem_fire$difficulity10_skill_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_guardian_golem/funnel_guardian_golem_fire$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_kraken/boss_kraken$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_kraken/boss_kraken$difficulity10_shot2.action.dsl.json",
+    "production/battle/action/enemy/action/boss_kraken/boss_kraken$difficulity10_skill_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_kraken/funnel_kraken$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_kraken/funnel_kraken$difficulity10_skill_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_maou/boss_maou$difficulity10_normal_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_maou/boss_maou$difficulity10_normal_shot2.action.dsl.json",
+    "production/battle/action/enemy/action/boss_maou/boss_maou$difficulity10_skill_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_maou/funnel_maou$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_maou/kaminari.action.dsl.json",
+    "production/battle/action/enemy/action/general_boss/boss_evil_tutorial$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/general_boss/boss_evil_tutorial$difficulity10_skill_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/zako/zako_curse_eye_tutorial$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/zako/zako_enemy_demonspider_tutorial$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/zako/zako_enemy_evilgiant_tutorial$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/zako/zako_enemy_eviltower_tutorial$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/power_flip/action/knight$knight_lv1.action.dsl.json",
+    "production/battle/action/power_flip/action/knight$knight_lv2.action.dsl.json",
+    "production/battle/action/power_flip/action/knight$knight_lv3.action.dsl.json",
+    "production/battle/action/power_flip/action/special$special_lv1.action.dsl.json",
+    "production/battle/action/power_flip/action/special$special_lv2.action.dsl.json",
+    "production/battle/action/power_flip/action/special$special_lv3.action.dsl.json",
+    "production/battle/action/skill/action/rare3/half_knight$half_knight_1.action.dsl.json",
+    "production/battle/action/skill/action/rare3/oni_girl$oni_girl_1.action.dsl.json",
+    "production/battle/action/skill/action/rare3/twin_blader$twin_blader_1.action.dsl.json",
+    "production/battle/action/skill/action/rare3/urban_soldier$urban_soldier_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/alk$alk_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/battle_guild_staff$battle_guild_staff_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/lightbullet_wiz$lightbullet_wiz_2.action.dsl.json",
+    "production/battle/action/skill/action/rare4/mermaid$mermaid_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/palpebra_knight$palpebra_knight_2.action.dsl.json",
+    "production/battle/action/skill/action/rare4/palpebra_knight_lady$palpebra_knight_lady_2.action.dsl.json",
+    "production/battle/action/skill/action/rare4/rec_android$rec_android_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/thunder_dragon$thunder_dragon_1.action.dsl.json",
+    "production/battle/action/skill/action/rare5/brown_fighter$brown_fighter_1.action.dsl.json",
+    "production/battle/action/skill/action/rare5/fox_oracle$fox_oracle_1.action.dsl.json",
+    "production/battle/action/skill/action/rare5/light_origin_1.action.dsl.json",
+    "production/battle/action/skill/action/rare5/ruin_girl_multiball_2.action.dsl.json"
+   ],
+   "signatures": [
+    [
+     "int, int, [], [], int, dict, dict, bool, bool, bool, dict, dict, None",
+     48
+    ],
+    [
+     "int, int, [], [], int, dict, dict, bool, bool, bool, dict, dict, Shine",
+     14
+    ],
+    [
+     "int, int, [], [], int, dict, dict, bool, bool, bool, dict, dict, Fine",
+     12
+    ],
+    [
+     "int, int, [], [], int, dict, dict, bool, bool, bool, dict, dict, Coarse",
+     4
+    ],
+    [
+     "int, int, [], [], int, dict, dict, bool, bool, bool, dict, dict, Slash",
+     2
+    ],
+    [
+     "int, int, [], [], int, dict, dict, bool, bool, bool, dict, dict, SpecifyHitEffectDirectly(SpecifyEffectDirectly(str),bool)",
+     2
+    ],
+    [
+     "int, int, [], [], int, dict, dict, bool, bool, bool, dict, dict, ThunderSmall",
+     1
+    ],
+    [
+     "int, int, [], [DCParalysis], int, dict, dict, bool, bool, bool, dict, dict, ThunderSmall",
+     1
+    ]
+   ]
+  },
+  "CreateRatioHeal": {
+   "count": 7,
+   "files": [
+    "production/battle/action/item/action/hp_recovery_middle.action.dsl.json",
+    "production/battle/action/skill/action/rare3/nurse$nurse_1.action.dsl.json",
+    "production/battle/action/skill/action/rare3/tutorial_priest_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/bishop_girl$bishop_girl_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/lightbullet_wiz$lightbullet_wiz_2.action.dsl.json"
+   ],
+   "signatures": [
+    [
+     "int, int, dict, [int], dict, SpecifyHealEffectDirectly(SpecifyEffectDirectly(str))",
+     3
+    ],
+    [
+     "int, int, dict, [], dict, GenericHealHitEffect",
+     2
+    ],
+    [
+     "int, int, dict, [int], dict, GenericHealHitEffect",
+     2
+    ]
+   ]
+  },
+  "CreateReferencePoint": {
+   "count": 4,
+   "files": [
+    "production/battle/action/enemy/action/zako/zako_enemy_eviltower_tutorial$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/battle_guild_staff$battle_guild_staff_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/mermaid$mermaid_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/thunder_dragon$thunder_dragon_1.action.dsl.json"
+   ],
+   "signatures": [
+    [
+     "int, AB, int, int, float, bool, bool, Single, int, int, Block(...)",
+     3
+    ],
+    [
+     "int, EF, int, int, float, bool, bool, Single, int, int, Block(...)",
+     1
+    ]
+   ]
+  },
+  "CreateShockWaveAttack": {
+   "count": 8,
+   "files": [
+    "production/battle/action/enemy/action/boss_ghost_fox/boss_ghost_fox$difficulity10_skill_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_ghost_fox/funnel_ghost_fox$avator_ghost_fox_difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_guardian_golem/boss_guardian_golem_fire$difficulity10_skill_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_guardian_golem/funnel_guardian_golem_fire$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_kraken/funnel_kraken$difficulity10_skill_shot1.action.dsl.json"
+   ],
+   "signatures": [
+    [
+     "str, int, AB, int, int, float, Donut, ResolveByElement(str,int), int, int, int, Block(...)",
+     8
+    ]
+   ]
+  },
+  "CreateSummonsMultiball": {
+   "count": 2,
+   "files": [
+    "production/battle/action/skill/action/rare3/magic_boy$magic_boy_1.action.dsl.json",
+    "production/battle/action/skill/action/rare3/tutorial_witch_1.action.dsl.json"
+   ],
+   "signatures": [
+    [
+     "int, int, dict, E1(SpecifyEffectDirectly(str)), SpecifyEffectDirectly(str), SpecifyEffectDirectly(str)",
+     2
+    ]
+   ]
+  },
+  "CreateTargetAttack": {
+   "count": 12,
+   "files": [
+    "production/battle/action/enemy/action/boss_maou/boss_maou$difficulity10_target_shot1.action.dsl.json"
+   ],
+   "signatures": [
+    [
+     "int, int, int, Specify(int), str",
+     12
+    ]
+   ]
+  },
+  "DecreaseCoffinCount": {
+   "count": 1,
+   "files": [
+    "production/battle/action/skill/action/rare3/nurse$nurse_1.action.dsl.json"
+   ],
+   "signatures": [
+    [
+     "int, int, Generic",
+     1
+    ]
+   ]
+  },
+  "FindAllSubjects": {
+   "count": 11,
+   "files": [
+    "production/battle/action/item/action/hp_recovery_middle.action.dsl.json",
+    "production/battle/action/item/action/skill_charge_middle.action.dsl.json",
+    "production/battle/action/skill/action/rare3/half_knight$half_knight_1.action.dsl.json",
+    "production/battle/action/skill/action/rare3/nurse$nurse_1.action.dsl.json",
+    "production/battle/action/skill/action/rare3/tutorial_priest_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/alk$alk_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/bishop_girl$bishop_girl_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/palpebra_knight$palpebra_knight_2.action.dsl.json",
+    "production/battle/action/skill/action/rare5/brown_fighter$brown_fighter_1.action.dsl.json",
+    "production/battle/action/skill/action/rare5/prince_zero$prince_zero_2.action.dsl.json"
+   ],
+   "signatures": [
+    [
+     "int, int, [], DoNothing, Block(...)",
+     11
+    ]
+   ]
+  },
+  "FindNearSubjects": {
+   "count": 5,
+   "files": [
+    "production/battle/action/skill/action/rare3/half_knight$half_knight_1.action.dsl.json",
+    "production/battle/action/skill/action/rare3/twin_blader$twin_blader_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/palpebra_knight_lady$palpebra_knight_lady_2.action.dsl.json",
+    "production/battle/action/skill/action/rare4/rec_android$rec_android_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/thunder_dragon$thunder_dragon_1.action.dsl.json"
+   ],
+   "signatures": [
+    [
+     "int, int, int, CreateImaginaryTarget(int), int, Block(...)",
+     5
+    ]
+   ]
+  },
+  "HideCharacter": {
+   "count": 2,
+   "files": [
+    "production/battle/action/skill/action/rare4/alk$alk_1.action.dsl.json",
+    "production/battle/action/skill/action/rare5/brown_fighter$brown_fighter_1.action.dsl.json"
+   ],
+   "signatures": [
+    [
+     "int, int",
+     2
+    ]
+   ]
+  },
+  "HideEffect": {
+   "count": 3,
+   "files": [
+    "production/battle/action/power_flip/action/special$special_lv1.action.dsl.json",
+    "production/battle/action/power_flip/action/special$special_lv2.action.dsl.json",
+    "production/battle/action/power_flip/action/special$special_lv3.action.dsl.json"
+   ],
+   "signatures": [
+    [
+     "str",
+     3
+    ]
+   ]
+  },
+  "MoveBall": {
+   "count": 4,
+   "files": [
+    "production/battle/action/skill/action/rare3/half_knight$half_knight_1.action.dsl.json",
+    "production/battle/action/skill/action/rare3/twin_blader$twin_blader_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/palpebra_knight_lady$palpebra_knight_lady_2.action.dsl.json",
+    "production/battle/action/skill/action/rare5/light_origin_1.action.dsl.json"
+   ],
+   "signatures": [
+    [
+     "int, GH(int), float, int, float, KeepGoing, bool",
+     3
+    ],
+    [
+     "int, AB, float, int, float, KeepGoing, bool",
+     1
+    ]
+   ]
+  },
+  "MoveHitArea": {
+   "count": 51,
+   "files": [
+    "production/battle/action/enemy/action/boss_ghost_fox/boss_ghost_fox$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_ghost_fox/funnel_ghost_fox$funnel_difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_guardian_golem/boss_guardian_golem_fire$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_kraken/boss_kraken$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_kraken/boss_kraken$difficulity10_shot2.action.dsl.json",
+    "production/battle/action/enemy/action/boss_kraken/funnel_kraken$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_maou/boss_maou$difficulity10_normal_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_maou/boss_maou$difficulity10_skill_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_maou/funnel_maou$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_maou/kaminari.action.dsl.json",
+    "production/battle/action/enemy/action/general_boss/boss_evil_tutorial$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/general_boss/boss_evil_tutorial$difficulity10_skill_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/zako/zako_curse_eye_tutorial$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/zako/zako_enemy_demonspider_tutorial$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/zako/zako_enemy_evilgiant_tutorial$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/zako/zako_enemy_eviltower_tutorial$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/lightbullet_wiz$lightbullet_wiz_2.action.dsl.json",
+    "production/battle/action/skill/action/rare4/palpebra_knight$palpebra_knight_2.action.dsl.json"
+   ],
+   "signatures": [
+    [
+     "int, CD, float, float, None",
+     51
+    ]
+   ]
+  },
+  "ShakeCamera": {
+   "count": 37,
+   "files": [
+    "production/battle/action/power_flip/action/knight$knight_lv1.action.dsl.json",
+    "production/battle/action/power_flip/action/knight$knight_lv2.action.dsl.json",
+    "production/battle/action/power_flip/action/knight$knight_lv3.action.dsl.json",
+    "production/battle/action/power_flip/action/special$special_lv1.action.dsl.json",
+    "production/battle/action/power_flip/action/special$special_lv2.action.dsl.json",
+    "production/battle/action/power_flip/action/special$special_lv3.action.dsl.json",
+    "production/battle/action/skill/action/rare3/half_knight$half_knight_1.action.dsl.json",
+    "production/battle/action/skill/action/rare3/oni_girl$oni_girl_1.action.dsl.json",
+    "production/battle/action/skill/action/rare3/twin_blader$twin_blader_1.action.dsl.json",
+    "production/battle/action/skill/action/rare3/urban_soldier$urban_soldier_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/alk$alk_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/battle_guild_staff$battle_guild_staff_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/lightbullet_wiz$lightbullet_wiz_2.action.dsl.json",
+    "production/battle/action/skill/action/rare4/mermaid$mermaid_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/palpebra_knight$palpebra_knight_2.action.dsl.json",
+    "production/battle/action/skill/action/rare4/palpebra_knight_lady$palpebra_knight_lady_2.action.dsl.json",
+    "production/battle/action/skill/action/rare4/rec_android$rec_android_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/thunder_dragon$thunder_dragon_1.action.dsl.json",
+    "production/battle/action/skill/action/rare5/brown_fighter$brown_fighter_1.action.dsl.json",
+    "production/battle/action/skill/action/rare5/fox_oracle$fox_oracle_1.action.dsl.json",
+    "production/battle/action/skill/action/rare5/light_origin_1.action.dsl.json"
+   ],
+   "signatures": [
+    [
+     "int",
+     37
+    ]
+   ]
+  },
+  "ShowEffect": {
+   "count": 87,
+   "files": [
+    "production/battle/action/enemy/action/boss_ghost_fox/boss_ghost_fox$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_ghost_fox/funnel_ghost_fox$funnel_difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_guardian_golem/boss_guardian_golem_fire$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_kraken/boss_kraken$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_kraken/boss_kraken$difficulity10_shot2.action.dsl.json",
+    "production/battle/action/enemy/action/boss_kraken/boss_kraken$difficulity10_skill_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_kraken/funnel_kraken$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_maou/boss_maou$difficulity10_normal_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_maou/boss_maou$difficulity10_normal_shot2.action.dsl.json",
+    "production/battle/action/enemy/action/boss_maou/boss_maou$difficulity10_skill_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_maou/funnel_maou$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/boss_maou/kaminari.action.dsl.json",
+    "production/battle/action/enemy/action/general_boss/boss_evil_tutorial$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/general_boss/boss_evil_tutorial$difficulity10_skill_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/zako/zako_curse_eye_tutorial$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/zako/zako_enemy_demonspider_tutorial$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/zako/zako_enemy_evilgiant_tutorial$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/zako/zako_enemy_eviltower_tutorial$difficulity10_shot1.action.dsl.json",
+    "production/battle/action/power_flip/action/knight$knight_lv1.action.dsl.json",
+    "production/battle/action/power_flip/action/knight$knight_lv2.action.dsl.json",
+    "production/battle/action/power_flip/action/knight$knight_lv3.action.dsl.json",
+    "production/battle/action/power_flip/action/special$special_lv1.action.dsl.json",
+    "production/battle/action/power_flip/action/special$special_lv2.action.dsl.json",
+    "production/battle/action/power_flip/action/special$special_lv3.action.dsl.json",
+    "production/battle/action/skill/action/rare3/half_knight$half_knight_1.action.dsl.json",
+    "production/battle/action/skill/action/rare3/oni_girl$oni_girl_1.action.dsl.json",
+    "production/battle/action/skill/action/rare3/twin_blader$twin_blader_1.action.dsl.json",
+    "production/battle/action/skill/action/rare3/urban_soldier$urban_soldier_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/alk$alk_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/battle_guild_staff$battle_guild_staff_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/lightbullet_wiz$lightbullet_wiz_2.action.dsl.json",
+    "production/battle/action/skill/action/rare4/mermaid$mermaid_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/palpebra_knight$palpebra_knight_2.action.dsl.json",
+    "production/battle/action/skill/action/rare4/palpebra_knight_lady$palpebra_knight_lady_2.action.dsl.json",
+    "production/battle/action/skill/action/rare4/rec_android$rec_android_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/thunder_dragon$thunder_dragon_1.action.dsl.json",
+    "production/battle/action/skill/action/rare5/brown_fighter$brown_fighter_1.action.dsl.json",
+    "production/battle/action/skill/action/rare5/fox_oracle$fox_oracle_1.action.dsl.json",
+    "production/battle/action/skill/action/rare5/light_origin_1.action.dsl.json",
+    "production/battle/action/skill/action/rare5/prince_zero$prince_zero_2.action.dsl.json",
+    "production/battle/action/skill/action/rare5/ruin_girl_multiball_2.action.dsl.json"
+   ],
+   "signatures": [
+    [
+     "str, ResolveByElement(str,int), int, ForesideOfCharacter, UntilTargetTerminates, CD, int, int, float, bool, bool, None",
+     38
+    ],
+    [
+     "str, SpecifyEffectDirectly(str), int, ForesideOfCharacter, UntilTargetTerminates, CD, int, int, float, bool, bool, Some(float)",
+     20
+    ],
+    [
+     "str, SpecifyEffectDirectly(str), int, ForesideOfCharacter, PlayOnlyFirstSequence, AB, int, int, float, bool, bool, Some(float)",
+     6
+    ],
+    [
+     "str, ResolveByElement(str,int), int, ForesideOfCharacter, UntilTargetTerminates, AB, int, int, float, bool, bool, Some(float)",
+     4
+    ],
+    [
+     "str, SpecifyEffectDirectly(str), int, BacksideOfCharacter, SpecifyEffectLifetimeDirectly(int), AB, int, int, float, bool, bool, Some(float)",
+     3
+    ],
+    [
+     "str, ResolveByElement(str,int), int, ForesideOfCharacter, SpecifyEffectLifetimeDirectly(int), EF, int, int, float, bool, bool, Some(float)",
+     2
+    ],
+    [
+     "str, SpecifyEffectDirectly(str), int, ForesideOfCharacter, PlayOnlyFirstSequence, AB, int, int, float, bool, bool, None",
+     2
+    ],
+    [
+     "str, SpecifyEffectDirectly(str), int, ForesideOfCharacter, PlayOnlyFirstSequence, EF, int, int, float, bool, bool, Some(float)",
+     2
+    ],
+    [
+     "str, SpecifyEffectDirectly(str), int, ForesideOfCharacter, SpecifyEffectLifetimeDirectly(int), AB, int, int, float, bool, bool, Some(float)",
+     2
+    ],
+    [
+     "str, ResolveByElement(str,int), int, ForesideOfCharacter, SpecifyEffectLifetimeDirectly(int), AB, int, int, float, bool, bool, Some(float)",
+     2
+    ],
+    [
+     "str, SpecifyEffectDirectly(str), int, ForesideOfCharacter, SpecifyEffectLifetimeDirectly(int), CD, int, int, float, bool, bool, Some(float)",
+     2
+    ],
+    [
+     "str, SpecifyEffectDirectly(str), int, ForesideOfCharacter, UntilTargetTerminates, CD, int, int, float, bool, bool, None",
+     1
+    ],
+    [
+     "str, SpecifyEffectDirectly(str), int, ForesideOfCharacter, PlayOnlyFirstSequence, CD, int, int, float, bool, bool, Some(float)",
+     1
+    ],
+    [
+     "str, SpecifyEffectDirectly(str), int, BacksideOfCharacter, PlayOnlyFirstSequence, CD, int, int, float, bool, bool, Some(float)",
+     1
+    ],
+    [
+     "str, SpecifyEffectDirectly(str), int, BacksideOfCharacter, PlayOnlyFirstSequence, AB, int, int, float, bool, bool, Some(float)",
+     1
+    ]
+   ]
+  },
+  "SpawnFunnel": {
+   "count": 12,
+   "files": [
+    "production/battle/action/enemy/action/boss_ghost_fox/boss_ghost_fox$difficulity10_avator1_single.action.dsl.json",
+    "production/battle/action/enemy/action/boss_ghost_fox/boss_ghost_fox$difficulity10_avator2_single.action.dsl.json",
+    "production/battle/action/enemy/action/boss_ghost_fox/boss_ghost_fox$difficulity10_funnel_shot1_single.action.dsl.json",
+    "production/battle/action/enemy/action/boss_guardian_golem/boss_guardian_golem_fire$difficulity10_funnel_shot1_single.action.dsl.json",
+    "production/battle/action/enemy/action/boss_maou/boss_maou$difficulity10_funnel_shot1.action.dsl.json",
+    "production/battle/action/enemy/action/general_boss/boss_evil_tutorial$difficulity10_funnel_shot1.action.dsl.json"
+   ],
+   "signatures": [
+    [
+     "Funnel(str), int, FunnelGroup(int)",
+     11
+    ],
+    [
+     "Zako(str), int, FunnelGroup(int)",
+     1
+    ]
+   ]
+  },
+  "StopBall": {
+   "count": 8,
+   "files": [
+    "production/battle/action/skill/action/rare4/alk$alk_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/battle_guild_staff$battle_guild_staff_1.action.dsl.json",
+    "production/battle/action/skill/action/rare4/lightbullet_wiz$lightbullet_wiz_2.action.dsl.json",
+    "production/battle/action/skill/action/rare4/palpebra_knight$palpebra_knight_2.action.dsl.json",
+    "production/battle/action/skill/action/rare4/palpebra_knight_lady$palpebra_knight_lady_2.action.dsl.json",
+    "production/battle/action/skill/action/rare4/rec_android$rec_android_1.action.dsl.json",
+    "production/battle/action/skill/action/rare5/brown_fighter$brown_fighter_1.action.dsl.json",
+    "production/battle/action/skill/action/rare5/prince_zero$prince_zero_2.action.dsl.json"
+   ],
+   "signatures": [
+    [
+     "int, int, Stop, AB, float",
+     4
+    ],
+    [
+     "int, int, RestoreToSpeedBeforeActionExecution, AB, float",
+     1
+    ],
+    [
+     "int, int, Stop, GH(int), float",
+     1
+    ],
+    [
+     "int, int, RestoreToSpeedBeforeCommandExecution, EF, float",
+     1
+    ],
+    [
+     "int, int, RestoreToSpeedBeforeActionExecution, EF, float",
+     1
+    ]
+   ]
+  }
+ },
+ "unused": [
+  "CreateFixedAttack",
+  "CreateGravitationalField",
+  "CreateNormalHeal",
+  "CreateRatioAttack",
+  "CreateShield",
+  "CreateTornado",
+  "CreateWindAttack",
+  "DeleteCondition",
+  "RemoveEvent",
+  "SubtractFeverPoint",
+  "SubtractSkillPoint",
+  "Trace"
+ ],
+ "nodeTags": [
+  [
+   "Command",
+   446
+  ],
+  [
+   "Block",
+   305
+  ],
+  [
+   "None",
+   215
+  ],
+  [
+   "Center",
+   145
+  ],
+  [
+   "CD",
+   118
+  ],
+  [
+   "AB",
+   88
+  ],
+  [
+   "ShowEffect",
+   87
+  ],
+  [
+   "CreateNormalAttack",
+   84
+  ],
+  [
+   "ForesideOfCharacter",
+   82
+  ],
+  [
+   "CreateHitArea",
+   75
+  ],
+  [
+   "SpecifyHitAreaLifetimeDirectly",
+   75
+  ],
+  [
+   "Circle",
+   74
+  ],
+  [
+   "Event",
+   65
+  ],
+  [
+   "UntilTargetTerminates",
+   63
+  ],
+  [
+   "ActionDsl",
+   62
+  ],
+  [
+   "Single",
+   59
+  ],
+  [
+   "SpecifyEffectDirectly",
+   57
+  ],
+  [
+   "Wait",
+   55
+  ],
+  [
+   "ResolveByElement",
+   54
+  ],
+  [
+   "MoveHitArea",
+   51
+  ],
+  [
+   "Some",
+   48
+  ],
+  [
+   "SpecifyMinHitIntervalDirectly",
+   39
+  ],
+  [
+   "ShakeCamera",
+   37
+  ],
+  [
+   "CalculatedUsingMaxNumOfHits",
+   36
+  ],
+  [
+   "CreateCondition",
+   28
+  ],
+  [
+   "GenericConditionHitEffect",
+   26
+  ],
+  [
+   "EF",
+   22
+  ],
+  [
+   "NWay",
+   15
+  ],
+  [
+   "Shine",
+   14
+  ],
+  [
+   "PlayOnlyFirstSequence",
+   13
+  ],
+  [
+   "SpawnFunnel",
+   12
+  ],
+  [
+   "FunnelGroup",
+   12
+  ],
+  [
+   "CreateTargetAttack",
+   12
+  ],
+  [
+   "Specify",
+   12
+  ],
+  [
+   "Fine",
+   12
+  ],
+  [
+   "Funnel",
+   11
+  ],
+  [
+   "FindAllSubjects",
+   11
+  ],
+  [
+   "DoNothing",
+   11
+  ],
+  [
+   "SpecifyEffectLifetimeDirectly",
+   11
+  ],
+  [
+   "ACAttackPoint",
+   10
+  ],
+  [
+   "GH",
+   9
+  ],
+  [
+   "CreateShockWaveAttack",
+   8
+  ],
+  [
+   "Donut",
+   8
+  ],
+  [
+   "StopBall",
+   8
+  ],
+  [
+   "CreateRatioHeal",
+   7
+  ],
+  [
+   "ACFrozen",
+   6
+  ],
+  [
+   "Repeat",
+   6
+  ],
+  [
+   "Rectangle",
+   6
+  ],
+  [
+   "ACToleranceOfElement",
+   5
+  ],
+  [
+   "Bottom",
+   5
+  ],
+  [
+   "BacksideOfCharacter",
+   5
+  ],
+  [
+   "FindNearSubjects",
+   5
+  ],
+  [
+   "CreateImaginaryTarget",
+   5
+  ],
+  [
+   "Stop",
+   5
+  ],
+  [
+   "CreateReferencePoint",
+   4
+  ],
+  [
+   "GenericHealHitEffect",
+   4
+  ],
+  [
+   "CollisionOfBallAndEnemy",
+   4
+  ],
+  [
+   "MoveBall",
+   4
+  ],
+  [
+   "KeepGoing",
+   4
+  ],
+  [
+   "Coarse",
+   4
+  ],
+  [
+   "ACSkillDamage",
+   3
+  ],
+  [
+   "HideEffect",
+   3
+  ],
+  [
+   "AddFeverPoint",
+   3
+  ],
+  [
+   "SpecifyHealEffectDirectly",
+   3
+  ],
+  [
+   "Slash",
+   2
+  ],
+  [
+   "CreateSummonsMultiball",
+   2
+  ],
+  [
+   "E1",
+   2
+  ],
+  [
+   "ThunderSmall",
+   2
+  ],
+  [
+   "HideCharacter",
+   2
+  ],
+  [
+   "ACRegeneration",
+   2
+  ],
+  [
+   "RestoreToSpeedBeforeActionExecution",
+   2
+  ],
+  [
+   "SpecifyHitEffectDirectly",
+   2
+  ],
+  [
+   "Zako",
+   1
+  ],
+  [
+   "AddSkillPoint",
+   1
+  ],
+  [
+   "DecreaseCoffinCount",
+   1
+  ],
+  [
+   "Generic",
+   1
+  ],
+  [
+   "DCParalysis",
+   1
+  ],
+  [
+   "RestoreToSpeedBeforeCommandExecution",
+   1
+  ],
+  [
+   "ACParalysis",
+   1
+  ],
+  [
+   "ACToleranceOfDebuff",
+   1
+  ],
+  [
+   "CreateBombMultiball",
+   1
+  ],
+  [
+   "E2",
+   1
+  ]
+ ],
+ "valueSpaces": {
+  "ActionDsl": [
+   "ActionDsl"
+  ],
+  "ActionDslEvent": [
+   "Wait",
+   "Repeat",
+   "CollisionOfBallAndEnemy"
+  ],
+  "ActionDslExpression": [
+   "Block",
+   "Event",
+   "Command"
+  ],
+  "const.ActionHitAreaLifetime": [
+   "SpecifyHitAreaLifetimeDirectly",
+   "RemainingFramesOfCurrentStateGroup"
+  ],
+  "const.AdditionalConditionKind": [
+   "ACAttackPoint",
+   "ACSkillDamage",
+   "ACToleranceOfElement",
+   "ACDamageOfElement",
+   "ACSpecialEfficacy",
+   "ACRegeneration",
+   "ACPoison",
+   "ACInvincible",
+   "ACParalysis",
+   "ACFrozen",
+   "ACFeverPoint",
+   "ACStun",
+   "ACOiuchi",
+   "ACToleranceOfDebuff",
+   "ACPiercing",
+   "ACFlying",
+   "ACPowerFlipDamage"
+  ],
+  "const.AttackHitEffect": [
+   "None",
+   "Fine",
+   "Coarse",
+   "Dark",
+   "Explosion",
+   "Fire",
+   "Frozen",
+   "Shine",
+   "Slash",
+   "CriticalSlash",
+   "Splash",
+   "ThunderLight",
+   "ThunderSmall",
+   "Tornado",
+   "SpecifyHitEffectDirectly"
+  ],
+  "const.ConditionHitEffect": [
+   "None",
+   "GenericConditionHitEffect",
+   "SpecifyConditionHitEffectDirectly"
+  ],
+  "const.CoordSys": [
+   "AB",
+   "CD",
+   "EF",
+   "GH"
+  ],
+  "const.CoordSysSource": [
+   "AB",
+   "CD",
+   "EF",
+   "GH"
+  ],
+  "const.DecreaseCoffinCountHitEffect": [
+   "Generic",
+   "Specific"
+  ],
+  "const.DeletionalConditionKind": [
+   "DCAll",
+   "DCAttackPoint",
+   "DCSkillDamage",
+   "DCToleranceOfElement",
+   "DCDamageOfElement",
+   "DCSpecialEfficacy",
+   "DCRegeneration",
+   "DCPoison",
+   "DCInvincible",
+   "DCParalysis",
+   "DCFrozen",
+   "DCFeverPoint",
+   "DCStun",
+   "DCOiuchi",
+   "DCToleranceOfDebuff",
+   "DCPiercing",
+   "DCFlying",
+   "DCPowerFlipDamage"
+  ],
+  "const.Easing": [
+   "Linear",
+   "QuadIn",
+   "QuadOut",
+   "CubicIn",
+   "CubicOut",
+   "QuartIn",
+   "QuartOut",
+   "QuintIn",
+   "QuintOut",
+   "SineIn",
+   "SineOut",
+   "CircIn",
+   "CircOut",
+   "ExpoIn",
+   "ExpoOut",
+   "BackIn",
+   "BackOut"
+  ],
+  "const.Effect": [
+   "SpecifyEffectDirectly",
+   "ResolveByElement"
+  ],
+  "const.EffectLifetime": [
+   "SpecifyEffectLifetimeDirectly",
+   "PlayOnlyFirstSequence",
+   "UntilTargetTerminates"
+  ],
+  "const.EndingSpeedKind": [
+   "Stop",
+   "KeepGoing",
+   "RestoreToSpeedBeforeCommandExecution",
+   "RestoreToSpeedBeforeActionExecution"
+  ],
+  "const.FixedAttackHitEffect": [
+   "Generic",
+   "Specific"
+  ],
+  "const.Formation": [
+   "Single",
+   "Line",
+   "File",
+   "Circle",
+   "AShaped",
+   "WShaped",
+   "NWay"
+  ],
+  "const.HAlign": [
+   "Left",
+   "Center",
+   "Right"
+  ],
+  "const.HealHitEffect": [
+   "None",
+   "GenericHealHitEffect",
+   "SpecifyHealEffectDirectly"
+  ],
+  "const.IfTargetNotFound": [
+   "DoNothing",
+   "CreateImaginaryTarget"
+  ],
+  "const.LayerZDepth": [
+   "ForesideOfCharacter",
+   "BacksideOfCharacter",
+   "SuperForesideOfCharacter",
+   "NonPixelArt"
+  ],
+  "const.MinHitInterval": [
+   "CalculatedUsingMaxNumOfHits",
+   "SpecifyMinHitIntervalDirectly"
+  ],
+  "const.MultiballReadyEffect": [
+   "E1",
+   "E2"
+  ],
+  "const.Shape": [
+   "Circle",
+   "Rectangle",
+   "Donut",
+   "Arc"
+  ],
+  "const.ShieldLifetime": [
+   "UntilStateGroupChanges",
+   "Specify"
+  ],
+  "const.ShieldMovementKind": [
+   "Fixed",
+   "Smart",
+   "RotateClockwise",
+   "RotateAnticlockwise"
+  ],
+  "const.ShockWaveShape": [
+   "Donut",
+   "Arc"
+  ],
+  "const.SpawnFunnelKind": [
+   "Funnel",
+   "Zako"
+  ],
+  "const.SpawnFunnelPoint": [
+   "FunnelGroup",
+   "Specific"
+  ],
+  "const.TargetAttackLifetime": [
+   "StateGroupChangedAndWait",
+   "Specify"
+  ],
+  "const.TweenSource": [
+   "None",
+   "Some"
+  ],
+  "const.VAlign": [
+   "Top",
+   "Center",
+   "Bottom"
+  ]
+ }
+}

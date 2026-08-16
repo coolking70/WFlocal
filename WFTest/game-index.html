@@ -49,9 +49,9 @@
 	</script>
 	
 	<script>
-		window.WF_MOD_BUILD = "0.2.12";
+		window.WF_MOD_BUILD = "0.3.0";
 		window.WF_DEMO_BOOT_MODE = new URLSearchParams(window.location.search).get("wfmode") || "tutorial";
-		console.info("[WFMod] build=" + window.WF_MOD_BUILD + " mode=" + window.WF_DEMO_BOOT_MODE + " master=merged-trial global=consistent-merged-policy unlock=guarded tips=fallback report=off");
+		console.info("[WFMod] build=" + window.WF_MOD_BUILD + " mode=" + window.WF_DEMO_BOOT_MODE + " bundle=pristine+patches");
 
 		// OpenFL/Lime loads most runtime assets via XMLHttpRequest. Node's `http-server`
 		// caches static paths by default, which can mix a new JS bundle with an older
@@ -78,7 +78,7 @@
 			};
 		})();
 	</script>
-	<script type="text/javascript" src="lib/pako.min.js?wfbuild=0.2.12"></script>
+	<script type="text/javascript" src="lib/pako.min.js?wfbuild=0.3.0"></script>
 	<script type="text/javascript">
 		(function () {
 			function startWorldFlipper() {
@@ -110,14 +110,14 @@
 				document.body.appendChild(script);
 			}
 
-			var gameUrl = "world-flipper.js?wfbuild=" + encodeURIComponent(window.WF_MOD_BUILD);
-			if (window.WF_DEMO_BOOT_MODE !== "challenge") {
-				appendGameScript(gameUrl, false);
-				return;
-			}
-
-			// The bundle hides every property name behind \xNN escapes, so patch
-			// anchors have to be built the same way instead of written literally.
+			// WFTest/world-flipper.js is the pristine official bundle
+			// (sha256 db5f3806599510ed3b6783ce5c4ccdac764eccbf4d297299af12eb902a814315).
+			// Every modification lives here, as a declarative patch applied to a copy in
+			// memory. Run `python3 tools/verify_tree.py` to check the tree against the
+			// original archive.
+			//
+			// The bundle hides every property name behind \xNN escapes, so anchors are
+			// built with esc() rather than written literally.
 			function esc(text) {
 				var out = "";
 				for (var i = 0; i < text.length; i++) {
@@ -127,104 +127,167 @@
 				return out;
 			}
 
-			// v0.2.10 consistent merged-master policy. v0.2.3 merged each full
-			// master into its iosbundled counterpart. Therefore challenge mode must
-			// NEVER load a full slice alongside a merged iosbundled slice, not only
-			// during initial Global(true), but during every later Global builder too.
-			// If an iosbundled table exists, use bundled + merged-ios only. If it
-			// does not, use the normal full (+ bundled) data. Tutorial mode is untouched.
+			var GOTO_TUTORIAL_HEAD = "'" + esc("gotoTutorial") + "':function(_0x1c154a){this['" + esc("complete") + "']();if(";
+
+			var CHALLENGE_BOOT = "window['WF_DEMO_BOOT_MODE']==='challenge'){" +
+				"var _wfPlayer=new _0x30d305(this['globalLogic']['getLogicAssets']())['getPlayerSaveData'](0x4);" +
+				"_wfPlayer['userInfo']['current_party']=0x1;" +
+				"var _wfLoaded=this['logicStatus']['getLoadedData']();" +
+				"var _wfData={'player':_wfPlayer,'randomSeed':_wfLoaded['randomSeed'],'mailArrived':_wfLoaded['mailArrived']," +
+				"'restoreState':_0x43193b['None'],'bonusStatus':_wfLoaded['bonusStatus'],'assetVersion':_wfLoaded['assetVersion']," +
+				"'rightAfterSignUp':_wfLoaded['rightAfterSignUp'],'abortedMultiQuestIsAttention':_wfLoaded['abortedMultiQuestIsAttention']," +
+				"'unfinishedPlayIds':_wfLoaded['unfinishedPlayIds'],'tutorialGachaCharacterId':_wfLoaded['tutorialGachaCharacterId']," +
+				"'scoreAttackEventRewards':_wfLoaded['scoreAttackEventRewards'],'userOption':_wfLoaded['userOption']," +
+				"'shouldPromptTakeoverRegistration':_wfLoaded['shouldPromptTakeoverRegistration']," +
+				"'clearedRegularMissions':_wfLoaded['clearedRegularMissions'],'drawnQuestList':_wfLoaded['drawnQuestList']};" +
+				"this['logic']['applyLoadedData'](_wfData);this['remote']['applyLoadedData'](_wfData);" +
+				"this['devConfig']['forcesFullTutorial']=![];" +
+				"this['gotoNextScene'](new _0x7cce90(_0x35a93f['Scene'](_0x13863f['TrialQuestSelect'](this['devConfig']['trialStageNodeId']))," +
+				"_0x38d429['FromTitle'],_0x29f711['None']));return;}if(";
+
+			var MASTER_BUILDER = "var _0x550674=_0x3d4eef?new _0x4738f7(_0x1b0e4b['" + esc("path") + "'],[],_0x1b0e4b['" + esc("clazz") +
+				"']):_0x4738f7['" + esc("createFromMasterAssetPath") + "'](_0x1b0e4b)";
+
+			var UNLOCK_HEAD = "'" + esc("isGameSystemUnlocked") + "':function(_0x17327c,_0x57b468,_0x16c3e8){if(this['" +
+				esc("devConfig") + "']['" + esc("allGameSystemAlwaysUnlocked") + "']){return!![];}";
+
+			var TIPS_HEAD = "'" + esc("getTipsTableStats") + "':function(){var _0x4deab4=this['" + esc("globalLogic") + "']['" +
+				esc("getLogicAssets") + "']();var _0x233d56=this['" + esc("isDuringTutorial") + "']?_0x4deab4['" +
+				esc("getMasterTable") + "'](_0x114e05)['" + esc("get_data") + "']():_0x4deab4['" + esc("getMasterTable") +
+				"'](_0xcb719e)['" + esc("get_data") + "']();";
+
+			var REPORT_DEFAULTS = "this['" + esc("normalReport") + "']=!![];this['" + esc("saveCrashReport") + "']=!![];this['" +
+				esc("sendCrashReport") + "']=!![];";
+
+			var CLIENT_ERROR_CTOR = "var _0x34e26d=function(_0x44c93d,_0x94baad){this['" + esc("internalMessage") +
+				"']=_0x94baad;this['" + esc("code") + "']=_0x44c93d;};";
+
+			// modes: which boot modes the patch applies to.
+			// Each `find` must occur exactly once, or the bootstrap refuses to run.
+			var PATCHES = [
+				{
+					id: "auto-unlock",
+					modes: ["tutorial", "challenge"],
+					note: "BattleScene.get_autoPlayUnlocked() asked isGameSystemUnlocked('auto_play'). " +
+						"Master game_system_unlock is empty in this Trial build, so the AUTO button was " +
+						"never unlocked (and the lookup would throw 8601 outside tutorial state).",
+					find: "'" + esc("get_autoPlayUnlocked") + "':function(){return this['" + esc("globalLogic") + "']['" +
+						esc("isGameSystemUnlocked") + "']('" + esc("auto_play") + "');}",
+					replace: "'" + esc("get_autoPlayUnlocked") + "':function(){return!0x0;}"
+				},
+				{
+					id: "auto-button-mode",
+					modes: ["tutorial", "challenge"],
+					note: "BattleViewInputSettings.get_autoplayButtonMode() fell through to 2 (Hidden). " +
+						"Return 1 (OFF) so the button is present and toggleable.",
+					find: "else{return 0x2;}},'" + esc("get_autoskillButtonMode") + "':function()",
+					replace: "else{return 0x1;}},'" + esc("get_autoskillButtonMode") + "':function()"
+				},
+				{
+					id: "challenge-boot",
+					modes: ["challenge"],
+					note: "TitleScene.gotoTutorial(): load Trial player 4 with its post-tutorial save data " +
+						"and go straight to the native TrialQuestSelect instead of starting the tutorial.",
+					find: GOTO_TUTORIAL_HEAD,
+					replace: GOTO_TUTORIAL_HEAD + CHALLENGE_BOOT
+				},
+				{
+					id: "master-policy",
+					modes: ["challenge"],
+					note: "The 44 merged *_iosbundled masters are supersets of their full counterparts, and the " +
+						"game's three slices (full/bundled/iosbundled) are meant to be disjoint. Loading both " +
+						"duplicates every merged key (ClientError 7051), so when a merged iosbundled slice " +
+						"exists, skip the full one - in every Global builder pass, not just the first.",
+					find: MASTER_BUILDER,
+					replace: "var _wfIos=_0x316d35['iosBundledPaths'];" +
+						"var _wfHasIos=_0x12a81b[_0x21232a]!=null?_wfIos['existsReserved'](_0x21232a):_wfIos['h']['hasOwnProperty'](_0x21232a);" +
+						"var _0x550674=_wfHasIos?new _0x4738f7(_0x1b0e4b['path'],[],_0x1b0e4b['clazz']):_0x4738f7['createFromMasterAssetPath'](_0x1b0e4b)"
+				},
+				{
+					id: "unlock-guard",
+					modes: ["challenge"],
+					note: "GameSystemUnlockRepository.isGameSystemUnlocked() throws ClientError 8601 for any key, " +
+						"because master game_system_unlock has 0 records. A missing row means no unlock condition " +
+						"was shipped, so answer 'locked' - what the tutorial path returns - instead of throwing.",
+					find: UNLOCK_HEAD,
+					replace: UNLOCK_HEAD +
+						"try{this['logicAssets']['getMasterTable'](_0x2ccc58)['get_data']()['get'](_0x57b468);}" +
+						"catch(_wfMissing){if(!window.__wfLockedSystems){window.__wfLockedSystems={};}" +
+						"if(!window.__wfLockedSystems[_0x57b468]){window.__wfLockedSystems[_0x57b468]=true;" +
+						"console.warn('[WFMod] game system treated as locked, no row in master game_system_unlock: key='+_0x57b468);}" +
+						"return false;}"
+				},
+				{
+					id: "tips-fallback",
+					modes: ["challenge"],
+					note: "LoadingTipsLogic.getTipsTableStats() reads master tips outside tutorial state and throws " +
+						"ClientError 7011 when nothing matches. Master tips has 0 records here; the only 4 TIPS " +
+						"live in tutorial_tips_iosbundled with require_single_quest=(None). Fall back to that table.",
+					find: TIPS_HEAD,
+					replace: TIPS_HEAD +
+						"try{if(_0x233d56['keys']().length===0){var _wfTutorialTips=_0x4deab4['getMasterTable'](_0x114e05)['get_data']();" +
+						"if(_wfTutorialTips['keys']().length>0){_0x233d56=_wfTutorialTips;" +
+						"if(!window.__wfTipsFallbackLogged){window.__wfTipsFallbackLogged=true;" +
+						"console.warn('[WFMod] master tips is empty, falling back to tutorial_tips for the loading screen');}}}}" +
+						"catch(_wfTipsIgnored){}"
+				},
+				{
+					id: "report-off",
+					modes: ["challenge"],
+					note: "Every scene change POSTed a logic snapshot to api.worldflipper.jp, which no local build " +
+						"can reach. These are the game's own switches - Top.hx disables exactly these three " +
+						"together when it runs against a dummy remote.",
+					find: REPORT_DEFAULTS,
+					replace: "this['normalReport']=false;this['saveCrashReport']=false;this['sendCrashReport']=false;"
+				},
+				{
+					id: "clienterror-reporter",
+					modes: ["tutorial", "challenge"],
+					note: "Log one line per distinct ClientError. Without it the first real failure is buried " +
+						"under the SipoError/event cascade it triggers. Console output only.",
+					find: CLIENT_ERROR_CTOR,
+					replace: "var _0x34e26d=function(_0x44c93d,_0x94baad){this['internalMessage']=_0x94baad;this['code']=_0x44c93d;" +
+						"try{if(!window.__wfSeenErrors){window.__wfSeenErrors={};}var _wfKey=_0x44c93d+':'+_0x94baad;" +
+						"if(!window.__wfSeenErrors[_wfKey]){window.__wfSeenErrors[_wfKey]=true;" +
+						"console.error('[WFMod] ClientError '+_0x44c93d+' '+_0x94baad+'\\n'+new Error().stack);}}catch(_wfIgnored){}};"
+				}
+			];
+
+			window.WF_PATCHES = PATCHES;
+
+			function applyPatches(source, mode) {
+				var applied = [];
+				for (var i = 0; i < PATCHES.length; i++) {
+					var patch = PATCHES[i];
+					if (patch.modes.indexOf(mode) < 0) continue;
+					var at = source.indexOf(patch.find);
+					if (at < 0) {
+						throw new Error("WFMod patch '" + patch.id + "': anchor not found; refusing to run an unverified bundle");
+					}
+					if (source.indexOf(patch.find, at + 1) >= 0) {
+						throw new Error("WFMod patch '" + patch.id + "': anchor is not unique; refusing to run an unverified bundle");
+					}
+					source = source.slice(0, at) + patch.replace + source.slice(at + patch.find.length);
+					applied.push(patch.id);
+				}
+				return { source: source, applied: applied };
+			}
+
+			window.WF_APPLY_PATCHES = applyPatches;
+
+			var gameUrl = "world-flipper.js?wfbuild=" + encodeURIComponent(window.WF_MOD_BUILD);
+			var mode = window.WF_DEMO_BOOT_MODE;
+
 			fetch(gameUrl, { cache: "no-store" }).then(function (response) {
 				if (!response.ok) throw new Error("HTTP " + response.status + " while loading " + gameUrl);
 				return response.text();
 			}).then(function (source) {
-				var builderMarker = "var _0x550674=_0x3d4eef?new _0x4738f7";
-				var builderPos = source.indexOf(builderMarker);
-				var nextPos = builderPos < 0 ? -1 : source.indexOf(";var _0x4b4098=", builderPos);
-				if (builderPos < 0 || nextPos < 0 || source.indexOf(builderMarker, builderPos + 1) >= 0) {
-					throw new Error("WFMod v0.2.10 builder anchor mismatch; refusing to run an unverified bundle");
-				}
-
-				var challengeBuilder = "var _wfChallenge=typeof window!==\"undefined\"&&window.WF_DEMO_BOOT_MODE===\"challenge\";var _wfIos=_0x316d35['iosBundledPaths'];var _wfHasIos=_0x12a81b[_0x21232a]!=null?_wfIos['existsReserved'](_0x21232a):_wfIos['h']['hasOwnProperty'](_0x21232a);var _0x550674=_wfChallenge?(_wfHasIos?new _0x4738f7(_0x1b0e4b['path'],[],_0x1b0e4b['clazz']):_0x4738f7['createFromMasterAssetPath'](_0x1b0e4b)):_0x3d4eef?new _0x4738f7(_0x1b0e4b['path'],[],_0x1b0e4b['clazz']):_0x4738f7['createFromMasterAssetPath'](_0x1b0e4b)";
-				source = source.slice(0, builderPos) + challengeBuilder + source.slice(nextPos);
-				console.info("[WFMod] v0.2.10 runtime patch applied: consistent merged-master policy (full excluded whenever merged iosbundled exists)");
-
-				// v0.2.10 game system unlock guard.
-				//
-				// GameSystemUnlockRepository.isGameSystemUnlocked() looks its key up in
-				// master game_system_unlock, which is EMPTY (0 records) in this Trial
-				// build, so any lookup throws ClientError 8601 "key=... does not exist".
-				// The stock game never notices: the logic-level wrapper returns false
-				// while logicStatus.isDuringTutorial() is true, and the Web Trial never
-				// leaves tutorial state. Challenge mode applies post-tutorial player data,
-				// so the very first scene transition into TrialQuestSelect asks whether
-				// the "attention" system is unlocked and dies inside the transition.
-				//
-				// A missing row means "no unlock condition shipped", so treat it as
-				// locked - the same answer the tutorial path gives - instead of throwing.
-				var unlockAnchor = "'" + esc("isGameSystemUnlocked") + "':function(_0x17327c,_0x57b468,_0x16c3e8){if(this['" + esc("devConfig") + "']['" + esc("allGameSystemAlwaysUnlocked") + "']){return!![];}";
-				var unlockPos = source.indexOf(unlockAnchor);
-				if (unlockPos < 0 || source.indexOf(unlockAnchor, unlockPos + 1) >= 0) {
-					throw new Error("WFMod v0.2.10 game system unlock anchor mismatch; refusing to run an unverified bundle");
-				}
-				var unlockGuard = "try{this['logicAssets']['getMasterTable'](_0x2ccc58)['get_data']()['get'](_0x57b468);}catch(_wfMissing){if(!window.__wfLockedSystems){window.__wfLockedSystems={};}if(!window.__wfLockedSystems[_0x57b468]){window.__wfLockedSystems[_0x57b468]=true;console.warn('[WFMod] game system treated as locked, no row in master game_system_unlock: key='+_0x57b468);}return false;}";
-				source = source.slice(0, unlockPos + unlockAnchor.length) + unlockGuard + source.slice(unlockPos + unlockAnchor.length);
-				console.info("[WFMod] v0.2.10 runtime patch applied: missing game_system_unlock rows resolve to locked instead of ClientError 8601");
-
-				// v0.2.11 loading TIPS fallback.
-				//
-				// LoadingTipsLogic.getTipsTableStats() reads master tutorial_tips while
-				// isDuringTutorial is true and master tips otherwise, then throws
-				// ClientError 7011 "no displayable TIPS" when the result is empty.
-				// In this Trial build master tips is EMPTY (0 records); the only TIPS
-				// shipped are the 4 rows of tutorial_tips_iosbundled, matching the 4
-				// loading_tips PNGs in assets. Challenge mode is out of tutorial state,
-				// so entering a quest picks the empty table and dies on the loading screen.
-				//
-				// Fall back to the tutorial table whenever the normal one has no rows.
-				var tipsAnchor = "'" + esc("getTipsTableStats") + "':function(){var _0x4deab4=this['" + esc("globalLogic") + "']['" + esc("getLogicAssets") + "']();" +
-					"var _0x233d56=this['" + esc("isDuringTutorial") + "']?_0x4deab4['" + esc("getMasterTable") + "'](_0x114e05)['" + esc("get_data") + "']():_0x4deab4['" + esc("getMasterTable") + "'](_0xcb719e)['" + esc("get_data") + "']();";
-				var tipsPos = source.indexOf(tipsAnchor);
-				if (tipsPos < 0 || source.indexOf(tipsAnchor, tipsPos + 1) >= 0) {
-					throw new Error("WFMod v0.2.11 loading tips anchor mismatch; refusing to run an unverified bundle");
-				}
-				var tipsFallback = "try{if(_0x233d56['keys']().length===0){var _wfTutorialTips=_0x4deab4['getMasterTable'](_0x114e05)['get_data']();if(_wfTutorialTips['keys']().length>0){_0x233d56=_wfTutorialTips;if(!window.__wfTipsFallbackLogged){window.__wfTipsFallbackLogged=true;console.warn('[WFMod] master tips is empty, falling back to tutorial_tips for the loading screen');}}}}catch(_wfTipsIgnored){}";
-				source = source.slice(0, tipsPos + tipsAnchor.length) + tipsFallback + source.slice(tipsPos + tipsAnchor.length);
-				console.info("[WFMod] v0.2.11 runtime patch applied: empty master tips falls back to tutorial_tips instead of ClientError 7011");
-
-				// v0.2.12 offline report switches.
-				//
-				// Every scene change runs LogicSnapshot.applyLogicSnapshot(), which does
-				// ErrorReporter.reportToServer() whenever devConfig.normalReport is on,
-				// POSTing to api.worldflipper.jp/api/index.php/reproduce/post. That host
-				// is unreachable for a local build, so each transition leaves a failed
-				// request in the console. The crash report path does the same on error.
-				//
-				// These are the game's own switches: Top.hx already turns exactly these
-				// three off together when it runs against a dummy remote. Do the same,
-				// since there is no server on this side either. The ClientError reporter
-				// below stays as the local diagnostics channel.
-				var reportAnchor = "this['" + esc("normalReport") + "']=!![];this['" + esc("saveCrashReport") + "']=!![];this['" + esc("sendCrashReport") + "']=!![];";
-				var reportPos = source.indexOf(reportAnchor);
-				if (reportPos < 0 || source.indexOf(reportAnchor, reportPos + 1) >= 0) {
-					throw new Error("WFMod v0.2.12 report switch anchor mismatch; refusing to run an unverified bundle");
-				}
-				source = source.slice(0, reportPos) + "this['normalReport']=false;this['saveCrashReport']=false;this['sendCrashReport']=false;" + source.slice(reportPos + reportAnchor.length);
-				console.info("[WFMod] v0.2.12 runtime patch applied: server report uploads disabled (no reachable backend for a local build)");
-
-				// Keep one compact line per distinct ClientError. Without this the first
-				// failure is buried under the SipoError/event cascade it triggers.
-				var errorAnchor = "var _0x34e26d=function(_0x44c93d,_0x94baad){this['" + esc("internalMessage") + "']=_0x94baad;this['" + esc("code") + "']=_0x44c93d;};";
-				if (source.indexOf(errorAnchor) >= 0) {
-					source = source.replace(errorAnchor, "var _0x34e26d=function(_0x44c93d,_0x94baad){this['internalMessage']=_0x94baad;this['code']=_0x44c93d;try{if(!window.__wfSeenErrors){window.__wfSeenErrors={};}var _wfKey=_0x44c93d+':'+_0x94baad;if(!window.__wfSeenErrors[_wfKey]){window.__wfSeenErrors[_wfKey]=true;console.error('[WFMod] ClientError '+_0x44c93d+' '+_0x94baad+'\\n'+new Error().stack);}}catch(_wfIgnored){}};");
-					console.info("[WFMod] v0.2.10 ClientError reporter installed");
-				} else {
-					console.warn("[WFMod] v0.2.10 ClientError reporter anchor missing; continuing without it");
-				}
-
-				var blobUrl = URL.createObjectURL(new Blob([source], { type: "text/javascript" }));
+				var result = applyPatches(source, mode);
+				console.info("[WFMod] " + result.applied.length + " patches applied (" + mode + "): " + result.applied.join(", "));
+				var blobUrl = URL.createObjectURL(new Blob([result.source], { type: "text/javascript" }));
 				appendGameScript(blobUrl, true);
 			}).catch(function (error) {
-				console.error("[WFMod] challenge bootstrap patch failed", error);
+				console.error("[WFMod] bootstrap patching failed", error);
 				handledApplicationError();
 			});
 		})();

@@ -49,9 +49,9 @@
 	</script>
 	
 	<script>
-		window.WF_MOD_BUILD = "0.2.11";
+		window.WF_MOD_BUILD = "0.2.12";
 		window.WF_DEMO_BOOT_MODE = new URLSearchParams(window.location.search).get("wfmode") || "tutorial";
-		console.info("[WFMod] build=" + window.WF_MOD_BUILD + " mode=" + window.WF_DEMO_BOOT_MODE + " master=merged-trial global=consistent-merged-policy unlock=guarded tips=fallback");
+		console.info("[WFMod] build=" + window.WF_MOD_BUILD + " mode=" + window.WF_DEMO_BOOT_MODE + " master=merged-trial global=consistent-merged-policy unlock=guarded tips=fallback report=off");
 
 		// OpenFL/Lime loads most runtime assets via XMLHttpRequest. Node's `http-server`
 		// caches static paths by default, which can mix a new JS bundle with an older
@@ -78,7 +78,7 @@
 			};
 		})();
 	</script>
-	<script type="text/javascript" src="lib/pako.min.js?wfbuild=0.2.11"></script>
+	<script type="text/javascript" src="lib/pako.min.js?wfbuild=0.2.12"></script>
 	<script type="text/javascript">
 		(function () {
 			function startWorldFlipper() {
@@ -190,6 +190,26 @@
 				var tipsFallback = "try{if(_0x233d56['keys']().length===0){var _wfTutorialTips=_0x4deab4['getMasterTable'](_0x114e05)['get_data']();if(_wfTutorialTips['keys']().length>0){_0x233d56=_wfTutorialTips;if(!window.__wfTipsFallbackLogged){window.__wfTipsFallbackLogged=true;console.warn('[WFMod] master tips is empty, falling back to tutorial_tips for the loading screen');}}}}catch(_wfTipsIgnored){}";
 				source = source.slice(0, tipsPos + tipsAnchor.length) + tipsFallback + source.slice(tipsPos + tipsAnchor.length);
 				console.info("[WFMod] v0.2.11 runtime patch applied: empty master tips falls back to tutorial_tips instead of ClientError 7011");
+
+				// v0.2.12 offline report switches.
+				//
+				// Every scene change runs LogicSnapshot.applyLogicSnapshot(), which does
+				// ErrorReporter.reportToServer() whenever devConfig.normalReport is on,
+				// POSTing to api.worldflipper.jp/api/index.php/reproduce/post. That host
+				// is unreachable for a local build, so each transition leaves a failed
+				// request in the console. The crash report path does the same on error.
+				//
+				// These are the game's own switches: Top.hx already turns exactly these
+				// three off together when it runs against a dummy remote. Do the same,
+				// since there is no server on this side either. The ClientError reporter
+				// below stays as the local diagnostics channel.
+				var reportAnchor = "this['" + esc("normalReport") + "']=!![];this['" + esc("saveCrashReport") + "']=!![];this['" + esc("sendCrashReport") + "']=!![];";
+				var reportPos = source.indexOf(reportAnchor);
+				if (reportPos < 0 || source.indexOf(reportAnchor, reportPos + 1) >= 0) {
+					throw new Error("WFMod v0.2.12 report switch anchor mismatch; refusing to run an unverified bundle");
+				}
+				source = source.slice(0, reportPos) + "this['normalReport']=false;this['saveCrashReport']=false;this['sendCrashReport']=false;" + source.slice(reportPos + reportAnchor.length);
+				console.info("[WFMod] v0.2.12 runtime patch applied: server report uploads disabled (no reachable backend for a local build)");
 
 				// Keep one compact line per distinct ClientError. Without this the first
 				// failure is buried under the SipoError/event cascade it triggers.

@@ -65,7 +65,7 @@
 典型技能的骨架是：`CreateHitArea`（判定区，内嵌 `ShowEffect` + `MoveHitArea`）→ 命中时
 `CreateNormalAttack` + `ShakeCamera`。
 
-## 支持但从未使用（12）——原创技能的免费能力
+## 支持但从未使用（12）
 
 ```
 CreateShield(radius, u, v, lifetime, movementKind)
@@ -82,17 +82,43 @@ SubtractSkillPoint(target, value)
 Trace(message)
 ```
 
-这一栏直接影响路线图 R7 的范围。R7 列的"需要新增 primitive"里，有几项**已经原生存在**：
+### 其中 4 个用不了：资源不在这个包里
 
-| R7 设想的新能力 | 实际情况 |
-| --- | --- |
-| orbiting projectile | `CreateShield` + `ShieldMovementKind`（Fixed / Smart / RotateClockwise / RotateAnticlockwise） |
-| persistent field | `CreateGravitationalField` |
-| clone ball | `CreateBombMultiball` / `CreateSummonsMultiball`（且已被官方使用） |
-| custom status stack | `AdditionalConditionKind` 17 种 + `DeletionalConditionKind` 18 种 |
+> **更正。** 本文最初把这 12 个称为"原创技能可以白拿的免费能力"。实机测试推翻了其中一部分。
 
-**建议 R7 相应缩小**：真正缺的是 time stop（现只有 `StopBall`，作用于球）、destructible object、
-new flipper behavior、special terrain object 这类。
+把 `CreateShield` 加进一个技能后，进关卡直接在读取阶段崩：
+
+```
+ClientError 8100: 素材 battle/boss/common/boss_shield/boss_shield.timeline.json が見つかりませんでした
+```
+
+**命令本身是活的**——DSL 解析通过、引擎认得它、走到了加载它的视觉资源那一步。挡住的是资源。
+
+bundle 里有一张按命令序号写死的资源依赖表（`addAnimationLayout`），挖出来是：
+
+| 序号 | 命令 | 依赖资源 | 包内 |
+| ---: | --- | --- | --- |
+| 28 | `CreateWindAttack` | `battle/boss/common/boss_wind/boss_wind` | **缺** |
+| 29 | `CreateGravitationalField` | `battle/boss/common/boss_gravity_field/boss_gravity_field` | **缺** |
+| 30 | `CreateTornado` | `battle/boss/common/boss_tornado/boss_tornado` | **缺** |
+| 31 | `CreateTargetAttack` | `battle/boss/common/boss_target_sight/boss_target_sight` | 有（官方在用） |
+| 33 | `CreateShield` | `battle/boss/common/boss_shield/boss_shield` | **缺** |
+
+所以 12 个里有 **4 个被缺失资源挡住**：`CreateShield` / `CreateGravitationalField` /
+`CreateTornado` / `CreateWindAttack`。要用它们，必须自己补出对应的 animation layout
+（timeline + parts + atlas + png），而新资源路径还需要改 bundle 里的 asset manifest。
+
+剩下 8 个（`CreateFixedAttack` / `CreateRatioAttack` / `CreateNormalHeal` /
+`DeleteCondition` / `RemoveEvent` / `SubtractFeverPoint` / `SubtractSkillPoint` / `Trace`）
+**没有 boss/common 依赖**。但注意：它们是否牵连别的资源（例如 hit effect）**尚未逐一核查**，
+不要再当成"确定可用"。
+
+### 两条通用教训
+
+1. **资源依赖在关卡读取阶段就解析**，不是放技能时才解析。一条坏 DSL 会让整个关卡进不去，
+   而不只是技能失效。
+2. **能力 = 命令 + 资源。** 只看 enum 会高估可用范围。判断一个命令能不能用，必须同时查
+   它在依赖表里声明了什么、以及那个资源在不在包里。
 
 ## 参数值空间
 

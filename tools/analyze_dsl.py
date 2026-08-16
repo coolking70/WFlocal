@@ -27,6 +27,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 ASSETS = ROOT / "WFTest" / "assets"
 ENUMS = ROOT / "reverse" / "enums.json"
+PARAMS = ROOT / "reverse" / "enum_params.json"
 OUT = ROOT / "reverse" / "dsl.json"
 
 COMMAND_ENUM = "pinball.battle.action.dsl.ActionDslCommand"
@@ -79,7 +80,7 @@ def walk(node, path, tags, commands, source):
                 record = commands[name]
                 record["count"] += 1
                 record["files"].add(source)
-                record["signatures"][", ".join(shape(a) for a in inner[1:])] += 1
+                record["signatures"][tuple(shape(a) for a in inner[1:])] += 1
         for child in node:
             walk(child, path, tags, commands, source)
     elif isinstance(node, dict):
@@ -93,6 +94,14 @@ def main():
     args = ap.parse_args()
 
     enums = load_enums()
+    # Haxe records each enum constructor's parameter names on the constructor
+    # itself, so argument semantics come straight from the bundle rather than
+    # from reading the parser. See tools/dump_runtime_enums.mjs.
+    params = {}
+    if PARAMS.exists():
+        params = json.loads(PARAMS.read_text(encoding="utf-8")).get(COMMAND_ENUM, {})
+    else:
+        print("note: reverse/enum_params.json missing; run node tools/dump_runtime_enums.mjs --write")
     supported = enums.get(COMMAND_ENUM)
     if not supported:
         sys.exit(f"{COMMAND_ENUM} not found in the enum index")
@@ -113,17 +122,30 @@ def main():
     if unknown:
         print(f"WARNING: used but not in {COMMAND_ENUM}: {unknown}")
 
+    def named(name, signature):
+        """Pair declared parameter names with the shapes actually observed."""
+        names = params.get(name)
+        if not names:
+            return ", ".join(signature)
+        pairs = []
+        for i, param in enumerate(names):
+            pairs.append(f"{param}: {signature[i]}" if i < len(signature) else f"{param}: ?")
+        return ", ".join(pairs)
+
     print("\n--- used ---")
     for name in sorted(used, key=lambda n: -commands[n]["count"]):
         record = commands[name]
-        print(f"  {name:<26} {record['count']:>4}x  in {len(record['files'])} files")
-        for signature, count in record["signatures"].most_common(3):
-            print(f"      ({signature})  x{count}")
+        print(f"\n  {name}  {record['count']}x in {len(record['files'])} files")
+        if params.get(name) is not None:
+            print(f"    declared: {name}({', '.join(params[name])})")
+        for signature, count in record["signatures"].most_common(2):
+            print(f"    seen x{count}: {named(name, signature)}")
 
     print(f"\n--- supported but unused ({len(unused)}) ---")
     print("  these are free capabilities for original skills")
     for name in unused:
-        print(f"  {name}")
+        declared = params.get(name)
+        print(f"  {name}({', '.join(declared)})" if declared is not None else f"  {name}")
 
     print(f"\n--- parameter value spaces ({len(enums) - 1} enums) ---")
     for name in sorted(enums):
@@ -141,11 +163,12 @@ def main():
                 name: {
                     "count": record["count"],
                     "files": sorted(record["files"]),
-                    "signatures": record["signatures"].most_common(),
+                    "params": params.get(name, []),
+                    "signatures": [[list(sig), n] for sig, n in record["signatures"].most_common()],
                 }
                 for name, record in sorted(commands.items())
             },
-            "unused": unused,
+            "unused": [{"name": n, "params": params.get(n, [])} for n in unused],
             "nodeTags": tags.most_common(),
             "valueSpaces": {name[len(DSL_PREFIX):]: values for name, values in sorted(enums.items())
                             if name != COMMAND_ENUM},

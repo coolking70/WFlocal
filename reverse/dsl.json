@@ -44,9 +44,14 @@
     "production/battle/action/skill/action/rare4/mermaid$mermaid_1.action.dsl.json",
     "production/battle/action/skill/action/rare5/ruin_girl$ruin_girl_2.action.dsl.json"
    ],
+   "params": [
+    "value"
+   ],
    "signatures": [
     [
-     "dict",
+     [
+      "dict"
+     ],
      3
     ]
    ]
@@ -56,9 +61,16 @@
    "files": [
     "production/battle/action/item/action/skill_charge_middle.action.dsl.json"
    ],
+   "params": [
+    "target",
+    "value"
+   ],
    "signatures": [
     [
-     "int, dict",
+     [
+      "int",
+      "dict"
+     ],
      1
     ]
    ]
@@ -68,9 +80,24 @@
    "files": [
     "production/battle/action/skill/action/rare5/ruin_girl$ruin_girl_2.action.dsl.json"
    ],
+   "params": [
+    "n",
+    "id",
+    "effect1",
+    "effect2",
+    "effect3",
+    "action"
+   ],
    "signatures": [
     [
-     "int, str, E2(SpecifyEffectDirectly(str),SpecifyEffectDirectly(str),SpecifyEffectDirectly(str)), SpecifyEffectDirectly(str), SpecifyEffectDirectly(str), str",
+     [
+      "int",
+      "str",
+      "E2(SpecifyEffectDirectly(str),SpecifyEffectDirectly(str),SpecifyEffectDirectly(str))",
+      "SpecifyEffectDirectly(str)",
+      "SpecifyEffectDirectly(str)",
+      "str"
+     ],
      1
     ]
    ]
@@ -93,37 +120,83 @@
     "production/battle/action/skill/action/rare5/fox_oracle$fox_oracle_1.action.dsl.json",
     "production/battle/action/skill/action/rare5/prince_zero$prince_zero_2.action.dsl.json"
    ],
+   "params": [
+    "id",
+    "conditions",
+    "probability",
+    "hitEffect"
+   ],
    "signatures": [
     [
-     "int, [ACAttackPoint(dict,dict)], dict, GenericConditionHitEffect",
+     [
+      "int",
+      "[ACAttackPoint(dict,dict)]",
+      "dict",
+      "GenericConditionHitEffect"
+     ],
      8
     ],
     [
-     "int, [ACFrozen(dict,bool)], dict, GenericConditionHitEffect",
+     [
+      "int",
+      "[ACFrozen(dict,bool)]",
+      "dict",
+      "GenericConditionHitEffect"
+     ],
      6
     ],
     [
-     "int, [ACToleranceOfElement(dict,int,dict)], dict, GenericConditionHitEffect",
+     [
+      "int",
+      "[ACToleranceOfElement(dict,int,dict)]",
+      "dict",
+      "GenericConditionHitEffect"
+     ],
      5
     ],
     [
-     "int, [ACSkillDamage(dict,dict)], dict, GenericConditionHitEffect",
+     [
+      "int",
+      "[ACSkillDamage(dict,dict)]",
+      "dict",
+      "GenericConditionHitEffect"
+     ],
      3
     ],
     [
-     "int, [ACAttackPoint(dict,dict)], dict, None",
+     [
+      "int",
+      "[ACAttackPoint(dict,dict)]",
+      "dict",
+      "None"
+     ],
      2
     ],
     [
-     "int, [ACRegeneration(dict,dict)], dict, GenericConditionHitEffect",
+     [
+      "int",
+      "[ACRegeneration(dict,dict)]",
+      "dict",
+      "GenericConditionHitEffect"
+     ],
      2
     ],
     [
-     "int, [ACParalysis(dict,bool)], dict, GenericConditionHitEffect",
+     [
+      "int",
+      "[ACParalysis(dict,bool)]",
+      "dict",
+      "GenericConditionHitEffect"
+     ],
      1
     ],
     [
-     "int, [ACToleranceOfDebuff(dict,dict)], dict, GenericConditionHitEffect",
+     [
+      "int",
+      "[ACToleranceOfDebuff(dict,dict)]",
+      "dict",
+      "GenericConditionHitEffect"
+     ],
      1
     ]
    ]
@@ -171,57 +244,380 @@
     "production/battle/action/skill/action/rare5/light_origin_1.action.dsl.json",
     "production/battle/action/skill/action/rare5/ruin_girl_multiball_2.action.dsl.json"
    ],
+   "params": [
+    "id",
+    "symbol",
+    "coordSys",
+    "u",
+    "v",
+    "w",
+    "trackingPosition",
+    "trackingDirection",
+    "shape",
+    "hAlign",
+    "vAlign",
+    "formation",
+    "lifetime",
+    "minHitInterval",
+    "maxNumOfHits",
+    "eliminatedOnHit",
+    "cracksWeakPoint",
+    "param11",
+    "exprs11",
+    "param21",
+    "param22",
+    "exprs21"
+   ],
    "signatures": [
     [
-     "str, int, AB, int, int, float, bool, bool, Circle(int), Center, Center, NWay(int,float), SpecifyHitAreaLifetimeDirectly(int), SpecifyMinHitIntervalDirectly(int), None, bool, bool, int, Block(...), int, int, Block(...)",
+     [
+      "str",
+      "int",
+      "AB",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "Circle(int)",
+      "Center",
+      "Center",
+      "NWay(int,float)",
+      "SpecifyHitAreaLifetimeDirectly(int)",
+      "SpecifyMinHitIntervalDirectly(int)",
+      "None",
+      "bool",
+      "bool",
+      "int",
+      "Block(...)",
+      "int",
+      "int",
+      "Block(...)"
+     ],
      15
     ],
     [
-     "str, int, EF, int, int, float, bool, bool, Circle(int), Center, Center, Single, SpecifyHitAreaLifetimeDirectly(int), CalculatedUsingMaxNumOfHits(int), None, bool, bool, int, Block(...), int, int, Block(...)",
+     [
+      "str",
+      "int",
+      "EF",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "Circle(int)",
+      "Center",
+      "Center",
+      "Single",
+      "SpecifyHitAreaLifetimeDirectly(int)",
+      "CalculatedUsingMaxNumOfHits(int)",
+      "None",
+      "bool",
+      "bool",
+      "int",
+      "Block(...)",
+      "int",
+      "int",
+      "Block(...)"
+     ],
      14
     ],
     [
-     "str, int, AB, int, int, float, bool, bool, Circle(int), Center, Center, Single, SpecifyHitAreaLifetimeDirectly(int), SpecifyMinHitIntervalDirectly(int), None, bool, bool, int, Block(...), int, int, Block(...)",
+     [
+      "str",
+      "int",
+      "AB",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "Circle(int)",
+      "Center",
+      "Center",
+      "Single",
+      "SpecifyHitAreaLifetimeDirectly(int)",
+      "SpecifyMinHitIntervalDirectly(int)",
+      "None",
+      "bool",
+      "bool",
+      "int",
+      "Block(...)",
+      "int",
+      "int",
+      "Block(...)"
+     ],
      13
     ],
     [
-     "str, int, AB, int, int, float, bool, bool, Circle(int), Center, Center, Single, SpecifyHitAreaLifetimeDirectly(int), CalculatedUsingMaxNumOfHits(int), None, bool, bool, int, Block(...), int, int, Block(...)",
+     [
+      "str",
+      "int",
+      "AB",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "Circle(int)",
+      "Center",
+      "Center",
+      "Single",
+      "SpecifyHitAreaLifetimeDirectly(int)",
+      "CalculatedUsingMaxNumOfHits(int)",
+      "None",
+      "bool",
+      "bool",
+      "int",
+      "Block(...)",
+      "int",
+      "int",
+      "Block(...)"
+     ],
      12
     ],
     [
-     "str, int, AB, int, int, float, bool, bool, Circle(int), Center, Center, Circle(int,int), SpecifyHitAreaLifetimeDirectly(int), SpecifyMinHitIntervalDirectly(int), None, bool, bool, int, Block(...), int, int, Block(...)",
+     [
+      "str",
+      "int",
+      "AB",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "Circle(int)",
+      "Center",
+      "Center",
+      "Circle(int,int)",
+      "SpecifyHitAreaLifetimeDirectly(int)",
+      "SpecifyMinHitIntervalDirectly(int)",
+      "None",
+      "bool",
+      "bool",
+      "int",
+      "Block(...)",
+      "int",
+      "int",
+      "Block(...)"
+     ],
      5
     ],
     [
-     "str, int, GH(int), int, int, float, bool, bool, Circle(int), Center, Center, Single, SpecifyHitAreaLifetimeDirectly(int), SpecifyMinHitIntervalDirectly(int), None, bool, bool, int, Block(...), int, int, Block(...)",
+     [
+      "str",
+      "int",
+      "GH(int)",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "Circle(int)",
+      "Center",
+      "Center",
+      "Single",
+      "SpecifyHitAreaLifetimeDirectly(int)",
+      "SpecifyMinHitIntervalDirectly(int)",
+      "None",
+      "bool",
+      "bool",
+      "int",
+      "Block(...)",
+      "int",
+      "int",
+      "Block(...)"
+     ],
      4
     ],
     [
-     "str, int, CD, int, int, float, bool, bool, Circle(int), Center, Center, Single, SpecifyHitAreaLifetimeDirectly(int), CalculatedUsingMaxNumOfHits(int), None, bool, bool, int, Block(...), int, int, Block(...)",
+     [
+      "str",
+      "int",
+      "CD",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "Circle(int)",
+      "Center",
+      "Center",
+      "Single",
+      "SpecifyHitAreaLifetimeDirectly(int)",
+      "CalculatedUsingMaxNumOfHits(int)",
+      "None",
+      "bool",
+      "bool",
+      "int",
+      "Block(...)",
+      "int",
+      "int",
+      "Block(...)"
+     ],
      4
     ],
     [
-     "str, int, AB, int, int, float, bool, bool, Rectangle(int,int), Center, Bottom, Single, SpecifyHitAreaLifetimeDirectly(int), SpecifyMinHitIntervalDirectly(int), None, bool, bool, int, Block(...), int, int, Block(...)",
+     [
+      "str",
+      "int",
+      "AB",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "Rectangle(int,int)",
+      "Center",
+      "Bottom",
+      "Single",
+      "SpecifyHitAreaLifetimeDirectly(int)",
+      "SpecifyMinHitIntervalDirectly(int)",
+      "None",
+      "bool",
+      "bool",
+      "int",
+      "Block(...)",
+      "int",
+      "int",
+      "Block(...)"
+     ],
      2
     ],
     [
-     "str, int, AB, int, int, float, bool, bool, Circle(int), Center, Center, Single, SpecifyHitAreaLifetimeDirectly(int), CalculatedUsingMaxNumOfHits(int), Some(int), bool, bool, int, Block(...), int, int, Block(...)",
+     [
+      "str",
+      "int",
+      "AB",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "Circle(int)",
+      "Center",
+      "Center",
+      "Single",
+      "SpecifyHitAreaLifetimeDirectly(int)",
+      "CalculatedUsingMaxNumOfHits(int)",
+      "Some(int)",
+      "bool",
+      "bool",
+      "int",
+      "Block(...)",
+      "int",
+      "int",
+      "Block(...)"
+     ],
      2
     ],
     [
-     "str, int, EF, int, int, float, bool, bool, Rectangle(int,int), Center, Bottom, Single, SpecifyHitAreaLifetimeDirectly(int), CalculatedUsingMaxNumOfHits(int), None, bool, bool, int, Block(...), int, int, Block(...)",
+     [
+      "str",
+      "int",
+      "EF",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "Rectangle(int,int)",
+      "Center",
+      "Bottom",
+      "Single",
+      "SpecifyHitAreaLifetimeDirectly(int)",
+      "CalculatedUsingMaxNumOfHits(int)",
+      "None",
+      "bool",
+      "bool",
+      "int",
+      "Block(...)",
+      "int",
+      "int",
+      "Block(...)"
+     ],
      1
     ],
     [
-     "str, int, GH(int), int, int, float, bool, bool, Rectangle(int,int), Center, Bottom, Single, SpecifyHitAreaLifetimeDirectly(int), CalculatedUsingMaxNumOfHits(int), None, bool, bool, int, Block(...), int, int, Block(...)",
+     [
+      "str",
+      "int",
+      "GH(int)",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "Rectangle(int,int)",
+      "Center",
+      "Bottom",
+      "Single",
+      "SpecifyHitAreaLifetimeDirectly(int)",
+      "CalculatedUsingMaxNumOfHits(int)",
+      "None",
+      "bool",
+      "bool",
+      "int",
+      "Block(...)",
+      "int",
+      "int",
+      "Block(...)"
+     ],
      1
     ],
     [
-     "str, int, AB, int, int, float, bool, bool, Rectangle(int,int), Center, Center, Single, SpecifyHitAreaLifetimeDirectly(int), CalculatedUsingMaxNumOfHits(int), None, bool, bool, int, Block(...), int, int, Block(...)",
+     [
+      "str",
+      "int",
+      "AB",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "Rectangle(int,int)",
+      "Center",
+      "Center",
+      "Single",
+      "SpecifyHitAreaLifetimeDirectly(int)",
+      "CalculatedUsingMaxNumOfHits(int)",
+      "None",
+      "bool",
+      "bool",
+      "int",
+      "Block(...)",
+      "int",
+      "int",
+      "Block(...)"
+     ],
      1
     ],
     [
-     "str, int, AB, int, int, float, bool, bool, Rectangle(int,int), Center, Bottom, Single, SpecifyHitAreaLifetimeDirectly(int), CalculatedUsingMaxNumOfHits(int), None, bool, bool, int, Block(...), int, int, Block(...)",
+     [
+      "str",
+      "int",
+      "AB",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "Rectangle(int,int)",
+      "Center",
+      "Bottom",
+      "Single",
+      "SpecifyHitAreaLifetimeDirectly(int)",
+      "CalculatedUsingMaxNumOfHits(int)",
+      "None",
+      "bool",
+      "bool",
+      "int",
+      "Block(...)",
+      "int",
+      "int",
+      "Block(...)"
+     ],
      1
     ]
    ]
@@ -275,37 +671,164 @@
     "production/battle/action/skill/action/rare5/light_origin_1.action.dsl.json",
     "production/battle/action/skill/action/rare5/ruin_girl_multiball_2.action.dsl.json"
    ],
+   "params": [
+    "id",
+    "element",
+    "specialEfficacies",
+    "conditionSlayers",
+    "damage",
+    "sLvMultiplierOfAttackPoint",
+    "sLvMultiplierOfSpecialEfficacy",
+    "enablesComboBonus",
+    "enablesCoffinCountBonus",
+    "enablesBuffCountBonus",
+    "sLvMultiplierOfDetoughness",
+    "sLvMultiplierOfFeverGauge",
+    "hitEffect"
+   ],
    "signatures": [
     [
-     "int, int, [], [], int, dict, dict, bool, bool, bool, dict, dict, None",
+     [
+      "int",
+      "int",
+      "[]",
+      "[]",
+      "int",
+      "dict",
+      "dict",
+      "bool",
+      "bool",
+      "bool",
+      "dict",
+      "dict",
+      "None"
+     ],
      48
     ],
     [
-     "int, int, [], [], int, dict, dict, bool, bool, bool, dict, dict, Shine",
+     [
+      "int",
+      "int",
+      "[]",
+      "[]",
+      "int",
+      "dict",
+      "dict",
+      "bool",
+      "bool",
+      "bool",
+      "dict",
+      "dict",
+      "Shine"
+     ],
      14
     ],
     [
-     "int, int, [], [], int, dict, dict, bool, bool, bool, dict, dict, Fine",
+     [
+      "int",
+      "int",
+      "[]",
+      "[]",
+      "int",
+      "dict",
+      "dict",
+      "bool",
+      "bool",
+      "bool",
+      "dict",
+      "dict",
+      "Fine"
+     ],
      12
     ],
     [
-     "int, int, [], [], int, dict, dict, bool, bool, bool, dict, dict, Coarse",
+     [
+      "int",
+      "int",
+      "[]",
+      "[]",
+      "int",
+      "dict",
+      "dict",
+      "bool",
+      "bool",
+      "bool",
+      "dict",
+      "dict",
+      "Coarse"
+     ],
      4
     ],
     [
-     "int, int, [], [], int, dict, dict, bool, bool, bool, dict, dict, Slash",
+     [
+      "int",
+      "int",
+      "[]",
+      "[]",
+      "int",
+      "dict",
+      "dict",
+      "bool",
+      "bool",
+      "bool",
+      "dict",
+      "dict",
+      "Slash"
+     ],
      2
     ],
     [
-     "int, int, [], [], int, dict, dict, bool, bool, bool, dict, dict, SpecifyHitEffectDirectly(SpecifyEffectDirectly(str),bool)",
+     [
+      "int",
+      "int",
+      "[]",
+      "[]",
+      "int",
+      "dict",
+      "dict",
+      "bool",
+      "bool",
+      "bool",
+      "dict",
+      "dict",
+      "SpecifyHitEffectDirectly(SpecifyEffectDirectly(str),bool)"
+     ],
      2
     ],
     [
-     "int, int, [], [], int, dict, dict, bool, bool, bool, dict, dict, ThunderSmall",
+     [
+      "int",
+      "int",
+      "[]",
+      "[]",
+      "int",
+      "dict",
+      "dict",
+      "bool",
+      "bool",
+      "bool",
+      "dict",
+      "dict",
+      "ThunderSmall"
+     ],
      1
     ],
     [
-     "int, int, [], [DCParalysis], int, dict, dict, bool, bool, bool, dict, dict, ThunderSmall",
+     [
+      "int",
+      "int",
+      "[]",
+      "[DCParalysis]",
+      "int",
+      "dict",
+      "dict",
+      "bool",
+      "bool",
+      "bool",
+      "dict",
+      "dict",
+      "ThunderSmall"
+     ],
      1
     ]
    ]
@@ -319,17 +842,46 @@
     "production/battle/action/skill/action/rare4/bishop_girl$bishop_girl_1.action.dsl.json",
     "production/battle/action/skill/action/rare4/lightbullet_wiz$lightbullet_wiz_2.action.dsl.json"
    ],
+   "params": [
+    "id",
+    "kind",
+    "sLvRateOfHealthPoint",
+    "specialEfficacies",
+    "sLvMultiplierOfSpecialEfficacy",
+    "hitEffect"
+   ],
    "signatures": [
     [
-     "int, int, dict, [int], dict, SpecifyHealEffectDirectly(SpecifyEffectDirectly(str))",
+     [
+      "int",
+      "int",
+      "dict",
+      "[int]",
+      "dict",
+      "SpecifyHealEffectDirectly(SpecifyEffectDirectly(str))"
+     ],
      3
     ],
     [
-     "int, int, dict, [], dict, GenericHealHitEffect",
+     [
+      "int",
+      "int",
+      "dict",
+      "[]",
+      "dict",
+      "GenericHealHitEffect"
+     ],
      2
     ],
     [
-     "int, int, dict, [int], dict, GenericHealHitEffect",
+     [
+      "int",
+      "int",
+      "dict",
+      "[int]",
+      "dict",
+      "GenericHealHitEffect"
+     ],
      2
     ]
    ]
@@ -342,13 +894,50 @@
     "production/battle/action/skill/action/rare4/mermaid$mermaid_1.action.dsl.json",
     "production/battle/action/skill/action/rare4/thunder_dragon$thunder_dragon_1.action.dsl.json"
    ],
+   "params": [
+    "id",
+    "coordSys",
+    "u",
+    "v",
+    "w",
+    "trackingPosition",
+    "trackingDirection",
+    "formation",
+    "lifetime",
+    "param11",
+    "exprs11"
+   ],
    "signatures": [
     [
-     "int, AB, int, int, float, bool, bool, Single, int, int, Block(...)",
+     [
+      "int",
+      "AB",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "Single",
+      "int",
+      "int",
+      "Block(...)"
+     ],
      3
     ],
     [
-     "int, EF, int, int, float, bool, bool, Single, int, int, Block(...)",
+     [
+      "int",
+      "EF",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "Single",
+      "int",
+      "int",
+      "Block(...)"
+     ],
      1
     ]
    ]
@@ -362,9 +951,36 @@
     "production/battle/action/enemy/action/boss_guardian_golem/funnel_guardian_golem_fire$difficulity10_shot1.action.dsl.json",
     "production/battle/action/enemy/action/boss_kraken/funnel_kraken$difficulity10_skill_shot1.action.dsl.json"
    ],
+   "params": [
+    "hitAreaId",
+    "pointName",
+    "coordSys",
+    "u",
+    "v",
+    "w",
+    "shockWaveShape",
+    "effect",
+    "spreadingSpeed",
+    "param21",
+    "param22",
+    "exprs21"
+   ],
    "signatures": [
     [
-     "str, int, AB, int, int, float, Donut, ResolveByElement(str,int), int, int, int, Block(...)",
+     [
+      "str",
+      "int",
+      "AB",
+      "int",
+      "int",
+      "float",
+      "Donut",
+      "ResolveByElement(str,int)",
+      "int",
+      "int",
+      "int",
+      "Block(...)"
+     ],
      8
     ]
    ]
@@ -375,9 +991,24 @@
     "production/battle/action/skill/action/rare3/magic_boy$magic_boy_1.action.dsl.json",
     "production/battle/action/skill/action/rare3/tutorial_witch_1.action.dsl.json"
    ],
+   "params": [
+    "n",
+    "id",
+    "lifetime",
+    "effect1",
+    "effect2",
+    "effect3"
+   ],
    "signatures": [
     [
-     "int, int, dict, E1(SpecifyEffectDirectly(str)), SpecifyEffectDirectly(str), SpecifyEffectDirectly(str)",
+     [
+      "int",
+      "int",
+      "dict",
+      "E1(SpecifyEffectDirectly(str))",
+      "SpecifyEffectDirectly(str)",
+      "SpecifyEffectDirectly(str)"
+     ],
      2
     ]
    ]
@@ -387,9 +1018,22 @@
    "files": [
     "production/battle/action/enemy/action/boss_maou/boss_maou$difficulity10_target_shot1.action.dsl.json"
    ],
+   "params": [
+    "pointName",
+    "u",
+    "v",
+    "lifetime",
+    "action"
+   ],
    "signatures": [
     [
-     "int, int, int, Specify(int), str",
+     [
+      "int",
+      "int",
+      "int",
+      "Specify(int)",
+      "str"
+     ],
      12
     ]
    ]
@@ -399,9 +1043,18 @@
    "files": [
     "production/battle/action/skill/action/rare3/nurse$nurse_1.action.dsl.json"
    ],
+   "params": [
+    "id",
+    "n",
+    "hitEffect"
+   ],
    "signatures": [
     [
-     "int, int, Generic",
+     [
+      "int",
+      "int",
+      "Generic"
+     ],
      1
     ]
    ]
@@ -420,9 +1073,22 @@
     "production/battle/action/skill/action/rare5/brown_fighter$brown_fighter_1.action.dsl.json",
     "production/battle/action/skill/action/rare5/prince_zero$prince_zero_2.action.dsl.json"
    ],
+   "params": [
+    "id",
+    "condition1",
+    "condition2",
+    "ifTargetNotFound",
+    "exprs"
+   ],
    "signatures": [
     [
-     "int, int, [], DoNothing, Block(...)",
+     [
+      "int",
+      "int",
+      "[]",
+      "DoNothing",
+      "Block(...)"
+     ],
      11
     ]
    ]
@@ -436,9 +1102,24 @@
     "production/battle/action/skill/action/rare4/rec_android$rec_android_1.action.dsl.json",
     "production/battle/action/skill/action/rare4/thunder_dragon$thunder_dragon_1.action.dsl.json"
    ],
+   "params": [
+    "id",
+    "max",
+    "condition",
+    "ifTargetNotFound",
+    "param",
+    "exprs"
+   ],
    "signatures": [
     [
-     "int, int, int, CreateImaginaryTarget(int), int, Block(...)",
+     [
+      "int",
+      "int",
+      "int",
+      "CreateImaginaryTarget(int)",
+      "int",
+      "Block(...)"
+     ],
      5
     ]
    ]
@@ -449,9 +1130,16 @@
     "production/battle/action/skill/action/rare4/alk$alk_1.action.dsl.json",
     "production/battle/action/skill/action/rare5/brown_fighter$brown_fighter_1.action.dsl.json"
    ],
+   "params": [
+    "id",
+    "frame"
+   ],
    "signatures": [
     [
-     "int, int",
+     [
+      "int",
+      "int"
+     ],
      2
     ]
    ]
@@ -463,9 +1151,14 @@
     "production/battle/action/power_flip/action/special$special_lv2.action.dsl.json",
     "production/battle/action/power_flip/action/special$special_lv3.action.dsl.json"
    ],
+   "params": [
+    "name"
+   ],
    "signatures": [
     [
-     "str",
+     [
+      "str"
+     ],
      3
     ]
    ]
@@ -478,13 +1171,38 @@
     "production/battle/action/skill/action/rare4/palpebra_knight_lady$palpebra_knight_lady_2.action.dsl.json",
     "production/battle/action/skill/action/rare5/light_origin_1.action.dsl.json"
    ],
+   "params": [
+    "id",
+    "coordSys",
+    "w",
+    "frame",
+    "movingSpeed",
+    "endingSpeed",
+    "suppressDirectAttack"
+   ],
    "signatures": [
     [
-     "int, GH(int), float, int, float, KeepGoing, bool",
+     [
+      "int",
+      "GH(int)",
+      "float",
+      "int",
+      "float",
+      "KeepGoing",
+      "bool"
+     ],
      3
     ],
     [
-     "int, AB, float, int, float, KeepGoing, bool",
+     [
+      "int",
+      "AB",
+      "float",
+      "int",
+      "float",
+      "KeepGoing",
+      "bool"
+     ],
      1
     ]
    ]
@@ -511,9 +1229,22 @@
     "production/battle/action/skill/action/rare4/lightbullet_wiz$lightbullet_wiz_2.action.dsl.json",
     "production/battle/action/skill/action/rare4/palpebra_knight$palpebra_knight_2.action.dsl.json"
    ],
+   "params": [
+    "id",
+    "coordSys",
+    "w",
+    "speed",
+    "tween"
+   ],
    "signatures": [
     [
-     "int, CD, float, float, None",
+     [
+      "int",
+      "CD",
+      "float",
+      "float",
+      "None"
+     ],
      51
     ]
    ]
@@ -543,9 +1274,14 @@
     "production/battle/action/skill/action/rare5/fox_oracle$fox_oracle_1.action.dsl.json",
     "production/battle/action/skill/action/rare5/light_origin_1.action.dsl.json"
    ],
+   "params": [
+    "size"
+   ],
    "signatures": [
     [
-     "int",
+     [
+      "int"
+     ],
      37
     ]
    ]
@@ -595,65 +1331,274 @@
     "production/battle/action/skill/action/rare5/prince_zero$prince_zero_2.action.dsl.json",
     "production/battle/action/skill/action/rare5/ruin_girl_multiball_2.action.dsl.json"
    ],
+   "params": [
+    "name",
+    "effect",
+    "id",
+    "layerZDepth",
+    "lifetime",
+    "coordSys",
+    "u",
+    "v",
+    "w",
+    "trackingPosition",
+    "trackingDirection",
+    "scale"
+   ],
    "signatures": [
     [
-     "str, ResolveByElement(str,int), int, ForesideOfCharacter, UntilTargetTerminates, CD, int, int, float, bool, bool, None",
+     [
+      "str",
+      "ResolveByElement(str,int)",
+      "int",
+      "ForesideOfCharacter",
+      "UntilTargetTerminates",
+      "CD",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "None"
+     ],
      38
     ],
     [
-     "str, SpecifyEffectDirectly(str), int, ForesideOfCharacter, UntilTargetTerminates, CD, int, int, float, bool, bool, Some(float)",
+     [
+      "str",
+      "SpecifyEffectDirectly(str)",
+      "int",
+      "ForesideOfCharacter",
+      "UntilTargetTerminates",
+      "CD",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "Some(float)"
+     ],
      20
     ],
     [
-     "str, SpecifyEffectDirectly(str), int, ForesideOfCharacter, PlayOnlyFirstSequence, AB, int, int, float, bool, bool, Some(float)",
+     [
+      "str",
+      "SpecifyEffectDirectly(str)",
+      "int",
+      "ForesideOfCharacter",
+      "PlayOnlyFirstSequence",
+      "AB",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "Some(float)"
+     ],
      6
     ],
     [
-     "str, ResolveByElement(str,int), int, ForesideOfCharacter, UntilTargetTerminates, AB, int, int, float, bool, bool, Some(float)",
+     [
+      "str",
+      "ResolveByElement(str,int)",
+      "int",
+      "ForesideOfCharacter",
+      "UntilTargetTerminates",
+      "AB",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "Some(float)"
+     ],
      4
     ],
     [
-     "str, SpecifyEffectDirectly(str), int, BacksideOfCharacter, SpecifyEffectLifetimeDirectly(int), AB, int, int, float, bool, bool, Some(float)",
+     [
+      "str",
+      "SpecifyEffectDirectly(str)",
+      "int",
+      "BacksideOfCharacter",
+      "SpecifyEffectLifetimeDirectly(int)",
+      "AB",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "Some(float)"
+     ],
      3
     ],
     [
-     "str, ResolveByElement(str,int), int, ForesideOfCharacter, SpecifyEffectLifetimeDirectly(int), EF, int, int, float, bool, bool, Some(float)",
+     [
+      "str",
+      "ResolveByElement(str,int)",
+      "int",
+      "ForesideOfCharacter",
+      "SpecifyEffectLifetimeDirectly(int)",
+      "EF",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "Some(float)"
+     ],
      2
     ],
     [
-     "str, SpecifyEffectDirectly(str), int, ForesideOfCharacter, PlayOnlyFirstSequence, AB, int, int, float, bool, bool, None",
+     [
+      "str",
+      "SpecifyEffectDirectly(str)",
+      "int",
+      "ForesideOfCharacter",
+      "PlayOnlyFirstSequence",
+      "AB",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "None"
+     ],
      2
     ],
     [
-     "str, SpecifyEffectDirectly(str), int, ForesideOfCharacter, PlayOnlyFirstSequence, EF, int, int, float, bool, bool, Some(float)",
+     [
+      "str",
+      "SpecifyEffectDirectly(str)",
+      "int",
+      "ForesideOfCharacter",
+      "PlayOnlyFirstSequence",
+      "EF",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "Some(float)"
+     ],
      2
     ],
     [
-     "str, SpecifyEffectDirectly(str), int, ForesideOfCharacter, SpecifyEffectLifetimeDirectly(int), AB, int, int, float, bool, bool, Some(float)",
+     [
+      "str",
+      "SpecifyEffectDirectly(str)",
+      "int",
+      "ForesideOfCharacter",
+      "SpecifyEffectLifetimeDirectly(int)",
+      "AB",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "Some(float)"
+     ],
      2
     ],
     [
-     "str, ResolveByElement(str,int), int, ForesideOfCharacter, SpecifyEffectLifetimeDirectly(int), AB, int, int, float, bool, bool, Some(float)",
+     [
+      "str",
+      "ResolveByElement(str,int)",
+      "int",
+      "ForesideOfCharacter",
+      "SpecifyEffectLifetimeDirectly(int)",
+      "AB",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "Some(float)"
+     ],
      2
     ],
     [
-     "str, SpecifyEffectDirectly(str), int, ForesideOfCharacter, SpecifyEffectLifetimeDirectly(int), CD, int, int, float, bool, bool, Some(float)",
+     [
+      "str",
+      "SpecifyEffectDirectly(str)",
+      "int",
+      "ForesideOfCharacter",
+      "SpecifyEffectLifetimeDirectly(int)",
+      "CD",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "Some(float)"
+     ],
      2
     ],
     [
-     "str, SpecifyEffectDirectly(str), int, ForesideOfCharacter, UntilTargetTerminates, CD, int, int, float, bool, bool, None",
+     [
+      "str",
+      "SpecifyEffectDirectly(str)",
+      "int",
+      "ForesideOfCharacter",
+      "UntilTargetTerminates",
+      "CD",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "None"
+     ],
      1
     ],
     [
-     "str, SpecifyEffectDirectly(str), int, ForesideOfCharacter, PlayOnlyFirstSequence, CD, int, int, float, bool, bool, Some(float)",
+     [
+      "str",
+      "SpecifyEffectDirectly(str)",
+      "int",
+      "ForesideOfCharacter",
+      "PlayOnlyFirstSequence",
+      "CD",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "Some(float)"
+     ],
      1
     ],
     [
-     "str, SpecifyEffectDirectly(str), int, BacksideOfCharacter, PlayOnlyFirstSequence, CD, int, int, float, bool, bool, Some(float)",
+     [
+      "str",
+      "SpecifyEffectDirectly(str)",
+      "int",
+      "BacksideOfCharacter",
+      "PlayOnlyFirstSequence",
+      "CD",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "Some(float)"
+     ],
      1
     ],
     [
-     "str, SpecifyEffectDirectly(str), int, BacksideOfCharacter, PlayOnlyFirstSequence, AB, int, int, float, bool, bool, Some(float)",
+     [
+      "str",
+      "SpecifyEffectDirectly(str)",
+      "int",
+      "BacksideOfCharacter",
+      "PlayOnlyFirstSequence",
+      "AB",
+      "int",
+      "int",
+      "float",
+      "bool",
+      "bool",
+      "Some(float)"
+     ],
      1
     ]
    ]
@@ -668,13 +1613,26 @@
     "production/battle/action/enemy/action/boss_maou/boss_maou$difficulity10_funnel_shot1.action.dsl.json",
     "production/battle/action/enemy/action/general_boss/boss_evil_tutorial$difficulity10_funnel_shot1.action.dsl.json"
    ],
+   "params": [
+    "id",
+    "n",
+    "point"
+   ],
    "signatures": [
     [
-     "Funnel(str), int, FunnelGroup(int)",
+     [
+      "Funnel(str)",
+      "int",
+      "FunnelGroup(int)"
+     ],
      11
     ],
     [
-     "Zako(str), int, FunnelGroup(int)",
+     [
+      "Zako(str)",
+      "int",
+      "FunnelGroup(int)"
+     ],
      1
     ]
    ]
@@ -691,43 +1649,173 @@
     "production/battle/action/skill/action/rare5/brown_fighter$brown_fighter_1.action.dsl.json",
     "production/battle/action/skill/action/rare5/prince_zero$prince_zero_2.action.dsl.json"
    ],
+   "params": [
+    "id",
+    "frame",
+    "endingSpeed",
+    "coordSys",
+    "w"
+   ],
    "signatures": [
     [
-     "int, int, Stop, AB, float",
+     [
+      "int",
+      "int",
+      "Stop",
+      "AB",
+      "float"
+     ],
      4
     ],
     [
-     "int, int, RestoreToSpeedBeforeActionExecution, AB, float",
+     [
+      "int",
+      "int",
+      "RestoreToSpeedBeforeActionExecution",
+      "AB",
+      "float"
+     ],
      1
     ],
     [
-     "int, int, Stop, GH(int), float",
+     [
+      "int",
+      "int",
+      "Stop",
+      "GH(int)",
+      "float"
+     ],
      1
     ],
     [
-     "int, int, RestoreToSpeedBeforeCommandExecution, EF, float",
+     [
+      "int",
+      "int",
+      "RestoreToSpeedBeforeCommandExecution",
+      "EF",
+      "float"
+     ],
      1
     ],
     [
-     "int, int, RestoreToSpeedBeforeActionExecution, EF, float",
+     [
+      "int",
+      "int",
+      "RestoreToSpeedBeforeActionExecution",
+      "EF",
+      "float"
+     ],
      1
     ]
    ]
   }
  },
  "unused": [
-  "CreateFixedAttack",
-  "CreateGravitationalField",
-  "CreateNormalHeal",
-  "CreateRatioAttack",
-  "CreateShield",
-  "CreateTornado",
-  "CreateWindAttack",
-  "DeleteCondition",
-  "RemoveEvent",
-  "SubtractFeverPoint",
-  "SubtractSkillPoint",
-  "Trace"
+  {
+   "name": "CreateFixedAttack",
+   "params": [
+    "id",
+    "damage",
+    "hitEffect"
+   ]
+  },
+  {
+   "name": "CreateGravitationalField",
+   "params": [
+    "pointName",
+    "gravity",
+    "frame",
+    "width",
+    "height",
+    "u",
+    "v",
+    "hAlign",
+    "vAlign",
+    "canceledByStunOrWince"
+   ]
+  },
+  {
+   "name": "CreateNormalHeal",
+   "params": [
+    "id",
+    "sLvBasicCure",
+    "specialEfficacies",
+    "sLvMultiplierOfSpecialEfficacy",
+    "hitEffect"
+   ]
+  },
+  {
+   "name": "CreateRatioAttack",
+   "params": [
+    "id",
+    "kind",
+    "sLvRateOfHealthPoint"
+   ]
+  },
+  {
+   "name": "CreateShield",
+   "params": [
+    "radius",
+    "u",
+    "v",
+    "lifetime",
+    "movementKind"
+   ]
+  },
+  {
+   "name": "CreateTornado",
+   "params": [
+    "pointName",
+    "u",
+    "v",
+    "speed",
+    "frame",
+    "interval",
+    "action",
+    "canceledByStunOrWince"
+   ]
+  },
+  {
+   "name": "CreateWindAttack",
+   "params": [
+    "kind",
+    "speed",
+    "frame"
+   ]
+  },
+  {
+   "name": "DeleteCondition",
+   "params": [
+    "id",
+    "condition",
+    "limit"
+   ]
+  },
+  {
+   "name": "RemoveEvent",
+   "params": [
+    "name"
+   ]
+  },
+  {
+   "name": "SubtractFeverPoint",
+   "params": [
+    "value"
+   ]
+  },
+  {
+   "name": "SubtractSkillPoint",
+   "params": [
+    "target",
+    "value"
+   ]
+  },
+  {
+   "name": "Trace",
+   "params": [
+    "message"
+   ]
+  }
  ],
  "nodeTags": [
   [

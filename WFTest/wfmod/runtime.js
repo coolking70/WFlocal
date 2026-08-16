@@ -267,6 +267,19 @@
 								});
 							}
 						});
+						// Arguments matter as much as the receiver: "which zone is being
+						// set up" is an argument, and a trace that only reports `this`
+						// answers a question nobody asked. Objects get one level, same
+						// as a requested field.
+						for (var a = 0; a < arguments.length && shown < 16; a++) {
+							var arg = arguments[a];
+							if (scalar(arg)) { put("arg" + a, arg); continue; }
+							if (arg && typeof arg === "object") {
+								Object.keys(arg).forEach(function (sub) {
+									if (scalar(arg[sub])) put("arg" + a + "." + sub, arg[sub]);
+								});
+							}
+						}
 						// Log a string, not an object: the console collapses objects to
 						// their first few keys behind a "...", which hid the very fields
 						// the trace was asked for.

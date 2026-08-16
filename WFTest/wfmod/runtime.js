@@ -242,13 +242,27 @@
 						// first meant an object whose first dozen fields are all
 						// objects reported nothing, which reads as "not called".
 						var fields = {}, shown = 0;
-						Object.keys(self || {}).forEach(function (k) {
+						var scalar = function (v) {
+							return v === null || ["number", "string", "boolean"].indexOf(typeof v) >= 0;
+						};
+						var put = function (name, v) {
 							if (shown >= 16) return;
+							fields[name] = typeof v === "number" ? Math.round(v * 100) / 100 : v;
+							shown++;
+						};
+						Object.keys(self || {}).forEach(function (k) {
 							if (only && only.indexOf(k) < 0) return;
 							var v = self[k];
-							if (v === null || ["number", "string", "boolean"].indexOf(typeof v) >= 0) {
-								fields[k] = typeof v === "number" ? Math.round(v * 100) / 100 : v;
-								shown++;
+							if (scalar(v)) { put(k, v); return; }
+							// An explicitly requested field that turns out to be an object
+							// gets one level of expansion. Some of the things worth reading
+							// are not scalars on the object itself - a hit area's size lives
+							// in its physics shape - and the sub-field names are not
+							// something the caller can be expected to know in advance.
+							if (only && v && typeof v === "object") {
+								Object.keys(v).forEach(function (sub) {
+									if (scalar(v[sub])) put(k + "." + sub, v[sub]);
+								});
 							}
 						});
 						// Log a string, not an object: the console collapses objects to

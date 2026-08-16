@@ -85,3 +85,39 @@ FAIL launcher: applyHooks() runs before lime.embed(); WF_INTERNALS will not exis
 - 挑战模式 4 关能进；
 - **AUTO 按钮出现且可开关**（这是本版的重点）；
 - 控制台出现 `[WFMod] 1 runtime hooks: pinball.scene.battle.BattleScene.get_autoPlayUnlocked`。
+
+---
+
+## 更正（v0.3.4）：本文的诊断是错的
+
+上面这份分析建立在一个错误前提上，实测已推翻。
+
+**真实原因是 bundle 会禁用 console。** 它带有混淆器的反调试代码，一执行就把
+`console.log/info/warn/error` 换成空函数。于是 bundle 执行之后 WFMod 打的所有日志
+全部消失——**hook 一直在正常工作，我们只是看不见**。
+
+判据是手动调用的返回值：
+
+```js
+> window.WFMod.runtime.applyHooks()
+{applied: Array(3), failed: Array(0)}
+```
+
+3 个装上、0 个失败，却一行日志都没有。
+
+因此本文中"applyHooks 必须在 lime.embed 之后"这个结论**未经证实**：当时看到的"没生效"
+其实是"没日志"。同理，"bundle 自启动、onload 从不触发"也是我在没有观测手段时的推断，
+同样未经证实，已从代码注释中撤下。
+
+受影响的还有：
+
+- **ClientError 报告器在 v0.3.4 之前从未真正输出过。** 之前日志里的 `Uncaught ...`
+  都是浏览器自己打的，不是它。
+- 护盾实验中"资源注册成功"是从"8100 消失"推出来的——这条推理本身仍然成立，
+  但当时缺少自家日志佐证。
+
+修法：在 bundle 加载**之前**保存一份 console 句柄（`window.__wfConsole`），
+WFMod 的所有日志都走它。
+
+教训：**在没有观测手段的环境里，先造观测手段，再做判断。** 这一轮我在缺少日志的情况下
+连续给出五次错误诊断，每一次都要用户跑一遍来证伪，代价很大。

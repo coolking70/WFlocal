@@ -21,6 +21,12 @@
 (function () {
 	"use strict";
 
+	// The bundle disables the console (obfuscator hardening) the moment it runs,
+	// so every WFMod log after that vanishes - which is how three working hooks
+	// looked like zero for several rounds. game-index.html saves real handles
+	// before the bundle loads; fall back to console for standalone use.
+	var log = (typeof window !== "undefined" && window.__wfConsole) || console;
+
 	var applied = [];
 	var failed = [];
 
@@ -148,13 +154,13 @@
 			if (!pending.length) {
 				clearInterval(timer);
 				if (registered) {
-					console.info("[WFMod] registered " + registered + " added assets with the lime library");
+					log.info("[WFMod] registered " + registered + " added assets with the lime library");
 				}
 				return;
 			}
 			if (Date.now() > deadline) {
 				clearInterval(timer);
-				console.error("[WFMod] gave up registering " + pending.length +
+				log.error("[WFMod] gave up registering " + pending.length +
 					" added assets; the lime library never reported: " +
 					pending.map(function (i) { return i.like; }).join(", "));
 			}
@@ -193,8 +199,34 @@
 						return actual > ratio ? actual : ratio;
 					};
 				});
-			console.warn("[WFMod] DEV AID active: opening skill gauge set to " + ratio +
+			log.warn("[WFMod] DEV AID active: opening skill gauge set to " + ratio +
 				" (?wfdev=fullskill)");
+		}
+
+		// The demo has no party or character screen, so stats set in the master
+		// tables are invisible until R4 builds one. Read them off the live squad
+		// member instead: MemberImpl.source is the SquadMemberSource holding the
+		// hp and atk the game actually resolved for this battle.
+		if (devFlag("stats") !== null) {
+			var reported = {};
+			hook("pinball.scene.battle.battle.squad.member.MemberImpl",
+				"getMaxHealthPoint", function (original) {
+					return function () {
+						try {
+							var source = this.source || {};
+							var key = this.index + ":" + source.hp + ":" + source.atk;
+							if (!reported[key]) {
+								reported[key] = true;
+								log.info("[WFMod] member " + this.index +
+									"  hp=" + source.hp + "  atk=" + source.atk +
+									"  maxSkillPoint=" + source.maxSkillPoint +
+									"  art=" + source.pixelArtAnimationPath);
+							}
+						} catch (ignored) {}
+						return original.call(this);
+					};
+				});
+			log.warn("[WFMod] DEV AID active: squad member stats logged on battle start (?wfdev=stats)");
 		}
 
 		var fast = devFlag("fastskill");
@@ -207,15 +239,33 @@
 				"getTotalSkillGaugeCharging", function (original) {
 					return function () { return original.call(this) + bonus; };
 				});
-			console.warn("[WFMod] DEV AID active: skill gauge charging +" + bonus +
+			log.warn("[WFMod] DEV AID active: skill gauge charging +" + bonus +
 				" for every member, continuously (?wfdev=fastskill)");
 		}
 	}
 
 	// The hooks WFMod installs at startup, in order.
+	var installed = false;
+
 	function applyHooks() {
+		// Both the launcher and this file's autoInstall() call in; whichever wins
+		// does the work. Hooking twice would wrap a wrapper.
+		if (installed) {
+			return { applied: applied.slice(), failed: failed.slice() };
+		}
+		installed = true;
 		applied = [];
 		failed = [];
+		log.warn("[WFMod] applyHooks() start");
+		try {
+			return applyHooksInner();
+		} catch (error) {
+			log.error("[WFMod] applyHooks() threw: " + (error && error.message || error), error);
+			return { applied: applied.slice(), failed: failed.slice() };
+		}
+	}
+
+	function applyHooksInner() {
 
 		// AUTO unlock. BattleScene.get_autoPlayUnlocked() asks
 		// globalLogic.isGameSystemUnlocked('auto_play'), but master
@@ -229,11 +279,13 @@
 		registerAssets();
 		applyDevAids();
 
+		log.warn("[WFMod] applyHooks() done: " + applied.length + " applied, " +
+			failed.length + " failed");
 		if (applied.length) {
-			console.info("[WFMod] " + applied.length + " runtime hooks: " + applied.join(", "));
+			log.info("[WFMod] runtime hooks: " + applied.join(", "));
 		}
 		if (failed.length) {
-			console.error("[WFMod] " + failed.length + " runtime hooks FAILED: " + failed.join(", "));
+			log.error("[WFMod] runtime hooks FAILED: " + failed.join(", "));
 		}
 		return { applied: applied.slice(), failed: failed.slice() };
 	}
@@ -245,6 +297,29 @@
 		return filter ? names.filter(function (n) { return n.indexOf(filter) >= 0; }) : names;
 	}
 
+	// Install as soon as the bundle publishes its registry, driven from here
+	// rather than from the launcher.
+	//
+	// This file loading is enough to arm the hooks. Depending on the launcher to
+	// call applyHooks() meant depending on a code path that turned out never to
+	// run - the bundle boots itself and its script never fires onload - and the
+	// failure was silent, because nothing logs when nothing is called.
+	function autoInstall(intervalMs, timeoutMs) {
+		var deadline = Date.now() + (timeoutMs || 120000);
+		var timer = setInterval(function () {
+			if (window.WF_INTERNALS) {
+				clearInterval(timer);
+				applyHooks();
+			} else if (Date.now() > deadline) {
+				clearInterval(timer);
+				log.error("[WFMod] window.WF_INTERNALS never appeared; runtime hooks skipped");
+			}
+		}, intervalMs || 50);
+	}
+
+	log.warn("[WFMod] runtime.js loaded (WF_DEV=" +
+		((typeof window !== "undefined" && window.WF_DEV) || "") + ")");
+
 	window.WFMod = window.WFMod || {};
 	window.WFMod.runtime = {
 		getClass: getClass,
@@ -255,4 +330,8 @@
 		classNames: classNames,
 		get hooks() { return { applied: applied.slice(), failed: failed.slice() }; }
 	};
+
+	// applyHooks() is idempotent enough to be safe if the launcher also calls it:
+	// hooks replace prototype methods and addAsset skips paths already present.
+	autoInstall();
 })();

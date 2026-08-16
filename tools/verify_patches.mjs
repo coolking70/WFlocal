@@ -87,19 +87,18 @@ for (const patch of patches) {
 	if (count !== 1) fail(`patch ${patch.id}: expected exactly 1 anchor, found ${count}`);
 }
 
-// The bundle only runs when lime.embed() invokes its registered factory, so
-// hooks installed before that call find no registry at all. v0.3.2 shipped in
-// exactly that state: the hook silently failed and AUTO went back to locked.
+// Hooks must not be tied to the bundle's load event. The bundle boots itself and
+// its script never fires onload, so anything waiting on that never runs - which
+// is how the dev aids silently did nothing. The launcher has to wait for
+// WF_INTERNALS instead.
 {
 	const html = readFileSync(launcherPath, "utf8");
-	const embedAt = html.indexOf("lime.embed(");
-	const hookAt = html.indexOf("runtime.applyHooks()");
-	if (embedAt < 0 || hookAt < 0) {
-		fail("launcher: could not find both lime.embed() and runtime.applyHooks()");
-	} else if (hookAt < embedAt) {
-		fail("launcher: applyHooks() runs before lime.embed(); WF_INTERNALS will not exist yet");
+	if (!html.includes("window.WF_INTERNALS")) {
+		fail("launcher: hooks are not gated on window.WF_INTERNALS appearing");
+	} else if (/onload[\s\S]{0,200}applyHooks\(\)/.test(html)) {
+		fail("launcher: applyHooks() is driven by a script load event again");
 	} else {
-		console.log("\n  ok   applyHooks() runs after lime.embed()");
+		console.log("\n  ok   hooks wait for window.WF_INTERNALS, not a load event");
 	}
 }
 

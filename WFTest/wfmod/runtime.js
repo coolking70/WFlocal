@@ -215,12 +215,19 @@
 					if (seen < 20) {
 						seen++;
 						var self = this;
-						log.info("[WFMod] trace " + className + "." + method + " #" + seen,
-							Object.keys(self || {}).slice(0, 12).reduce(function (out, k) {
-								var v = self[k];
-								if (v === null || ["number", "string", "boolean"].indexOf(typeof v) >= 0) out[k] = v;
-								return out;
-							}, {}));
+						// Filter to scalars *before* capping. Capping the raw key list
+						// first meant an object whose first dozen fields are all
+						// objects reported nothing, which reads as "not called".
+						var fields = {}, shown = 0;
+						Object.keys(self || {}).forEach(function (k) {
+							if (shown >= 16) return;
+							var v = self[k];
+							if (v === null || ["number", "string", "boolean"].indexOf(typeof v) >= 0) {
+								fields[k] = v;
+								shown++;
+							}
+						});
+						log.info("[WFMod] trace " + className + "." + method + " #" + seen, fields);
 					}
 					return original.apply(this, arguments);
 				};

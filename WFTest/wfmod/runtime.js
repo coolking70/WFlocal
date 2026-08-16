@@ -136,22 +136,29 @@
 	function registerAssets(intervalMs, timeoutMs) {
 		intervalMs = intervalMs || 250;
 		timeoutMs = timeoutMs || 60000;
-		var pending = [];
-		ADDED_ASSETS.forEach(function (pair) {
-			// The game resolves names against devConfig.assetDirectories, so offer
-			// the same candidates it will ask for.
-			["assets/production/", "assets/trial/production/"].forEach(function (root) {
-				pending.push({ path: root + pair[0], like: root + pair[1] });
+		// The game resolves names against devConfig.assetDirectories, so offer the
+		// same candidates it will ask for - but the roots are *alternatives*, not
+		// requirements. Only one of them holds the shipped assets, so treating each
+		// root as its own pending item made a fully successful registration end in
+		// "gave up registering 5 added assets" sixty seconds later, naming the root
+		// that was never going to have them.
+		var pending = ADDED_ASSETS.map(function (pair) {
+			return ["assets/production/", "assets/trial/production/"].map(function (root) {
+				return { path: root + pair[0], like: root + pair[1] };
 			});
 		});
 
 		var deadline = Date.now() + timeoutMs;
 		var registered = 0;
 		var timer = setInterval(function () {
-			pending = pending.filter(function (item) {
-				if (!knows(item.like)) return true;          // library not loaded yet
-				if (addAsset(item.path, item.like)) registered++;
-				return false;
+			pending = pending.filter(function (candidates) {
+				var hit = false;
+				candidates.forEach(function (item) {
+					if (!knows(item.like)) return;
+					if (addAsset(item.path, item.like)) registered++;
+					hit = true;
+				});
+				return !hit;                                  // keep waiting on the rest
 			});
 			if (!pending.length) {
 				clearInterval(timer);
@@ -163,8 +170,8 @@
 			if (Date.now() > deadline) {
 				clearInterval(timer);
 				log.error("[WFMod] gave up registering " + pending.length +
-					" added assets; the lime library never reported: " +
-					pending.map(function (i) { return i.like; }).join(", "));
+					" added assets; no asset root reported a model for: " +
+					pending.map(function (c) { return c[0].like; }).join(", "));
 			}
 		}, intervalMs);
 	}

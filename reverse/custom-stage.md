@@ -72,12 +72,32 @@ curse_eye_tutorial  enemy_demonspider_tutorial
 enemy_evilgiant_tutorial  enemy_eviltower_tutorial
 ```
 
-## 用法
+## 用法：它是第 4 个关卡槽位，不动关卡 1~3
 
 ```bash
-python3 tools/dummy_stage.py --build --zone main_2_9_5 --zako enemy_eviltower_tutorial --count 6
-python3 tools/dummy_stage.py --revert
+python3 tools/dummy_stage.py --build --count 10       # 装到「WFMOD 練習場」
+python3 tools/dummy_stage.py --revert                 # 四张表 + 分叉件一起退回
 ```
+
+训练场占用 demo 自带的备用关卡 `111/1/4`（原名 CUSTOM STAGE PoC），
+用**自己的 zone key `wfmod_training`**，boss 房间和场地从 `main_2_9_5` 复制。
+关卡 1~3 保持原样——它们是验证别的东西时的基准，不能被测试装置污染。
+
+接线点是 main_quest 行的第 **74** 列 `battle_field_data_id`：它指向 `field_data`
+的键，`field_data` 再给出 zone 键。main_quest 行有 85 列而**没有任何 `*Values` 类是这个宽度**，
+实际布局是 `BossBattleQuestValues` 整体偏移 1 列——这一列是这么认出来的，不是数出来的。
+
+`main_quest` 是**三层嵌套**表（`111` / `1` / `4`），按单层去查会找不到。
+
+## 小怪数量的上限
+
+| | 上限 | 由什么决定 |
+| --- | --- | --- |
+| 同屏 | **10** | `ZoneValues` 只解析 `zako01..zako10`（列 2..21） |
+| 总数 | 不限 | 每个槽位是一个 `ZakoEmitter`，按 `interval` 帧反复生成；`(None)` 只生成一次 |
+| 波次 | 不限 | zone 表的嵌套键 0/1/2… |
+
+`--count` 最多 10，再多就写进 boss 列了，工具会拒绝。要更高密度用 `interval`。
 
 小怪房间是 `tutorial_5` 那间**整间照搬**——墙、边界、棺材、门、传送舱，
 每个对象都出自游戏真正在跑的房间。手搭的话是对一堆未确认语义的连续猜测。

@@ -58,6 +58,7 @@ EXPECTED_CONTENT = {
     MASTER + "battle/zone.orderedmap",
     MASTER + "battle/field_data.orderedmap",
     MASTER + "battle/field.orderedmap",
+    MASTER + "quest/main_quest.orderedmap",
 }
 
 # Assets WFMod adds. New paths are unknown to the baked-in manifest, so

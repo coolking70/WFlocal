@@ -54,6 +54,21 @@ BASELINE = ROOT / "tools" / "baseline"
 
 ZONE = MASTER / "zone.orderedmap"
 FIELD_DATA = MASTER / "field_data.orderedmap"
+MAIN_QUEST = TRIAL / "master" / "quest" / "main_quest.orderedmap"
+
+# The training ground gets its own quest slot and its own zone, so the quest used
+# as a baseline for everything else stays exactly as shipped. 111/1/4 is the demo's
+# own spare ("CUSTOM STAGE PoC"), pointing at the same zone as quest 1 until now.
+#
+# Column 74 of a main_quest row is battle_field_data_id - the key into field_data,
+# which in turn names the zone. main_quest rows are 85 columns and no *Values class
+# parses that width; the layout is BossBattleQuestValues shifted by one, which is
+# how this column was identified rather than counted by hand.
+QUEST_KEY = "111/1/4"
+COL_FIELD_DATA_ID = 74
+COL_NAME = 1
+TRAINING_NAME = "WFMOD 練習場"
+TRAINING_ZONE = "wfmod_training"
 FIELD = MASTER / "field.orderedmap"
 FIELD_BUNDLED = MASTER / "field_iosbundled.orderedmap"
 
@@ -74,7 +89,7 @@ COL_TRANSIT = 6
 #   quest 111/1/2  VS クラーケン           main_3_6_2_trial
 #   quest 111/1/3  VS 妖狐                main_6_6_2
 #
-DEFAULT_ZONE = "main_2_9_5"
+DONOR_ZONE = "main_2_9_5"
 MOB_ROOM_TERRAIN = PROD / "battle/terrain/tutorial/tutorial_01_01_04.json"
 FORK_RELATIVE = "battle/terrain/wfmod/wfmod_dummy_stage"
 
@@ -179,6 +194,20 @@ def load_master(path):
 def find(entries, key):
     for entry in entries:
         if entry["key"] == key:
+            return entry
+    return None
+
+
+def find_nested(entries, path):
+    """main_quest nests three deep - "111/1/4" is chapter / section / quest."""
+    node = entries
+    for part in path.split("/"):
+        entry = find(node, part)
+        if entry is None:
+            return None
+        if entry["kind"] == "map":
+            node = entry["entries"]
+        else:
             return entry
     return None
 
@@ -299,14 +328,18 @@ def build(zone_key, zako, count):
     print("field_data")
     save_original(FIELD_DATA)
     entries = load_master(FIELD_DATA)
-    entry = find(entries, zone_key)
-    if entry is None:
+    donor = find(entries, zone_key)
+    if donor is None:
         sys.exit(f"field_data has no {zone_key}")
-    cols = row_columns(entry)
+    row = copy.deepcopy(donor)
+    row["key"] = TRAINING_ZONE
+    cols = row_columns(row)
     cols[1] = FORK_RELATIVE
-    set_row(entry, cols)
+    cols[2] = TRAINING_ZONE
+    set_row(row, cols)
+    entries = [e for e in entries if e["key"] != TRAINING_ZONE] + [row]
     FIELD_DATA.write_bytes(orderedmap.encode(entries))
-    print(f"  {zone_key} terrain -> {FORK_RELATIVE}")
+    print(f"  + {TRAINING_ZONE}  field={cols[0]}  terrain={FORK_RELATIVE}")
 
     print("field")
     lend_gate_and_transit(zone_key)
@@ -314,9 +347,11 @@ def build(zone_key, zako, count):
     print("zone")
     save_original(ZONE)
     entries = load_master(ZONE)
-    entry = find(entries, zone_key)
-    if entry is None or entry["kind"] != "map":
+    donor_zone = find(entries, zone_key)
+    if donor_zone is None or donor_zone["kind"] != "map":
         sys.exit(f"zone {zone_key} missing or not a nested table")
+    entry = copy.deepcopy(donor_zone)
+    entry["key"] = TRAINING_ZONE
     waves = entry["entries"]
     boss_wave = copy.deepcopy(waves[0])
     boss_wave["key"] = "1"
@@ -341,13 +376,29 @@ def build(zone_key, zako, count):
     set_row(mob_wave, cols)
 
     entry["entries"] = [mob_wave, boss_wave]
+    entries = [e for e in entries if e["key"] != TRAINING_ZONE] + [entry]
     ZONE.write_bytes(orderedmap.encode(entries))
     print(f"  wave 0  ZakoKill({count})  {count} x {zako}")
-    print("  wave 1  BossClear    (the shipped boss row)")
+    print("  wave 1  BossClear    (the donor zone's boss row)")
+
+    print("main_quest")
+    save_original(MAIN_QUEST)
+    quests = load_master(MAIN_QUEST)
+    quest = find_nested(quests, QUEST_KEY)
+    if quest is None:
+        sys.exit(f"main_quest has no {QUEST_KEY}")
+    cols = row_columns(quest)
+    print(f"  {QUEST_KEY} {cols[1]}")
+    print(f"  battle_field_data_id: {cols[COL_FIELD_DATA_ID]} -> {TRAINING_ZONE}")
+    cols[COL_FIELD_DATA_ID] = TRAINING_ZONE
+    # Name it for what it is, so the menu says which slot is the rig.
+    cols[COL_NAME] = TRAINING_NAME
+    set_row(quest, cols)
+    MAIN_QUEST.write_bytes(orderedmap.encode(quests))
 
     register(FORK_RELATIVE + ".json", model)
-    print("\nNow the quest is a mob room that leads into the kraken room, which is the "
-          "shape the tutorial already uses.")
+    print(f"\nChallenge quest 4 is now a training ground: a mob room leading into "
+          f"{zone_key}'s boss room. Quests 1-3 are untouched.")
 
 
 def register(path, model):
@@ -366,7 +417,7 @@ def register(path, model):
 
 
 def revert():
-    for path in (ZONE, FIELD_DATA, FIELD):
+    for path in (ZONE, FIELD_DATA, FIELD, MAIN_QUEST):
         if not restore(path):
             print(f"  {path.name} had no backup, left alone")
     text = RUNTIME.read_text(encoding="utf-8")
@@ -387,8 +438,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--build", action="store_true")
     ap.add_argument("--revert", action="store_true")
-    ap.add_argument("--zone", default=DEFAULT_ZONE,
-                    help="zone key as reported by ?wfdev=trace on ZoneMapTools")
+    ap.add_argument("--zone", default=DONOR_ZONE,
+                    help="zone to copy the boss room and field from")
     ap.add_argument("--zako", default="enemy_eviltower_tutorial")
     ap.add_argument("--count", type=int, default=6)
     args = ap.parse_args()

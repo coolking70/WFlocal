@@ -192,8 +192,34 @@ def set_row(entry, cols):
     entry["value"] = "\n".join(lines)
 
 
+def spawn_grid(template, count, bounds):
+    """`count` copies of a shipped spawn point, spread evenly inside the room.
+
+    The tutorial room ships seven, clustered where its own fight wanted them.
+    Watching where a skill lands wants them spread and wants as many as the zone
+    has slots, so the shipped object is cloned to a grid - same type string, same
+    size, only the position invented. What SPAWN3 and SPAWN6 mean is not
+    established, so nothing here makes one up.
+    """
+    left, top, width, height = bounds
+    columns = min(count, 5)
+    rows = (count + columns - 1) // columns
+    inset_x, inset_y = width * 0.18, height * 0.22
+    out = []
+    for i in range(count):
+        row, column = divmod(i, columns)
+        clone = copy.deepcopy(template)
+        clone["id"] = ID_OFFSET + 900 + i
+        clone["x"] = left + inset_x + (width - 2 * inset_x) * (
+            column / max(1, columns - 1) if columns > 1 else 0.5)
+        clone["y"] = top + inset_y + (height - 2 * inset_y) * (
+            row / max(1, rows - 1) if rows > 1 else 0.5)
+        out.append(clone)
+    return out
+
+
 def mob_room_layer(count):
-    """tutorial_5's mob room, renumbered, trimmed to `count` spawn points."""
+    """tutorial_5's mob room, renumbered, with `count` spawn points."""
     source = json.loads(MOB_ROOM_TERRAIN.read_text(encoding="utf-8"))
     layer = None
     for candidate in source["layers"]:
@@ -205,19 +231,29 @@ def mob_room_layer(count):
         sys.exit(f"{MOB_ROOM_TERRAIN.name} has no layer with SPAWN objects")
 
     spawns = [o for o in layer["objects"] if str(o.get("type", "")).startswith("SPAWN")]
-    if count > len(spawns):
-        sys.exit(f"the tutorial mob room has {len(spawns)} spawn points, asked for {count}")
-    keep = set(id(o) for o in spawns[:count])
-    layer["objects"] = [o for o in layer["objects"]
-                        if not str(o.get("type", "")).startswith("SPAWN") or id(o) in keep]
-    for obj in layer["objects"]:
+    if not spawns:
+        sys.exit("the tutorial mob room has no spawn points to copy")
+    bounds = next((o for o in layer["objects"] if o.get("type") == "BOUNDS"), None)
+    if bounds is None:
+        sys.exit("the tutorial mob room has no BOUNDS to place spawn points inside")
+    rest = [o for o in layer["objects"] if not str(o.get("type", "")).startswith("SPAWN")]
+    for obj in rest:
         if isinstance(obj.get("id"), int):
             obj["id"] += ID_OFFSET
+    layer["objects"] = rest + spawn_grid(
+        spawns[0], count,
+        (bounds["x"], bounds["y"], bounds["width"], bounds["height"]))
     layer["name"] = "0"
     return layer, len(spawns)
 
 
+ZAKO_SLOTS = 10
+
+
 def build(zone_key, zako, count):
+    if not 1 <= count <= ZAKO_SLOTS:
+        sys.exit(f"a zone row has {ZAKO_SLOTS} zako slots; asked for {count}. "
+                 f"Writing past them would land in the boss columns.")
     print("terrain")
     model, root = terrain_of(zone_key)
     source_terrain = root / model
@@ -234,7 +270,7 @@ def build(zone_key, zako, count):
     fork_file.parent.mkdir(parents=True, exist_ok=True)
     fork_file.write_text(json.dumps(terrain, ensure_ascii=False), encoding="utf-8")
     print(f"  layer '0' mob room from {MOB_ROOM_TERRAIN.name} "
-          f"({count} of {available} spawn points)")
+          f"({count} spawn points on a grid; it ships {available})")
     print(f"  layer '1' boss room from {source_terrain.name}")
     print(f"  wrote {fork_file.relative_to(ROOT)}")
 

@@ -37,6 +37,7 @@ master edits, each reversible with --revert.
 import argparse
 import copy
 import json
+import math
 import subprocess
 import sys
 from pathlib import Path
@@ -202,18 +203,27 @@ def spawn_grid(template, count, bounds):
     established, so nothing here makes one up.
     """
     left, top, width, height = bounds
-    columns = min(count, 5)
+    # Two rows put every mob on the top and bottom edges of the room, which reads
+    # as "they are all at the edges" and leaves the middle - where a centred skill
+    # lands - empty. Aim for a squarish grid instead, and inset less vertically so
+    # the rows actually span the room.
+    columns = max(1, min(count, math.ceil(math.sqrt(count))))
     rows = (count + columns - 1) // columns
-    inset_x, inset_y = width * 0.18, height * 0.22
+    inset_x, inset_y = width * 0.16, height * 0.14
+    span_x, span_y = width - 2 * inset_x, height - 2 * inset_y
     out = []
     for i in range(count):
         row, column = divmod(i, columns)
+        # A last row with fewer points sits centred rather than left-aligned; a
+        # lopsided row is easy to mistake for the pattern being read.
+        in_row = min(columns, count - row * columns)
+        offset = (columns - in_row) / 2
         clone = copy.deepcopy(template)
         clone["id"] = ID_OFFSET + 900 + i
-        clone["x"] = left + inset_x + (width - 2 * inset_x) * (
-            column / max(1, columns - 1) if columns > 1 else 0.5)
-        clone["y"] = top + inset_y + (height - 2 * inset_y) * (
-            row / max(1, rows - 1) if rows > 1 else 0.5)
+        clone["x"] = left + inset_x + span_x * (
+            (column + offset) / (columns - 1) if columns > 1 else 0.5)
+        clone["y"] = top + inset_y + span_y * (
+            row / (rows - 1) if rows > 1 else 0.5)
         out.append(clone)
     return out
 

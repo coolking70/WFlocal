@@ -110,6 +110,10 @@
 	// four files are boss_target_sight renamed, which is enough to prove the
 	// command runs; they are a placeholder, not artwork.
 	var ADDED_ASSETS = [
+		["assets/production/battle/action/skill/action/wfmod/wfmod_001$wfmod_001_1.action.dsl.json",
+			"assets/production/battle/action/skill/action/rare5/brown_fighter$brown_fighter_1.action.dsl.json"],
+		["assets/trial/production/battle/action/skill/action/wfmod/wfmod_001$wfmod_001_1.action.dsl.json",
+			"assets/trial/production/battle/action/skill/action/rare5/brown_fighter$brown_fighter_1.action.dsl.json"],
 		["battle/boss/common/boss_shield/boss_shield.timeline.json",
 			"battle/boss/common/boss_target_sight/boss_target_sight.timeline.json"],
 		["battle/boss/common/boss_shield/boss_shield.atlas.json",
@@ -182,7 +186,46 @@
 		return found;
 	}
 
+	// ?wfdev=trace:Class.method[;Class.method...]
+	//
+	// The point of this is to stop guessing. Asking "is this method actually
+	// called?" used to mean editing runtime.js, shipping it, and spending a
+	// browser run to find out. Now it is a URL parameter.
+	function applyTraces() {
+		var raw = (typeof window !== "undefined" && window.WF_DEV) || "";
+		var spec = null;
+		raw.split(",").forEach(function (part) {
+			var at = part.indexOf("trace:");
+			if (at === 0) spec = part.slice(6);
+		});
+		if (!spec) return;
+		spec.split(";").forEach(function (target) {
+			var dot = target.lastIndexOf(".");
+			if (dot < 0) return;
+			var className = target.slice(0, dot);
+			var method = target.slice(dot + 1);
+			var seen = 0;
+			var ok = hook(className, method, function (original) {
+				return function () {
+					if (seen < 20) {
+						seen++;
+						var self = this;
+						log.info("[WFMod] trace " + className + "." + method + " #" + seen,
+							Object.keys(self || {}).slice(0, 12).reduce(function (out, k) {
+								var v = self[k];
+								if (v === null || ["number", "string", "boolean"].indexOf(typeof v) >= 0) out[k] = v;
+								return out;
+							}, {}));
+					}
+					return original.apply(this, arguments);
+				};
+			});
+			log.warn("[WFMod] trace " + (ok ? "armed" : "FAILED") + ": " + className + "." + method);
+		});
+	}
+
 	function applyDevAids() {
+		applyTraces();
 		// Members take their opening gauge from the battle-continuation data:
 		//   skillPoint.setRatio(restore.getSkillPointRatio(index))
 		// A fresh battle has no entry, so that returns 0 and everyone starts empty.
@@ -208,25 +251,36 @@
 		// member instead: MemberImpl.source is the SquadMemberSource holding the
 		// hp and atk the game actually resolved for this battle.
 		if (devFlag("stats") !== null) {
+			// Which method the game actually calls per member was a guess that did
+			// not pay off, so arm several and let whichever fires do the reporting.
 			var reported = {};
-			hook("pinball.scene.battle.battle.squad.member.MemberImpl",
-				"getMaxHealthPoint", function (original) {
-					return function () {
-						try {
-							var source = this.source || {};
-							var key = this.index + ":" + source.hp + ":" + source.atk;
-							if (!reported[key]) {
-								reported[key] = true;
-								log.info("[WFMod] member " + this.index +
-									"  hp=" + source.hp + "  atk=" + source.atk +
-									"  maxSkillPoint=" + source.maxSkillPoint +
-									"  art=" + source.pixelArtAnimationPath);
-							}
-						} catch (ignored) {}
-						return original.call(this);
-					};
-				});
-			log.warn("[WFMod] DEV AID active: squad member stats logged on battle start (?wfdev=stats)");
+			var report = function (member) {
+				try {
+					var source = member && member.source;
+					if (!source) return;
+					var key = member.index + ":" + source.hp + ":" + source.atk;
+					if (reported[key]) return;
+					reported[key] = true;
+					log.info("[WFMod] member " + member.index +
+						"  hp=" + source.hp + "  atk=" + source.atk +
+						"  maxSkillPoint=" + source.maxSkillPoint +
+						"  art=" + source.pixelArtAnimationPath);
+				} catch (ignored) {}
+			};
+			var candidates = [
+				["pinball.scene.battle.battle.squad.member.MemberImpl", "getMaxHealthPoint"],
+				["pinball.scene.battle.battle.squad.member.MemberImpl", "getCurrentHealthPoint"],
+				["pinball.scene.battle.battle.squad.member.MemberImpl", "getSkillPointRatio"],
+				["pinball.scene.battle.battle.squad.member.MemberImpl", "isDead"]
+			];
+			var armed = [];
+			candidates.forEach(function (pair) {
+				if (hook(pair[0], pair[1], function (original) {
+					return function () { report(this); return original.apply(this, arguments); };
+				})) armed.push(pair[1]);
+			});
+			log.warn("[WFMod] DEV AID active: member stats via " + armed.length +
+				" probe(s) [" + armed.join(", ") + "] (?wfdev=stats)");
 		}
 
 		var fast = devFlag("fastskill");

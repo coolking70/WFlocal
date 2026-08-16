@@ -121,6 +121,21 @@ R3（原创角色 001）需要的依据齐了。还缺的是**参数单位**（�
 | --- | --- | --- |
 | `?wfdev=fullskill` | 开场满技能槽，之后正常充能 | `BattleContinuationData.getSkillPointRatio` |
 | `?wfdev=fastskill` | 持续快速充能 | `MemberAbilityTotalizer.getTotalSkillGaugeCharging` |
+| `?wfdev=stats` | 打印每个队员解析出的 hp/atk | `MemberImpl` 上的 4 个候选方法 |
+| `?wfdev=trace:类.方法` | 追踪任意方法是否被调用 | 任意 prototype 方法 |
+
+`stats` 最初只挂 `MemberImpl.getMaxHealthPoint`，实机毫无输出——那是一次没有依据的挂载点
+猜测。现在同时挂 4 个候选（`getMaxHealthPoint` / `getCurrentHealthPoint` /
+`getSkillPointRatio` / `isDead`），谁被调用谁报告，并打印实际武装成功的探针数量。
+
+`trace` 是为了**不再靠猜**：想知道某个方法到底会不会被调用，不用改代码再发一版，
+直接在 URL 里问：
+
+```
+?wfdev=trace:pinball.scene.battle.battle.squad.member.MemberImpl.getMaxHealthPoint
+```
+
+多个用 `;` 分隔。每个目标最多打印 20 次，附带该对象上的标量字段。
 
 `fullskill` 可带比例（`fullskill:0.5`），`fastskill` 可带加成（`fastskill:2000`）。
 

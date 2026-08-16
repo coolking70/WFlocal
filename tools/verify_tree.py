@@ -54,11 +54,15 @@ EXPECTED_CONTENT = {
     MASTER + "skill_preview/skill_preview_character.orderedmap",
     MASTER + "player/player_character.orderedmap",
     MASTER + "player/player_party.orderedmap",
+    MASTER + "skill/action_skill.orderedmap",
 }
 
 # Assets WFMod adds. New paths are unknown to the baked-in manifest, so
 # WFTest/wfmod/runtime.js registers them with the live lime AssetLibrary.
-EXPECTED_ADDED_PREFIX = ("assets/production/battle/boss/common/boss_shield/",)
+EXPECTED_ADDED_PREFIX = (
+    "assets/production/battle/boss/common/boss_shield/",
+    "assets/production/battle/action/skill/action/wfmod/",
+)
 
 
 def sha256(path):

@@ -8,7 +8,7 @@
 //
 // Exits non-zero on the first problem.
 
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync, statSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import vm from "node:vm";
@@ -99,6 +99,66 @@ for (const patch of patches) {
 		fail("launcher: applyHooks() is driven by a script load event again");
 	} else {
 		console.log("\n  ok   hooks wait for window.WF_INTERNALS, not a load event");
+	}
+}
+
+// The launcher's ?r= on runtime.js must track that file's mtime. A stale stamp
+// means the browser can run an older runtime.js than the data expects, which is
+// indistinguishable from a broken feature.
+{
+	const html = readFileSync(launcherPath, "utf8");
+	const runtimePath = resolve(root, "WFTest/wfmod/runtime.js");
+	const stamped = /runtime\.js\?wfbuild=[0-9.]+&amp;r=(\d+)/.exec(html);
+	const mtime = Math.floor(statSync(runtimePath).mtimeMs / 1000);
+	if (!stamped) {
+		fail("launcher: no cache-buster on wfmod/runtime.js");
+	} else if (Number(stamped[1]) !== mtime) {
+		fail(`launcher: runtime.js cache-buster is ${stamped[1]} but the file's mtime is ` +
+			`${mtime}; run python3 tools/stamp_assets.py`);
+	} else {
+		console.log("  ok   runtime.js cache-buster matches its mtime");
+	}
+}
+
+// Every ADDED_ASSETS entry must name a file that exists and model itself on a
+// path the bundle's manifest actually knows. Registration silently no-ops when
+// the model is unknown, so catching it here beats catching it as a ClientError
+// 8100 in the middle of a quest load.
+{
+	let decoded = null;
+	const manifestText = () => {
+		if (decoded === null) {
+			decoded = pristine.replace(/\\x([0-9a-fA-F]{2})/g,
+				(_, hex) => String.fromCharCode(parseInt(hex, 16)));
+		}
+		return decoded;
+	};
+	const runtime = readFileSync(resolve(root, "WFTest/wfmod/runtime.js"), "utf8");
+	const block = /var ADDED_ASSETS = \[([\s\S]*?)\n\t\];/.exec(runtime);
+	if (!block) {
+		fail("runtime.js: could not find ADDED_ASSETS");
+	} else {
+		const pairs = [...block[1].matchAll(/\["([^"]+)",\s*\n?\s*"([^"]+)"\]/g)];
+		let bad = 0;
+		for (const [, added, model] of pairs) {
+			const onDisk = resolve(root, "WFTest", added);
+			if (!existsSync(onDisk)) {
+				// Only assets/production/... exist on disk; the trial-rooted variants
+				// are alternates the game may ask for, so tolerate those.
+				if (added.startsWith("assets/production/")) {
+					fail(`ADDED_ASSETS: ${added} is registered but not on disk`);
+					bad++;
+				}
+				continue;
+			}
+			// The manifest lives in the bundle with \xNN-escaped, URL-encoded paths.
+			const encoded = model.split("/").map(encodeURIComponent).join("%2F");
+			if (model.startsWith("assets/production/") && !manifestText().includes(encoded)) {
+				fail(`ADDED_ASSETS: model ${model} is not in the bundle manifest`);
+				bad++;
+			}
+		}
+		if (!bad) console.log(`  ok   ADDED_ASSETS: ${pairs.length} entries reference real files and known models`);
 	}
 }
 

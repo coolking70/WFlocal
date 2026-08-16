@@ -24,6 +24,7 @@ run "patch table and runtime hooks" node tools/verify_patches.mjs
 run "orderedmap lossless round-trip" bash -c \
 	'python3 tools/orderedmap.py roundtrip $(find WFTest/assets -name "*.orderedmap" | sort)'
 run "browser reader vs python reader" node tools/verify_orderedmap_js.mjs
+run "hub renders from master data" node tools/verify_hub.mjs
 
 echo
 if [ "$status" -ne 0 ]; then

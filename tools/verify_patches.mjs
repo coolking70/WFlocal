@@ -107,17 +107,21 @@ for (const patch of patches) {
 // indistinguishable from a broken feature.
 {
 	const html = readFileSync(launcherPath, "utf8");
-	const runtimePath = resolve(root, "WFTest/wfmod/runtime.js");
-	const stamped = /runtime\.js\?wfbuild=[0-9.]+&amp;r=(\d+)/.exec(html);
-	const mtime = Math.floor(statSync(runtimePath).mtimeMs / 1000);
-	if (!stamped) {
-		fail("launcher: no cache-buster on wfmod/runtime.js");
-	} else if (Number(stamped[1]) !== mtime) {
-		fail(`launcher: runtime.js cache-buster is ${stamped[1]} but the file's mtime is ` +
-			`${mtime}; run python3 tools/stamp_assets.py`);
-	} else {
-		console.log("  ok   runtime.js cache-buster matches its mtime");
+	let stale = 0;
+	for (const name of ["runtime.js", "orderedmap.js", "hub.js"]) {
+		const file = resolve(root, "WFTest/wfmod", name);
+		const stamped = new RegExp(name.replace(".", "\\.") + "\\?wfbuild=[0-9.]+&amp;r=(\\d+)").exec(html);
+		const mtime = Math.floor(statSync(file).mtimeMs / 1000);
+		if (!stamped) {
+			fail(`launcher: no cache-buster on wfmod/${name}`);
+			stale++;
+		} else if (Number(stamped[1]) !== mtime) {
+			fail(`launcher: ${name} cache-buster is ${stamped[1]} but the file's mtime is ` +
+				`${mtime}; run python3 tools/stamp_assets.py`);
+			stale++;
+		}
 	}
+	if (!stale) console.log("  ok   every wfmod script's cache-buster matches its mtime");
 }
 
 // Every ADDED_ASSETS entry must name a file that exists and model itself on a

@@ -268,3 +268,7 @@ if (failures) {
 	process.exit(1);
 }
 console.log("all checks passed");
+// Exit explicitly. Running runtime.js in the sandbox leaves its polling timers
+// pending, and node would otherwise sit on a live event loop for two minutes
+// after the last check - which looked like the launcher hanging.
+process.exit(0);

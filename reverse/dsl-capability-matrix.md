@@ -113,6 +113,26 @@ bundle 里有一张按命令序号写死的资源依赖表（`addAnimationLayout
 **没有 boss/common 依赖**。但注意：它们是否牵连别的资源（例如 hit effect）**尚未逐一核查**，
 不要再当成"确定可用"。
 
+### 补资源可行，但占位素材不够——`CreateShield` 仍未跑通
+
+后续实验推进了两关，也卡在了第三关：
+
+| 步骤 | 结果 |
+| --- | --- |
+| 运行时给 lime AssetLibrary 注册新路径 | **成功**，8100 消失 |
+| `CreateShield` 被解析、派发、创建护盾对象 | **成功**，关卡能进、技能能放 |
+| 护盾播放动画 | **失败**，`INTERNAL ERROR` |
+
+第三关的错误来自 `flatomo.timeline.Playhead.get_currentSequence()`——播放头越过了时间轴末尾。
+已查明护盾会 `gotoAndPlay('neutral')`，即**要求素材提供名为 `neutral` 的序列**；
+但把占位素材（`boss_target_sight` 改名）的序列改成覆盖全部 72 帧的循环 `neutral` 之后，**仍然崩**。
+
+所以结论是：**占位素材还有未满足的契约，具体是什么尚未查明**。可能是 parts/atlas 的结构要求、
+帧数要求，或护盾另有其他约定。这是一个**未解问题**，不要当成"改个序列名就能用"。
+
+要继续查，入口是 `pinball.scene.battle.battle.boss.generalBoss.GeneralBossShield`
+（`update()` 里 `advanceFrame()`）和 `flatomo.timeline.Playhead`。
+
 ### 两条通用教训
 
 1. **资源依赖在关卡读取阶段就解析**，不是放技能时才解析。一条坏 DSL 会让整个关卡进不去，

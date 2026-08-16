@@ -51,6 +51,8 @@
 	<script>
 		window.WF_MOD_BUILD = "0.3.3";
 		window.WF_DEMO_BOOT_MODE = new URLSearchParams(window.location.search).get("wfmode") || "tutorial";
+		// Development aids, off unless asked for: ?wfdev=fastskill or fastskill:2000
+		window.WF_DEV = new URLSearchParams(window.location.search).get("wfdev") || "";
 		console.info("[WFMod] build=" + window.WF_MOD_BUILD + " mode=" + window.WF_DEMO_BOOT_MODE + " bundle=pristine+patches data=pristine");
 
 		// OpenFL/Lime loads most runtime assets via XMLHttpRequest. Node's `http-server`

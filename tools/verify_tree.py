@@ -56,6 +56,10 @@ EXPECTED_CONTENT = {
     MASTER + "player/player_party.orderedmap",
 }
 
+# Assets WFMod adds. New paths are unknown to the baked-in manifest, so
+# WFTest/wfmod/runtime.js registers them with the live lime AssetLibrary.
+EXPECTED_ADDED_PREFIX = ("assets/production/battle/boss/common/boss_shield/",)
+
 
 def sha256(path):
     h = hashlib.sha256()
@@ -84,6 +88,8 @@ def describe(path):
         return "added: WFMod runtime layer"
     if path in EXPECTED_CONTENT:
         return "extended with WFMod content (see tools/clone_character.py)"
+    if path.startswith(EXPECTED_ADDED_PREFIX):
+        return "added: WFMod asset, registered at runtime by wfmod/runtime.js"
     return None
 
 

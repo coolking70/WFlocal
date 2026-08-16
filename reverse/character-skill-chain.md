@@ -95,6 +95,33 @@ R3（原创角色 001）需要的依据齐了。还缺的是**参数单位**（�
 `character_status` 的数值曲线含义，这两项建议在 R3 做第一个角色时按需反推，
 比现在空推更有效。
 
+## 改技能：按参数名改，不按下标改
+
+技能行为全在 DSL 文件里，而 DSL 是**位置数组**——`["CreateNormalAttack", 2, 255, [], [], 4, …]`。
+参数名在 `reverse/enum_params.json`（来自 Haxe 构造函数的 `__params__`），
+`tools/tune_skill.py` 用名字寻址：
+
+```bash
+python3 tools/tune_skill.py --dsl '<fork>.action.dsl.json' --show
+python3 tools/tune_skill.py --dsl '<fork>.action.dsl.json' \
+        --command CreateNormalAttack --set damage=999999
+python3 tools/tune_skill.py --dsl '<fork>' --restore --from '<官方原文件>'
+```
+
+工具复现官方排版（数组 `", "`、对象紧凑），**63 个官方 DSL 全部逐字节重编码一致**，
+所以改一个参数只产生一个 token 的 diff；并且拒绝写 `wfmod/` 分叉目录以外的文件。
+
+### `CreateNormalAttack.damage` 是固定伤害（实证）
+
+`4 → 999999`，**倍率 `sLvMultiplierOfAttackPoint` 保持 0.4 不动作为对照**，
+实机结果：技能一击秒杀 boss，控制台无报错。
+
+一次改动同时结论了两件事：分叉出来的 DSL 文件**确实被读取**（不是还在跑官方那份），
+且这个字段是与攻击力无关的**平砍固定伤害**。官方数据里它的取值范围是 0～1150
+（85 处 `CreateNormalAttack` 中 53 处为 0），999999 明显越界于正常范围，无法被误读。
+
+秒杀是测试便利，不是设计值。改回去：`--set damage=4`。
+
 ## 被动（ability）的设计边界
 
 做原创角色时会撞到的一条限制，实测确认：

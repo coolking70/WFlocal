@@ -50,17 +50,23 @@
 	// hook can delegate to it.
 	function hook(className, methodName, factory) {
 		var clazz = getClass(className);
-		if (!clazz || !clazz.prototype) {
+		if (!clazz) {
 			failed.push(className + "." + methodName + " (class not found)");
 			return false;
 		}
-		var original = clazz.prototype[methodName];
+		// Haxe statics live on the class object, not the prototype, and some of the
+		// most informative functions in this bundle are static - ZoneMapTools builds
+		// a battle's whole zone list in one. Take the prototype method when there is
+		// one, and fall back to the static of the same name.
+		var target = (clazz.prototype && typeof clazz.prototype[methodName] === "function")
+			? clazz.prototype : clazz;
+		var original = target[methodName];
 		if (typeof original !== "function") {
-			failed.push(className + "." + methodName + " (not a method)");
+			failed.push(className + "." + methodName + " (neither a method nor a static)");
 			return false;
 		}
-		clazz.prototype[methodName] = factory(original);
-		applied.push(className + "." + methodName);
+		target[methodName] = factory(original);
+		applied.push(className + "." + methodName + (target === clazz ? " (static)" : ""));
 		return true;
 	}
 

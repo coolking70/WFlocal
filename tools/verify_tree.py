@@ -56,6 +56,7 @@ EXPECTED_CONTENT = {
     MASTER + "player/player_party.orderedmap",
     MASTER + "skill/action_skill.orderedmap",
     MASTER + "battle/zone.orderedmap",
+    MASTER + "battle/field_data.orderedmap",
 }
 
 # Assets WFMod adds. New paths are unknown to the baked-in manifest, so
@@ -63,6 +64,7 @@ EXPECTED_CONTENT = {
 EXPECTED_ADDED_PREFIX = (
     "assets/production/battle/boss/common/boss_shield/",
     "assets/production/battle/action/skill/action/wfmod/",
+    "assets/production/battle/terrain/wfmod/",
 )
 
 

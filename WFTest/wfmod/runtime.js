@@ -110,6 +110,8 @@
 	// four files are boss_target_sight renamed, which is enough to prove the
 	// command runs; they are a placeholder, not artwork.
 	var ADDED_ASSETS = [
+		["battle/terrain/wfmod/wfmod_dummy_stage.json",
+			"battle/terrain/tutorial/tutorial_01_01_04.json"],
 		["battle/action/skill/action/wfmod/wfmod_001$wfmod_001_1.action.dsl.json",
 			"battle/action/skill/action/rare5/brown_fighter$brown_fighter_1.action.dsl.json"],
 		["battle/boss/common/boss_shield/boss_shield.timeline.json",

@@ -30,7 +30,6 @@ EXPECTED = {
     "index.html": "added: boot mode launcher",
     "assets/trial/production/master/quest/main_quest.orderedmap": "added quest 111001004 (custom stage slot)",
 }
-EXPECTED_PREFIX_NOTE = "merged full master into its _iosbundled counterpart (v0.2.3)"
 
 
 def sha256(path):
@@ -54,11 +53,7 @@ def load_manifest():
 
 
 def describe(path):
-    if path in EXPECTED:
-        return EXPECTED[path]
-    if path.endswith("_iosbundled.orderedmap"):
-        return EXPECTED_PREFIX_NOTE
-    return None
+    return EXPECTED.get(path)
 
 
 def main():

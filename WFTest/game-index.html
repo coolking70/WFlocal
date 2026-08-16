@@ -49,9 +49,9 @@
 	</script>
 	
 	<script>
-		window.WF_MOD_BUILD = "0.3.0";
+		window.WF_MOD_BUILD = "0.3.1";
 		window.WF_DEMO_BOOT_MODE = new URLSearchParams(window.location.search).get("wfmode") || "tutorial";
-		console.info("[WFMod] build=" + window.WF_MOD_BUILD + " mode=" + window.WF_DEMO_BOOT_MODE + " bundle=pristine+patches");
+		console.info("[WFMod] build=" + window.WF_MOD_BUILD + " mode=" + window.WF_DEMO_BOOT_MODE + " bundle=pristine+patches data=pristine");
 
 		// OpenFL/Lime loads most runtime assets via XMLHttpRequest. Node's `http-server`
 		// caches static paths by default, which can mix a new JS bundle with an older
@@ -78,7 +78,7 @@
 			};
 		})();
 	</script>
-	<script type="text/javascript" src="lib/pako.min.js?wfbuild=0.3.0"></script>
+	<script type="text/javascript" src="lib/pako.min.js?wfbuild=0.3.1"></script>
 	<script type="text/javascript">
 		(function () {
 			function startWorldFlipper() {
@@ -192,16 +192,16 @@
 					replace: GOTO_TUTORIAL_HEAD + CHALLENGE_BOOT
 				},
 				{
-					id: "master-policy",
+					id: "full-master-boot",
 					modes: ["challenge"],
-					note: "The 44 merged *_iosbundled masters are supersets of their full counterparts, and the " +
-						"game's three slices (full/bundled/iosbundled) are meant to be disjoint. Loading both " +
-						"duplicates every merged key (ClientError 7051), so when a merged iosbundled slice " +
-						"exists, skip the full one - in every Global builder pass, not just the first.",
+					note: "GlobalAssetPathCollectionBuilder's second argument selects the startup dataset: true " +
+						"means bundled+iosbundled only (the tutorial slice), false means full+bundled+iosbundled. " +
+						"Challenge mode starts from post-tutorial save data, so it needs the full Trial dataset " +
+						"from the very first Global build - player 4, the 18 challenge characters, chapter 111. " +
+						"Always take the full path, which is what the game itself does once the tutorial ends. " +
+						"The three slices are disjoint in the official data, so this cannot duplicate a key.",
 					find: MASTER_BUILDER,
-					replace: "var _wfIos=_0x316d35['iosBundledPaths'];" +
-						"var _wfHasIos=_0x12a81b[_0x21232a]!=null?_wfIos['existsReserved'](_0x21232a):_wfIos['h']['hasOwnProperty'](_0x21232a);" +
-						"var _0x550674=_wfHasIos?new _0x4738f7(_0x1b0e4b['path'],[],_0x1b0e4b['clazz']):_0x4738f7['createFromMasterAssetPath'](_0x1b0e4b)"
+					replace: "var _0x550674=_0x4738f7['createFromMasterAssetPath'](_0x1b0e4b)"
 				},
 				{
 					id: "unlock-guard",

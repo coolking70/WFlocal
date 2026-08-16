@@ -22,20 +22,20 @@
     <p>保留原版教程，同时允许直接进入官方挑战关卡选择界面。后续自制关卡将沿用同一套原生列表。</p>
   </section>
   <section class="grid">
-    <a class="card" href="game-index.html?wfmode=tutorial&wfbuild=0.3.0">
+    <a class="card" href="game-index.html?wfmode=tutorial&wfbuild=0.3.1">
       <div class="tag">ORIGINAL FLOW</div>
       <h2>原版教程</h2>
       <p>从序章开始运行官方 Web 体验版完整教程流程，行为保持原样。</p>
       <div class="go">进入教程 →</div>
     </a>
-    <a class="card challenge" href="game-index.html?wfmode=challenge&wfbuild=0.3.0">
+    <a class="card challenge" href="game-index.html?wfmode=challenge&wfbuild=0.3.1">
       <div class="tag">STAGE SELECT</div>
       <h2>挑战 / 自制关卡</h2>
       <p>跳过教程，直接载入教程结束后的 Trial 玩家数据，并进入官方原生关卡选择界面。</p>
       <div class="go">选择关卡 →</div>
     </a>
   </section>
-  <div class="note"><b>v0.3.0：</b>建立基线。<code>world-flipper.js</code> 已还原为官方原档（sha256 db5f3806…a814315），此前烤进 bundle 的 AUTO 解锁与挑战启动改动，连同后续修复，全部改写成 <code>game-index.html</code> 里的声明式补丁表，按启动模式套用，锚点不唯一即拒绝运行。运行 <code>python3 tools/verify_tree.py</code> 可核对整棵树与原档的差异。</div>
+  <div class="note"><b>v0.3.1：</b>取消 master 合并。44 张被 merge 的 <code>_iosbundled</code> 表已全部还原原档，改为让挑战模式从启动第一次 Global 构建就加载完整 Trial 数据集（full+bundled+iosbundled，官方三分片互斥，不会重复主键）——这正是教程结束后游戏自己的做法。现在整棵树相对官方原档只剩 2 处改动：<code>game-index.html</code> 补丁表和 <code>main_quest</code> 里的第 4 关。</div>
 </main>
 </body>
 </html>

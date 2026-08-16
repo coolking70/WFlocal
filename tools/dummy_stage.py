@@ -53,6 +53,17 @@ BASELINE = ROOT / "tools" / "baseline"
 
 ZONE = MASTER / "zone.orderedmap"
 FIELD_DATA = MASTER / "field_data.orderedmap"
+FIELD = MASTER / "field.orderedmap"
+FIELD_BUNDLED = MASTER / "field_iosbundled.orderedmap"
+
+# A field only ships the objects its own stage needs. sand_ruins is a single boss
+# room in the shipped game, so it has no gate and no transit pod - the two things
+# that exist precisely to move the ball between rooms. Borrow them from a field
+# whose stage does have rooms; evil_tower_top is where the mob room comes from
+# anyway, so the parts match each other.
+DONOR_FIELD = "evil_tower_top"
+COL_GATE = 5
+COL_TRANSIT = 6
 
 # Which zone a quest runs is not guessable from the quest's position in the menu.
 # Everything here is keyed off the zone name that ZoneMapTools is actually handed,
@@ -71,6 +82,54 @@ FORK_RELATIVE = "battle/terrain/wfmod/wfmod_dummy_stage"
 # fork must land in the same root as the terrain it replaces, or the game silently
 # loads the shipped one - no error, just the old content.
 ROOTS = (PROD, TRIAL)
+
+
+def asset_exists(relative):
+    return any((root / (relative + ".timeline.json")).exists() for root in ROOTS)
+
+
+def field_of(zone_key):
+    entry = find(load_master(FIELD_DATA), zone_key)
+    if entry is None:
+        sys.exit(f"field_data has no {zone_key}")
+    return row_columns(entry)[0]
+
+
+def donor_paths():
+    entry = find(load_master(FIELD_BUNDLED), DONOR_FIELD)
+    if entry is None:
+        sys.exit(f"{FIELD_BUNDLED.name} has no {DONOR_FIELD}")
+    cols = row_columns(entry)
+    return cols[COL_GATE], cols[COL_TRANSIT]
+
+
+def lend_gate_and_transit(zone_key):
+    """Give the field the two objects a multi-room stage needs, if it lacks them."""
+    field_name = field_of(zone_key)
+    entries = load_master(FIELD)
+    entry = find(entries, field_name)
+    if entry is None:
+        print(f"  {field_name} is not in {FIELD.name}; leaving its objects alone")
+        return
+    cols = row_columns(entry)
+    gate, transit = donor_paths()
+    changed = []
+    for column, donor, label in ((COL_GATE, gate, "gate"),
+                                 (COL_TRANSIT, transit, "transit_pod")):
+        if asset_exists(cols[column]):
+            continue
+        if not asset_exists(donor):
+            sys.exit(f"donor {label} {donor} is not on disk either")
+        changed.append(f"{label}: {cols[column]} -> {donor}")
+        cols[column] = donor
+    if not changed:
+        print(f"  {field_name} already has a gate and a transit pod")
+        return
+    save_original(FIELD)
+    set_row(entry, cols)
+    FIELD.write_bytes(orderedmap.encode(entries))
+    for line in changed:
+        print(f"  {line}")
 
 
 def terrain_of(zone_key):
@@ -191,6 +250,9 @@ def build(zone_key, zako, count):
     FIELD_DATA.write_bytes(orderedmap.encode(entries))
     print(f"  {zone_key} terrain -> {FORK_RELATIVE}")
 
+    print("field")
+    lend_gate_and_transit(zone_key)
+
     print("zone")
     save_original(ZONE)
     entries = load_master(ZONE)
@@ -246,7 +308,7 @@ def register(path, model):
 
 
 def revert():
-    for path in (ZONE, FIELD_DATA):
+    for path in (ZONE, FIELD_DATA, FIELD):
         if not restore(path):
             print(f"  {path.name} had no backup, left alone")
     text = RUNTIME.read_text(encoding="utf-8")

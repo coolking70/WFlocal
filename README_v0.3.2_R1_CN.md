@@ -83,8 +83,10 @@ hook("pinball.scene.battle.BattleScene", "get_autoPlayUnlocked", function () {
 
 补丁表从 8 条变成 8 条：去掉 `auto-unlock`，加上 `expose-internals`。
 
-这个 hook 有**真实单元测试**：`verify_patches.mjs` 构造一个形状相同的假注册表，
-跑真实的 `runtime.js`，断言 prototype 上的方法确实被替换、且返回 true。
+> **v0.3.3 更正**：这里最初用的是"形状相同的假注册表"单元测试，它测通了机制、却放过了
+> 集成缺陷——真正的问题是 `WF_INTERNALS` **什么时候**存在。现已改成真集成测试：在 node 里
+> 跑打完补丁的真 bundle、调用 `lime.$scripts["world-flipper"]` 工厂、hook 真 prototype 并
+> 调用被替换的方法。详见 `README_v0.3.3_HOOK_TIMING_CN.md`。
 
 ## 4. 一条命令的静态校验
 

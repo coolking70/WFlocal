@@ -87,6 +87,22 @@ for (const patch of patches) {
 	if (count !== 1) fail(`patch ${patch.id}: expected exactly 1 anchor, found ${count}`);
 }
 
+// The bundle only runs when lime.embed() invokes its registered factory, so
+// hooks installed before that call find no registry at all. v0.3.2 shipped in
+// exactly that state: the hook silently failed and AUTO went back to locked.
+{
+	const html = readFileSync(launcherPath, "utf8");
+	const embedAt = html.indexOf("lime.embed(");
+	const hookAt = html.indexOf("runtime.applyHooks()");
+	if (embedAt < 0 || hookAt < 0) {
+		fail("launcher: could not find both lime.embed() and runtime.applyHooks()");
+	} else if (hookAt < embedAt) {
+		fail("launcher: applyHooks() runs before lime.embed(); WF_INTERNALS will not exist yet");
+	} else {
+		console.log("\n  ok   applyHooks() runs after lime.embed()");
+	}
+}
+
 console.log("");
 for (const mode of MODES) {
 	let result;
@@ -109,47 +125,76 @@ for (const mode of MODES) {
 	console.log(`  ok   ${mode.padEnd(10)} ${result.applied.length} patches, ${result.source.length} chars, parses`);
 }
 
-// The runtime layer depends on expose-internals having published the registry,
-// and on hook() actually replacing a prototype method. Both are checkable here:
-// build a stand-in registry shaped like the real one and run the real file.
+// Integration check for the runtime bridge, against the real bundle.
+//
+// A stand-in registry is not good enough here: it was a fake registry that let
+// a broken build pass, because the real question is *when* WF_INTERNALS exists.
+// The bundle registers itself as lime.$scripts["world-flipper"] and only runs
+// when that factory is invoked, so this runs it for real, then hooks the real
+// prototypes and calls the hooked method.
 console.log("");
 {
-	const challenge = win.WF_APPLY_PATCHES(pristine, "challenge").source;
-	if (!challenge.includes("window.WF_INTERNALS={classes:")) {
-		fail("expose-internals: patched bundle does not publish window.WF_INTERNALS");
-	} else {
-		console.log("  ok   expose-internals publishes window.WF_INTERNALS");
-	}
-
-	class FakeBattleScene {
-		get_autoPlayUnlocked() { return false; }
-	}
+	const patched = win.WF_APPLY_PATCHES(pristine, "challenge").source;
+	const stubElement = () => ({
+		style: {}, setAttribute() {}, appendChild() {}, addEventListener() {},
+		getContext: () => null, remove() {}, classList: { add() {}, remove() {} }
+	});
 	const sandbox = {
-		console: { info() {}, warn() {}, error() {} },
-		window: {
-			WF_INTERNALS: {
-				classes: { "pinball.scene.battle.BattleScene": FakeBattleScene },
-				enums: {}
+		console: { log() {}, info() {}, warn() {}, error() {}, debug() {} },
+		setTimeout, clearTimeout, setInterval, clearInterval,
+		navigator: { userAgent: "node", platform: "node", language: "en" },
+		location: { href: "http://localhost/", search: "" },
+		performance: { now: () => Date.now() },
+		requestAnimationFrame: () => 0,
+		XMLHttpRequest: class { open() {} send() {} setRequestHeader() {} addEventListener() {} },
+		Image: class {}, Audio: class {}
+	};
+	sandbox.window = sandbox;
+	sandbox.self = sandbox;
+	sandbox.globalThis = sandbox;
+	sandbox.document = {
+		createElement: stubElement, getElementById: stubElement, getElementsByTagName: () => [],
+		addEventListener() {}, body: stubElement(), documentElement: stubElement(), head: stubElement()
+	};
+	vm.createContext(sandbox);
+
+	try {
+		new vm.Script(patched, { filename: "world-flipper.patched.js" }).runInContext(sandbox);
+		const factory = sandbox.lime && sandbox.lime.$scripts && sandbox.lime.$scripts["world-flipper"];
+		if (typeof factory !== "function") {
+			throw new Error('lime.$scripts["world-flipper"] is not a function');
+		}
+		// The factory registers every class, then tries to start the app and dies on
+		// the stub canvas. Everything this check needs is registered by then.
+		try { factory(); } catch (expected) { /* DOM stub is not a browser */ }
+
+		const internals = sandbox.window.WF_INTERNALS;
+		if (!internals || !internals.classes) {
+			fail("expose-internals: WF_INTERNALS missing after the module factory ran");
+		} else {
+			const classCount = Object.keys(internals.classes).length;
+			console.log(`  ok   WF_INTERNALS published (${classCount} classes, ` +
+				`${Object.keys(internals.enums).length} enums)`);
+
+			new vm.Script(readFileSync(resolve(root, "WFTest/wfmod/runtime.js"), "utf8"), {
+				filename: "wfmod/runtime.js"
+			}).runInContext(sandbox);
+			const result = sandbox.window.WFMod.runtime.applyHooks();
+			if (result.failed.length) {
+				fail(`runtime hooks failed against the real bundle: ${result.failed.join(", ")}`);
+			} else {
+				const scene = internals.classes["pinball.scene.battle.BattleScene"];
+				const value = scene.prototype.get_autoPlayUnlocked.call({});
+				if (value !== true) {
+					fail(`hooked get_autoPlayUnlocked returned ${value}, expected true`);
+				} else {
+					console.log(`  ok   runtime hooks applied to the real prototypes ` +
+						`(${result.applied.join(", ")})`);
+				}
 			}
 		}
-	};
-	sandbox.globalThis = sandbox;
-	vm.createContext(sandbox);
-	try {
-		new vm.Script(readFileSync(resolve(root, "WFTest/wfmod/runtime.js"), "utf8"), {
-			filename: "wfmod/runtime.js"
-		}).runInContext(sandbox);
-		const result = sandbox.window.WFMod.runtime.applyHooks();
-		const instance = new FakeBattleScene();
-		if (result.failed.length) {
-			fail(`runtime hooks reported failures: ${result.failed.join(", ")}`);
-		} else if (instance.get_autoPlayUnlocked() !== true) {
-			fail("runtime hook did not take effect on the prototype");
-		} else {
-			console.log(`  ok   runtime hooks apply (${result.applied.join(", ")})`);
-		}
 	} catch (error) {
-		fail(`wfmod/runtime.js failed to run: ${error.message}`);
+		fail(`runtime bridge check could not run: ${error.message}`);
 	}
 }
 

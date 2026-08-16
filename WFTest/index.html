@@ -22,20 +22,20 @@
     <p>保留原版教程，同时允许直接进入官方挑战关卡选择界面。后续自制关卡将沿用同一套原生列表。</p>
   </section>
   <section class="grid">
-    <a class="card" href="game-index.html?wfmode=tutorial&wfbuild=0.3.2">
+    <a class="card" href="game-index.html?wfmode=tutorial&wfbuild=0.3.3">
       <div class="tag">ORIGINAL FLOW</div>
       <h2>原版教程</h2>
       <p>从序章开始运行官方 Web 体验版完整教程流程，行为保持原样。</p>
       <div class="go">进入教程 →</div>
     </a>
-    <a class="card challenge" href="game-index.html?wfmode=challenge&wfbuild=0.3.2">
+    <a class="card challenge" href="game-index.html?wfmode=challenge&wfbuild=0.3.3">
       <div class="tag">STAGE SELECT</div>
       <h2>挑战 / 自制关卡</h2>
       <p>跳过教程，直接载入教程结束后的 Trial 玩家数据，并进入官方原生关卡选择界面。</p>
       <div class="go">选择关卡 →</div>
     </a>
   </section>
-  <div class="note"><b>v0.3.2：</b>Reverse Atlas 与 Runtime Bridge（路线图 R1）。新增 <code>tools/analyze_bundle.py</code>，从 Haxe 自带的类/enum 注册表恢复 3282 个类、32569 个方法、285 个错误码，生成 <code>reverse/</code> 索引。新补丁 <code>expose-internals</code> 把注册表暴露为 <code>window.WF_INTERNALS</code>，AUTO 解锁已从字符串补丁改为 <code>wfmod/runtime.js</code> 里的 prototype hook。<code>./tools/verify_all.sh</code> 一条命令跑完全部静态校验。</div>
+  <div class="note"><b>v0.3.3：</b>修复 v0.3.2 的 hook 时序回归。bundle 是注册给 lime 的模块工厂，只有 <code>lime.embed()</code> 调用它时才真正执行，所以 <code>WF_INTERNALS</code> 在 embed 之前并不存在；v0.3.2 把 <code>applyHooks()</code> 放在了 embed 之前，AUTO 解锁静默失效，教程模式还因此撞上空表崩溃。现已调整顺序，并把假注册表单元测试换成跑真 bundle 的集成测试。</div>
 </main>
 </body>
 </html>

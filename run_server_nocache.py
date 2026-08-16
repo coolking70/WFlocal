@@ -10,10 +10,10 @@ class H(http.server.SimpleHTTPRequestHandler):
         self.send_header('Cache-Control','no-store, no-cache, must-revalidate, max-age=0')
         self.send_header('Pragma','no-cache')
         self.send_header('Expires','0')
-        self.send_header('X-WF-Mod-Build','0.3.2')
+        self.send_header('X-WF-Mod-Build','0.3.3')
         super().end_headers()
 with socketserver.TCPServer(('127.0.0.1',a.port),H) as httpd:
-    url=f'http://127.0.0.1:{a.port}/index.html?wfbuild=0.3.2'
-    print('[WFMod] v0.3.2 no-cache server:',url)
+    url=f'http://127.0.0.1:{a.port}/index.html?wfbuild=0.3.3'
+    print('[WFMod] v0.3.3 no-cache server:',url)
     if not a.no_open: webbrowser.open(url)
     httpd.serve_forever()

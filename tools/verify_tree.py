@@ -34,6 +34,28 @@ EXPECTED = {
 # Everything under this prefix is WFMod's own code, added alongside the game.
 EXPECTED_PREFIX = ("wfmod/",)
 
+# Master tables that WFMod content extends. Regenerate the content with the
+# tools rather than hand-editing, so these stay explainable:
+#   tools/clone_character.py   character 129001, cloned from 121001
+#   tools/assign_character.py  grants it to player 4 and seats it in party 1
+MASTER = "assets/trial/production/master/"
+EXPECTED_CONTENT = {
+    MASTER + "character/character.orderedmap",
+    MASTER + "character/character_text.orderedmap",
+    MASTER + "character/character_status.orderedmap",
+    MASTER + "character/character_speech.orderedmap",
+    MASTER + "character/character_gacha_sound.orderedmap",
+    MASTER + "character/full_shot_image_attribute.orderedmap",
+    MASTER + "generated/character_image.orderedmap",
+    MASTER + "generated/mana_board.orderedmap",
+    MASTER + "mana_board/mana_node.orderedmap",
+    MASTER + "mana_board/upskill.orderedmap",
+    MASTER + "ability/leader_ability.orderedmap",
+    MASTER + "skill_preview/skill_preview_character.orderedmap",
+    MASTER + "player/player_character.orderedmap",
+    MASTER + "player/player_party.orderedmap",
+}
+
 
 def sha256(path):
     h = hashlib.sha256()
@@ -60,6 +82,8 @@ def describe(path):
         return EXPECTED[path]
     if path.startswith(EXPECTED_PREFIX):
         return "added: WFMod runtime layer"
+    if path in EXPECTED_CONTENT:
+        return "extended with WFMod content (see tools/clone_character.py)"
     return None
 
 

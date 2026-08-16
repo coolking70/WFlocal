@@ -203,13 +203,18 @@ def spawn_grid(template, count, bounds):
     established, so nothing here makes one up.
     """
     left, top, width, height = bounds
-    # Two rows put every mob on the top and bottom edges of the room, which reads
-    # as "they are all at the edges" and leaves the middle - where a centred skill
-    # lands - empty. Aim for a squarish grid instead, and inset less vertically so
-    # the rows actually span the room.
+    # Where mobs may stand is not the whole room. The shipped spawn points sit
+    # between 38% and 50% of the room's height and between 27% and 67% of its
+    # width - the lower part of a room is flippers and drain, and a spawn point
+    # put there produced no mob at all. So the grid spans a band around the room
+    # centre, extended from the shipped one rather than from the full bounds.
     columns = max(1, min(count, math.ceil(math.sqrt(count))))
     rows = (count + columns - 1) // columns
-    inset_x, inset_y = width * 0.16, height * 0.14
+    left = left + width * X_BAND[0]
+    width = width * (X_BAND[1] - X_BAND[0])
+    top = top + height * Y_BAND[0]
+    height = height * (Y_BAND[1] - Y_BAND[0])
+    inset_x = inset_y = 0
     span_x, span_y = width - 2 * inset_x, height - 2 * inset_y
     out = []
     for i in range(count):
@@ -258,6 +263,13 @@ def mob_room_layer(count):
 
 
 ZAKO_SLOTS = 10
+
+# Fractions of the room the grid may use, centred on the room centre - which is
+# also where a skill anchored to special point -1 lands. Wider than the shipped
+# spawns (0.38..0.50 vertically, 0.27..0.67 horizontally) so a skill's reach is
+# straddled, and short of the bottom, which is flipper territory.
+X_BAND = (0.18, 0.82)
+Y_BAND = (0.36, 0.64)
 
 
 def build(zone_key, zako, count):

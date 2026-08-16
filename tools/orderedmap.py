@@ -62,6 +62,11 @@ def _split(data):
     return index, data[4 + index_len :]
 
 
+def parse_bytes(data):
+    """Public alias: [(key, record_bytes)] for one table."""
+    return _entries(data)
+
+
 def _entries(data):
     """Yield (key, record_bytes). Raises OrderedMapError if `data` is not a table."""
     index, body = _split(data)

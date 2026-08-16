@@ -18,6 +18,7 @@ import vm from "node:vm";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const OUT = resolve(root, "reverse/enum_params.json");
+const OUT_MEMBERS = resolve(root, "reverse/class_members.json");
 const write = process.argv.includes("--write");
 
 // Reuse the launcher's own patch table so this cannot drift from what ships.
@@ -104,8 +105,19 @@ for (const [name, definition] of Object.entries(internals.enums)) {
 	out[name] = entry;
 }
 
+// Class prototypes carry their declared fields in declaration order, which for
+// the generated master *Values classes is the column order of the CSV rows.
+// Reading them at runtime avoids missing fields that a static scan would skip
+// depending on how they are initialised.
+const members = {};
+for (const [name, clazz] of Object.entries(internals.classes)) {
+	if (typeof clazz !== "function" || !clazz.prototype) continue;
+	members[name] = Object.getOwnPropertyNames(clazz.prototype).filter((k) => k !== "__class__");
+}
+
 console.log(`enums        ${Object.keys(out).length}`);
 console.log(`constructors ${constructorCount} (${withParams} carry parameters)`);
+console.log(`classes      ${Object.keys(members).length} with prototype members`);
 
 const dsl = out["pinball.battle.action.dsl.ActionDslCommand"];
 if (dsl) {
@@ -117,5 +129,7 @@ if (dsl) {
 
 if (write) {
 	writeFileSync(OUT, JSON.stringify(out, null, 1) + "\n", "utf8");
+	writeFileSync(OUT_MEMBERS, JSON.stringify(members, null, 1) + "\n", "utf8");
 	console.log(`\nwrote ${OUT.replace(root + "/", "")}`);
+	console.log(`wrote ${OUT_MEMBERS.replace(root + "/", "")}`);
 }

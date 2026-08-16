@@ -1,0 +1,11217 @@
+{
+ "AbilitySoulValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "trigger",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "AbilityStatueGroupValues": {
+  "columns": 3,
+  "fields": [
+   {
+    "field": "color",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "small_name",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "large_name",
+    "columns": [
+     2
+    ]
+   }
+  ]
+ },
+ "AbilityValues": {
+  "columns": 4,
+  "fields": [
+   {
+    "field": "string_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "unisonable",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "statue_group_id",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "trigger",
+    "columns": [
+     3
+    ]
+   }
+  ]
+ },
+ "AccessCountModeValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "mode",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "ActionSkillValues": {
+  "columns": 9,
+  "fields": [
+   {
+    "field": "name",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "description",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "icon_id",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "unisonable",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "min_skill_weight",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "max_skill_weight",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "skill_chain_strength",
+    "columns": [
+     6
+    ]
+   },
+   {
+    "field": "program_path",
+    "columns": [
+     7
+    ]
+   },
+   {
+    "field": "autoplay_auto_invocation_condition",
+    "columns": [
+     8
+    ]
+   }
+  ]
+ },
+ "AdventEventMultiQuestValues": {
+  "columns": 81,
+  "fields": [
+   {
+    "field": "multiplied_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "thumbnail_image",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "first_time_clear_reward_id",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "end_time",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "viewable_need_quest_1",
+    "columns": [
+     6,
+     7,
+     8,
+     9
+    ]
+   },
+   {
+    "field": "viewable_need_quest_1_multiplied_id",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "viewable_need_quest_2",
+    "columns": [
+     11,
+     12,
+     13,
+     14
+    ]
+   },
+   {
+    "field": "viewable_need_quest_2_multiplied_id",
+    "columns": [
+     15
+    ]
+   },
+   {
+    "field": "viewable_need_character_quest_id_1",
+    "columns": [
+     16
+    ]
+   },
+   {
+    "field": "viewable_need_character_quest_id_2",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "viewable_character_ids",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "prevent_spoiler",
+    "columns": [
+     19
+    ]
+   },
+   {
+    "field": "selectable_need_quest_1",
+    "columns": [
+     20,
+     21,
+     22,
+     23
+    ]
+   },
+   {
+    "field": "selectable_need_quest_1_multiplied_id",
+    "columns": [
+     24
+    ]
+   },
+   {
+    "field": "selectable_need_quest_2",
+    "columns": [
+     25,
+     26,
+     27,
+     28
+    ]
+   },
+   {
+    "field": "selectable_need_quest_2_multiplied_id",
+    "columns": [
+     29
+    ]
+   },
+   {
+    "field": "selectable_need_character_quest_id_1",
+    "columns": [
+     30
+    ]
+   },
+   {
+    "field": "selectable_need_character_quest_id_2",
+    "columns": [
+     31
+    ]
+   },
+   {
+    "field": "selectable_player_rank",
+    "columns": [
+     32
+    ]
+   },
+   {
+    "field": "selectable_character_ids",
+    "columns": [
+     33
+    ]
+   },
+   {
+    "field": "selectable_episode_node_character_ids",
+    "columns": [
+     34
+    ]
+   },
+   {
+    "field": "selectable_episode_node_counts",
+    "columns": [
+     35
+    ]
+   },
+   {
+    "field": "battle_play_win_voice",
+    "columns": [
+     36
+    ]
+   },
+   {
+    "field": "battle_startable_use_item_ids",
+    "columns": [
+     37
+    ]
+   },
+   {
+    "field": "battle_startable_use_item_counts",
+    "columns": [
+     38
+    ]
+   },
+   {
+    "field": "battle_startable_party_rarity_ids",
+    "columns": [
+     39
+    ]
+   },
+   {
+    "field": "battle_startable_party_character_ids",
+    "columns": [
+     40
+    ]
+   },
+   {
+    "field": "battle_startable_party_without_unison_character_ids",
+    "columns": [
+     41
+    ]
+   },
+   {
+    "field": "battle_startable_party_unison_deny",
+    "columns": [
+     42
+    ]
+   },
+   {
+    "field": "battle_startable_party_limit_member_min",
+    "columns": [
+     43
+    ]
+   },
+   {
+    "field": "battle_startable_party_limit_member_max",
+    "columns": [
+     44
+    ]
+   },
+   {
+    "field": "battle_startable_party_race_ids",
+    "columns": [
+     45
+    ]
+   },
+   {
+    "field": "battle_startable_party_speciality_ids",
+    "columns": [
+     46
+    ]
+   },
+   {
+    "field": "battle_startable_party_gender",
+    "columns": [
+     47
+    ]
+   },
+   {
+    "field": "battle_startable_party_character_tag_ids",
+    "columns": [
+     48
+    ]
+   },
+   {
+    "field": "battle_stamina_cost",
+    "columns": [
+     49
+    ]
+   },
+   {
+    "field": "battle_stamina_return_if_retired",
+    "columns": [
+     50
+    ]
+   },
+   {
+    "field": "battle_score_reward_group_id",
+    "columns": [
+     51
+    ]
+   },
+   {
+    "field": "battle_rank_ss_reward_id",
+    "columns": [
+     52
+    ]
+   },
+   {
+    "field": "battle_recommended_element",
+    "columns": [
+     53
+    ]
+   },
+   {
+    "field": "battle_hide_recommended_element",
+    "columns": [
+     54
+    ]
+   },
+   {
+    "field": "battle_rank_b_score",
+    "columns": [
+     55
+    ]
+   },
+   {
+    "field": "battle_rank_a_score",
+    "columns": [
+     56
+    ]
+   },
+   {
+    "field": "battle_rank_s_score",
+    "columns": [
+     57
+    ]
+   },
+   {
+    "field": "battle_rank_ss_score",
+    "columns": [
+     58
+    ]
+   },
+   {
+    "field": "battle_rank_c_item_count",
+    "columns": [
+     59
+    ]
+   },
+   {
+    "field": "battle_rank_b_item_count",
+    "columns": [
+     60
+    ]
+   },
+   {
+    "field": "battle_rank_a_item_count",
+    "columns": [
+     61
+    ]
+   },
+   {
+    "field": "battle_rank_s_item_count",
+    "columns": [
+     62
+    ]
+   },
+   {
+    "field": "battle_rank_ss_item_count",
+    "columns": [
+     63
+    ]
+   },
+   {
+    "field": "battle_reward_rp",
+    "columns": [
+     64
+    ]
+   },
+   {
+    "field": "battle_reward_exp",
+    "columns": [
+     65
+    ]
+   },
+   {
+    "field": "battle_reward_mana",
+    "columns": [
+     66
+    ]
+   },
+   {
+    "field": "battle_reward_pool_exp",
+    "columns": [
+     67
+    ]
+   },
+   {
+    "field": "battle_hp_correction_value_zako",
+    "columns": [
+     68
+    ]
+   },
+   {
+    "field": "battle_hp_correction_value_funnel",
+    "columns": [
+     69
+    ]
+   },
+   {
+    "field": "battle_hp_correction_value_boss",
+    "columns": [
+     70
+    ]
+   },
+   {
+    "field": "battle_enemy_level",
+    "columns": [
+     71
+    ]
+   },
+   {
+    "field": "battle_initial_fever_gauge_limit",
+    "columns": [
+     72
+    ]
+   },
+   {
+    "field": "battle_field_data_id",
+    "columns": [
+     73
+    ]
+   },
+   {
+    "field": "battle_bgm_prefix",
+    "columns": [
+     74
+    ]
+   },
+   {
+    "field": "battle_time_limit",
+    "columns": [
+     75
+    ]
+   },
+   {
+    "field": "battle_assist_character",
+    "columns": [
+     76,
+     77,
+     78
+    ]
+   },
+   {
+    "field": "battle_max_continue_count",
+    "columns": [
+     79
+    ]
+   },
+   {
+    "field": "battle_max_mana_reward",
+    "columns": [
+     80
+    ]
+   }
+  ]
+ },
+ "AdventEventSingleQuestValues": {
+  "columns": 37,
+  "fields": [
+   {
+    "field": "multiplied_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "thumbnail_image",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "first_time_clear_reward_id",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "end_time",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "viewable_need_quest_1",
+    "columns": [
+     6,
+     7,
+     8,
+     9
+    ]
+   },
+   {
+    "field": "viewable_need_quest_1_multiplied_id",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "viewable_need_quest_2",
+    "columns": [
+     11,
+     12,
+     13,
+     14
+    ]
+   },
+   {
+    "field": "viewable_need_quest_2_multiplied_id",
+    "columns": [
+     15
+    ]
+   },
+   {
+    "field": "viewable_need_character_quest_id_1",
+    "columns": [
+     16
+    ]
+   },
+   {
+    "field": "viewable_need_character_quest_id_2",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "viewable_character_ids",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "prevent_spoiler",
+    "columns": [
+     19
+    ]
+   },
+   {
+    "field": "selectable_need_quest_1",
+    "columns": [
+     20,
+     21,
+     22,
+     23
+    ]
+   },
+   {
+    "field": "selectable_need_quest_1_multiplied_id",
+    "columns": [
+     24
+    ]
+   },
+   {
+    "field": "selectable_need_quest_2",
+    "columns": [
+     25,
+     26,
+     27,
+     28
+    ]
+   },
+   {
+    "field": "selectable_need_quest_2_multiplied_id",
+    "columns": [
+     29
+    ]
+   },
+   {
+    "field": "selectable_need_character_quest_id_1",
+    "columns": [
+     30
+    ]
+   },
+   {
+    "field": "selectable_need_character_quest_id_2",
+    "columns": [
+     31
+    ]
+   },
+   {
+    "field": "selectable_player_rank",
+    "columns": [
+     32
+    ]
+   },
+   {
+    "field": "selectable_character_ids",
+    "columns": [
+     33
+    ]
+   },
+   {
+    "field": "selectable_episode_node_character_ids",
+    "columns": [
+     34
+    ]
+   },
+   {
+    "field": "selectable_episode_node_counts",
+    "columns": [
+     35
+    ]
+   },
+   {
+    "field": "kind",
+    "columns": [
+     36
+    ]
+   }
+  ]
+ },
+ "AdventEventValues": {
+  "columns": 8,
+  "fields": [
+   {
+    "field": "string_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "available_play_kind",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "banner_image",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "header_background_image",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "playable_end_time",
+    "columns": [
+     6
+    ]
+   },
+   {
+    "field": "exchangeable_end_time",
+    "columns": [
+     7
+    ]
+   }
+  ]
+ },
+ "AssistAtkCurveValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "atk_multiplier",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "AssistCutinValues": {
+  "columns": 3,
+  "fields": [
+   {
+    "field": "joining_name",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "joining_text",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "joining_voice_paths",
+    "columns": [
+     2
+    ]
+   }
+  ]
+ },
+ "AssistHpCurveValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "hp_multiplier",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "AssistMultiballLevelValues": {
+  "columns": 6,
+  "fields": [
+   {
+    "field": "hp_basic_curve_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "hp_basic_value",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "hp_correction_value",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "atk_basic_curve_id",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "atk_basic_value",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "atk_correction_value",
+    "columns": [
+     5
+    ]
+   }
+  ]
+ },
+ "AssistMultiballValues": {
+  "columns": 13,
+  "fields": [
+   {
+    "field": "character_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "action",
+    "columns": [
+     1,
+     2,
+     3
+    ]
+   },
+   {
+    "field": "skill_cutin_image_path",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "skill_voice_paths",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "support_skill1",
+    "columns": [
+     6
+    ]
+   },
+   {
+    "field": "support_skill2",
+    "columns": [
+     7
+    ]
+   },
+   {
+    "field": "support_skill3",
+    "columns": [
+     8
+    ]
+   },
+   {
+    "field": "scale",
+    "columns": [
+     9
+    ]
+   },
+   {
+    "field": "kind",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "is_invincible",
+    "columns": [
+     11
+    ]
+   },
+   {
+    "field": "zone_crossable",
+    "columns": [
+     12
+    ]
+   }
+  ]
+ },
+ "AssistYakumonoLevelValues": {
+  "columns": 3,
+  "fields": [
+   {
+    "field": "atk_basic_curve_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "atk_basic_value",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "atk_correction_value",
+    "columns": [
+     2
+    ]
+   }
+  ]
+ },
+ "AssistYakumonoValues": {
+  "columns": 11,
+  "fields": [
+   {
+    "field": "character_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "animation_path_foreground",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "restitution",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "normal_velocity",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "cooldown_time",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "invoke_skill",
+    "columns": [
+     5,
+     6,
+     7,
+     8,
+     9,
+     10
+    ]
+   }
+  ]
+ },
+ "AtkBasicCurveValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "atk_multiplier",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "AtkCorrectionCurveValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "atk_correction_value",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "AttentionConfigValues": {
+  "columns": 20,
+  "fields": [
+   {
+    "field": "attention_recruitment",
+    "columns": [
+     0,
+     1,
+     2
+    ]
+   },
+   {
+    "field": "ignore_attention_count_max",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "polling_interval",
+    "columns": [
+     4,
+     5
+    ]
+   },
+   {
+    "field": "multi_attention_lifetime_seconds",
+    "columns": [
+     6
+    ]
+   },
+   {
+    "field": "contribution_score_rate_to_parasite",
+    "columns": [
+     7
+    ]
+   },
+   {
+    "field": "attention_log_interval_seconds",
+    "columns": [
+     8
+    ]
+   },
+   {
+    "field": "polling_delay",
+    "columns": [
+     9,
+     10,
+     11,
+     12
+    ]
+   },
+   {
+    "field": "disable",
+    "columns": [
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19
+    ]
+   }
+  ]
+ },
+ "AwakingCrystalCrumbExchangeValues": {
+  "columns": 40,
+  "fields": [
+   {
+    "field": "name",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "list_order",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "description",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "short_description",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "thumbnail_id",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "rarity",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "price",
+    "columns": [
+     6,
+     7
+    ]
+   },
+   {
+    "field": "cost_item1",
+    "columns": [
+     8,
+     9
+    ]
+   },
+   {
+    "field": "cost_item2",
+    "columns": [
+     10,
+     11
+    ]
+   },
+   {
+    "field": "cost_item3",
+    "columns": [
+     12,
+     13
+    ]
+   },
+   {
+    "field": "cost_item4",
+    "columns": [
+     14,
+     15
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     16
+    ]
+   },
+   {
+    "field": "end_time",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "release_rank",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "buy_max_count",
+    "columns": [
+     19
+    ]
+   },
+   {
+    "field": "max_frequency",
+    "columns": [
+     20
+    ]
+   },
+   {
+    "field": "daily_stock",
+    "columns": [
+     21
+    ]
+   },
+   {
+    "field": "kind1",
+    "columns": [
+     22,
+     23,
+     24
+    ]
+   },
+   {
+    "field": "kind2",
+    "columns": [
+     25,
+     26,
+     27
+    ]
+   },
+   {
+    "field": "kind3",
+    "columns": [
+     28,
+     29,
+     30
+    ]
+   },
+   {
+    "field": "kind4",
+    "columns": [
+     31,
+     32,
+     33
+    ]
+   },
+   {
+    "field": "kind5",
+    "columns": [
+     34,
+     35,
+     36
+    ]
+   },
+   {
+    "field": "kind6",
+    "columns": [
+     37,
+     38,
+     39
+    ]
+   }
+  ]
+ },
+ "BattleBgmGroupValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "kind",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "BgmAssetValues": {
+  "columns": 6,
+  "fields": [
+   {
+    "field": "volume",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "bpm",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "start_second",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "loop_start_second",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "loop_beat",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "loading",
+    "columns": [
+     5
+    ]
+   }
+  ]
+ },
+ "BondTokenExchangeValues": {
+  "columns": 4,
+  "fields": [
+   {
+    "field": "cost",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "stock",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "end_time",
+    "columns": [
+     3
+    ]
+   }
+  ]
+ },
+ "BossBattleChapterValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "name",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "BossBattleQuestValues": {
+  "columns": 82,
+  "fields": [
+   {
+    "field": "multiplied_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "thumbnail_image",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "first_time_clear_reward_id",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "end_time",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "viewable_need_quest_1",
+    "columns": [
+     6,
+     7,
+     8,
+     9
+    ]
+   },
+   {
+    "field": "viewable_need_quest_1_multiplied_id",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "viewable_need_quest_2",
+    "columns": [
+     11,
+     12,
+     13,
+     14
+    ]
+   },
+   {
+    "field": "viewable_need_quest_2_multiplied_id",
+    "columns": [
+     15
+    ]
+   },
+   {
+    "field": "viewable_need_character_quest_id_1",
+    "columns": [
+     16
+    ]
+   },
+   {
+    "field": "viewable_need_character_quest_id_2",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "viewable_character_ids",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "prevent_spoiler",
+    "columns": [
+     19
+    ]
+   },
+   {
+    "field": "selectable_need_quest_1",
+    "columns": [
+     20,
+     21,
+     22,
+     23
+    ]
+   },
+   {
+    "field": "selectable_need_quest_1_multiplied_id",
+    "columns": [
+     24
+    ]
+   },
+   {
+    "field": "selectable_need_quest_2",
+    "columns": [
+     25,
+     26,
+     27,
+     28
+    ]
+   },
+   {
+    "field": "selectable_need_quest_2_multiplied_id",
+    "columns": [
+     29
+    ]
+   },
+   {
+    "field": "selectable_need_character_quest_id_1",
+    "columns": [
+     30
+    ]
+   },
+   {
+    "field": "selectable_need_character_quest_id_2",
+    "columns": [
+     31
+    ]
+   },
+   {
+    "field": "selectable_player_rank",
+    "columns": [
+     32
+    ]
+   },
+   {
+    "field": "selectable_character_ids",
+    "columns": [
+     33
+    ]
+   },
+   {
+    "field": "selectable_episode_node_character_ids",
+    "columns": [
+     34
+    ]
+   },
+   {
+    "field": "selectable_episode_node_counts",
+    "columns": [
+     35
+    ]
+   },
+   {
+    "field": "battle_play_win_voice",
+    "columns": [
+     36
+    ]
+   },
+   {
+    "field": "battle_startable_use_item_ids",
+    "columns": [
+     37
+    ]
+   },
+   {
+    "field": "battle_startable_use_item_counts",
+    "columns": [
+     38
+    ]
+   },
+   {
+    "field": "battle_startable_party_rarity_ids",
+    "columns": [
+     39
+    ]
+   },
+   {
+    "field": "battle_startable_party_character_ids",
+    "columns": [
+     40
+    ]
+   },
+   {
+    "field": "battle_startable_party_without_unison_character_ids",
+    "columns": [
+     41
+    ]
+   },
+   {
+    "field": "battle_startable_party_unison_deny",
+    "columns": [
+     42
+    ]
+   },
+   {
+    "field": "battle_startable_party_limit_member_min",
+    "columns": [
+     43
+    ]
+   },
+   {
+    "field": "battle_startable_party_limit_member_max",
+    "columns": [
+     44
+    ]
+   },
+   {
+    "field": "battle_startable_party_race_ids",
+    "columns": [
+     45
+    ]
+   },
+   {
+    "field": "battle_startable_party_speciality_ids",
+    "columns": [
+     46
+    ]
+   },
+   {
+    "field": "battle_startable_party_gender",
+    "columns": [
+     47
+    ]
+   },
+   {
+    "field": "battle_startable_party_character_tag_ids",
+    "columns": [
+     48
+    ]
+   },
+   {
+    "field": "battle_stamina_cost",
+    "columns": [
+     49
+    ]
+   },
+   {
+    "field": "battle_stamina_return_if_retired",
+    "columns": [
+     50
+    ]
+   },
+   {
+    "field": "battle_score_reward_group_id",
+    "columns": [
+     51
+    ]
+   },
+   {
+    "field": "battle_rank_ss_reward_id",
+    "columns": [
+     52
+    ]
+   },
+   {
+    "field": "battle_recommended_element",
+    "columns": [
+     53
+    ]
+   },
+   {
+    "field": "battle_hide_recommended_element",
+    "columns": [
+     54
+    ]
+   },
+   {
+    "field": "battle_rank_b_score",
+    "columns": [
+     55
+    ]
+   },
+   {
+    "field": "battle_rank_a_score",
+    "columns": [
+     56
+    ]
+   },
+   {
+    "field": "battle_rank_s_score",
+    "columns": [
+     57
+    ]
+   },
+   {
+    "field": "battle_rank_ss_score",
+    "columns": [
+     58
+    ]
+   },
+   {
+    "field": "battle_rank_c_item_count",
+    "columns": [
+     59
+    ]
+   },
+   {
+    "field": "battle_rank_b_item_count",
+    "columns": [
+     60
+    ]
+   },
+   {
+    "field": "battle_rank_a_item_count",
+    "columns": [
+     61
+    ]
+   },
+   {
+    "field": "battle_rank_s_item_count",
+    "columns": [
+     62
+    ]
+   },
+   {
+    "field": "battle_rank_ss_item_count",
+    "columns": [
+     63
+    ]
+   },
+   {
+    "field": "battle_reward_rp",
+    "columns": [
+     64
+    ]
+   },
+   {
+    "field": "battle_reward_exp",
+    "columns": [
+     65
+    ]
+   },
+   {
+    "field": "battle_reward_mana",
+    "columns": [
+     66
+    ]
+   },
+   {
+    "field": "battle_reward_pool_exp",
+    "columns": [
+     67
+    ]
+   },
+   {
+    "field": "battle_hp_correction_value_zako",
+    "columns": [
+     68
+    ]
+   },
+   {
+    "field": "battle_hp_correction_value_funnel",
+    "columns": [
+     69
+    ]
+   },
+   {
+    "field": "battle_hp_correction_value_boss",
+    "columns": [
+     70
+    ]
+   },
+   {
+    "field": "battle_enemy_level",
+    "columns": [
+     71
+    ]
+   },
+   {
+    "field": "battle_initial_fever_gauge_limit",
+    "columns": [
+     72
+    ]
+   },
+   {
+    "field": "battle_field_data_id",
+    "columns": [
+     73
+    ]
+   },
+   {
+    "field": "battle_bgm_prefix",
+    "columns": [
+     74
+    ]
+   },
+   {
+    "field": "battle_time_limit",
+    "columns": [
+     75
+    ]
+   },
+   {
+    "field": "battle_assist_character",
+    "columns": [
+     76,
+     77,
+     78
+    ]
+   },
+   {
+    "field": "battle_max_continue_count",
+    "columns": [
+     79
+    ]
+   },
+   {
+    "field": "battle_max_mana_reward",
+    "columns": [
+     80
+    ]
+   },
+   {
+    "field": "twitter_card_image_base_path",
+    "columns": [
+     81
+    ]
+   }
+  ]
+ },
+ "BossBattleStageNodeValues": {
+  "columns": 7,
+  "fields": [
+   {
+    "field": "name",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "main_chapter_id",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "need_stage_node",
+    "columns": [
+     2,
+     3
+    ]
+   },
+   {
+    "field": "boss_coin_shop_category_id",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "image",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "header_background_image",
+    "columns": [
+     6
+    ]
+   }
+  ]
+ },
+ "BossCoinShopValues": {
+  "columns": 42,
+  "fields": [
+   {
+    "field": "boss_coin_shop_category_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "list_order",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "description",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "short_description",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "thumbnail_id",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "rarity",
+    "columns": [
+     6
+    ]
+   },
+   {
+    "field": "price",
+    "columns": [
+     7,
+     8
+    ]
+   },
+   {
+    "field": "cost_item1",
+    "columns": [
+     9,
+     10
+    ]
+   },
+   {
+    "field": "cost_item2",
+    "columns": [
+     11,
+     12
+    ]
+   },
+   {
+    "field": "cost_item3",
+    "columns": [
+     13,
+     14
+    ]
+   },
+   {
+    "field": "cost_item4",
+    "columns": [
+     15,
+     16
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "end_time",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "release_rank",
+    "columns": [
+     19
+    ]
+   },
+   {
+    "field": "buy_max_count",
+    "columns": [
+     20
+    ]
+   },
+   {
+    "field": "max_frequency",
+    "columns": [
+     21
+    ]
+   },
+   {
+    "field": "daily_stock",
+    "columns": [
+     22
+    ]
+   },
+   {
+    "field": "monthly_stock",
+    "columns": [
+     23
+    ]
+   },
+   {
+    "field": "kind1",
+    "columns": [
+     24,
+     25,
+     26
+    ]
+   },
+   {
+    "field": "kind2",
+    "columns": [
+     27,
+     28,
+     29
+    ]
+   },
+   {
+    "field": "kind3",
+    "columns": [
+     30,
+     31,
+     32
+    ]
+   },
+   {
+    "field": "kind4",
+    "columns": [
+     33,
+     34,
+     35
+    ]
+   },
+   {
+    "field": "kind5",
+    "columns": [
+     36,
+     37,
+     38
+    ]
+   },
+   {
+    "field": "kind6",
+    "columns": [
+     39,
+     40,
+     41
+    ]
+   }
+  ]
+ },
+ "BossLevelValues": {
+  "columns": 13,
+  "fields": [
+   {
+    "field": "hp_curve",
+    "columns": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   },
+   {
+    "field": "atk_basic_curve_id",
+    "columns": [
+     7
+    ]
+   },
+   {
+    "field": "atk_num_hits",
+    "columns": [
+     8
+    ]
+   },
+   {
+    "field": "atk_correction_value",
+    "columns": [
+     9
+    ]
+   },
+   {
+    "field": "atk_correction_curve_id",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "tp_basic_curve_id",
+    "columns": [
+     11
+    ]
+   },
+   {
+    "field": "tp_basic_value",
+    "columns": [
+     12
+    ]
+   }
+  ]
+ },
+ "BossWeakPointMarkerSetValues": {
+  "columns": 3,
+  "fields": [
+   {
+    "field": "markers1",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "markers2",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "markers3",
+    "columns": [
+     2
+    ]
+   }
+  ]
+ },
+ "BreakableBlockLevelValues": {
+  "columns": 13,
+  "fields": [
+   {
+    "field": "hp_curve",
+    "columns": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   },
+   {
+    "field": "atk_basic_curve_id",
+    "columns": [
+     7
+    ]
+   },
+   {
+    "field": "atk_num_hits",
+    "columns": [
+     8
+    ]
+   },
+   {
+    "field": "atk_correction_value",
+    "columns": [
+     9
+    ]
+   },
+   {
+    "field": "atk_correction_curve_id",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "tp_basic_curve_id",
+    "columns": [
+     11
+    ]
+   },
+   {
+    "field": "tp_basic_value",
+    "columns": [
+     12
+    ]
+   }
+  ]
+ },
+ "BreakableBlockStateValues": {
+  "columns": 20,
+  "fields": [
+   {
+    "field": "state",
+    "columns": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19
+    ]
+   }
+  ]
+ },
+ "BreakableBlockValues": {
+  "columns": 29,
+  "fields": [
+   {
+    "field": "element",
+    "columns": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ]
+   },
+   {
+    "field": "race",
+    "columns": [
+     8
+    ]
+   },
+   {
+    "field": "gender",
+    "columns": [
+     9
+    ]
+   },
+   {
+    "field": "is_enemy",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "marker_timeline_path",
+    "columns": [
+     11
+    ]
+   },
+   {
+    "field": "shadow_animation_path",
+    "columns": [
+     12
+    ]
+   },
+   {
+    "field": "routine_id",
+    "columns": [
+     13
+    ]
+   },
+   {
+    "field": "initial_state_id",
+    "columns": [
+     14
+    ]
+   },
+   {
+    "field": "subroutine_change_threshold2",
+    "columns": [
+     15
+    ]
+   },
+   {
+    "field": "subroutine_change_threshold3",
+    "columns": [
+     16
+    ]
+   },
+   {
+    "field": "subroutine_change_threshold4",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "contains_touch_state",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "enemy_action101",
+    "columns": [
+     19
+    ]
+   },
+   {
+    "field": "enemy_action102",
+    "columns": [
+     20
+    ]
+   },
+   {
+    "field": "enemy_action103",
+    "columns": [
+     21
+    ]
+   },
+   {
+    "field": "enemy_action104",
+    "columns": [
+     22
+    ]
+   },
+   {
+    "field": "enemy_action105",
+    "columns": [
+     23
+    ]
+   },
+   {
+    "field": "enemy_action106",
+    "columns": [
+     24
+    ]
+   },
+   {
+    "field": "enemy_action107",
+    "columns": [
+     25
+    ]
+   },
+   {
+    "field": "enemy_action108",
+    "columns": [
+     26
+    ]
+   },
+   {
+    "field": "enemy_action109",
+    "columns": [
+     27
+    ]
+   },
+   {
+    "field": "enemy_action110",
+    "columns": [
+     28
+    ]
+   }
+  ]
+ },
+ "ChallengeDungeonEventQuestValues": {
+  "columns": 37,
+  "fields": [
+   {
+    "field": "multiplied_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "thumbnail_image",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "first_time_clear_reward_id",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "end_time",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "viewable_need_quest_1",
+    "columns": [
+     6,
+     7,
+     8,
+     9
+    ]
+   },
+   {
+    "field": "viewable_need_quest_1_multiplied_id",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "viewable_need_quest_2",
+    "columns": [
+     11,
+     12,
+     13,
+     14
+    ]
+   },
+   {
+    "field": "viewable_need_quest_2_multiplied_id",
+    "columns": [
+     15
+    ]
+   },
+   {
+    "field": "viewable_need_character_quest_id_1",
+    "columns": [
+     16
+    ]
+   },
+   {
+    "field": "viewable_need_character_quest_id_2",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "viewable_character_ids",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "prevent_spoiler",
+    "columns": [
+     19
+    ]
+   },
+   {
+    "field": "selectable_need_quest_1",
+    "columns": [
+     20,
+     21,
+     22,
+     23
+    ]
+   },
+   {
+    "field": "selectable_need_quest_1_multiplied_id",
+    "columns": [
+     24
+    ]
+   },
+   {
+    "field": "selectable_need_quest_2",
+    "columns": [
+     25,
+     26,
+     27,
+     28
+    ]
+   },
+   {
+    "field": "selectable_need_quest_2_multiplied_id",
+    "columns": [
+     29
+    ]
+   },
+   {
+    "field": "selectable_need_character_quest_id_1",
+    "columns": [
+     30
+    ]
+   },
+   {
+    "field": "selectable_need_character_quest_id_2",
+    "columns": [
+     31
+    ]
+   },
+   {
+    "field": "selectable_player_rank",
+    "columns": [
+     32
+    ]
+   },
+   {
+    "field": "selectable_character_ids",
+    "columns": [
+     33
+    ]
+   },
+   {
+    "field": "selectable_episode_node_character_ids",
+    "columns": [
+     34
+    ]
+   },
+   {
+    "field": "selectable_episode_node_counts",
+    "columns": [
+     35
+    ]
+   },
+   {
+    "field": "kind",
+    "columns": [
+     36
+    ]
+   }
+  ]
+ },
+ "ChallengeDungeonEventValues": {
+  "columns": 7,
+  "fields": [
+   {
+    "field": "string_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "banner_image",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "header_background_image",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "playable_end_time",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "exchangeable_end_time",
+    "columns": [
+     6
+    ]
+   }
+  ]
+ },
+ "CharacterGachaSoundValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "sound",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "CharacterImageValues": {
+  "columns": 4,
+  "fields": [
+   {
+    "field": "full_shot_x",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "full_shot_y",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "full_shot_width",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "full_shot_height",
+    "columns": [
+     3
+    ]
+   }
+  ]
+ },
+ "CharacterLevelValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "total_experience",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "CharacterQuestValues": {
+  "columns": 39,
+  "fields": [
+   {
+    "field": "character_1",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "character_2",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "character_3",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "thumbnail_image",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "first_time_clear_reward_id",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     6
+    ]
+   },
+   {
+    "field": "end_time",
+    "columns": [
+     7
+    ]
+   },
+   {
+    "field": "viewable_need_quest_1",
+    "columns": [
+     8,
+     9,
+     10,
+     11
+    ]
+   },
+   {
+    "field": "viewable_need_quest_1_multiplied_id",
+    "columns": [
+     12
+    ]
+   },
+   {
+    "field": "viewable_need_quest_2",
+    "columns": [
+     13,
+     14,
+     15,
+     16
+    ]
+   },
+   {
+    "field": "viewable_need_quest_2_multiplied_id",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "viewable_need_character_quest_id_1",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "viewable_need_character_quest_id_2",
+    "columns": [
+     19
+    ]
+   },
+   {
+    "field": "viewable_character_ids",
+    "columns": [
+     20
+    ]
+   },
+   {
+    "field": "prevent_spoiler",
+    "columns": [
+     21
+    ]
+   },
+   {
+    "field": "selectable_need_quest_1",
+    "columns": [
+     22,
+     23,
+     24,
+     25
+    ]
+   },
+   {
+    "field": "selectable_need_quest_1_multiplied_id",
+    "columns": [
+     26
+    ]
+   },
+   {
+    "field": "selectable_need_quest_2",
+    "columns": [
+     27,
+     28,
+     29,
+     30
+    ]
+   },
+   {
+    "field": "selectable_need_quest_2_multiplied_id",
+    "columns": [
+     31
+    ]
+   },
+   {
+    "field": "selectable_need_character_quest_id_1",
+    "columns": [
+     32
+    ]
+   },
+   {
+    "field": "selectable_need_character_quest_id_2",
+    "columns": [
+     33
+    ]
+   },
+   {
+    "field": "selectable_player_rank",
+    "columns": [
+     34
+    ]
+   },
+   {
+    "field": "selectable_character_ids",
+    "columns": [
+     35
+    ]
+   },
+   {
+    "field": "selectable_episode_node_character_ids",
+    "columns": [
+     36
+    ]
+   },
+   {
+    "field": "selectable_episode_node_counts",
+    "columns": [
+     37
+    ]
+   },
+   {
+    "field": "kind",
+    "columns": [
+     38
+    ]
+   }
+  ]
+ },
+ "CharacterSpeechValues": {
+  "columns": 5,
+  "fields": [
+   {
+    "field": "kind",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "speech",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "voice_path",
+    "columns": [
+     4
+    ]
+   }
+  ]
+ },
+ "CharacterStatusValues": {
+  "columns": 2,
+  "fields": [
+   {
+    "field": "hp",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "atk",
+    "columns": [
+     1
+    ]
+   }
+  ]
+ },
+ "CharacterTagValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "name",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "CharacterTextValues": {
+  "columns": 9,
+  "fields": [
+   {
+    "field": "name",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "description",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "nickname",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "skill_name_1",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "skill_description_1",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "skill_name_2",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "skill_description_2",
+    "columns": [
+     6
+    ]
+   },
+   {
+    "field": "leader_ability_name",
+    "columns": [
+     7
+    ]
+   },
+   {
+    "field": "voice_actor",
+    "columns": [
+     8
+    ]
+   }
+  ]
+ },
+ "CharacterValues": {
+  "columns": 20,
+  "fields": [
+   {
+    "field": "string_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "gacha_odds_weight",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "rarity",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "element",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "race",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "character_tag",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "speciality_type",
+    "columns": [
+     6
+    ]
+   },
+   {
+    "field": "gender",
+    "columns": [
+     7
+    ]
+   },
+   {
+    "field": "action_skill",
+    "columns": [
+     8
+    ]
+   },
+   {
+    "field": "leader_ability",
+    "columns": [
+     9,
+     10
+    ]
+   },
+   {
+    "field": "ability_1",
+    "columns": [
+     11
+    ]
+   },
+   {
+    "field": "ability_2",
+    "columns": [
+     12
+    ]
+   },
+   {
+    "field": "ability_3",
+    "columns": [
+     13
+    ]
+   },
+   {
+    "field": "ability_4",
+    "columns": [
+     14
+    ]
+   },
+   {
+    "field": "identity_character_id",
+    "columns": [
+     15
+    ]
+   },
+   {
+    "field": "pedestal_image",
+    "columns": [
+     16
+    ]
+   },
+   {
+    "field": "max_evolution_level",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "obtain_source",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "web_video_url",
+    "columns": [
+     19
+    ]
+   }
+  ]
+ },
+ "ClearRewardValues": {
+  "columns": 4,
+  "fields": [
+   {
+    "field": "string_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "kind",
+    "columns": [
+     1,
+     2,
+     3
+    ]
+   }
+  ]
+ },
+ "ConfigValues": {
+  "columns": 35,
+  "fields": [
+   {
+    "field": "continue_virtual_money",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "stamina_recovery_virtual_money",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "stamina_recovery_seconds",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "stamina_recovery_value",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "max_stamina_overflow",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "max_virtual_money",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "max_mana",
+    "columns": [
+     6
+    ]
+   },
+   {
+    "field": "max_star_crumb",
+    "columns": [
+     7
+    ]
+   },
+   {
+    "field": "pool_exp_gain_value",
+    "columns": [
+     8
+    ]
+   },
+   {
+    "field": "pool_exp_gain_seconds",
+    "columns": [
+     9
+    ]
+   },
+   {
+    "field": "max_pool_exp",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "max_display_pool_exp",
+    "columns": [
+     11
+    ]
+   },
+   {
+    "field": "max_follows_count",
+    "columns": [
+     12
+    ]
+   },
+   {
+    "field": "max_followers_count",
+    "columns": [
+     13
+    ]
+   },
+   {
+    "field": "max_display_followers_count",
+    "columns": [
+     14
+    ]
+   },
+   {
+    "field": "max_player_name_length",
+    "columns": [
+     15
+    ]
+   },
+   {
+    "field": "max_player_comment_length",
+    "columns": [
+     16
+    ]
+   },
+   {
+    "field": "overflow_exp_to_mana_conversion_rate",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "reward_multiplier_by_boost_point",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "common_reward_multiplier_by_multi_play_mode",
+    "columns": [
+     19
+    ]
+   },
+   {
+    "field": "limit_payment_under_16",
+    "columns": [
+     20
+    ]
+   },
+   {
+    "field": "limit_payment_16_19",
+    "columns": [
+     21
+    ]
+   },
+   {
+    "field": "alert_payment",
+    "columns": [
+     22
+    ]
+   },
+   {
+    "field": "level_correction_value_by_recommended_element",
+    "columns": [
+     23
+    ]
+   },
+   {
+    "field": "level_correction_value_for_moderate_level_comparison",
+    "columns": [
+     24
+    ]
+   },
+   {
+    "field": "max_equipment_stack",
+    "columns": [
+     25
+    ]
+   },
+   {
+    "field": "max_bond_token",
+    "columns": [
+     26
+    ]
+   },
+   {
+    "field": "treasure_shop_item_number",
+    "columns": [
+     27
+    ]
+   },
+   {
+    "field": "special_pack_shop_days_as_new",
+    "columns": [
+     28
+    ]
+   },
+   {
+    "field": "privacy_policy_url",
+    "columns": [
+     29
+    ]
+   },
+   {
+    "field": "max_boss_boost_point",
+    "columns": [
+     30
+    ]
+   },
+   {
+    "field": "max_display_boss_boost_point",
+    "columns": [
+     31
+    ]
+   },
+   {
+    "field": "max_boost_point",
+    "columns": [
+     32
+    ]
+   },
+   {
+    "field": "max_display_boost_point",
+    "columns": [
+     33
+    ]
+   },
+   {
+    "field": "craft_point_item_id",
+    "columns": [
+     34
+    ]
+   }
+  ]
+ },
+ "DailyExpManaEventQuestOddsValues": {
+  "columns": 15,
+  "fields": [
+   {
+    "field": "multiplied_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "odds_group_string_id",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "battle_hp_correction_value_zako",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "battle_hp_correction_value_funnel",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "battle_hp_correction_value_boss",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "battle_enemy_level",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "battle_initial_fever_gauge_limit",
+    "columns": [
+     6
+    ]
+   },
+   {
+    "field": "battle_field_data_id",
+    "columns": [
+     7
+    ]
+   },
+   {
+    "field": "battle_bgm_prefix",
+    "columns": [
+     8
+    ]
+   },
+   {
+    "field": "battle_recommended_element",
+    "columns": [
+     9
+    ]
+   },
+   {
+    "field": "battle_hide_recommended_element",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "battle_time_limit",
+    "columns": [
+     11
+    ]
+   },
+   {
+    "field": "battle_assist_character",
+    "columns": [
+     12,
+     13,
+     14
+    ]
+   }
+  ]
+ },
+ "DailyExpManaEventQuestValues": {
+  "columns": 60,
+  "fields": [
+   {
+    "field": "multiplied_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "thumbnail_image",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "first_time_clear_reward_id",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "end_time",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "viewable_need_quest_1",
+    "columns": [
+     6,
+     7,
+     8,
+     9
+    ]
+   },
+   {
+    "field": "viewable_need_quest_1_multiplied_id",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "viewable_need_quest_2",
+    "columns": [
+     11,
+     12,
+     13,
+     14
+    ]
+   },
+   {
+    "field": "viewable_need_quest_2_multiplied_id",
+    "columns": [
+     15
+    ]
+   },
+   {
+    "field": "viewable_need_character_quest_id_1",
+    "columns": [
+     16
+    ]
+   },
+   {
+    "field": "viewable_need_character_quest_id_2",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "viewable_character_ids",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "prevent_spoiler",
+    "columns": [
+     19
+    ]
+   },
+   {
+    "field": "selectable_need_quest_1",
+    "columns": [
+     20,
+     21,
+     22,
+     23
+    ]
+   },
+   {
+    "field": "selectable_need_quest_1_multiplied_id",
+    "columns": [
+     24
+    ]
+   },
+   {
+    "field": "selectable_need_quest_2",
+    "columns": [
+     25,
+     26,
+     27,
+     28
+    ]
+   },
+   {
+    "field": "selectable_need_quest_2_multiplied_id",
+    "columns": [
+     29
+    ]
+   },
+   {
+    "field": "selectable_need_character_quest_id_1",
+    "columns": [
+     30
+    ]
+   },
+   {
+    "field": "selectable_need_character_quest_id_2",
+    "columns": [
+     31
+    ]
+   },
+   {
+    "field": "selectable_player_rank",
+    "columns": [
+     32
+    ]
+   },
+   {
+    "field": "selectable_character_ids",
+    "columns": [
+     33
+    ]
+   },
+   {
+    "field": "selectable_episode_node_character_ids",
+    "columns": [
+     34
+    ]
+   },
+   {
+    "field": "selectable_episode_node_counts",
+    "columns": [
+     35
+    ]
+   },
+   {
+    "field": "battle_play_win_voice",
+    "columns": [
+     36
+    ]
+   },
+   {
+    "field": "battle_startable_use_item_ids",
+    "columns": [
+     37
+    ]
+   },
+   {
+    "field": "battle_startable_use_item_counts",
+    "columns": [
+     38
+    ]
+   },
+   {
+    "field": "battle_startable_party_rarity_ids",
+    "columns": [
+     39
+    ]
+   },
+   {
+    "field": "battle_startable_party_character_ids",
+    "columns": [
+     40
+    ]
+   },
+   {
+    "field": "battle_startable_party_without_unison_character_ids",
+    "columns": [
+     41
+    ]
+   },
+   {
+    "field": "battle_startable_party_unison_deny",
+    "columns": [
+     42
+    ]
+   },
+   {
+    "field": "battle_startable_party_limit_member_min",
+    "columns": [
+     43
+    ]
+   },
+   {
+    "field": "battle_startable_party_limit_member_max",
+    "columns": [
+     44
+    ]
+   },
+   {
+    "field": "battle_startable_party_race_ids",
+    "columns": [
+     45
+    ]
+   },
+   {
+    "field": "battle_startable_party_speciality_ids",
+    "columns": [
+     46
+    ]
+   },
+   {
+    "field": "battle_startable_party_gender",
+    "columns": [
+     47
+    ]
+   },
+   {
+    "field": "battle_startable_party_character_tag_ids",
+    "columns": [
+     48
+    ]
+   },
+   {
+    "field": "battle_stamina_cost",
+    "columns": [
+     49
+    ]
+   },
+   {
+    "field": "battle_stamina_return_if_retired",
+    "columns": [
+     50
+    ]
+   },
+   {
+    "field": "battle_reward_group_id",
+    "columns": [
+     51
+    ]
+   },
+   {
+    "field": "battle_item_count",
+    "columns": [
+     52
+    ]
+   },
+   {
+    "field": "battle_reward_rp",
+    "columns": [
+     53
+    ]
+   },
+   {
+    "field": "battle_reward_exp",
+    "columns": [
+     54
+    ]
+   },
+   {
+    "field": "battle_reward_mana",
+    "columns": [
+     55
+    ]
+   },
+   {
+    "field": "battle_reward_pool_exp",
+    "columns": [
+     56
+    ]
+   },
+   {
+    "field": "odds_group_id",
+    "columns": [
+     57
+    ]
+   },
+   {
+    "field": "battle_max_continue_count",
+    "columns": [
+     58
+    ]
+   },
+   {
+    "field": "battle_max_mana_reward",
+    "columns": [
+     59
+    ]
+   }
+  ]
+ },
+ "DailyExpManaEventValues": {
+  "columns": 8,
+  "fields": [
+   {
+    "field": "string_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "banner_image",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "header_background_image",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "boost_point_increase_rate",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "playable_end_time",
+    "columns": [
+     6
+    ]
+   },
+   {
+    "field": "exchangeable_end_time",
+    "columns": [
+     7
+    ]
+   }
+  ]
+ },
+ "DailyMissionRewardValues": {
+  "columns": 15,
+  "fields": [
+   {
+    "field": "mission_reward_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "target_progress",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "target_progress_clear_seconds",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "image_asset_path",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "reward1_kind",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "reward2_kind",
+    "columns": [
+     9
+    ]
+   },
+   {
+    "field": "reward3_kind",
+    "columns": [
+     14
+    ]
+   }
+  ]
+ },
+ "DailyMissionValues": {
+  "columns": 21,
+  "fields": [
+   {
+    "field": "string_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "mission_pattern",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "quest_kind",
+    "columns": [
+     4,
+     5,
+     6,
+     7
+    ]
+   },
+   {
+    "field": "quest_rank_id",
+    "columns": [
+     8
+    ]
+   },
+   {
+    "field": "item_id",
+    "columns": [
+     9
+    ]
+   },
+   {
+    "field": "equipment_id",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "character_id",
+    "columns": [
+     11
+    ]
+   },
+   {
+    "field": "mission_ids",
+    "columns": [
+     12
+    ]
+   },
+   {
+    "field": "need_mission_id",
+    "columns": [
+     13
+    ]
+   },
+   {
+    "field": "need_mission_reward_stage",
+    "columns": [
+     14
+    ]
+   },
+   {
+    "field": "enable_start_time",
+    "columns": [
+     15
+    ]
+   },
+   {
+    "field": "enable_end_time",
+    "columns": [
+     16
+    ]
+   },
+   {
+    "field": "show_start_time",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "show_end_time",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "is_hidden_mission",
+    "columns": [
+     19
+    ]
+   },
+   {
+    "field": "is_repeat",
+    "columns": [
+     20
+    ]
+   }
+  ]
+ },
+ "DailyWeekEventQuestOddsValues": {
+  "columns": 15,
+  "fields": [
+   {
+    "field": "multiplied_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "odds_group_string_id",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "battle_hp_correction_value_zako",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "battle_hp_correction_value_funnel",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "battle_hp_correction_value_boss",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "battle_enemy_level",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "battle_initial_fever_gauge_limit",
+    "columns": [
+     6
+    ]
+   },
+   {
+    "field": "battle_field_data_id",
+    "columns": [
+     7
+    ]
+   },
+   {
+    "field": "battle_bgm_prefix",
+    "columns": [
+     8
+    ]
+   },
+   {
+    "field": "battle_recommended_element",
+    "columns": [
+     9
+    ]
+   },
+   {
+    "field": "battle_hide_recommended_element",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "battle_time_limit",
+    "columns": [
+     11
+    ]
+   },
+   {
+    "field": "battle_assist_character",
+    "columns": [
+     12,
+     13,
+     14
+    ]
+   }
+  ]
+ },
+ "DailyWeekEventQuestValues": {
+  "columns": 60,
+  "fields": [
+   {
+    "field": "multiplied_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "thumbnail_image",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "first_time_clear_reward_id",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "end_time",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "viewable_need_quest_1",
+    "columns": [
+     6,
+     7,
+     8,
+     9
+    ]
+   },
+   {
+    "field": "viewable_need_quest_1_multiplied_id",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "viewable_need_quest_2",
+    "columns": [
+     11,
+     12,
+     13,
+     14
+    ]
+   },
+   {
+    "field": "viewable_need_quest_2_multiplied_id",
+    "columns": [
+     15
+    ]
+   },
+   {
+    "field": "viewable_need_character_quest_id_1",
+    "columns": [
+     16
+    ]
+   },
+   {
+    "field": "viewable_need_character_quest_id_2",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "viewable_character_ids",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "prevent_spoiler",
+    "columns": [
+     19
+    ]
+   },
+   {
+    "field": "selectable_need_quest_1",
+    "columns": [
+     20,
+     21,
+     22,
+     23
+    ]
+   },
+   {
+    "field": "selectable_need_quest_1_multiplied_id",
+    "columns": [
+     24
+    ]
+   },
+   {
+    "field": "selectable_need_quest_2",
+    "columns": [
+     25,
+     26,
+     27,
+     28
+    ]
+   },
+   {
+    "field": "selectable_need_quest_2_multiplied_id",
+    "columns": [
+     29
+    ]
+   },
+   {
+    "field": "selectable_need_character_quest_id_1",
+    "columns": [
+     30
+    ]
+   },
+   {
+    "field": "selectable_need_character_quest_id_2",
+    "columns": [
+     31
+    ]
+   },
+   {
+    "field": "selectable_player_rank",
+    "columns": [
+     32
+    ]
+   },
+   {
+    "field": "selectable_character_ids",
+    "columns": [
+     33
+    ]
+   },
+   {
+    "field": "selectable_episode_node_character_ids",
+    "columns": [
+     34
+    ]
+   },
+   {
+    "field": "selectable_episode_node_counts",
+    "columns": [
+     35
+    ]
+   },
+   {
+    "field": "battle_play_win_voice",
+    "columns": [
+     36
+    ]
+   },
+   {
+    "field": "battle_startable_use_item_ids",
+    "columns": [
+     37
+    ]
+   },
+   {
+    "field": "battle_startable_use_item_counts",
+    "columns": [
+     38
+    ]
+   },
+   {
+    "field": "battle_startable_party_rarity_ids",
+    "columns": [
+     39
+    ]
+   },
+   {
+    "field": "battle_startable_party_character_ids",
+    "columns": [
+     40
+    ]
+   },
+   {
+    "field": "battle_startable_party_without_unison_character_ids",
+    "columns": [
+     41
+    ]
+   },
+   {
+    "field": "battle_startable_party_unison_deny",
+    "columns": [
+     42
+    ]
+   },
+   {
+    "field": "battle_startable_party_limit_member_min",
+    "columns": [
+     43
+    ]
+   },
+   {
+    "field": "battle_startable_party_limit_member_max",
+    "columns": [
+     44
+    ]
+   },
+   {
+    "field": "battle_startable_party_race_ids",
+    "columns": [
+     45
+    ]
+   },
+   {
+    "field": "battle_startable_party_speciality_ids",
+    "columns": [
+     46
+    ]
+   },
+   {
+    "field": "battle_startable_party_gender",
+    "columns": [
+     47
+    ]
+   },
+   {
+    "field": "battle_startable_party_character_tag_ids",
+    "columns": [
+     48
+    ]
+   },
+   {
+    "field": "battle_stamina_cost",
+    "columns": [
+     49
+    ]
+   },
+   {
+    "field": "battle_stamina_return_if_retired",
+    "columns": [
+     50
+    ]
+   },
+   {
+    "field": "battle_reward_group_id",
+    "columns": [
+     51
+    ]
+   },
+   {
+    "field": "battle_item_count",
+    "columns": [
+     52
+    ]
+   },
+   {
+    "field": "battle_reward_rp",
+    "columns": [
+     53
+    ]
+   },
+   {
+    "field": "battle_reward_exp",
+    "columns": [
+     54
+    ]
+   },
+   {
+    "field": "battle_reward_mana",
+    "columns": [
+     55
+    ]
+   },
+   {
+    "field": "battle_reward_pool_exp",
+    "columns": [
+     56
+    ]
+   },
+   {
+    "field": "odds_group_id",
+    "columns": [
+     57
+    ]
+   },
+   {
+    "field": "battle_max_continue_count",
+    "columns": [
+     58
+    ]
+   },
+   {
+    "field": "battle_max_mana_reward",
+    "columns": [
+     59
+    ]
+   }
+  ]
+ },
+ "DailyWeekEventValues": {
+  "columns": 15,
+  "fields": [
+   {
+    "field": "string_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "banner_image",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "header_background_image",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "boost_point_increase_rate",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "open_day",
+    "columns": [
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     12
+    ]
+   },
+   {
+    "field": "playable_end_time",
+    "columns": [
+     13
+    ]
+   },
+   {
+    "field": "exchangeable_end_time",
+    "columns": [
+     14
+    ]
+   }
+  ]
+ },
+ "DirectInstantItemValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "direct_instant_item",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "ElementParticleEmitterValues": {
+  "columns": 11,
+  "fields": [
+   {
+    "field": "element",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "medium_probability",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "large_probability",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "random_offset_x",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "random_offset_y",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "travel_offset",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "base_vx",
+    "columns": [
+     6
+    ]
+   },
+   {
+    "field": "base_vy",
+    "columns": [
+     7
+    ]
+   },
+   {
+    "field": "diffusion_x",
+    "columns": [
+     8
+    ]
+   },
+   {
+    "field": "diffusion_y",
+    "columns": [
+     9
+    ]
+   },
+   {
+    "field": "timing",
+    "columns": [
+     10
+    ]
+   }
+  ]
+ },
+ "EquipmentGachaOddsValues": {
+  "columns": 5,
+  "fields": [
+   {
+    "field": "equipment_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "rarity",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "weight",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "odds_up",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "is_limited",
+    "columns": [
+     4
+    ]
+   }
+  ]
+ },
+ "EquipmentStatusValues": {
+  "columns": 2,
+  "fields": [
+   {
+    "field": "hp",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "atk",
+    "columns": [
+     1
+    ]
+   }
+  ]
+ },
+ "EquipmentValues": {
+  "columns": 15,
+  "fields": [
+   {
+    "field": "string_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "kind",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "pixelart",
+    "columns": [
+     6
+    ]
+   },
+   {
+    "field": "description",
+    "columns": [
+     7
+    ]
+   },
+   {
+    "field": "max_level",
+    "columns": [
+     8
+    ]
+   },
+   {
+    "field": "ability_soul_id",
+    "columns": [
+     9
+    ]
+   },
+   {
+    "field": "rarity",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "sale_price",
+    "columns": [
+     11
+    ]
+   },
+   {
+    "field": "sellable",
+    "columns": [
+     12
+    ]
+   },
+   {
+    "field": "gacha_odds_weight",
+    "columns": [
+     13
+    ]
+   },
+   {
+    "field": "obtain_source",
+    "columns": [
+     14
+    ]
+   }
+  ]
+ },
+ "EventItemShopValues": {
+  "columns": 42,
+  "fields": [
+   {
+    "field": "event",
+    "columns": [
+     0,
+     1
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "list_order",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "description",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "short_description",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "thumbnail_id",
+    "columns": [
+     6
+    ]
+   },
+   {
+    "field": "rarity",
+    "columns": [
+     7
+    ]
+   },
+   {
+    "field": "price",
+    "columns": [
+     8,
+     9
+    ]
+   },
+   {
+    "field": "cost_item1",
+    "columns": [
+     10,
+     11
+    ]
+   },
+   {
+    "field": "cost_item2",
+    "columns": [
+     12,
+     13
+    ]
+   },
+   {
+    "field": "cost_item3",
+    "columns": [
+     14,
+     15
+    ]
+   },
+   {
+    "field": "cost_item4",
+    "columns": [
+     16,
+     17
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "end_time",
+    "columns": [
+     19
+    ]
+   },
+   {
+    "field": "release_rank",
+    "columns": [
+     20
+    ]
+   },
+   {
+    "field": "buy_max_count",
+    "columns": [
+     21
+    ]
+   },
+   {
+    "field": "max_frequency",
+    "columns": [
+     22
+    ]
+   },
+   {
+    "field": "daily_stock",
+    "columns": [
+     23
+    ]
+   },
+   {
+    "field": "kind1",
+    "columns": [
+     24,
+     25,
+     26
+    ]
+   },
+   {
+    "field": "kind2",
+    "columns": [
+     27,
+     28,
+     29
+    ]
+   },
+   {
+    "field": "kind3",
+    "columns": [
+     30,
+     31,
+     32
+    ]
+   },
+   {
+    "field": "kind4",
+    "columns": [
+     33,
+     34,
+     35
+    ]
+   },
+   {
+    "field": "kind5",
+    "columns": [
+     36,
+     37,
+     38
+    ]
+   },
+   {
+    "field": "kind6",
+    "columns": [
+     39,
+     40,
+     41
+    ]
+   }
+  ]
+ },
+ "EventMissionRewardValues": {
+  "columns": 15,
+  "fields": [
+   {
+    "field": "mission_reward_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "target_progress",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "target_progress_clear_seconds",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "image_asset_path",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "reward1_kind",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "reward2_kind",
+    "columns": [
+     9
+    ]
+   },
+   {
+    "field": "reward3_kind",
+    "columns": [
+     14
+    ]
+   }
+  ]
+ },
+ "EventMissionValues": {
+  "columns": 21,
+  "fields": [
+   {
+    "field": "string_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "mission_pattern",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "quest_kind",
+    "columns": [
+     4,
+     5,
+     6,
+     7
+    ]
+   },
+   {
+    "field": "quest_rank_id",
+    "columns": [
+     8
+    ]
+   },
+   {
+    "field": "item_id",
+    "columns": [
+     9
+    ]
+   },
+   {
+    "field": "equipment_id",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "character_id",
+    "columns": [
+     11
+    ]
+   },
+   {
+    "field": "mission_ids",
+    "columns": [
+     12
+    ]
+   },
+   {
+    "field": "need_mission_id",
+    "columns": [
+     13
+    ]
+   },
+   {
+    "field": "need_mission_reward_stage",
+    "columns": [
+     14
+    ]
+   },
+   {
+    "field": "enable_start_time",
+    "columns": [
+     15
+    ]
+   },
+   {
+    "field": "enable_end_time",
+    "columns": [
+     16
+    ]
+   },
+   {
+    "field": "show_start_time",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "show_end_time",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "is_hidden_mission",
+    "columns": [
+     19
+    ]
+   },
+   {
+    "field": "is_repeat",
+    "columns": [
+     20
+    ]
+   }
+  ]
+ },
+ "EvolutionStatusValues": {
+  "columns": 4,
+  "fields": [
+   {
+    "field": "atk_plus_value_1",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "hp_plus_value_1",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "atk_plus_value_2",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "hp_plus_value_2",
+    "columns": [
+     3
+    ]
+   }
+  ]
+ },
+ "ExChapterValues": {
+  "columns": 11,
+  "fields": [
+   {
+    "field": "name",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "bgm",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "chapter_icon_image",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "chapter_background_blurry_image",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "chapter_background_cutin_image",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "stage_node_chapter_logo_image",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "quest_chapter_logo_image",
+    "columns": [
+     6
+    ]
+   },
+   {
+    "field": "stage_node_background",
+    "columns": [
+     7
+    ]
+   },
+   {
+    "field": "stage_node_unreleased_vignette_image_small",
+    "columns": [
+     8
+    ]
+   },
+   {
+    "field": "stage_node_unreleased_vignette_image_medium",
+    "columns": [
+     9
+    ]
+   },
+   {
+    "field": "stage_node_unreleased_vignette_image_large",
+    "columns": [
+     10
+    ]
+   }
+  ]
+ },
+ "ExQuestValues": {
+  "columns": 37,
+  "fields": [
+   {
+    "field": "multiplied_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "thumbnail_image",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "first_time_clear_reward_id",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "end_time",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "viewable_need_quest_1",
+    "columns": [
+     6,
+     7,
+     8,
+     9
+    ]
+   },
+   {
+    "field": "viewable_need_quest_1_multiplied_id",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "viewable_need_quest_2",
+    "columns": [
+     11,
+     12,
+     13,
+     14
+    ]
+   },
+   {
+    "field": "viewable_need_quest_2_multiplied_id",
+    "columns": [
+     15
+    ]
+   },
+   {
+    "field": "viewable_need_character_quest_id_1",
+    "columns": [
+     16
+    ]
+   },
+   {
+    "field": "viewable_need_character_quest_id_2",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "viewable_character_ids",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "prevent_spoiler",
+    "columns": [
+     19
+    ]
+   },
+   {
+    "field": "selectable_need_quest_1",
+    "columns": [
+     20,
+     21,
+     22,
+     23
+    ]
+   },
+   {
+    "field": "selectable_need_quest_1_multiplied_id",
+    "columns": [
+     24
+    ]
+   },
+   {
+    "field": "selectable_need_quest_2",
+    "columns": [
+     25,
+     26,
+     27,
+     28
+    ]
+   },
+   {
+    "field": "selectable_need_quest_2_multiplied_id",
+    "columns": [
+     29
+    ]
+   },
+   {
+    "field": "selectable_need_character_quest_id_1",
+    "columns": [
+     30
+    ]
+   },
+   {
+    "field": "selectable_need_character_quest_id_2",
+    "columns": [
+     31
+    ]
+   },
+   {
+    "field": "selectable_player_rank",
+    "columns": [
+     32
+    ]
+   },
+   {
+    "field": "selectable_character_ids",
+    "columns": [
+     33
+    ]
+   },
+   {
+    "field": "selectable_episode_node_character_ids",
+    "columns": [
+     34
+    ]
+   },
+   {
+    "field": "selectable_episode_node_counts",
+    "columns": [
+     35
+    ]
+   },
+   {
+    "field": "kind",
+    "columns": [
+     36
+    ]
+   }
+  ]
+ },
+ "ExStageNodePositionValues": {
+  "columns": 6,
+  "fields": [
+   {
+    "field": "kind",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "x",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "y",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "path_visible",
+    "columns": [
+     5
+    ]
+   }
+  ]
+ },
+ "ExStageNodeValues": {
+  "columns": 9,
+  "fields": [
+   {
+    "field": "multiplied_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "need_main_stage_node",
+    "columns": [
+     2,
+     3
+    ]
+   },
+   {
+    "field": "need_stage_node",
+    "columns": [
+     4,
+     5
+    ]
+   },
+   {
+    "field": "quest_select_background_style",
+    "columns": [
+     6,
+     7,
+     8
+    ]
+   }
+  ]
+ },
+ "ExecutableInstantItemAtkCurveValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "atk_multiplier",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "ExecutableInstantItemLevelValues": {
+  "columns": 3,
+  "fields": [
+   {
+    "field": "atk_basic_curve_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "atk_basic_value",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "atk_correction_value",
+    "columns": [
+     2
+    ]
+   }
+  ]
+ },
+ "ExecutableInstantItemValues": {
+  "columns": 2,
+  "fields": [
+   {
+    "field": "animation_path",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "program_path",
+    "columns": [
+     1
+    ]
+   }
+  ]
+ },
+ "FieldDataValues": {
+  "columns": 3,
+  "fields": [
+   {
+    "field": "field",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "terrain",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "zone",
+    "columns": [
+     2
+    ]
+   }
+  ]
+ },
+ "FieldValues": {
+  "columns": 8,
+  "fields": [
+   {
+    "field": "background_animation",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "foreground_animation",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "foreground_added_animation",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "foreground_fixed_animation",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "foreground_tiled_animation",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "gate_animation",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "transit_pod_animation",
+    "columns": [
+     6
+    ]
+   },
+   {
+    "field": "fever_gauge_animation",
+    "columns": [
+     7
+    ]
+   }
+  ]
+ },
+ "FixHpBasicCurveValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "hp_multiplier",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "FloorValues": {
+  "columns": 2,
+  "fields": [
+   {
+    "field": "battle_field_data_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "battle_bgm_prefix",
+    "columns": [
+     1
+    ]
+   }
+  ]
+ },
+ "FullShotImageAttributeValues": {
+  "columns": 5,
+  "fields": [
+   {
+    "field": "pivot_x",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "pivot_y",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "scale",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "face_x",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "face_y",
+    "columns": [
+     4
+    ]
+   }
+  ]
+ },
+ "FunnelLevelValues": {
+  "columns": 13,
+  "fields": [
+   {
+    "field": "hp_curve",
+    "columns": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   },
+   {
+    "field": "atk_basic_curve_id",
+    "columns": [
+     7
+    ]
+   },
+   {
+    "field": "atk_num_hits",
+    "columns": [
+     8
+    ]
+   },
+   {
+    "field": "atk_correction_value",
+    "columns": [
+     9
+    ]
+   },
+   {
+    "field": "atk_correction_curve_id",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "tp_basic_curve_id",
+    "columns": [
+     11
+    ]
+   },
+   {
+    "field": "tp_basic_value",
+    "columns": [
+     12
+    ]
+   }
+  ]
+ },
+ "GachaFeatureContentValues": {
+  "columns": 6,
+  "fields": [
+   {
+    "field": "asset_kind",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "link_kind",
+    "columns": [
+     5
+    ]
+   }
+  ]
+ },
+ "GachaOddsValues": {
+  "columns": 5,
+  "fields": [
+   {
+    "field": "character_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "rarity",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "weight",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "odds_up",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "is_limited",
+    "columns": [
+     4
+    ]
+   }
+  ]
+ },
+ "GachaRarityOddsValues": {
+  "columns": 2,
+  "fields": [
+   {
+    "field": "rarity",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "weight",
+    "columns": [
+     1
+    ]
+   }
+  ]
+ },
+ "GachaSkillPreviewValues": {
+  "columns": 4,
+  "fields": [
+   {
+    "field": "quest_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "log",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "clip",
+    "columns": [
+     2,
+     3
+    ]
+   }
+  ]
+ },
+ "GachaValues": {
+  "columns": 35,
+  "fields": [
+   {
+    "field": "string_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "title",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "list_order",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "banner_image",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "page_kind",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "guarantee_number",
+    "columns": [
+     9
+    ]
+   },
+   {
+    "field": "guarantee_rarity",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "odds_rarity_string_id",
+    "columns": [
+     11
+    ]
+   },
+   {
+    "field": "note",
+    "columns": [
+     12
+    ]
+   },
+   {
+    "field": "prize_kind",
+    "columns": [
+     13
+    ]
+   },
+   {
+    "field": "once_ticket_item_id",
+    "columns": [
+     23
+    ]
+   },
+   {
+    "field": "ten_times_ticket_item_id",
+    "columns": [
+     24
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     25
+    ]
+   },
+   {
+    "field": "end_time",
+    "columns": [
+     26
+    ]
+   },
+   {
+    "field": "ticket_expiry_time",
+    "columns": [
+     27
+    ]
+   },
+   {
+    "field": "once_reason_id",
+    "columns": [
+     28
+    ]
+   },
+   {
+    "field": "ten_times_reason_id",
+    "columns": [
+     29
+    ]
+   },
+   {
+    "field": "canbe_tutorial",
+    "columns": [
+     30
+    ]
+   },
+   {
+    "field": "tutorial_odds_rarity_string_id",
+    "columns": [
+     31
+    ]
+   },
+   {
+    "field": "tutorial_movie_id",
+    "columns": [
+     32
+    ]
+   },
+   {
+    "field": "tutorial_once_cost",
+    "columns": [
+     33
+    ]
+   },
+   {
+    "field": "tutorial_reason_id",
+    "columns": [
+     34
+    ]
+   }
+  ]
+ },
+ "GameSystemUnlockValues": {
+  "columns": 11,
+  "fields": [
+   {
+    "field": "cleared_quest_kind",
+    "columns": [
+     0,
+     1,
+     2,
+     3
+    ]
+   },
+   {
+    "field": "multiplied_id",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "need_viewable_quest_kind",
+    "columns": [
+     5,
+     6,
+     7,
+     8
+    ]
+   },
+   {
+    "field": "need_viewable_quest_multiplied_id",
+    "columns": [
+     9
+    ]
+   },
+   {
+    "field": "still_locked_uistring_id",
+    "columns": [
+     10
+    ]
+   }
+  ]
+ },
+ "GeneralBossStateValues": {
+  "columns": 20,
+  "fields": [
+   {
+    "field": "state",
+    "columns": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19
+    ]
+   }
+  ]
+ },
+ "GeneralBossValues": {
+  "columns": 109,
+  "fields": [
+   {
+    "field": "element",
+    "columns": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14
+    ]
+   },
+   {
+    "field": "race",
+    "columns": [
+     15
+    ]
+   },
+   {
+    "field": "speciality_type",
+    "columns": [
+     16
+    ]
+   },
+   {
+    "field": "gender",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "num_stun_state_frames",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "num_wince_state_frames",
+    "columns": [
+     19
+    ]
+   },
+   {
+    "field": "suppress_bent_effect",
+    "columns": [
+     20
+    ]
+   },
+   {
+    "field": "marker_set",
+    "columns": [
+     21
+    ]
+   },
+   {
+    "field": "marker_timeline_path",
+    "columns": [
+     22
+    ]
+   },
+   {
+    "field": "shadow_animation_path",
+    "columns": [
+     23
+    ]
+   },
+   {
+    "field": "displays_aura",
+    "columns": [
+     24
+    ]
+   },
+   {
+    "field": "displays_piyo",
+    "columns": [
+     25
+    ]
+   },
+   {
+    "field": "initial_position_name",
+    "columns": [
+     26
+    ]
+   },
+   {
+    "field": "routine_id",
+    "columns": [
+     27
+    ]
+   },
+   {
+    "field": "initial_state_id",
+    "columns": [
+     28
+    ]
+   },
+   {
+    "field": "subroutine_change2",
+    "columns": [
+     29,
+     30
+    ]
+   },
+   {
+    "field": "subroutine_change3",
+    "columns": [
+     31,
+     32
+    ]
+   },
+   {
+    "field": "subroutine_change4",
+    "columns": [
+     33,
+     34
+    ]
+   },
+   {
+    "field": "dont_apply_damage1",
+    "columns": [
+     35
+    ]
+   },
+   {
+    "field": "dont_apply_damage2",
+    "columns": [
+     36
+    ]
+   },
+   {
+    "field": "dont_apply_damage3",
+    "columns": [
+     37
+    ]
+   },
+   {
+    "field": "cutin001",
+    "columns": [
+     38
+    ]
+   },
+   {
+    "field": "cutin002",
+    "columns": [
+     39
+    ]
+   },
+   {
+    "field": "cutin003",
+    "columns": [
+     40
+    ]
+   },
+   {
+    "field": "cutin004",
+    "columns": [
+     41
+    ]
+   },
+   {
+    "field": "cutin005",
+    "columns": [
+     42
+    ]
+   },
+   {
+    "field": "cutin101",
+    "columns": [
+     43
+    ]
+   },
+   {
+    "field": "cutin102",
+    "columns": [
+     44
+    ]
+   },
+   {
+    "field": "cutin103",
+    "columns": [
+     45
+    ]
+   },
+   {
+    "field": "cutin104",
+    "columns": [
+     46
+    ]
+   },
+   {
+    "field": "cutin105",
+    "columns": [
+     47
+    ]
+   },
+   {
+    "field": "cutin201",
+    "columns": [
+     48
+    ]
+   },
+   {
+    "field": "cutin202",
+    "columns": [
+     49
+    ]
+   },
+   {
+    "field": "cutin203",
+    "columns": [
+     50
+    ]
+   },
+   {
+    "field": "cutin204",
+    "columns": [
+     51
+    ]
+   },
+   {
+    "field": "cutin205",
+    "columns": [
+     52
+    ]
+   },
+   {
+    "field": "cutin301",
+    "columns": [
+     53
+    ]
+   },
+   {
+    "field": "cutin302",
+    "columns": [
+     54
+    ]
+   },
+   {
+    "field": "cutin303",
+    "columns": [
+     55
+    ]
+   },
+   {
+    "field": "cutin304",
+    "columns": [
+     56
+    ]
+   },
+   {
+    "field": "cutin305",
+    "columns": [
+     57
+    ]
+   },
+   {
+    "field": "enemy_action01",
+    "columns": [
+     58
+    ]
+   },
+   {
+    "field": "enemy_action02",
+    "columns": [
+     59
+    ]
+   },
+   {
+    "field": "enemy_action03",
+    "columns": [
+     60
+    ]
+   },
+   {
+    "field": "enemy_action04",
+    "columns": [
+     61
+    ]
+   },
+   {
+    "field": "enemy_action05",
+    "columns": [
+     62
+    ]
+   },
+   {
+    "field": "enemy_action06",
+    "columns": [
+     63
+    ]
+   },
+   {
+    "field": "enemy_action07",
+    "columns": [
+     64
+    ]
+   },
+   {
+    "field": "enemy_action08",
+    "columns": [
+     65
+    ]
+   },
+   {
+    "field": "enemy_action09",
+    "columns": [
+     66
+    ]
+   },
+   {
+    "field": "enemy_action10",
+    "columns": [
+     67
+    ]
+   },
+   {
+    "field": "enemy_action11",
+    "columns": [
+     68
+    ]
+   },
+   {
+    "field": "enemy_action12",
+    "columns": [
+     69
+    ]
+   },
+   {
+    "field": "enemy_action13",
+    "columns": [
+     70
+    ]
+   },
+   {
+    "field": "enemy_action14",
+    "columns": [
+     71
+    ]
+   },
+   {
+    "field": "enemy_action15",
+    "columns": [
+     72
+    ]
+   },
+   {
+    "field": "enemy_action16",
+    "columns": [
+     73
+    ]
+   },
+   {
+    "field": "enemy_action17",
+    "columns": [
+     74
+    ]
+   },
+   {
+    "field": "enemy_action18",
+    "columns": [
+     75
+    ]
+   },
+   {
+    "field": "enemy_action19",
+    "columns": [
+     76
+    ]
+   },
+   {
+    "field": "enemy_action20",
+    "columns": [
+     77
+    ]
+   },
+   {
+    "field": "enemy_action21",
+    "columns": [
+     78
+    ]
+   },
+   {
+    "field": "enemy_action22",
+    "columns": [
+     79
+    ]
+   },
+   {
+    "field": "enemy_action23",
+    "columns": [
+     80
+    ]
+   },
+   {
+    "field": "enemy_action24",
+    "columns": [
+     81
+    ]
+   },
+   {
+    "field": "enemy_action25",
+    "columns": [
+     82
+    ]
+   },
+   {
+    "field": "enemy_action26",
+    "columns": [
+     83
+    ]
+   },
+   {
+    "field": "enemy_action27",
+    "columns": [
+     84
+    ]
+   },
+   {
+    "field": "enemy_action28",
+    "columns": [
+     85
+    ]
+   },
+   {
+    "field": "enemy_action29",
+    "columns": [
+     86
+    ]
+   },
+   {
+    "field": "enemy_action30",
+    "columns": [
+     87
+    ]
+   },
+   {
+    "field": "enemy_action31",
+    "columns": [
+     88
+    ]
+   },
+   {
+    "field": "enemy_action32",
+    "columns": [
+     89
+    ]
+   },
+   {
+    "field": "enemy_action33",
+    "columns": [
+     90
+    ]
+   },
+   {
+    "field": "enemy_action34",
+    "columns": [
+     91
+    ]
+   },
+   {
+    "field": "enemy_action35",
+    "columns": [
+     92
+    ]
+   },
+   {
+    "field": "enemy_action36",
+    "columns": [
+     93
+    ]
+   },
+   {
+    "field": "enemy_action37",
+    "columns": [
+     94
+    ]
+   },
+   {
+    "field": "enemy_action38",
+    "columns": [
+     95
+    ]
+   },
+   {
+    "field": "enemy_action39",
+    "columns": [
+     96
+    ]
+   },
+   {
+    "field": "enemy_action40",
+    "columns": [
+     97
+    ]
+   },
+   {
+    "field": "enemy_action41",
+    "columns": [
+     98
+    ]
+   },
+   {
+    "field": "enemy_action42",
+    "columns": [
+     99
+    ]
+   },
+   {
+    "field": "enemy_action43",
+    "columns": [
+     100
+    ]
+   },
+   {
+    "field": "enemy_action44",
+    "columns": [
+     101
+    ]
+   },
+   {
+    "field": "enemy_action45",
+    "columns": [
+     102
+    ]
+   },
+   {
+    "field": "enemy_action46",
+    "columns": [
+     103
+    ]
+   },
+   {
+    "field": "enemy_action47",
+    "columns": [
+     104
+    ]
+   },
+   {
+    "field": "enemy_action48",
+    "columns": [
+     105
+    ]
+   },
+   {
+    "field": "enemy_action49",
+    "columns": [
+     106
+    ]
+   },
+   {
+    "field": "enemy_action50",
+    "columns": [
+     107
+    ]
+   },
+   {
+    "field": "ability_ids",
+    "columns": [
+     108
+    ]
+   }
+  ]
+ },
+ "GeneralBossVariableValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "value",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "GeneralFunnelStateValues": {
+  "columns": 20,
+  "fields": [
+   {
+    "field": "state",
+    "columns": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19
+    ]
+   }
+  ]
+ },
+ "GeneralFunnelValues": {
+  "columns": 36,
+  "fields": [
+   {
+    "field": "element",
+    "columns": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ]
+   },
+   {
+    "field": "race",
+    "columns": [
+     8
+    ]
+   },
+   {
+    "field": "gender",
+    "columns": [
+     9
+    ]
+   },
+   {
+    "field": "copies_parent_conditions",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "dont_apply_impact",
+    "columns": [
+     11
+    ]
+   },
+   {
+    "field": "marker_timeline_path",
+    "columns": [
+     12
+    ]
+   },
+   {
+    "field": "shadow_animation_path",
+    "columns": [
+     13
+    ]
+   },
+   {
+    "field": "initial_position_name",
+    "columns": [
+     14
+    ]
+   },
+   {
+    "field": "routine_id",
+    "columns": [
+     15
+    ]
+   },
+   {
+    "field": "initial_state_id",
+    "columns": [
+     16
+    ]
+   },
+   {
+    "field": "subroutine_change2",
+    "columns": [
+     17,
+     18
+    ]
+   },
+   {
+    "field": "subroutine_change3",
+    "columns": [
+     19,
+     20
+    ]
+   },
+   {
+    "field": "subroutine_change4",
+    "columns": [
+     21,
+     22
+    ]
+   },
+   {
+    "field": "suppress_bent_effect",
+    "columns": [
+     23
+    ]
+   },
+   {
+    "field": "suppress_blown_off_effect",
+    "columns": [
+     24
+    ]
+   },
+   {
+    "field": "enemy_action101",
+    "columns": [
+     25
+    ]
+   },
+   {
+    "field": "enemy_action102",
+    "columns": [
+     26
+    ]
+   },
+   {
+    "field": "enemy_action103",
+    "columns": [
+     27
+    ]
+   },
+   {
+    "field": "enemy_action104",
+    "columns": [
+     28
+    ]
+   },
+   {
+    "field": "enemy_action105",
+    "columns": [
+     29
+    ]
+   },
+   {
+    "field": "enemy_action106",
+    "columns": [
+     30
+    ]
+   },
+   {
+    "field": "enemy_action107",
+    "columns": [
+     31
+    ]
+   },
+   {
+    "field": "enemy_action108",
+    "columns": [
+     32
+    ]
+   },
+   {
+    "field": "enemy_action109",
+    "columns": [
+     33
+    ]
+   },
+   {
+    "field": "enemy_action110",
+    "columns": [
+     34
+    ]
+   },
+   {
+    "field": "ability_ids",
+    "columns": [
+     35
+    ]
+   }
+  ]
+ },
+ "GeneralFunnelVariableValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "value",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "GeneralZakoStateValues": {
+  "columns": 20,
+  "fields": [
+   {
+    "field": "state",
+    "columns": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19
+    ]
+   }
+  ]
+ },
+ "GeneralZakoValues": {
+  "columns": 36,
+  "fields": [
+   {
+    "field": "element",
+    "columns": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ]
+   },
+   {
+    "field": "race",
+    "columns": [
+     8
+    ]
+   },
+   {
+    "field": "gender",
+    "columns": [
+     9
+    ]
+   },
+   {
+    "field": "marker_timeline_path",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "shadow_animation_path",
+    "columns": [
+     11
+    ]
+   },
+   {
+    "field": "initial_position_name",
+    "columns": [
+     12
+    ]
+   },
+   {
+    "field": "routine_id",
+    "columns": [
+     13
+    ]
+   },
+   {
+    "field": "initial_state_id",
+    "columns": [
+     14
+    ]
+   },
+   {
+    "field": "subroutine_change2",
+    "columns": [
+     15,
+     16
+    ]
+   },
+   {
+    "field": "subroutine_change3",
+    "columns": [
+     17,
+     18
+    ]
+   },
+   {
+    "field": "subroutine_change4",
+    "columns": [
+     19,
+     20
+    ]
+   },
+   {
+    "field": "suppress_bent_effect",
+    "columns": [
+     21
+    ]
+   },
+   {
+    "field": "suppress_blown_off_effect",
+    "columns": [
+     22
+    ]
+   },
+   {
+    "field": "suppress_vanish_sound_effect",
+    "columns": [
+     23
+    ]
+   },
+   {
+    "field": "suppress_vanish_sweat_effect",
+    "columns": [
+     24
+    ]
+   },
+   {
+    "field": "enemy_action101",
+    "columns": [
+     25
+    ]
+   },
+   {
+    "field": "enemy_action102",
+    "columns": [
+     26
+    ]
+   },
+   {
+    "field": "enemy_action103",
+    "columns": [
+     27
+    ]
+   },
+   {
+    "field": "enemy_action104",
+    "columns": [
+     28
+    ]
+   },
+   {
+    "field": "enemy_action105",
+    "columns": [
+     29
+    ]
+   },
+   {
+    "field": "enemy_action106",
+    "columns": [
+     30
+    ]
+   },
+   {
+    "field": "enemy_action107",
+    "columns": [
+     31
+    ]
+   },
+   {
+    "field": "enemy_action108",
+    "columns": [
+     32
+    ]
+   },
+   {
+    "field": "enemy_action109",
+    "columns": [
+     33
+    ]
+   },
+   {
+    "field": "enemy_action110",
+    "columns": [
+     34
+    ]
+   },
+   {
+    "field": "ability_ids",
+    "columns": [
+     35
+    ]
+   }
+  ]
+ },
+ "GeneralZakoVariableValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "value",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "HitHpBasicCurveValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "hp_multiplier",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "HitHpCorrectionCurveValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "hp_correction_value",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "InduceValues": {
+  "columns": 10,
+  "fields": [
+   {
+    "field": "enable_until_clear_quest",
+    "columns": [
+     0,
+     1,
+     2,
+     3
+    ]
+   },
+   {
+    "field": "multiplied_until_id",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "enable_since_clear_quest",
+    "columns": [
+     5,
+     6,
+     7,
+     8
+    ]
+   },
+   {
+    "field": "multiplied_since_id",
+    "columns": [
+     9
+    ]
+   }
+  ]
+ },
+ "InstantItemOddsValues": {
+  "columns": 4,
+  "fields": [
+   {
+    "field": "drawing_interval",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "odds_drop_or_not",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "item",
+    "columns": [
+     2,
+     3
+    ]
+   }
+  ]
+ },
+ "IosPaymentValues": {
+  "columns": 15,
+  "fields": [
+   {
+    "field": "int_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "list_order",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "thumbnail_id",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "text",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "price",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "kind",
+    "columns": [
+     6,
+     7,
+     8
+    ]
+   },
+   {
+    "field": "purchase_restriction_period",
+    "columns": [
+     9,
+     10
+    ]
+   },
+   {
+    "field": "charge_vmoney_num",
+    "columns": [
+     11
+    ]
+   },
+   {
+    "field": "free_vmoney_num",
+    "columns": [
+     12
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     13
+    ]
+   },
+   {
+    "field": "end_time",
+    "columns": [
+     14
+    ]
+   }
+  ]
+ },
+ "ItemValues": {
+  "columns": 18,
+  "fields": [
+   {
+    "field": "string_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "thumbnail_id",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "price_thumbnail_id",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "description",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "effect_kind",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "category",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "sale_price",
+    "columns": [
+     11
+    ]
+   },
+   {
+    "field": "rarity",
+    "columns": [
+     12
+    ]
+   },
+   {
+    "field": "max_count",
+    "columns": [
+     13
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     14
+    ]
+   },
+   {
+    "field": "end_time",
+    "columns": [
+     15
+    ]
+   },
+   {
+    "field": "purchase_price_vmoney",
+    "columns": [
+     16
+    ]
+   },
+   {
+    "field": "sellable",
+    "columns": [
+     17
+    ]
+   }
+  ]
+ },
+ "KrakenValues": {
+  "columns": 52,
+  "fields": [
+   {
+    "field": "element",
+    "columns": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14
+    ]
+   },
+   {
+    "field": "race",
+    "columns": [
+     15
+    ]
+   },
+   {
+    "field": "speciality_type",
+    "columns": [
+     16
+    ]
+   },
+   {
+    "field": "gender",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "num_stun_state_frames",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "num_wince_state_frames",
+    "columns": [
+     19
+    ]
+   },
+   {
+    "field": "suppress_bent_effect",
+    "columns": [
+     20
+    ]
+   },
+   {
+    "field": "marker_set",
+    "columns": [
+     21
+    ]
+   },
+   {
+    "field": "marker_timeline_path",
+    "columns": [
+     22
+    ]
+   },
+   {
+    "field": "shadow_animation_path",
+    "columns": [
+     23
+    ]
+   },
+   {
+    "field": "kraken_num_neutral1_state_frames",
+    "columns": [
+     24
+    ]
+   },
+   {
+    "field": "kraken_num_neutral2_state_frames",
+    "columns": [
+     25
+    ]
+   },
+   {
+    "field": "kraken_num_neutral3_state_frames",
+    "columns": [
+     26
+    ]
+   },
+   {
+    "field": "kraken_num_shot_charge1_state_frames",
+    "columns": [
+     27
+    ]
+   },
+   {
+    "field": "kraken_num_shot_charge2_state_frames",
+    "columns": [
+     28
+    ]
+   },
+   {
+    "field": "kraken_num_special_charge_state_frames",
+    "columns": [
+     29
+    ]
+   },
+   {
+    "field": "kraken_num_loops_special_attack",
+    "columns": [
+     30
+    ]
+   },
+   {
+    "field": "kraken_pattern4_threshold",
+    "columns": [
+     31
+    ]
+   },
+   {
+    "field": "kraken_cutin101",
+    "columns": [
+     32
+    ]
+   },
+   {
+    "field": "kraken_cutin102",
+    "columns": [
+     33
+    ]
+   },
+   {
+    "field": "kraken_cutin103",
+    "columns": [
+     34
+    ]
+   },
+   {
+    "field": "kraken_cutin104",
+    "columns": [
+     35
+    ]
+   },
+   {
+    "field": "kraken_enemy_action101",
+    "columns": [
+     36
+    ]
+   },
+   {
+    "field": "kraken_enemy_action102",
+    "columns": [
+     37
+    ]
+   },
+   {
+    "field": "kraken_enemy_action201",
+    "columns": [
+     38
+    ]
+   },
+   {
+    "field": "kraken_enemy_action202",
+    "columns": [
+     39
+    ]
+   },
+   {
+    "field": "tentacle1",
+    "columns": [
+     40
+    ]
+   },
+   {
+    "field": "tentacle2",
+    "columns": [
+     41
+    ]
+   },
+   {
+    "field": "tentacle_num_neutral_state_frames",
+    "columns": [
+     42
+    ]
+   },
+   {
+    "field": "tentacle_num_charge_state_frames",
+    "columns": [
+     43
+    ]
+   },
+   {
+    "field": "tentacle_num_loops_attack",
+    "columns": [
+     44
+    ]
+   },
+   {
+    "field": "tentacle_enemy_action101",
+    "columns": [
+     45
+    ]
+   },
+   {
+    "field": "tentacle_enemy_action102",
+    "columns": [
+     46
+    ]
+   },
+   {
+    "field": "tentacle_enemy_action103",
+    "columns": [
+     47
+    ]
+   },
+   {
+    "field": "tentacle_enemy_action201",
+    "columns": [
+     48
+    ]
+   },
+   {
+    "field": "tentacle_enemy_action202",
+    "columns": [
+     49
+    ]
+   },
+   {
+    "field": "tentacle_enemy_action203",
+    "columns": [
+     50
+    ]
+   },
+   {
+    "field": "ability_ids",
+    "columns": [
+     51
+    ]
+   }
+  ]
+ },
+ "LeaderAbilityValues": {
+  "columns": 2,
+  "fields": [
+   {
+    "field": "string_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "trigger",
+    "columns": [
+     1
+    ]
+   }
+  ]
+ },
+ "LevelCapValues": {
+  "columns": 5,
+  "fields": [
+   {
+    "field": "base_level_cap",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "max_over_limit_count",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "uncap_level_per_over_limit",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "hp_up_by_over_limit",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "atk_up_by_over_limit",
+    "columns": [
+     4
+    ]
+   }
+  ]
+ },
+ "LoginBonusValues": {
+  "columns": 20,
+  "fields": [
+   {
+    "field": "bonus_group_type",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "background_image",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "image_asset_path",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "rarity",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "bonus1_kind",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "bonus2_kind",
+    "columns": [
+     9
+    ]
+   },
+   {
+    "field": "bonus3_kind",
+    "columns": [
+     13
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "end_time",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "reason_id",
+    "columns": [
+     19
+    ]
+   }
+  ]
+ },
+ "MainChapterValues": {
+  "columns": 13,
+  "fields": [
+   {
+    "field": "name",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "bgm",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "chapter_icon_image",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "chapter_background_blurry_image",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "chapter_background_cutin_image",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "stage_node_chapter_logo_image",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "quest_chapter_logo_image",
+    "columns": [
+     6
+    ]
+   },
+   {
+    "field": "stage_node_background",
+    "columns": [
+     7
+    ]
+   },
+   {
+    "field": "stage_node_unreleased_vignette_image_small",
+    "columns": [
+     8
+    ]
+   },
+   {
+    "field": "stage_node_unreleased_vignette_image_medium",
+    "columns": [
+     9
+    ]
+   },
+   {
+    "field": "stage_node_unreleased_vignette_image_large",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "website_chapter_image",
+    "columns": [
+     11
+    ]
+   },
+   {
+    "field": "website_chapter_small_image",
+    "columns": [
+     12
+    ]
+   }
+  ]
+ },
+ "MainQuestValues": {
+  "columns": 37,
+  "fields": [
+   {
+    "field": "multiplied_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "thumbnail_image",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "first_time_clear_reward_id",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "end_time",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "viewable_need_quest_1",
+    "columns": [
+     6,
+     7,
+     8,
+     9
+    ]
+   },
+   {
+    "field": "viewable_need_quest_1_multiplied_id",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "viewable_need_quest_2",
+    "columns": [
+     11,
+     12,
+     13,
+     14
+    ]
+   },
+   {
+    "field": "viewable_need_quest_2_multiplied_id",
+    "columns": [
+     15
+    ]
+   },
+   {
+    "field": "viewable_need_character_quest_id_1",
+    "columns": [
+     16
+    ]
+   },
+   {
+    "field": "viewable_need_character_quest_id_2",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "viewable_character_ids",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "prevent_spoiler",
+    "columns": [
+     19
+    ]
+   },
+   {
+    "field": "selectable_need_quest_1",
+    "columns": [
+     20,
+     21,
+     22,
+     23
+    ]
+   },
+   {
+    "field": "selectable_need_quest_1_multiplied_id",
+    "columns": [
+     24
+    ]
+   },
+   {
+    "field": "selectable_need_quest_2",
+    "columns": [
+     25,
+     26,
+     27,
+     28
+    ]
+   },
+   {
+    "field": "selectable_need_quest_2_multiplied_id",
+    "columns": [
+     29
+    ]
+   },
+   {
+    "field": "selectable_need_character_quest_id_1",
+    "columns": [
+     30
+    ]
+   },
+   {
+    "field": "selectable_need_character_quest_id_2",
+    "columns": [
+     31
+    ]
+   },
+   {
+    "field": "selectable_player_rank",
+    "columns": [
+     32
+    ]
+   },
+   {
+    "field": "selectable_character_ids",
+    "columns": [
+     33
+    ]
+   },
+   {
+    "field": "selectable_episode_node_character_ids",
+    "columns": [
+     34
+    ]
+   },
+   {
+    "field": "selectable_episode_node_counts",
+    "columns": [
+     35
+    ]
+   },
+   {
+    "field": "kind",
+    "columns": [
+     36
+    ]
+   }
+  ]
+ },
+ "MainStageNodePositionValues": {
+  "columns": 6,
+  "fields": [
+   {
+    "field": "kind",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "x",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "y",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "path_visible",
+    "columns": [
+     5
+    ]
+   }
+  ]
+ },
+ "MainStageNodeValues": {
+  "columns": 7,
+  "fields": [
+   {
+    "field": "multiplied_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "need_stage_node",
+    "columns": [
+     2,
+     3
+    ]
+   },
+   {
+    "field": "quest_select_background_style",
+    "columns": [
+     4,
+     5,
+     6
+    ]
+   }
+  ]
+ },
+ "ManaBoardValues": {
+  "columns": 6,
+  "fields": [
+   {
+    "field": "multiplied_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "x",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "y",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "road",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "pedestal_size",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "parent",
+    "columns": [
+     5
+    ]
+   }
+  ]
+ },
+ "ManaNodeValues": {
+  "columns": 2,
+  "fields": [
+   {
+    "field": "multiplied_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "kind",
+    "columns": [
+     1
+    ]
+   }
+  ]
+ },
+ "ManaShopValues": {
+  "columns": 23,
+  "fields": [
+   {
+    "field": "list_order",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "thumbnail_id",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "rarity",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "price",
+    "columns": [
+     3,
+     4
+    ]
+   },
+   {
+    "field": "cost_item1",
+    "columns": [
+     5,
+     6
+    ]
+   },
+   {
+    "field": "cost_item2",
+    "columns": [
+     7,
+     8
+    ]
+   },
+   {
+    "field": "cost_item3",
+    "columns": [
+     9,
+     10
+    ]
+   },
+   {
+    "field": "cost_item4",
+    "columns": [
+     11,
+     12
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     13
+    ]
+   },
+   {
+    "field": "end_time",
+    "columns": [
+     14
+    ]
+   },
+   {
+    "field": "release_rank",
+    "columns": [
+     15
+    ]
+   },
+   {
+    "field": "buy_max_count",
+    "columns": [
+     16
+    ]
+   },
+   {
+    "field": "max_frequency",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "daily_stock",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "purchase_count",
+    "columns": [
+     19
+    ]
+   },
+   {
+    "field": "additional_count",
+    "columns": [
+     20
+    ]
+   },
+   {
+    "field": "recommend_start_time",
+    "columns": [
+     21
+    ]
+   },
+   {
+    "field": "recommend_end_time",
+    "columns": [
+     22
+    ]
+   }
+  ]
+ },
+ "MultiballAtkCurveValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "atk_multiplier",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "MultiballHpCurveValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "hp_multiplier",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "MultiballLevelValues": {
+  "columns": 6,
+  "fields": [
+   {
+    "field": "hp_basic_curve_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "hp_basic_value",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "hp_correction_value",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "atk_basic_curve_id",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "atk_basic_value",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "atk_correction_value",
+    "columns": [
+     5
+    ]
+   }
+  ]
+ },
+ "MultiballValues": {
+  "columns": 20,
+  "fields": [
+   {
+    "field": "string_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "image_prefix",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "rarity",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "element",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "race",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "character_tag",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "speciality_type",
+    "columns": [
+     6
+    ]
+   },
+   {
+    "field": "gender",
+    "columns": [
+     7
+    ]
+   },
+   {
+    "field": "assist_character",
+    "columns": [
+     8
+    ]
+   },
+   {
+    "field": "action",
+    "columns": [
+     9,
+     10,
+     11
+    ]
+   },
+   {
+    "field": "support_skill1",
+    "columns": [
+     12
+    ]
+   },
+   {
+    "field": "support_skill2",
+    "columns": [
+     13
+    ]
+   },
+   {
+    "field": "support_skill3",
+    "columns": [
+     14
+    ]
+   },
+   {
+    "field": "support_skill4",
+    "columns": [
+     15
+    ]
+   },
+   {
+    "field": "scale",
+    "columns": [
+     16
+    ]
+   },
+   {
+    "field": "kind",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "is_invincible",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "zone_crossable",
+    "columns": [
+     19
+    ]
+   }
+  ]
+ },
+ "NewsSettingValues": {
+  "columns": 2,
+  "fields": [
+   {
+    "field": "limit_per_page",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "max_news_count",
+    "columns": [
+     1
+    ]
+   }
+  ]
+ },
+ "ObtainableInstantItemValues": {
+  "columns": 3,
+  "fields": [
+   {
+    "field": "animation_path",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "kind",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "num_items",
+    "columns": [
+     2
+    ]
+   }
+  ]
+ },
+ "OrochiValues": {
+  "columns": 36,
+  "fields": [
+   {
+    "field": "element",
+    "columns": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14
+    ]
+   },
+   {
+    "field": "race",
+    "columns": [
+     15
+    ]
+   },
+   {
+    "field": "speciality_type",
+    "columns": [
+     16
+    ]
+   },
+   {
+    "field": "gender",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "num_stun_state_frames",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "num_wince_state_frames",
+    "columns": [
+     19
+    ]
+   },
+   {
+    "field": "suppress_bent_effect",
+    "columns": [
+     20
+    ]
+   },
+   {
+    "field": "marker_set",
+    "columns": [
+     21
+    ]
+   },
+   {
+    "field": "marker_timeline_path",
+    "columns": [
+     22
+    ]
+   },
+   {
+    "field": "shadow_animation_path",
+    "columns": [
+     23
+    ]
+   },
+   {
+    "field": "head_ids",
+    "columns": [
+     24
+    ]
+   },
+   {
+    "field": "num_skill_charge_state_frames",
+    "columns": [
+     25
+    ]
+   },
+   {
+    "field": "cutin101",
+    "columns": [
+     26
+    ]
+   },
+   {
+    "field": "cutin102",
+    "columns": [
+     27
+    ]
+   },
+   {
+    "field": "cutin103",
+    "columns": [
+     28
+    ]
+   },
+   {
+    "field": "enemy_action101",
+    "columns": [
+     29
+    ]
+   },
+   {
+    "field": "enemy_action102",
+    "columns": [
+     30
+    ]
+   },
+   {
+    "field": "enemy_action103",
+    "columns": [
+     31
+    ]
+   },
+   {
+    "field": "enemy_action104",
+    "columns": [
+     32
+    ]
+   },
+   {
+    "field": "enemy_action105",
+    "columns": [
+     33
+    ]
+   },
+   {
+    "field": "enemy_action106",
+    "columns": [
+     34
+    ]
+   },
+   {
+    "field": "ability_ids",
+    "columns": [
+     35
+    ]
+   }
+  ]
+ },
+ "OrochiWeakPointMarkerSetValues": {
+  "columns": 9,
+  "fields": [
+   {
+    "field": "markers1",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "markers2",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "markers3",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "markers4",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "markers5",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "markers6",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "markers7",
+    "columns": [
+     6
+    ]
+   },
+   {
+    "field": "markers8",
+    "columns": [
+     7
+    ]
+   },
+   {
+    "field": "markers9",
+    "columns": [
+     8
+    ]
+   }
+  ]
+ },
+ "PartyAtkCurveValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "party_atk_multiplier",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "PartyHpCurveValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "party_hp_multiplier",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "PlayerCharacterManaNodeValues": {
+  "columns": 2,
+  "fields": [
+   {
+    "field": "learned_mana_node",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "mana_node_multiplied_id",
+    "columns": [
+     1
+    ]
+   }
+  ]
+ },
+ "PlayerCharacterValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "character_level",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "PlayerItemValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "number",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "PlayerPartyValues": {
+  "columns": 6,
+  "fields": [
+   {
+    "field": "main_character_id_1",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "main_character_id_2",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "main_character_id_3",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "unison_character_id_1",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "unison_character_id_2",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "unison_character_id_3",
+    "columns": [
+     5
+    ]
+   }
+  ]
+ },
+ "PlayerRankValues": {
+  "columns": 3,
+  "fields": [
+   {
+    "field": "stamina",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "total_rp",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "stamina_heal_time_decrease_rate",
+    "columns": [
+     2
+    ]
+   }
+  ]
+ },
+ "PlayerValues": {
+  "columns": 8,
+  "fields": [
+   {
+    "field": "string_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "vmoney",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "free_vmoney",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "paid_mana",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "free_mana",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "rp",
+    "columns": [
+     6
+    ]
+   },
+   {
+    "field": "comment",
+    "columns": [
+     7
+    ]
+   }
+  ]
+ },
+ "PowerFlipActionValues": {
+  "columns": 3,
+  "fields": [
+   {
+    "field": "power_flip_action1",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "power_flip_action2",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "power_flip_action3",
+    "columns": [
+     2
+    ]
+   }
+  ]
+ },
+ "PracticeQuestValues": {
+  "columns": 36,
+  "fields": [
+   {
+    "field": "name",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "thumbnail_image",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "first_time_clear_reward_id",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "end_time",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "viewable_need_quest_1",
+    "columns": [
+     5,
+     6,
+     7,
+     8
+    ]
+   },
+   {
+    "field": "viewable_need_quest_1_multiplied_id",
+    "columns": [
+     9
+    ]
+   },
+   {
+    "field": "viewable_need_quest_2",
+    "columns": [
+     10,
+     11,
+     12,
+     13
+    ]
+   },
+   {
+    "field": "viewable_need_quest_2_multiplied_id",
+    "columns": [
+     14
+    ]
+   },
+   {
+    "field": "viewable_need_character_quest_id_1",
+    "columns": [
+     15
+    ]
+   },
+   {
+    "field": "viewable_need_character_quest_id_2",
+    "columns": [
+     16
+    ]
+   },
+   {
+    "field": "viewable_character_ids",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "prevent_spoiler",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "selectable_need_quest_1",
+    "columns": [
+     19,
+     20,
+     21,
+     22
+    ]
+   },
+   {
+    "field": "selectable_need_quest_1_multiplied_id",
+    "columns": [
+     23
+    ]
+   },
+   {
+    "field": "selectable_need_quest_2",
+    "columns": [
+     24,
+     25,
+     26,
+     27
+    ]
+   },
+   {
+    "field": "selectable_need_quest_2_multiplied_id",
+    "columns": [
+     28
+    ]
+   },
+   {
+    "field": "selectable_need_character_quest_id_1",
+    "columns": [
+     29
+    ]
+   },
+   {
+    "field": "selectable_need_character_quest_id_2",
+    "columns": [
+     30
+    ]
+   },
+   {
+    "field": "selectable_player_rank",
+    "columns": [
+     31
+    ]
+   },
+   {
+    "field": "selectable_character_ids",
+    "columns": [
+     32
+    ]
+   },
+   {
+    "field": "selectable_episode_node_character_ids",
+    "columns": [
+     33
+    ]
+   },
+   {
+    "field": "selectable_episode_node_counts",
+    "columns": [
+     34
+    ]
+   },
+   {
+    "field": "kind",
+    "columns": [
+     35
+    ]
+   }
+  ]
+ },
+ "QuestRankValues": {
+  "columns": 3,
+  "fields": [
+   {
+    "field": "name",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "enemy_level",
+    "columns": [
+     1,
+     2
+    ]
+   }
+  ]
+ },
+ "RaceValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "name",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "RareScoreRewardValues": {
+  "columns": 6,
+  "fields": [
+   {
+    "field": "group_string_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "kind",
+    "columns": [
+     1,
+     2,
+     3
+    ]
+   },
+   {
+    "field": "probability",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "uses_rare_effect",
+    "columns": [
+     5
+    ]
+   }
+  ]
+ },
+ "ReasonValues": {
+  "columns": 2,
+  "fields": [
+   {
+    "field": "subject",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "description",
+    "columns": [
+     1
+    ]
+   }
+  ]
+ },
+ "RegularMissionRewardValues": {
+  "columns": 15,
+  "fields": [
+   {
+    "field": "mission_reward_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "target_progress",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "target_progress_clear_seconds",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "image_asset_path",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "reward1_kind",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "reward2_kind",
+    "columns": [
+     9
+    ]
+   },
+   {
+    "field": "reward3_kind",
+    "columns": [
+     14
+    ]
+   }
+  ]
+ },
+ "RegularMissionValues": {
+  "columns": 21,
+  "fields": [
+   {
+    "field": "string_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "mission_pattern",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "quest_kind",
+    "columns": [
+     4,
+     5,
+     6,
+     7
+    ]
+   },
+   {
+    "field": "quest_rank_id",
+    "columns": [
+     8
+    ]
+   },
+   {
+    "field": "item_id",
+    "columns": [
+     9
+    ]
+   },
+   {
+    "field": "equipment_id",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "character_id",
+    "columns": [
+     11
+    ]
+   },
+   {
+    "field": "mission_ids",
+    "columns": [
+     12
+    ]
+   },
+   {
+    "field": "need_mission_id",
+    "columns": [
+     13
+    ]
+   },
+   {
+    "field": "need_mission_reward_stage",
+    "columns": [
+     14
+    ]
+   },
+   {
+    "field": "enable_start_time",
+    "columns": [
+     15
+    ]
+   },
+   {
+    "field": "enable_end_time",
+    "columns": [
+     16
+    ]
+   },
+   {
+    "field": "show_start_time",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "show_end_time",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "is_hidden_mission",
+    "columns": [
+     19
+    ]
+   },
+   {
+    "field": "is_repeat",
+    "columns": [
+     20
+    ]
+   }
+  ]
+ },
+ "RewardCampaignValues": {
+  "columns": 10,
+  "fields": [
+   {
+    "field": "repeat_kind",
+    "columns": [
+     0,
+     1,
+     2,
+     3
+    ]
+   },
+   {
+    "field": "reward_kind",
+    "columns": [
+     4,
+     5
+    ]
+   },
+   {
+    "field": "quest_kind",
+    "columns": [
+     6,
+     7,
+     8,
+     9
+    ]
+   }
+  ]
+ },
+ "RoomConfigValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "value",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "ScenarioCommandValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "command",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "ScoreAttackEventMultiQuestValues": {
+  "columns": 81,
+  "fields": [
+   {
+    "field": "multiplied_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "thumbnail_image",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "first_time_clear_reward_id",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "end_time",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "viewable_need_quest_1",
+    "columns": [
+     6,
+     7,
+     8,
+     9
+    ]
+   },
+   {
+    "field": "viewable_need_quest_1_multiplied_id",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "viewable_need_quest_2",
+    "columns": [
+     11,
+     12,
+     13,
+     14
+    ]
+   },
+   {
+    "field": "viewable_need_quest_2_multiplied_id",
+    "columns": [
+     15
+    ]
+   },
+   {
+    "field": "viewable_need_character_quest_id_1",
+    "columns": [
+     16
+    ]
+   },
+   {
+    "field": "viewable_need_character_quest_id_2",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "viewable_character_ids",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "prevent_spoiler",
+    "columns": [
+     19
+    ]
+   },
+   {
+    "field": "selectable_need_quest_1",
+    "columns": [
+     20,
+     21,
+     22,
+     23
+    ]
+   },
+   {
+    "field": "selectable_need_quest_1_multiplied_id",
+    "columns": [
+     24
+    ]
+   },
+   {
+    "field": "selectable_need_quest_2",
+    "columns": [
+     25,
+     26,
+     27,
+     28
+    ]
+   },
+   {
+    "field": "selectable_need_quest_2_multiplied_id",
+    "columns": [
+     29
+    ]
+   },
+   {
+    "field": "selectable_need_character_quest_id_1",
+    "columns": [
+     30
+    ]
+   },
+   {
+    "field": "selectable_need_character_quest_id_2",
+    "columns": [
+     31
+    ]
+   },
+   {
+    "field": "selectable_player_rank",
+    "columns": [
+     32
+    ]
+   },
+   {
+    "field": "selectable_character_ids",
+    "columns": [
+     33
+    ]
+   },
+   {
+    "field": "selectable_episode_node_character_ids",
+    "columns": [
+     34
+    ]
+   },
+   {
+    "field": "selectable_episode_node_counts",
+    "columns": [
+     35
+    ]
+   },
+   {
+    "field": "battle_play_win_voice",
+    "columns": [
+     36
+    ]
+   },
+   {
+    "field": "battle_startable_use_item_ids",
+    "columns": [
+     37
+    ]
+   },
+   {
+    "field": "battle_startable_use_item_counts",
+    "columns": [
+     38
+    ]
+   },
+   {
+    "field": "battle_startable_party_rarity_ids",
+    "columns": [
+     39
+    ]
+   },
+   {
+    "field": "battle_startable_party_character_ids",
+    "columns": [
+     40
+    ]
+   },
+   {
+    "field": "battle_startable_party_without_unison_character_ids",
+    "columns": [
+     41
+    ]
+   },
+   {
+    "field": "battle_startable_party_unison_deny",
+    "columns": [
+     42
+    ]
+   },
+   {
+    "field": "battle_startable_party_limit_member_min",
+    "columns": [
+     43
+    ]
+   },
+   {
+    "field": "battle_startable_party_limit_member_max",
+    "columns": [
+     44
+    ]
+   },
+   {
+    "field": "battle_startable_party_race_ids",
+    "columns": [
+     45
+    ]
+   },
+   {
+    "field": "battle_startable_party_speciality_ids",
+    "columns": [
+     46
+    ]
+   },
+   {
+    "field": "battle_startable_party_gender",
+    "columns": [
+     47
+    ]
+   },
+   {
+    "field": "battle_startable_party_character_tag_ids",
+    "columns": [
+     48
+    ]
+   },
+   {
+    "field": "battle_stamina_cost",
+    "columns": [
+     49
+    ]
+   },
+   {
+    "field": "battle_stamina_return_if_retired",
+    "columns": [
+     50
+    ]
+   },
+   {
+    "field": "battle_score_reward_group_id",
+    "columns": [
+     51
+    ]
+   },
+   {
+    "field": "battle_rank_ss_reward_id",
+    "columns": [
+     52
+    ]
+   },
+   {
+    "field": "battle_recommended_element",
+    "columns": [
+     53
+    ]
+   },
+   {
+    "field": "battle_hide_recommended_element",
+    "columns": [
+     54
+    ]
+   },
+   {
+    "field": "battle_rank_b_score",
+    "columns": [
+     55
+    ]
+   },
+   {
+    "field": "battle_rank_a_score",
+    "columns": [
+     56
+    ]
+   },
+   {
+    "field": "battle_rank_s_score",
+    "columns": [
+     57
+    ]
+   },
+   {
+    "field": "battle_rank_ss_score",
+    "columns": [
+     58
+    ]
+   },
+   {
+    "field": "battle_rank_c_item_count",
+    "columns": [
+     59
+    ]
+   },
+   {
+    "field": "battle_rank_b_item_count",
+    "columns": [
+     60
+    ]
+   },
+   {
+    "field": "battle_rank_a_item_count",
+    "columns": [
+     61
+    ]
+   },
+   {
+    "field": "battle_rank_s_item_count",
+    "columns": [
+     62
+    ]
+   },
+   {
+    "field": "battle_rank_ss_item_count",
+    "columns": [
+     63
+    ]
+   },
+   {
+    "field": "battle_reward_rp",
+    "columns": [
+     64
+    ]
+   },
+   {
+    "field": "battle_reward_exp",
+    "columns": [
+     65
+    ]
+   },
+   {
+    "field": "battle_reward_mana",
+    "columns": [
+     66
+    ]
+   },
+   {
+    "field": "battle_reward_pool_exp",
+    "columns": [
+     67
+    ]
+   },
+   {
+    "field": "battle_hp_correction_value_zako",
+    "columns": [
+     68
+    ]
+   },
+   {
+    "field": "battle_hp_correction_value_funnel",
+    "columns": [
+     69
+    ]
+   },
+   {
+    "field": "battle_hp_correction_value_boss",
+    "columns": [
+     70
+    ]
+   },
+   {
+    "field": "battle_enemy_level",
+    "columns": [
+     71
+    ]
+   },
+   {
+    "field": "battle_initial_fever_gauge_limit",
+    "columns": [
+     72
+    ]
+   },
+   {
+    "field": "battle_field_data_id",
+    "columns": [
+     73
+    ]
+   },
+   {
+    "field": "battle_bgm_prefix",
+    "columns": [
+     74
+    ]
+   },
+   {
+    "field": "battle_time_limit",
+    "columns": [
+     75
+    ]
+   },
+   {
+    "field": "battle_assist_character",
+    "columns": [
+     76,
+     77,
+     78
+    ]
+   },
+   {
+    "field": "battle_max_continue_count",
+    "columns": [
+     79
+    ]
+   },
+   {
+    "field": "battle_max_mana_reward",
+    "columns": [
+     80
+    ]
+   }
+  ]
+ },
+ "ScoreAttackEventRankingRewardValues": {
+  "columns": 48,
+  "fields": [
+   {
+    "field": "score_ranking_event_ranking_reward_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "rank_award_image_path",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "reward1_kind",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "reward2_kind",
+    "columns": [
+     7
+    ]
+   },
+   {
+    "field": "reward3_kind",
+    "columns": [
+     12
+    ]
+   },
+   {
+    "field": "reward4_kind",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "reward5_kind",
+    "columns": [
+     22
+    ]
+   },
+   {
+    "field": "reward6_kind",
+    "columns": [
+     27
+    ]
+   },
+   {
+    "field": "reward7_kind",
+    "columns": [
+     32
+    ]
+   },
+   {
+    "field": "reward8_kind",
+    "columns": [
+     37
+    ]
+   },
+   {
+    "field": "reward9_kind",
+    "columns": [
+     42
+    ]
+   },
+   {
+    "field": "reward10_kind",
+    "columns": [
+     47
+    ]
+   }
+  ]
+ },
+ "ScoreAttackEventSingleQuestValues": {
+  "columns": 37,
+  "fields": [
+   {
+    "field": "multiplied_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "thumbnail_image",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "first_time_clear_reward_id",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "end_time",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "viewable_need_quest_1",
+    "columns": [
+     6,
+     7,
+     8,
+     9
+    ]
+   },
+   {
+    "field": "viewable_need_quest_1_multiplied_id",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "viewable_need_quest_2",
+    "columns": [
+     11,
+     12,
+     13,
+     14
+    ]
+   },
+   {
+    "field": "viewable_need_quest_2_multiplied_id",
+    "columns": [
+     15
+    ]
+   },
+   {
+    "field": "viewable_need_character_quest_id_1",
+    "columns": [
+     16
+    ]
+   },
+   {
+    "field": "viewable_need_character_quest_id_2",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "viewable_character_ids",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "prevent_spoiler",
+    "columns": [
+     19
+    ]
+   },
+   {
+    "field": "selectable_need_quest_1",
+    "columns": [
+     20,
+     21,
+     22,
+     23
+    ]
+   },
+   {
+    "field": "selectable_need_quest_1_multiplied_id",
+    "columns": [
+     24
+    ]
+   },
+   {
+    "field": "selectable_need_quest_2",
+    "columns": [
+     25,
+     26,
+     27,
+     28
+    ]
+   },
+   {
+    "field": "selectable_need_quest_2_multiplied_id",
+    "columns": [
+     29
+    ]
+   },
+   {
+    "field": "selectable_need_character_quest_id_1",
+    "columns": [
+     30
+    ]
+   },
+   {
+    "field": "selectable_need_character_quest_id_2",
+    "columns": [
+     31
+    ]
+   },
+   {
+    "field": "selectable_player_rank",
+    "columns": [
+     32
+    ]
+   },
+   {
+    "field": "selectable_character_ids",
+    "columns": [
+     33
+    ]
+   },
+   {
+    "field": "selectable_episode_node_character_ids",
+    "columns": [
+     34
+    ]
+   },
+   {
+    "field": "selectable_episode_node_counts",
+    "columns": [
+     35
+    ]
+   },
+   {
+    "field": "kind",
+    "columns": [
+     36
+    ]
+   }
+  ]
+ },
+ "ScoreAttackEventValues": {
+  "columns": 9,
+  "fields": [
+   {
+    "field": "string_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "available_play_kind",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "banner_image",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "header_background_image",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "reward_receive_end_time",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     6
+    ]
+   },
+   {
+    "field": "playable_end_time",
+    "columns": [
+     7
+    ]
+   },
+   {
+    "field": "exchangeable_end_time",
+    "columns": [
+     8
+    ]
+   }
+  ]
+ },
+ "ScoreBonusValues": {
+  "columns": 4,
+  "fields": [
+   {
+    "field": "description",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "default_score",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "kind",
+    "columns": [
+     2,
+     3
+    ]
+   }
+  ]
+ },
+ "ScoreRewardValues": {
+  "columns": 2,
+  "fields": [
+   {
+    "field": "group_string_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "lottery",
+    "columns": [
+     1
+    ]
+   }
+  ]
+ },
+ "ScreenColorEffectPresetValues": {
+  "columns": 20,
+  "fields": [
+   {
+    "field": "m00",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "m01",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "m02",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "m03",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "m04",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "m10",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "m11",
+    "columns": [
+     6
+    ]
+   },
+   {
+    "field": "m12",
+    "columns": [
+     7
+    ]
+   },
+   {
+    "field": "m13",
+    "columns": [
+     8
+    ]
+   },
+   {
+    "field": "m14",
+    "columns": [
+     9
+    ]
+   },
+   {
+    "field": "m20",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "m21",
+    "columns": [
+     11
+    ]
+   },
+   {
+    "field": "m22",
+    "columns": [
+     12
+    ]
+   },
+   {
+    "field": "m23",
+    "columns": [
+     13
+    ]
+   },
+   {
+    "field": "m24",
+    "columns": [
+     14
+    ]
+   },
+   {
+    "field": "m30",
+    "columns": [
+     15
+    ]
+   },
+   {
+    "field": "m31",
+    "columns": [
+     16
+    ]
+   },
+   {
+    "field": "m32",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "m33",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "m34",
+    "columns": [
+     19
+    ]
+   }
+  ]
+ },
+ "SkillInvokerAtkCurveValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "atk_multiplier",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "SkillInvokerLevelValues": {
+  "columns": 3,
+  "fields": [
+   {
+    "field": "atk_basic_curve_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "atk_basic_value",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "atk_correction_value",
+    "columns": [
+     2
+    ]
+   }
+  ]
+ },
+ "SkillInvokerValues": {
+  "columns": 9,
+  "fields": [
+   {
+    "field": "animation_path_foreground",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "restitution",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "normal_velocity",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "cooldown_time",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "invoke_skill",
+    "columns": [
+     4,
+     5,
+     6,
+     7,
+     8
+    ]
+   }
+  ]
+ },
+ "SkillPreviewQuestValues": {
+  "columns": 6,
+  "fields": [
+   {
+    "field": "name",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "thumbnail_image",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "first_time_clear_reward_id",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "end_time",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "kind",
+    "columns": [
+     5
+    ]
+   }
+  ]
+ },
+ "SoundEffectAssetValues": {
+  "columns": 4,
+  "fields": [
+   {
+    "field": "volume",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "start_second",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "priority",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "loading",
+    "columns": [
+     3
+    ]
+   }
+  ]
+ },
+ "SpecialPackShopRecommendValues": {
+  "columns": 3,
+  "fields": [
+   {
+    "field": "recommend_start",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "recommend_end",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "special_pack_ids",
+    "columns": [
+     2
+    ]
+   }
+  ]
+ },
+ "SpecialPackShopValues": {
+  "columns": 41,
+  "fields": [
+   {
+    "field": "string_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "list_order",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "description",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "short_description",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "thumbnail_id",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "rarity",
+    "columns": [
+     6
+    ]
+   },
+   {
+    "field": "price",
+    "columns": [
+     7,
+     8
+    ]
+   },
+   {
+    "field": "cost_item1",
+    "columns": [
+     9,
+     10
+    ]
+   },
+   {
+    "field": "cost_item2",
+    "columns": [
+     11,
+     12
+    ]
+   },
+   {
+    "field": "cost_item3",
+    "columns": [
+     13,
+     14
+    ]
+   },
+   {
+    "field": "cost_item4",
+    "columns": [
+     15,
+     16
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "end_time",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "release_rank",
+    "columns": [
+     19
+    ]
+   },
+   {
+    "field": "buy_max_count",
+    "columns": [
+     20
+    ]
+   },
+   {
+    "field": "max_frequency",
+    "columns": [
+     21
+    ]
+   },
+   {
+    "field": "daily_stock",
+    "columns": [
+     22
+    ]
+   },
+   {
+    "field": "kind1",
+    "columns": [
+     23,
+     24,
+     25
+    ]
+   },
+   {
+    "field": "kind2",
+    "columns": [
+     26,
+     27,
+     28
+    ]
+   },
+   {
+    "field": "kind3",
+    "columns": [
+     29,
+     30,
+     31
+    ]
+   },
+   {
+    "field": "kind4",
+    "columns": [
+     32,
+     33,
+     34
+    ]
+   },
+   {
+    "field": "kind5",
+    "columns": [
+     35,
+     36,
+     37
+    ]
+   },
+   {
+    "field": "kind6",
+    "columns": [
+     38,
+     39,
+     40
+    ]
+   }
+  ]
+ },
+ "StaminaCampaignValues": {
+  "columns": 9,
+  "fields": [
+   {
+    "field": "repeat_kind",
+    "columns": [
+     0,
+     1,
+     2,
+     3
+    ]
+   },
+   {
+    "field": "stamina_consumption_rate",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "quest_kind",
+    "columns": [
+     5,
+     6,
+     7,
+     8
+    ]
+   }
+  ]
+ },
+ "StartTutorialShortenedStepValues": {
+  "columns": 5,
+  "fields": [
+   {
+    "field": "kind",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "player",
+    "columns": [
+     4
+    ]
+   }
+  ]
+ },
+ "StartTutorialStepValues": {
+  "columns": 5,
+  "fields": [
+   {
+    "field": "kind",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "player",
+    "columns": [
+     4
+    ]
+   }
+  ]
+ },
+ "StoryCharacterValues": {
+  "columns": 6,
+  "fields": [
+   {
+    "field": "name",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "name_label_background_color",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "voice_directory",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "face",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "base_image_path",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "face_image_path",
+    "columns": [
+     5
+    ]
+   }
+  ]
+ },
+ "StoryEventSingleQuestValues": {
+  "columns": 37,
+  "fields": [
+   {
+    "field": "multiplied_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "thumbnail_image",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "first_time_clear_reward_id",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "end_time",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "viewable_need_quest_1",
+    "columns": [
+     6,
+     7,
+     8,
+     9
+    ]
+   },
+   {
+    "field": "viewable_need_quest_1_multiplied_id",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "viewable_need_quest_2",
+    "columns": [
+     11,
+     12,
+     13,
+     14
+    ]
+   },
+   {
+    "field": "viewable_need_quest_2_multiplied_id",
+    "columns": [
+     15
+    ]
+   },
+   {
+    "field": "viewable_need_character_quest_id_1",
+    "columns": [
+     16
+    ]
+   },
+   {
+    "field": "viewable_need_character_quest_id_2",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "viewable_character_ids",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "prevent_spoiler",
+    "columns": [
+     19
+    ]
+   },
+   {
+    "field": "selectable_need_quest_1",
+    "columns": [
+     20,
+     21,
+     22,
+     23
+    ]
+   },
+   {
+    "field": "selectable_need_quest_1_multiplied_id",
+    "columns": [
+     24
+    ]
+   },
+   {
+    "field": "selectable_need_quest_2",
+    "columns": [
+     25,
+     26,
+     27,
+     28
+    ]
+   },
+   {
+    "field": "selectable_need_quest_2_multiplied_id",
+    "columns": [
+     29
+    ]
+   },
+   {
+    "field": "selectable_need_character_quest_id_1",
+    "columns": [
+     30
+    ]
+   },
+   {
+    "field": "selectable_need_character_quest_id_2",
+    "columns": [
+     31
+    ]
+   },
+   {
+    "field": "selectable_player_rank",
+    "columns": [
+     32
+    ]
+   },
+   {
+    "field": "selectable_character_ids",
+    "columns": [
+     33
+    ]
+   },
+   {
+    "field": "selectable_episode_node_character_ids",
+    "columns": [
+     34
+    ]
+   },
+   {
+    "field": "selectable_episode_node_counts",
+    "columns": [
+     35
+    ]
+   },
+   {
+    "field": "kind",
+    "columns": [
+     36
+    ]
+   }
+  ]
+ },
+ "StoryEventValues": {
+  "columns": 8,
+  "fields": [
+   {
+    "field": "string_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "name",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "banner_image",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "header_background_image",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "auto_play_story_quest_id",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "playable_end_time",
+    "columns": [
+     6
+    ]
+   },
+   {
+    "field": "exchangeable_end_time",
+    "columns": [
+     7
+    ]
+   }
+  ]
+ },
+ "TalkyYakumonoSpeechGroupValues": {
+  "columns": 2,
+  "fields": [
+   {
+    "field": "balloon_position",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "text",
+    "columns": [
+     1
+    ]
+   }
+  ]
+ },
+ "TalkyYakumonoValues": {
+  "columns": 11,
+  "fields": [
+   {
+    "field": "animation_path_foreground",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "restitution",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "normal_velocity",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "cooldown_time",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "activated_speech",
+    "columns": [
+     4,
+     5,
+     6
+    ]
+   },
+   {
+    "field": "cooldown_speech",
+    "columns": [
+     7,
+     8,
+     9
+    ]
+   },
+   {
+    "field": "synchronize_id",
+    "columns": [
+     10
+    ]
+   }
+  ]
+ },
+ "TentacleValues": {
+  "columns": 10,
+  "fields": [
+   {
+    "field": "element",
+    "columns": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ]
+   },
+   {
+    "field": "marker_timeline_path",
+    "columns": [
+     8
+    ]
+   },
+   {
+    "field": "shadow_animation_path",
+    "columns": [
+     9
+    ]
+   }
+  ]
+ },
+ "TipsValues": {
+  "columns": 4,
+  "fields": [
+   {
+    "field": "require_single_quest",
+    "columns": [
+     0,
+     1,
+     2
+    ]
+   },
+   {
+    "field": "asset_path",
+    "columns": [
+     3
+    ]
+   }
+  ]
+ },
+ "TpBasicCurveValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "tp_multiplier",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "TreasureShopValues": {
+  "columns": 42,
+  "fields": [
+   {
+    "field": "name",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "list_order",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "description",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "short_description",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "thumbnail_id",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "rarity",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "price",
+    "columns": [
+     6,
+     7
+    ]
+   },
+   {
+    "field": "cost_item1",
+    "columns": [
+     8,
+     9
+    ]
+   },
+   {
+    "field": "cost_item2",
+    "columns": [
+     10,
+     11
+    ]
+   },
+   {
+    "field": "cost_item3",
+    "columns": [
+     12,
+     13
+    ]
+   },
+   {
+    "field": "cost_item4",
+    "columns": [
+     14,
+     15
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     16
+    ]
+   },
+   {
+    "field": "end_time",
+    "columns": [
+     17
+    ]
+   },
+   {
+    "field": "release_rank",
+    "columns": [
+     18
+    ]
+   },
+   {
+    "field": "buy_max_count",
+    "columns": [
+     19
+    ]
+   },
+   {
+    "field": "max_frequency",
+    "columns": [
+     20
+    ]
+   },
+   {
+    "field": "daily_stock",
+    "columns": [
+     21
+    ]
+   },
+   {
+    "field": "kind1",
+    "columns": [
+     22,
+     23,
+     24
+    ]
+   },
+   {
+    "field": "kind2",
+    "columns": [
+     25,
+     26,
+     27
+    ]
+   },
+   {
+    "field": "kind3",
+    "columns": [
+     28,
+     29,
+     30
+    ]
+   },
+   {
+    "field": "kind4",
+    "columns": [
+     31,
+     32,
+     33
+    ]
+   },
+   {
+    "field": "kind5",
+    "columns": [
+     34,
+     35,
+     36
+    ]
+   },
+   {
+    "field": "kind6",
+    "columns": [
+     37,
+     38,
+     39
+    ]
+   },
+   {
+    "field": "display_weight",
+    "columns": [
+     40
+    ]
+   },
+   {
+    "field": "on_sale_rate",
+    "columns": [
+     41
+    ]
+   }
+  ]
+ },
+ "TriggeredTutorialValues": {
+  "columns": 29,
+  "fields": [
+   {
+    "field": "string_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "specific_condition",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "condition_other_tutorial_not_yet",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "condition_game_system_unlocked",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "condition_cleared_quest_kind",
+    "columns": [
+     4,
+     5,
+     6,
+     7
+    ]
+   },
+   {
+    "field": "multiplied_cleared_id",
+    "columns": [
+     8
+    ]
+   },
+   {
+    "field": "condition_not_cleared_quest_kind",
+    "columns": [
+     9,
+     10,
+     11,
+     12
+    ]
+   },
+   {
+    "field": "multiplied_not_cleared_id",
+    "columns": [
+     13
+    ]
+   },
+   {
+    "field": "priority",
+    "columns": [
+     14
+    ]
+   },
+   {
+    "field": "contents_kind",
+    "columns": [
+     15
+    ]
+   },
+   {
+    "field": "trigger_kind",
+    "columns": [
+     25
+    ]
+   },
+   {
+    "field": "show_again",
+    "columns": [
+     28
+    ]
+   }
+  ]
+ },
+ "TrimmedImageValues": {
+  "columns": 4,
+  "fields": [
+   {
+    "field": "x",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "y",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "width",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "height",
+    "columns": [
+     3
+    ]
+   }
+  ]
+ },
+ "TutorialGachaValues": {
+  "columns": 12,
+  "fields": [
+   {
+    "field": "string_id",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "title",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "banner_image",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "feature_image",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "once_cost",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "ten_times_cost",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "daily_payment_cost",
+    "columns": [
+     6
+    ]
+   },
+   {
+    "field": "odds_rarity_string_id",
+    "columns": [
+     7
+    ]
+   },
+   {
+    "field": "movie_id",
+    "columns": [
+     8
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     9
+    ]
+   },
+   {
+    "field": "end_time",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "reason_id",
+    "columns": [
+     11
+    ]
+   }
+  ]
+ },
+ "TutorialQuestValues": {
+  "columns": 7,
+  "fields": [
+   {
+    "field": "name",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "thumbnail_image",
+    "columns": [
+     1
+    ]
+   },
+   {
+    "field": "first_time_clear_reward_id",
+    "columns": [
+     2
+    ]
+   },
+   {
+    "field": "start_time",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "end_time",
+    "columns": [
+     4
+    ]
+   },
+   {
+    "field": "quest_number_string",
+    "columns": [
+     5
+    ]
+   },
+   {
+    "field": "kind",
+    "columns": [
+     6
+    ]
+   }
+  ]
+ },
+ "TutorialTipsValues": {
+  "columns": 4,
+  "fields": [
+   {
+    "field": "require_single_quest",
+    "columns": [
+     0,
+     1,
+     2
+    ]
+   },
+   {
+    "field": "asset_path",
+    "columns": [
+     3
+    ]
+   }
+  ]
+ },
+ "UiStringValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "string",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "VideoDialogContentsValues": {
+  "columns": 2,
+  "fields": [
+   {
+    "field": "kind",
+    "columns": [
+     0,
+     1
+    ]
+   }
+  ]
+ },
+ "VoiceAssetValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "volume",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "WeightSavingModeValues": {
+  "columns": 1,
+  "fields": [
+   {
+    "field": "multi_battle_saving",
+    "columns": [
+     0
+    ]
+   }
+  ]
+ },
+ "ZakoLevelValues": {
+  "columns": 13,
+  "fields": [
+   {
+    "field": "hp_curve",
+    "columns": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   },
+   {
+    "field": "atk_basic_curve_id",
+    "columns": [
+     7
+    ]
+   },
+   {
+    "field": "atk_num_hits",
+    "columns": [
+     8
+    ]
+   },
+   {
+    "field": "atk_correction_value",
+    "columns": [
+     9
+    ]
+   },
+   {
+    "field": "atk_correction_curve_id",
+    "columns": [
+     10
+    ]
+   },
+   {
+    "field": "tp_basic_curve_id",
+    "columns": [
+     11
+    ]
+   },
+   {
+    "field": "tp_basic_value",
+    "columns": [
+     12
+    ]
+   }
+  ]
+ },
+ "ZoneActionValues": {
+  "columns": 5,
+  "fields": [
+   {
+    "field": "trigger",
+    "columns": [
+     0
+    ]
+   },
+   {
+    "field": "delay",
+    "columns": [
+     3
+    ]
+   },
+   {
+    "field": "action",
+    "columns": [
+     4
+    ]
+   }
+  ]
+ },
+ "ZoneValues": {
+  "columns": 34,
+  "fields": [
+   {
+    "field": "objective",
+    "columns": [
+     0,
+     1
+    ]
+   },
+   {
+    "field": "zako01",
+    "columns": [
+     2,
+     3
+    ]
+   },
+   {
+    "field": "zako02",
+    "columns": [
+     4,
+     5
+    ]
+   },
+   {
+    "field": "zako03",
+    "columns": [
+     6,
+     7
+    ]
+   },
+   {
+    "field": "zako04",
+    "columns": [
+     8,
+     9
+    ]
+   },
+   {
+    "field": "zako05",
+    "columns": [
+     10,
+     11
+    ]
+   },
+   {
+    "field": "zako06",
+    "columns": [
+     12,
+     13
+    ]
+   },
+   {
+    "field": "zako07",
+    "columns": [
+     14,
+     15
+    ]
+   },
+   {
+    "field": "zako08",
+    "columns": [
+     16,
+     17
+    ]
+   },
+   {
+    "field": "zako09",
+    "columns": [
+     18,
+     19
+    ]
+   },
+   {
+    "field": "zako10",
+    "columns": [
+     20,
+     21
+    ]
+   },
+   {
+    "field": "boss1",
+    "columns": [
+     22,
+     23
+    ]
+   },
+   {
+    "field": "boss2",
+    "columns": [
+     24,
+     25
+    ]
+   },
+   {
+    "field": "boss3",
+    "columns": [
+     26,
+     27
+    ]
+   },
+   {
+    "field": "outhole_animation_path",
+    "columns": [
+     28
+    ]
+   },
+   {
+    "field": "dash_panel_directory",
+    "columns": [
+     29
+    ]
+   },
+   {
+    "field": "rotation_panel_animation",
+    "columns": [
+     30
+    ]
+   },
+   {
+    "field": "instant_item_odds_zako_and_funnel",
+    "columns": [
+     31
+    ]
+   },
+   {
+    "field": "instant_item_odds_breakable_block",
+    "columns": [
+     32
+    ]
+   },
+   {
+    "field": "instant_item_odds_breakable_decoration",
+    "columns": [
+     33
+    ]
+   }
+  ]
+ }
+}

@@ -205,15 +205,38 @@
 		});
 		if (!spec) return;
 		spec.split(";").forEach(function (target) {
+			// trace:Class.method            up to 20 distinct records
+			// trace:Class.method*200        raise the budget
+			// trace:Class.method*200~x/y/r  report only these fields
+			//
+			// Fields are separated by "/", not ",": WF_DEV itself is a comma-separated
+			// list of aids, so a comma here silently truncated the field list to its
+			// first entry.
+			var only = null;
+			var tilde = target.indexOf("~");
+			if (tilde >= 0) {
+				only = target.slice(tilde + 1).split("/").map(function (s) { return s.trim(); });
+				target = target.slice(0, tilde);
+			}
+			var budget = 20;
+			var star = target.indexOf("*");
+			if (star >= 0) {
+				budget = Number(target.slice(star + 1)) || budget;
+				target = target.slice(0, star);
+			}
 			var dot = target.lastIndexOf(".");
 			if (dot < 0) return;
 			var className = target.slice(0, dot);
 			var method = target.slice(dot + 1);
 			var seen = 0;
+			// Per-frame methods repeat the same state for as long as nothing moves,
+			// and the interesting thing is usually how many *distinct* states there
+			// are - six hit areas at six positions, say. Printing every call spends
+			// the whole budget on the first object before the others exist.
+			var already = {};
 			var ok = hook(className, method, function (original) {
 				return function () {
-					if (seen < 20) {
-						seen++;
+					if (seen < budget) {
 						var self = this;
 						// Filter to scalars *before* capping. Capping the raw key list
 						// first meant an object whose first dozen fields are all
@@ -221,18 +244,29 @@
 						var fields = {}, shown = 0;
 						Object.keys(self || {}).forEach(function (k) {
 							if (shown >= 16) return;
+							if (only && only.indexOf(k) < 0) return;
 							var v = self[k];
 							if (v === null || ["number", "string", "boolean"].indexOf(typeof v) >= 0) {
-								fields[k] = v;
+								fields[k] = typeof v === "number" ? Math.round(v * 100) / 100 : v;
 								shown++;
 							}
 						});
-						log.info("[WFMod] trace " + className + "." + method + " #" + seen, fields);
+						// Log a string, not an object: the console collapses objects to
+						// their first few keys behind a "...", which hid the very fields
+						// the trace was asked for.
+						var line = JSON.stringify(fields);
+						if (!already[line]) {
+							already[line] = true;
+							seen++;
+							log.info("[WFMod] trace " + className + "." + method +
+								" #" + seen + " " + line);
+						}
 					}
 					return original.apply(this, arguments);
 				};
 			});
-			log.warn("[WFMod] trace " + (ok ? "armed" : "FAILED") + ": " + className + "." + method);
+			log.warn("[WFMod] trace " + (ok ? "armed" : "FAILED") + ": " + className + "." + method +
+				" (budget " + budget + (only ? ", fields " + only.join("/") : "") + ")");
 		});
 	}
 

@@ -146,8 +146,10 @@ check(attackParams.every((p) => dslHtml.includes(p)),
 check(dslHtml.includes("5s"), "view converts frames to seconds (StopBall 300 -> 5s)");
 check(/30\u00b0|30°/.test(dslHtml), "view converts radians to degrees (NWay 0.5236 -> 30°)");
 
-// Context: damage is 999999 here and the shipped range is 0-1150, so the row
-// must both quote the range and be flagged as outside it.
+// Context: every numeric parameter quotes what the shipped skills use, and a
+// value outside all of them is flagged. In this fork that is StopBall.frame,
+// held at 300 so the hit area has something to hit for its whole life, against
+// a shipped range of 20-103.
 const shipped = reference.commands.CreateNormalAttack.observed.damage.numeric;
 check(dslHtml.includes(`shipped ${shipped.min}`),
 	`view quotes the shipped damage range (${shipped.min}-${shipped.max})`);

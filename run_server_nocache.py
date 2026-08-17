@@ -7,10 +7,14 @@ bugs. Everything is sent no-store.
 """
 import argparse
 import http.server
+import json
 import socketserver
 import sys
 import webbrowser
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent / "tools"))
+import apply_edit  # noqa: E402
 
 BUILD = "0.3.3"
 DEFAULT_PAGE = "game-index.html?wfmode=challenge&wfdev=fullskill"
@@ -42,6 +46,38 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         self.send_header("Expires", "0")
         self.send_header("X-WF-Mod-Build", BUILD)
         super().end_headers()
+
+    # The Hub edits data through this, because a browser cannot write files and
+    # should not learn how - tools/apply_edit.py keeps Python the only writer.
+    # The server binds to 127.0.0.1, so this is reachable from this machine only.
+    def do_POST(self):
+        if self.path.split("?")[0] != "/wfmod/api/edit":
+            self.send_error(404, "no such endpoint")
+            return
+        try:
+            length = int(self.headers.get("Content-Length") or 0)
+            request = json.loads(self.rfile.read(length) or b"{}")
+        except (ValueError, json.JSONDecodeError) as error:
+            self.reply(400, {"error": f"bad request body: {error}"})
+            return
+        try:
+            output = apply_edit.apply(
+                request.get("program"), request.get("command"),
+                request.get("param"), request.get("value"), request.get("index"))
+        except apply_edit.EditError as error:
+            self.reply(400, {"error": str(error)})
+            return
+        print(f"[WFMod] edit {request.get('command')}.{request.get('param')} "
+              f"= {request.get('value')}")
+        self.reply(200, {"ok": True, "output": output})
+
+    def reply(self, code, payload):
+        body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+        self.send_response(code)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
 
     def log_message(self, fmt, *a):
         pass    # the access log buries the lines that matter

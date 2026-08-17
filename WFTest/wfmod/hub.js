@@ -310,9 +310,15 @@
 			var paramName = fields[i] || ("[" + i + "]");
 			var unit = convert(paramName, value);
 			var seen = context(name, paramName, value);
+			// The cell shows the readable form but edits the raw JSON: the display
+			// form is lossy on purpose (units, enum argument names), so round-tripping
+			// it back into the file would be guesswork.
+			var editable = fields[i] ? ' class="wfhub-edit" data-command="' + escape(name) +
+				'" data-param="' + escape(paramName) + '" data-raw="' +
+				escape(JSON.stringify(value)) + '" title="click to edit"' : "";
 			return "<tr" + (seen.outside ? ' class="wfhub-outside"' : "") + ">" +
 				"<td>" + escape(paramName) + "</td>" +
-				"<td>" + escape(show(value, enums[paramName])) + "</td>" +
+				"<td" + editable + ">" + escape(show(value, enums[paramName])) + "</td>" +
 				"<td>" + escape(unit) + "</td>" +
 				"<td>" + escape(seen.text) + "</td></tr>";
 		}).join("");
@@ -328,11 +334,84 @@
 		return '<div class="wfhub-dsl"><div class="wfhub-meta">' + escape(program) +
 			" &middot; " + list.length + " commands</div>" +
 			list.map(commandBlock).join("") +
-			'<div class="wfhub-foot">Columns: parameter, value, converted unit, ' +
+			'<div class="wfhub-status"></div>' +
+			'<div class="wfhub-foot">Click a value to edit it - the box holds the raw ' +
+			"JSON, since the readable form drops units and argument names. Enter " +
+			"writes, Escape cancels; writing goes through tools/tune_skill.py, and " +
+			"the game only reads the new file after a page reload. Columns: " +
+			"parameter, value, converted unit, " +
 			"what the shipped skills use. A highlighted row is outside every value " +
 			"the shipped skills use for that parameter - unusual, not necessarily " +
 			"wrong. Units marked in dsl-reference.json as inferred are not " +
 			"converted here.</div></div>";
+	}
+
+	// --- editing ------------------------------------------------------------
+	//
+	// The browser cannot write files. An edit is posted to the dev server, which
+	// runs tools/apply_edit.py -> tools/tune_skill.py, so the file is written by
+	// the same code a person editing by hand would use and the DSL re-encoder
+	// stays the single writer.
+	function saveEdit(program, request) {
+		return fetch("wfmod/api/edit", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(request)
+		}).then(function (response) {
+			return response.json().then(function (payload) {
+				if (!response.ok || payload.error) {
+					throw new Error(payload.error || ("HTTP " + response.status));
+				}
+				return payload;
+			});
+		}).then(function (payload) {
+			delete programs[program];       // force a re-read of what was written
+			return payload;
+		});
+	}
+
+	function attachEditors(slot, program) {
+		Array.prototype.forEach.call(slot.querySelectorAll(".wfhub-edit"), function (cell) {
+			cell.addEventListener("click", function () {
+				if (cell.querySelector("input")) return;
+				var raw = cell.getAttribute("data-raw");
+				var shown = cell.innerHTML;
+				cell.innerHTML = '<input class="wfhub-input" value="' + escape(raw) + '">';
+				var input = cell.querySelector("input");
+				input.focus();
+				input.select();
+
+				var finish = function (save) {
+					if (!save || input.value === raw) { cell.innerHTML = shown; return; }
+					cell.innerHTML = "saving…";
+					saveEdit(program, {
+						program: program,
+						command: cell.getAttribute("data-command"),
+						param: cell.getAttribute("data-param"),
+						value: input.value
+					}).then(function () {
+						return renderProgram(slot, program);
+					}).then(function () {
+						attachEditors(slot, program);
+						status(slot, "written. Reload the page for the game to read it.");
+					}).catch(function (error) {
+						cell.innerHTML = shown;
+						status(slot, "not written: " + error.message, true);
+					});
+				};
+				input.addEventListener("keydown", function (event) {
+					if (event.key === "Enter") finish(true);
+					else if (event.key === "Escape") finish(false);
+				});
+				input.addEventListener("blur", function () { finish(false); });
+			});
+		});
+	}
+
+	function status(slot, message, bad) {
+		var line = slot.querySelector(".wfhub-status");
+		if (line) line.innerHTML = '<span class="' + (bad ? "wfhub-none" : "wfhub-ok") +
+			'">' + escape(message) + "</span>";
 	}
 
 	function attachSkillToggles(container) {
@@ -345,6 +424,7 @@
 				target.innerHTML = "reading " + escape(program) + "\u2026";
 				Promise.all([loadReference(), loadProgram(program)]).then(function (both) {
 					target.innerHTML = programBlock(program, both[1]);
+					attachEditors(target, program);
 				}).catch(function (error) {
 					target.innerHTML = '<div class="wfhub-none">could not read ' +
 						escape(program) + ": " + escape(error.message) + "</div>";
@@ -425,6 +505,12 @@
 		".wfhub-params td:nth-child(3){color:#7fb08a;white-space:nowrap}",
 		".wfhub-params td:last-child{color:#6f7a90}",
 		".wfhub-outside td:nth-child(2){color:#e0b169;font-weight:600}",
+		".wfhub-edit{cursor:text;border-bottom:1px dotted #39415400}",
+		".wfhub-edit:hover{border-bottom-color:#4a5570;color:#fff}",
+		".wfhub-input{width:100%;background:#0d1016;color:#e6e8ee;border:1px solid #3d4a6b;",
+		"border-radius:4px;font:inherit;padding:1px 4px}",
+		".wfhub-status{min-height:16px;margin-top:6px;font-size:11px}",
+		".wfhub-ok{color:#7fb08a}",
 		".wfhub-tag{margin-left:6px;font-size:11px;color:#6f7a90;font-weight:400}",
 		".wfhub-none{color:#c98b8b}",
 		".wfhub-missing{border-color:#5a2b2b}",

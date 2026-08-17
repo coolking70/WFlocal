@@ -26,6 +26,7 @@ run "orderedmap lossless round-trip" bash -c \
 run "browser reader vs python reader" node tools/verify_orderedmap_js.mjs
 run "dsl reference is current" python3 tools/build_dsl_reference.py --check
 run "hub renders from master data" node tools/verify_hub.mjs
+run "hub edit path writes and restores" python3 tools/verify_edit.py
 
 echo
 if [ "$status" -ne 0 ]; then

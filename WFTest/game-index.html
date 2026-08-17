@@ -175,7 +175,10 @@
 
 			var GOTO_TUTORIAL_HEAD = "'" + esc("gotoTutorial") + "':function(_0x1c154a){this['" + esc("complete") + "']();if(";
 
-			var CHALLENGE_BOOT = "window['WF_DEMO_BOOT_MODE']==='challenge'){" +
+			// Loading Trial player 4's post-tutorial save is what makes the game state
+			// coherent outside the tutorial; every non-tutorial mode needs it, so it is
+			// written once and only the destination differs.
+			var LOAD_TRIAL_SAVE =
 				"var _wfPlayer=new _0x30d305(this['globalLogic']['getLogicAssets']())['getPlayerSaveData'](0x4);" +
 				"_wfPlayer['userInfo']['current_party']=0x1;" +
 				"var _wfLoaded=this['logicStatus']['getLoadedData']();" +
@@ -187,9 +190,26 @@
 				"'shouldPromptTakeoverRegistration':_wfLoaded['shouldPromptTakeoverRegistration']," +
 				"'clearedRegularMissions':_wfLoaded['clearedRegularMissions'],'drawnQuestList':_wfLoaded['drawnQuestList']};" +
 				"this['logic']['applyLoadedData'](_wfData);this['remote']['applyLoadedData'](_wfData);" +
-				"this['devConfig']['forcesFullTutorial']=![];" +
-				"this['gotoNextScene'](new _0x7cce90(_0x35a93f['Scene'](_0x13863f['TrialQuestSelect'](this['devConfig']['trialStageNodeId']))," +
-				"_0x38d429['FromTitle'],_0x29f711['None']));return;}if(";
+				"this['devConfig']['forcesFullTutorial']=![];";
+
+			// One destination per mode. The scene enums come from WF_INTERNALS rather
+			// than from more obfuscated locals: by the time gotoTutorial() runs the
+			// registries have long existed, and one fewer guessed local is one fewer
+			// thing to re-find later.
+			var GOTO_SCENE = function (expression) {
+				return "this['gotoNextScene'](new _0x7cce90(_0x35a93f['Scene'](" + expression +
+					"),_0x38d429['FromTitle'],_0x29f711['None']));return;}";
+			};
+
+			var BOOT_ROUTER =
+				"window['WF_DEMO_BOOT_MODE']==='challenge'){" + LOAD_TRIAL_SAVE +
+				GOTO_SCENE("_0x13863f['TrialQuestSelect'](this['devConfig']['trialStageNodeId'])") +
+				"if(window['WF_DEMO_BOOT_MODE']==='gacha'){" + LOAD_TRIAL_SAVE +
+				"var _wfEnums=window['WF_INTERNALS']['enums'];" +
+				"var _wfScene=_wfEnums['pinball.common.data.scene.SceneKind'];" +
+				"var _wfProgress=_wfEnums['pinball.common.data.tutorial.StartTutorialProgressKind'];" +
+				GOTO_SCENE("_wfScene['TutorialLightBallMovie'](_wfProgress['Shortened'])") +
+				"if(";
 
 			var MASTER_BUILDER = "var _0x550674=_0x3d4eef?new _0x4738f7(_0x1b0e4b['" + esc("path") + "'],[],_0x1b0e4b['" + esc("clazz") +
 				"']):_0x4738f7['" + esc("createFromMasterAssetPath") + "'](_0x1b0e4b)";
@@ -227,7 +247,7 @@
 				},
 				{
 					id: "expose-internals",
-					modes: ["tutorial", "challenge"],
+					modes: ["tutorial", "challenge", "gacha"],
 					note: "Publish Haxe's class and enum registries as window.WF_INTERNALS. They hold every " +
 						"class under its real name, so wfmod/runtime.js can look a class up and hook its " +
 						"prototype instead of adding another string replacement. Read-only exposure; the " +
@@ -236,16 +256,21 @@
 					replace: REGISTRY_DECL + "window.WF_INTERNALS={classes:_0x2cc772,enums:_0x7f6db2};"
 				},
 				{
-					id: "challenge-boot",
-					modes: ["challenge"],
-					note: "TitleScene.gotoTutorial(): load Trial player 4 with its post-tutorial save data " +
-						"and go straight to the native TrialQuestSelect instead of starting the tutorial.",
+					id: "boot-router",
+					modes: ["challenge", "gacha"],
+					note: "TitleScene.gotoTutorial(): load Trial player 4 with its post-tutorial save " +
+						"data, then go where the boot mode says - TrialQuestSelect for challenge, " +
+						"TutorialLightBallMovie for gacha - instead of starting the tutorial. The gacha " +
+						"destination plays the ball movie from gacha/tutorial_light.gacha.json through " +
+						"BallMovieKind.SingleMovie, which needs no gacha master rows (they are all empty) " +
+						"and makes no remote call; the scene's one remote call, tutorialUpdateStep, is in " +
+						"gotoNextScene, after the movie completes.",
 					find: GOTO_TUTORIAL_HEAD,
-					replace: GOTO_TUTORIAL_HEAD + CHALLENGE_BOOT
+					replace: GOTO_TUTORIAL_HEAD + BOOT_ROUTER
 				},
 				{
 					id: "full-master-boot",
-					modes: ["challenge"],
+					modes: ["challenge", "gacha"],
 					note: "GlobalAssetPathCollectionBuilder's second argument selects the startup dataset: true " +
 						"means bundled+iosbundled only (the tutorial slice), false means full+bundled+iosbundled. " +
 						"Challenge mode starts from post-tutorial save data, so it needs the full Trial dataset " +
@@ -257,7 +282,7 @@
 				},
 				{
 					id: "unlock-guard",
-					modes: ["challenge"],
+					modes: ["challenge", "gacha"],
 					note: "GameSystemUnlockRepository.isGameSystemUnlocked() throws ClientError 8601 for any key, " +
 						"because master game_system_unlock has 0 records. A missing row means no unlock condition " +
 						"was shipped, so answer 'locked' - what the tutorial path returns - instead of throwing. " +
@@ -275,7 +300,7 @@
 				},
 				{
 					id: "tips-fallback",
-					modes: ["challenge"],
+					modes: ["challenge", "gacha"],
 					note: "LoadingTipsLogic.getTipsTableStats() reads master tips outside tutorial state and throws " +
 						"ClientError 7011 when nothing matches. Master tips has 0 records here; the only 4 TIPS " +
 						"live in tutorial_tips_iosbundled with require_single_quest=(None). Fall back to that table.",
@@ -289,7 +314,7 @@
 				},
 				{
 					id: "report-off",
-					modes: ["challenge"],
+					modes: ["challenge", "gacha"],
 					note: "Every scene change POSTed a logic snapshot to api.worldflipper.jp, which no local build " +
 						"can reach. These are the game's own switches - Top.hx disables exactly these three " +
 						"together when it runs against a dummy remote.",
@@ -298,7 +323,7 @@
 				},
 				{
 					id: "clienterror-reporter",
-					modes: ["tutorial", "challenge"],
+					modes: ["tutorial", "challenge", "gacha"],
 					note: "Log one line per distinct ClientError. Without it the first real failure is buried " +
 						"under the SipoError/event cascade it triggers. Console output only.",
 					find: CLIENT_ERROR_CTOR,

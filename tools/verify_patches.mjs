@@ -16,7 +16,7 @@ import vm from "node:vm";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const bundlePath = resolve(root, "WFTest/world-flipper.js");
 const launcherPath = resolve(root, "WFTest/game-index.html");
-const MODES = ["tutorial", "challenge"];
+const MODES = ["tutorial", "challenge", "gacha"];
 
 function loadBootstrap() {
 	const html = readFileSync(launcherPath, "utf8");
@@ -85,6 +85,29 @@ for (const patch of patches) {
 	const status = count === 1 ? "ok  " : "BAD ";
 	console.log(`  ${status} ${patch.id.padEnd(22)} anchors=${count}  modes=${patch.modes.join(",")}`);
 	if (count !== 1) fail(`patch ${patch.id}: expected exactly 1 anchor, found ${count}`);
+}
+
+// A patch whose injected code reads WF_INTERNALS only works in the modes where
+// expose-internals is applied. The gacha boot router read the enum registry and
+// was listed for a mode that did not publish it - the patch table looked fine and
+// the mode would have died at the first scene change.
+{
+	const publisher = patches.find((p) => p.id === "expose-internals");
+	if (!publisher) {
+		fail("no expose-internals patch: nothing publishes WF_INTERNALS");
+	} else {
+		let bad = 0;
+		for (const patch of patches) {
+			if (patch.id === publisher.id || !patch.replace.includes("WF_INTERNALS")) continue;
+			const orphans = patch.modes.filter((m) => !publisher.modes.includes(m));
+			if (orphans.length) {
+				fail(`patch ${patch.id} reads WF_INTERNALS in mode(s) ${orphans.join(", ")} ` +
+					`where expose-internals is not applied`);
+				bad++;
+			}
+		}
+		if (!bad) console.log("  ok   every patch reading WF_INTERNALS runs where it is published");
+	}
 }
 
 // Hooks must not be tied to the bundle's load event. The bundle boots itself and

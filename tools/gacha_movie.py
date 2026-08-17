@@ -30,8 +30,26 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-CONFIG = ROOT / "WFTest" / "assets" / "production" / "gacha" / "tutorial_light.gacha.json"
-BACKUP = ROOT / "tools" / "baseline" / "tutorial_light.gacha.json.original"
+PROD = ROOT / "WFTest" / "assets" / "production"
+CONFIG = PROD / "gacha" / "tutorial_light.gacha.json"
+MOVIE_DIR = PROD / "scene" / "gacha_movie"
+BASELINE = ROOT / "tools" / "baseline"
+
+# The shipped movie is a tutorial prop: one rarity, so several timelines carry only
+# a `rarity3` sequence. Raising the rarity threshold makes the game ask for
+# `rarity4`, and a missing sequence name is a hard crash, not a fallback.
+RARITIES = ("rarity3", "rarity4", "rarity5")
+
+
+def backup_of(path):
+    return BASELINE / (path.name + ".original")
+
+
+def keep(path):
+    target = backup_of(path)
+    if not target.exists():
+        shutil.copyfile(path, target)
+        print(f"  saved {target.name}")
 
 
 def load():
@@ -39,9 +57,7 @@ def load():
 
 
 def save(config):
-    if not BACKUP.exists():
-        shutil.copyfile(CONFIG, BACKUP)
-        print(f"  saved {BACKUP.name}")
+    keep(CONFIG)
     # The shipped file is one line; keep it that way so a diff stays readable.
     CONFIG.write_text(json.dumps(config, ensure_ascii=False, separators=(", ", ": ")) + "\n",
                       encoding="utf-8")
@@ -81,26 +97,72 @@ def set_path(config, assignment):
     node[leaf] = value
 
 
+def placeholder_rarities():
+    """Alias the missing rarity sequences onto the one the file does have.
+
+    A sequence is a named frame range, so an alias needs no new frames: every
+    rarity plays the same animation. That is a placeholder and looks like one -
+    the point is that the higher rarities stop crashing, not that they look right.
+    """
+    touched = 0
+    for path in sorted(MOVIE_DIR.glob("*.timeline.json")):
+        data = json.loads(path.read_text(encoding="utf-8"))
+        sequences = data.get("sequences")
+        if not isinstance(sequences, list):
+            continue
+        have = {s.get("name"): s for s in sequences if isinstance(s, dict)}
+        if "rarity3" not in have:
+            continue                       # not driven by rarity; leave it alone
+        missing = [r for r in RARITIES if r not in have]
+        if not missing:
+            continue
+        keep(path)
+        for name in missing:
+            clone = dict(have["rarity3"])
+            clone["name"] = name
+            sequences.append(clone)
+        path.write_text(json.dumps(data, ensure_ascii=False, separators=(", ", ": ")) + "\n",
+                        encoding="utf-8")
+        print(f"  {path.name}: added {', '.join(missing)} "
+              f"(same frames as rarity3: {have['rarity3']['begin']}..{have['rarity3']['end']})")
+        touched += 1
+    if not touched:
+        print("  every rarity-driven timeline already has all three sequences")
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--show", action="store_true")
     ap.add_argument("--seed", help="'random' to remove the key, or an integer to pin it")
     ap.add_argument("--set", dest="assignments", action="append", default=[],
                     metavar="GROUP.KEY=VALUE")
+    ap.add_argument("--placeholder-rarities", action="store_true",
+                    help="alias missing rarity4/rarity5 sequences onto rarity3")
     ap.add_argument("--revert", action="store_true")
     args = ap.parse_args()
 
     if args.revert:
-        if not BACKUP.exists():
-            sys.exit("no backup to restore; this config was never changed by this tool")
-        shutil.copyfile(BACKUP, CONFIG)
-        BACKUP.unlink()
-        print(f"restored {CONFIG.relative_to(ROOT)}")
+        restored = 0
+        for original in sorted(BASELINE.glob("*.original")):
+            name = original.name[: -len(".original")]
+            for candidate in (CONFIG, *sorted(MOVIE_DIR.glob("*.timeline.json"))):
+                if candidate.name == name:
+                    shutil.copyfile(original, candidate)
+                    original.unlink()
+                    print(f"  restored {candidate.relative_to(ROOT)}")
+                    restored += 1
+                    break
+        if not restored:
+            sys.exit("no backup to restore; nothing here was changed by this tool")
         return 0
+
+    if args.placeholder_rarities:
+        return placeholder_rarities()
 
     config = load()
 
-    if args.show or (not args.seed and not args.assignments):
+    if args.show or (not args.seed and not args.assignments and not args.placeholder_rarities):
         show(config)
         return 0
 

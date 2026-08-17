@@ -111,12 +111,14 @@ var PARAMS = {
   ballrarity: {
     label: "强制球稀有度", kind: "text-dev", token: "ballrarity",
     hint: "0/1/2 → ★3/★4/★5（rarity+3 就是星级，bundle 自己这么算的）。" +
-          "不填则按 threshold.ballStar4 掷点。独立动画不校验结果，所以可以安全强制。"
+          "注意：球的外观只在撞上高稀有度护符时才更新（updateRarity），" +
+          "所以单独强制这一项看不出变化，要有护符可撞。"
   },
   amuletrarity: {
     label: "强制护符稀有度", kind: "text-dev", token: "amuletrarity",
     hint: "0/1/2。护符 rarity>0 时球撞上它才会变色（amuletContactedHandler → " +
-          "ballDisplayElement.updateRarity），想看变色演出就设 1 或 2。"
+          "ballDisplayElement.updateRarity）。官方配置里 amulet.totalCount 是 0，" +
+          "已用 gacha_movie.py 改成 6，否则场上根本没有护符可撞。"
   },
   trace: {
     label: "trace 某个方法", kind: "text-dev", token: "trace",

@@ -59,6 +59,7 @@ EXPECTED_CONTENT = {
     MASTER + "battle/field_data.orderedmap",
     MASTER + "battle/field.orderedmap",
     MASTER + "quest/main_quest.orderedmap",
+    "assets/production/gacha/tutorial_light.gacha.json",
 }
 
 # Assets WFMod adds. New paths are unknown to the baked-in manifest, so

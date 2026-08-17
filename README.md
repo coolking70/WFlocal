@@ -11,8 +11,9 @@
 ./tools/verify_all.sh         # 只跑检查（约 10 秒）
 ```
 
-启动后打开的是 `game-index.html?wfmode=challenge&wfdev=fullskill`。
-右下角 **WFMod Hub** 按钮可以看数值、看技能 DSL、改参数。
+启动后打开的是**模式选择页** `index.html`：原版教程 / 挑战·自制关卡 / 抽卡动画，
+每个模式下面列出它自己可用的参数，勾选后链接实时更新。
+游戏内右下角 **WFMod Hub** 按钮可以看数值、看技能 DSL、改参数。
 
 ---
 
@@ -36,10 +37,15 @@
 | master 行的 schema 在**构造函数**里，不是字段顺序 | 199 个字段跨多列 |
 | 波次 = zone 表嵌套键 = terrain 图层 | `tutorial_5` 两间房的结构 |
 | 同屏小怪上限 **10** | `ZoneValues` 只解析 `zako01..zako10` |
+| 抽卡动画的种子是**数据**，不是硬编码 | `hasOwnProperty(config,'seed') ? config.seed : Date.getTime()` |
+| 落球一次几颗 = **`draw` 数组长度**，无硬上限 | `getAllGachaConfig()` 逐项建配置；入场素材已带十连序列 |
+| 球外观只在**撞上高稀有度护符时**才更新 | `amuletContactedHandler` → `updateRarity()`，是唯一读取点 |
+| 抽卡 master 表**全空** | 只有 `gacha_odds/tutorial_rarity` 有 3 行 |
 
 详细记录：
 [`reverse/character-skill-chain.md`](reverse/character-skill-chain.md)（角色→技能→DSL、单位、开发开关）、
 [`reverse/custom-stage.md`](reverse/custom-stage.md)（关卡结构、坐标系、四个踩过的坑）、
+[`reverse/gacha-movie.md`](reverse/gacha-movie.md)（落球动画、种子、十连的可行性、三处被关掉的开关）、
 [`reverse/dsl-capability-matrix.md`](reverse/dsl-capability-matrix.md)（34 条命令，22 已用）、
 [`reverse/README.md`](reverse/README.md)（bundle 索引怎么生成、边界在哪）。
 
@@ -70,7 +76,8 @@
 | 技能 | `wfmod_001`，分叉自 `brown_fighter`：场地中心六向 30° 展开的长条判定，8 帧一跳 | `fork_skill.py --revert` |
 | 关卡 | 挑战第 4 关「WFMOD 練習場」——小怪房间（10 只网格分布）→ boss 房间 | `dummy_stage.py --revert` |
 | 界面 | WFMod Hub：队伍数值 / DSL 视图 / 参数编辑 | 不改游戏，`?wfhub` 才展开 |
-| 补丁 | 8 个（challenge 模式），见 `game-index.html` 的 `PATCHES` | 表里删掉即可 |
+| 抽卡 | `wfmode=gacha` 独立入口，落球动画连续重播；种子已去固定，护符与稀有度阈值改为测试值 | `gacha_movie.py --revert` |
+| 补丁 | 3 / 8 / 8 个（tutorial / challenge / gacha），见 `game-index.html` 的 `PATCHES` | 表里删掉即可 |
 
 挑战关卡 1~3 保持原样，它们是验证其他改动时的基准。
 
@@ -118,6 +125,7 @@ python3 tools/stamp_assets.py                    # 三个 wfmod 脚本的 cache-
 | DSL 参考时效 | Hub 显示昨天的数据 |
 | Hub 渲染 | join 错误（渲染出"自信的错误界面"） |
 | 编辑路径 | 写入有损、拒绝失效、**HTTP 路线没人调用过** |
+| 模式一致性 | 启动页与补丁表的模式集合不一致；读 `WF_INTERNALS` 的补丁跑在没发布它的模式里 |
 
 **不覆盖**：任何需要游戏真正跑起来的事。启动、进关卡、AUTO、战斗结算、
 技能表现——**这些只能在浏览器里由人验**，本仓库不假装验过。
@@ -135,3 +143,6 @@ python3 tools/stamp_assets.py                    # 三个 wfmod 脚本的 cache-
    编辑功能第一版写入器是好的、HTTP 路线从没被调用过，而所有检查都通过了。
 6. **一个改动"看不出变化"有两种可能**：没生效，或者生效了但在这个配置下本来就不该有可见差别。
    只有把内部状态读出来才分得清——`?wfdev=trace` 就是为此存在的。
+7. **验证了因，不等于验证了果。** 强制稀有度那次，我对真 bundle 验证了 hook 确实挂上
+   （applied 非 failed），就此认为开关成立——但没去查"生效之后还有没有人读这个值"。
+   护符数为 0，唯一的读取点永不触发。而那个 `0` 就在我自己两轮前打印的输出里。

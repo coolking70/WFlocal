@@ -25,10 +25,10 @@ const check = (ok, what) => {
 function element(tag) {
 	const node = {
 		tagName: tag, children: [], listeners: {}, style: {}, hidden: false,
-		className: "", type: "", textContent: "", innerHTML: "",
+		className: "", type: "", textContent: "", innerHTML: "", attributes: {},
 		appendChild(child) { this.children.push(child); return child; },
-		setAttribute(name, value) { this[name] = value; },
-		getAttribute(name) { return this[name]; },
+		setAttribute(name, value) { this.attributes[name] = value; },
+		getAttribute(name) { return this.attributes[name]; },
 		addEventListener(name, fn) { this.listeners[name] = fn; },
 		querySelector() { return element("stub"); },
 		querySelectorAll() { return []; }
@@ -53,8 +53,12 @@ const sandbox = {
 		const path = resolve(served, String(url).split("?")[0]);
 		try {
 			const body = readFileSync(path);
-			return { ok: true, arrayBuffer: async () => body.buffer.slice(
-				body.byteOffset, body.byteOffset + body.byteLength) };
+			return {
+				ok: true,
+				arrayBuffer: async () => body.buffer.slice(
+					body.byteOffset, body.byteOffset + body.byteLength),
+				json: async () => JSON.parse(body.toString("utf8"))
+			};
 		} catch (error) {
 			return { ok: false, status: 404 };
 		}
@@ -101,6 +105,54 @@ check(party1.every((id) => html.includes(id)),
 	`panel lists all ${party1.length} party members`);
 check(html.includes("wfmod_001") || !html.includes("undefined"),
 	"panel renders no undefined fields");
+
+// --- the DSL view -----------------------------------------------------------
+//
+// The point of this view is that the numbers carry names, units and context, so
+// check exactly that rather than "some markup appeared".
+const skills = table(master + "skill/action_skill.orderedmap");
+const characters = table(master + "character/character.orderedmap");
+const skillKey = om.rows(om.get(characters, leader))[0][8];
+const program = om.rows(om.get(skills, skillKey).entries[0])[0][7];
+const dsl = JSON.parse(readFileSync(
+	resolve(served, "assets/production/" + program + ".action.dsl.json"), "utf8"));
+const reference = JSON.parse(readFileSync(resolve(served, "wfmod/dsl-reference.json"), "utf8"));
+
+const slot = element("div");
+await sandbox.window.WFMod.hub.ready();
+const dslHtml = await sandbox.window.WFMod.hub.renderProgram(slot, program);
+
+console.log(`\nskill      ${skillKey} -> ${program}`);
+
+// Every command in the file must appear, named.
+const names = [];
+(function walk(node) {
+	if (Array.isArray(node)) {
+		if (node.length === 2 && node[0] === "Command" && Array.isArray(node[1]) && node[1].length) {
+			names.push(node[1][0]);
+		}
+		node.forEach(walk);
+	}
+})(dsl);
+check(names.every((n) => dslHtml.includes(n)),
+	`view names all ${names.length} commands in the file`);
+
+// Parameter names come from the generated reference, not from position.
+const attackParams = reference.commands.CreateNormalAttack.params;
+check(attackParams.every((p) => dslHtml.includes(p)),
+	`view labels all ${attackParams.length} CreateNormalAttack parameters`);
+
+// Units: this fork's StopBall holds the ball for 300 frames, which is 5 seconds.
+check(dslHtml.includes("5s"), "view converts frames to seconds (StopBall 300 -> 5s)");
+check(/30\u00b0|30°/.test(dslHtml), "view converts radians to degrees (NWay 0.5236 -> 30°)");
+
+// Context: damage is 999999 here and the shipped range is 0-1150, so the row
+// must both quote the range and be flagged as outside it.
+const shipped = reference.commands.CreateNormalAttack.observed.damage.numeric;
+check(dslHtml.includes(`shipped ${shipped.min}`),
+	`view quotes the shipped damage range (${shipped.min}-${shipped.max})`);
+check(dslHtml.includes("wfhub-outside"),
+	"view flags a value outside every shipped value for that parameter");
 
 console.log("");
 if (failures) {

@@ -82,7 +82,7 @@ var MODES = [
     id: "gacha", tag: "BALL MOVIE", title: "抽卡动画",
     desc: "直接进入抽卡落球动画（TutorialLightBallMovie）。固定种子已从配置里移除，每次落点不同；" +
           "需要复现时用 tools/gacha_movie.py --seed <n> 钉回去。7 个补丁。",
-    params: ["hub", "dev", "trace"]
+    params: ["hub", "dev", "ballrarity", "amuletrarity", "trace"]
   }
 ];
 
@@ -107,6 +107,16 @@ var PARAMS = {
   stats: {
     label: "打印队员 hp/atk", kind: "dev", token: "stats",
     hint: "在 MemberImpl 的 4 个候选方法上挂探针，谁被调用谁报告。"
+  },
+  ballrarity: {
+    label: "强制球稀有度", kind: "text-dev", token: "ballrarity",
+    hint: "0/1/2 → ★3/★4/★5（rarity+3 就是星级，bundle 自己这么算的）。" +
+          "不填则按 threshold.ballStar4 掷点。独立动画不校验结果，所以可以安全强制。"
+  },
+  amuletrarity: {
+    label: "强制护符稀有度", kind: "text-dev", token: "amuletrarity",
+    hint: "0/1/2。护符 rarity>0 时球撞上它才会变色（amuletContactedHandler → " +
+          "ballDisplayElement.updateRarity），想看变色演出就设 1 或 2。"
   },
   trace: {
     label: "trace 某个方法", kind: "text-dev", token: "trace",

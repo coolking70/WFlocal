@@ -305,8 +305,43 @@
 		});
 	}
 
+	// ?wfdev=ballrarity:1 / amuletrarity:1
+	//
+	// The gacha movie decides rarity by rolling probability in [0,1) against a
+	// threshold, so testing the higher outcomes otherwise means replaying until one
+	// comes up. rarity + 3 is the star rating, which the bundle states itself in
+	// verifyResultBallRarity: 0 = star 3, 1 = star 4, 2 = star 5.
+	//
+	// Safe to force here: that verification only runs when the source reports a
+	// result character, and the standalone movie's source returns None, so nothing
+	// cross-checks the forced value. In a real gacha draw it would, and rightly.
+	function forceGachaRarity() {
+		var FIELD = "pinball.gacha.ballMovie.fallingField.FixedFallingField";
+		[["ballrarity", "initBallRarity", "ball"],
+		 ["amuletrarity", "initAmuletRarity", "amulets"]].forEach(function (spec) {
+			var wanted = devFlag(spec[0]);
+			if (wanted === null) return;
+			var rarity = typeof wanted === "number" ? wanted : 1;
+			hook(FIELD, spec[1], function (original) {
+				return function () {
+					original.apply(this, arguments);
+					// The field is simulated twice - once to precalculate the result, once
+					// to play - so forcing it here covers both.
+					if (spec[2] === "ball") {
+						this.ball.rarity = rarity;
+					} else if (this.amulets) {
+						this.amulets.forEach(function (amulet) { amulet.rarity = rarity; });
+					}
+				};
+			});
+			log.warn("[WFMod] DEV AID active: " + spec[2] + " rarity forced to " + rarity +
+				" (star " + (rarity + 3) + ") (?wfdev=" + spec[0] + ":" + rarity + ")");
+		});
+	}
+
 	function applyDevAids() {
 		applyTraces();
+		forceGachaRarity();
 		// Members take their opening gauge from the battle-continuation data:
 		//   skillPoint.setRatio(restore.getSkillPointRatio(index))
 		// A fresh battle has no entry, so that returns 0 and everyone starts empty.

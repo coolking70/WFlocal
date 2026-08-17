@@ -50,6 +50,16 @@ class Handler(http.server.SimpleHTTPRequestHandler):
     # The Hub edits data through this, because a browser cannot write files and
     # should not learn how - tools/apply_edit.py keeps Python the only writer.
     # The server binds to 127.0.0.1, so this is reachable from this machine only.
+    # A GET on the edit endpoint answers "editing is available here". A server
+    # started before this feature existed answers 404 for it and 501 to the POST,
+    # and the browser has no other way to tell - which is exactly the confusion
+    # this caused: the page looked fine because the old server still served files.
+    def do_GET(self):
+        if self.path.split("?")[0] == "/wfmod/api/edit":
+            self.reply(200, {"ready": True, "build": BUILD})
+            return
+        super().do_GET()
+
     def do_POST(self):
         if self.path.split("?")[0] != "/wfmod/api/edit":
             self.send_error(404, "no such endpoint")

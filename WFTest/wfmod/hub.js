@@ -301,6 +301,13 @@
 		return { text: parts.join(" \u00b7 "), outside: outside };
 	}
 
+	function paramNote(commandEntry, paramName) {
+		var perCommand = (commandEntry && commandEntry.paramZh) || {};
+		if (perCommand[paramName]) return perCommand[paramName];
+		var shared = (reference && reference.paramNotes) || {};
+		return shared[paramName] || "";
+	}
+
 	function commandBlock(command) {
 		var name = command[0];
 		var entry = reference && reference.commands && reference.commands[name];
@@ -316,16 +323,20 @@
 			var editable = fields[i] ? ' class="wfhub-edit" data-command="' + escape(name) +
 				'" data-param="' + escape(paramName) + '" data-raw="' +
 				escape(JSON.stringify(value)) + '" title="click to edit"' : "";
+			var note = paramNote(entry, paramName);
 			return "<tr" + (seen.outside ? ' class="wfhub-outside"' : "") + ">" +
-				"<td>" + escape(paramName) + "</td>" +
+				"<td>" + escape(paramName) +
+				(note ? '<div class="wfhub-zh">' + escape(note) + "</div>" : "") + "</td>" +
 				"<td" + editable + ">" + escape(show(value, enums[paramName])) + "</td>" +
 				"<td>" + escape(unit) + "</td>" +
 				"<td>" + escape(seen.text) + "</td></tr>";
 		}).join("");
 		var uses = entry ? entry.uses : 0;
+		var zh = entry && entry.zh;
 		return '<div class="wfhub-cmd"><div class="wfhub-cmd-name">' + escape(name) +
-			'<span class="wfhub-tag">' + (uses ? uses + " uses in shipped skills"
-				: "unused by shipped skills") + "</span></div>" +
+			'<span class="wfhub-tag">' + (uses ? "官方技能中用了 " + uses + " 次"
+				: "官方技能未使用") + "</span></div>" +
+			(zh ? '<div class="wfhub-zh wfhub-cmd-zh">' + escape(zh) + "</div>" : "") +
 			'<table class="wfhub-params">' + rows + "</table></div>";
 	}
 
@@ -335,15 +346,12 @@
 			" &middot; " + list.length + " commands</div>" +
 			list.map(commandBlock).join("") +
 			'<div class="wfhub-status"></div>' +
-			'<div class="wfhub-foot">Click a value to edit it - the box holds the raw ' +
-			"JSON, since the readable form drops units and argument names. Enter " +
-			"writes, Escape cancels; writing goes through tools/tune_skill.py, and " +
-			"the game only reads the new file after a page reload. Columns: " +
-			"parameter, value, converted unit, " +
-			"what the shipped skills use. A highlighted row is outside every value " +
-			"the shipped skills use for that parameter - unusual, not necessarily " +
-			"wrong. Units marked in dsl-reference.json as inferred are not " +
-			"converted here.</div></div>";
+			'<div class="wfhub-foot">四列：参数 / 值 / 单位换算 / 官方技能用的范围。' +
+			"点值即可编辑，框里是原始 JSON（可读形式省掉了单位和参数名，反解回去是猜测）；" +
+			"回车写入，Esc 取消，写入后需刷新页面游戏才会读到。" +
+			"高亮的行表示这个值超出了所有官方技能对该参数用过的范围——只是不寻常，不等于错。" +
+			"没有中文说明的参数是含义尚未确认的，宁可留空也不猜。" +
+			"标为 inferred 的单位不做换算。</div></div>";
 	}
 
 	// --- editing ------------------------------------------------------------
@@ -352,6 +360,21 @@
 	// runs tools/apply_edit.py -> tools/tune_skill.py, so the file is written by
 	// the same code a person editing by hand would use and the DSL re-encoder
 	// stays the single writer.
+	var canEdit = null;      // null = not asked yet
+
+	function probeEditing() {
+		if (canEdit !== null) return Promise.resolve(canEdit);
+		return fetch("wfmod/api/edit", { cache: "no-store" }).then(function (response) {
+			return response.ok ? response.json() : null;
+		}).then(function (payload) {
+			canEdit = Boolean(payload && payload.ready);
+			return canEdit;
+		}).catch(function () {
+			canEdit = false;
+			return canEdit;
+		});
+	}
+
 	function saveEdit(program, request) {
 		return fetch("wfmod/api/edit", {
 			method: "POST",
@@ -372,6 +395,18 @@
 
 	function attachEditors(slot, program) {
 		Array.prototype.forEach.call(slot.querySelectorAll(".wfhub-edit"), function (cell) {
+			attachOneEditor(slot, program, cell);
+		});
+		probeEditing().then(function (ready) {
+			if (!ready) {
+				status(slot, "这个服务器不支持编辑（它早于该功能）。重启一次： " +
+					"./run_macos_linux.sh", true);
+			}
+		});
+	}
+
+	function attachOneEditor(slot, program, cell) {
+		{
 			cell.addEventListener("click", function () {
 				if (cell.querySelector("input")) return;
 				var raw = cell.getAttribute("data-raw");
@@ -381,22 +416,36 @@
 				input.focus();
 				input.select();
 
+				// One finish per edit. The first version let Enter start a save and
+				// then had the resulting blur - the input is gone by then - call
+				// finish(false), which put the old text straight back. That looked
+				// exactly like "editing does not save", whether or not the write
+				// had actually happened.
+				var settled = false;
 				var finish = function (save) {
-					if (!save || input.value === raw) { cell.innerHTML = shown; return; }
+					if (settled) return;
+					settled = true;
+					var edited = input.value;
+					if (!save || edited === raw) { cell.innerHTML = shown; return; }
 					cell.innerHTML = "saving…";
 					saveEdit(program, {
 						program: program,
 						command: cell.getAttribute("data-command"),
 						param: cell.getAttribute("data-param"),
-						value: input.value
+						value: edited
 					}).then(function () {
 						return renderProgram(slot, program);
 					}).then(function () {
 						attachEditors(slot, program);
-						status(slot, "written. Reload the page for the game to read it.");
+						status(slot, "已写入 " + cell.getAttribute("data-param") +
+							" = " + edited + "。刷新页面后游戏才会读到新值。");
 					}).catch(function (error) {
-						cell.innerHTML = shown;
-						status(slot, "not written: " + error.message, true);
+						// Leave the attempted value in the box: losing what was typed
+						// on top of not saving it is the worst of both.
+						cell.innerHTML = '<input class="wfhub-input" value="' +
+							escape(edited) + '">';
+						attachOneEditor(slot, program, cell);
+						status(slot, "未写入：" + error.message, true);
 					});
 				};
 				input.addEventListener("keydown", function (event) {
@@ -405,7 +454,7 @@
 				});
 				input.addEventListener("blur", function () { finish(false); });
 			});
-		});
+		}
 	}
 
 	function status(slot, message, bad) {
@@ -501,7 +550,10 @@
 		".wfhub-params{border-collapse:collapse;width:100%;font-size:11px;",
 		"font-variant-numeric:tabular-nums;margin-top:3px}",
 		".wfhub-params td{padding:1px 8px 1px 0;vertical-align:top;color:#c2c8d6}",
-		".wfhub-params td:first-child{color:#6f7a90;white-space:nowrap}",
+		".wfhub-params td:first-child{color:#6f7a90;white-space:nowrap;max-width:190px}",
+		".wfhub-zh{color:#8a94a8;font-size:10.5px;white-space:normal;line-height:1.35;",
+		"margin:1px 0 3px}",
+		".wfhub-cmd-zh{margin:2px 0 4px;color:#9aa3b5;font-size:11px}",
 		".wfhub-params td:nth-child(3){color:#7fb08a;white-space:nowrap}",
 		".wfhub-params td:last-child{color:#6f7a90}",
 		".wfhub-outside td:nth-child(2){color:#e0b169;font-weight:600}",

@@ -60,6 +60,81 @@ UNITS = {
 }
 
 
+# Chinese labels for the view. Hand-written, and deliberately incomplete: a
+# parameter whose meaning has not been established gets no label rather than a
+# guess, because a confident wrong label is worse than an empty cell. Where a
+# meaning was settled by experiment, the note says so.
+#
+# PARAM_NOTES applies to a parameter name wherever it appears; COMMAND_NOTES adds
+# per-command descriptions and overrides for names that mean different things in
+# different commands.
+PARAM_NOTES = {
+    "id": "命令自身的编号，DSL 内部引用用；负数是绑定好的固定点（-1 场地中心 / -2 左上 / -17 角色 / -18 弹珠）",
+    "symbol": "判定区跟随的对象（同上的编号规则）",
+    "coordSys": "坐标系：AB 世界 / CD 角色朝向 / EF 移动方向 / GH 指向某对象",
+    "u": "横向偏移（目标朝向旋转后的局部坐标，逻辑像素）",
+    "v": "纵向偏移（同上）",
+    "w": "角度偏移（弧度）",
+    "frame": "持续帧数（60fps，即 1/60 秒）",
+    "lifetime": "存在时长",
+    "name": "名称（HideEffect 按名字关闭时要对上）",
+    "effect": "特效资源路径",
+    "layerZDepth": "绘制层次（角色前/后等）",
+    "scale": "缩放倍数",
+    "trackingPosition": "是否随目标移动",
+    "trackingDirection": "是否随目标转向",
+    "shape": "判定形状",
+    "hAlign": "横向对齐",
+    "vAlign": "纵向对齐",
+    "formation": "多重判定的排布方式；NWay 分的是朝向而非位置（实测）",
+    "minHitInterval": "同一目标两次命中的最小间隔",
+    "maxNumOfHits": "命中次数上限（None 为不封顶）",
+    "eliminatedOnHit": "命中后是否消失",
+    "cracksWeakPoint": "是否能破弱点",
+    "element": "属性（255 表示继承角色属性）",
+    "damage": "固定伤害，与攻击力无关（实测）",
+    "sLvMultiplierOfAttackPoint": "攻击力倍率，min/max 按技能等级插值",
+    "hitEffect": "命中特效",
+    "size": "震动幅度",
+    "speed": "速度",
+    "movingSpeed": "移动速度（单位未确认）",
+    "endingSpeed": "结束时的速度处理",
+    "suppressDirectAttack": "期间是否禁用直接攻击",
+    "probability": "触发概率",
+    "conditions": "施加的状态列表",
+    "radius": "半径（逻辑像素）",
+    "width": "宽（逻辑像素）",
+    "height": "高（逻辑像素）",
+    "angle": "张角（弧度）",
+    "n": "数量",
+    "a": "相邻两个之间的角度（弧度）",
+    "s": "间距",
+    "o": "整体偏移",
+    "r": "半径",
+    "value": "值",
+    "minHitIntervalDirect": "直接指定的最小命中间隔",
+}
+
+COMMAND_NOTES = {
+    "StopBall": {"zh": "把弹珠定在原地一段时间，结束后按 endingSpeed 处理速度"},
+    "MoveBall": {"zh": "让弹珠朝指定方向移动；coordSys 用 GH(目标) 时是朝该目标直线冲"},
+    "HideCharacter": {"zh": "隐藏角色一段时间（技能演出期间常用）"},
+    "ShowEffect": {"zh": "播放一个特效"},
+    "HideEffect": {"zh": "按名字关闭正在播放的特效"},
+    "ShakeCamera": {"zh": "镜头震动"},
+    "CreateHitArea": {"zh": "创建判定区域——技能的命中范围就在这里；它永不渲染，只能通过谁掉血观察"},
+    "CreateNormalAttack": {"zh": "在判定区内造成普通攻击伤害"},
+    "CreateCondition": {"zh": "施加状态（buff / debuff）"},
+    "FindAllSubjects": {"zh": "找出所有符合条件的目标，对每个执行内层命令"},
+    "FindNearSubjects": {"zh": "找出附近符合条件的目标"},
+    "AddSkillPoint": {"zh": "增加技能槽能量"},
+    "SubtractSkillPoint": {"zh": "减少技能槽能量"},
+    "AddFeverPoint": {"zh": "增加 Fever 值"},
+    "SubtractFeverPoint": {"zh": "减少 Fever 值"},
+    "CreateShield": {"zh": "创建护盾；这个 build 缺 boss_shield 素材，尚未跑通"},
+}
+
+
 def dsl_files():
     seen = {}
     for root in ASSET_ROOTS:
@@ -172,11 +247,14 @@ def build():
         "enums": dsl_enums,
         "paramEnums": param_enums,
         "units": {k: {"unit": u, "confidence": c} for k, (u, c) in UNITS.items()},
+        "paramNotes": PARAM_NOTES,
         "commands": {
             name: {
                 "params": fields,
                 "uses": ranges.get(name, {}).get("uses", 0),
                 "enums": param_enums.get(name, {}),
+                "zh": COMMAND_NOTES.get(name, {}).get("zh", ""),
+                "paramZh": COMMAND_NOTES.get(name, {}).get("params", {}),
                 "observed": ranges.get(name, {}).get("params", {})
             }
             for name, fields in sorted(names.items())
@@ -206,8 +284,11 @@ def main():
 
     OUT.write_text(text, encoding="utf-8")
     used = sum(1 for c in reference["commands"].values() if c["uses"])
+    annotated = sum(1 for c in reference["commands"].values() if c["zh"])
     print(f"wrote {OUT.relative_to(ROOT)}")
     print(f"  commands          {len(reference['commands'])} ({used} used by shipped skills)")
+    print(f"  with a note       {annotated}")
+    print(f"  parameter notes   {len(PARAM_NOTES)}")
     print(f"  DSL files sampled {reference['sampled']}")
     return 0
 

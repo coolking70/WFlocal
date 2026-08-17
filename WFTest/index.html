@@ -82,7 +82,7 @@ var MODES = [
     id: "gacha", tag: "BALL MOVIE", title: "抽卡动画",
     desc: "直接进入抽卡落球动画（TutorialLightBallMovie）。固定种子已从配置里移除，每次落点不同；" +
           "需要复现时用 tools/gacha_movie.py --seed <n> 钉回去。7 个补丁。",
-    params: ["hub", "dev", "ballrarity", "amuletrarity", "trace"]
+    params: ["hub", "dev", "draws", "ballrarity", "amuletrarity", "trace"]
   }
 ];
 
@@ -107,6 +107,12 @@ var PARAMS = {
   stats: {
     label: "打印队员 hp/atk", kind: "dev", token: "stats",
     hint: "在 MemberImpl 的 4 个候选方法上挂探针，谁被调用谁报告。"
+  },
+  draws: {
+    label: "N 连测试台", kind: "text", query: "wfdraws",
+    hint: "填 10 就显示「第 N / 10 抽」并逐抽打出种子。注意这是 10 次连抽，" +
+          "不是原版十连——原版是一段十球入场动画（entry_movie_ten_0..9，本 demo 未附带）" +
+          "加上十次单球落下，落球场本身永远只有一颗球（bundle 里 'balls' 出现 0 次）。"
   },
   ballrarity: {
     label: "强制球稀有度", kind: "text-dev", token: "ballrarity",
@@ -148,6 +154,7 @@ function urlFor(mode, state) {
     if (spec.kind === "flag") query.push(spec.query + "=" + spec.value);
     else if (spec.kind === "dev") dev.push(spec.token);
     else if (spec.kind === "text-dev") dev.push(spec.token + ":" + value);
+    else if (spec.kind === "text" && spec.query === "wfdraws") query.push(spec.query + "=" + encodeURIComponent(value));
     else if (spec.kind === "text") dev.push(value);
   });
   if (dev.length) query.push("wfdev=" + encodeURIComponent(dev.join(",")));

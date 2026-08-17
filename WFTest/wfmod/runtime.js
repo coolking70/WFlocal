@@ -339,9 +339,66 @@
 		});
 	}
 
+	// ?wfdraws=10 - the N-draw bench.
+	//
+	// This counts draws and shows the seed of each; it does not make ten balls fall
+	// together, and the original does not either. The shipped ten-pull plays ten
+	// canned entry animations (entry_movie_ten_0..9, absent from this demo) tinted by
+	// each ball's precomputed rarity, then drops the balls one at a time. So ten
+	// drops in a row is the real shape of a ten-pull minus its entry movie - which is
+	// why this is worth having, and why it is not "a ten-pull".
+	//
+	// No patch change is needed to count: FallingField picks a fresh seed per field,
+	// so a seed we have not seen is a new draw. The field is built twice per draw
+	// (once to precalculate the result, once to play) with the same seed, which is
+	// exactly what makes the seed the right key.
+	function gachaBench() {
+		// One aid must not be able to break the others: applyDevAids calls these in
+		// sequence, so anything missing from the environment is checked, not assumed.
+		if (typeof window === "undefined" || !window.location ||
+			typeof URLSearchParams === "undefined" || typeof document === "undefined") return;
+		var batch = Number(new URLSearchParams(window.location.search).get("wfdraws"));
+		if (!batch || batch < 1) return;
+
+		var FIELD = "pinball.gacha.ballMovie.fallingField.FixedFallingField";
+		var seen = null;
+		var count = 0;
+		var panel = null;
+
+		function show(text) {
+			if (!panel) {
+				panel = document.createElement("div");
+				panel.setAttribute("style",
+					"position:fixed;left:12px;top:12px;z-index:99999;padding:6px 12px;" +
+					"border-radius:8px;background:rgba(18,20,26,.86);color:#e6e8ee;" +
+					"font:12px/1.5 ui-monospace,Menlo,monospace;pointer-events:none");
+				document.body.appendChild(panel);
+			}
+			panel.textContent = text;
+		}
+
+		var ok = hook(FIELD, "initBallRarity", function (original) {
+			return function () {
+				original.apply(this, arguments);
+				var seed = this.random && this.random.seed;
+				if (seed === seen) return;          // the second build of the same draw
+				seen = seed;
+				count++;
+				var index = ((count - 1) % batch) + 1;
+				var line = "抽卡台  第 " + index + " / " + batch + " 抽" +
+					"  seed=" + seed + "  ball=★" + (this.ball.rarity + 3);
+				show(line);
+				log.info("[WFMod] " + line + "  (--seed " + seed + " 可复现这一抽)");
+			};
+		});
+		log.warn("[WFMod] DEV AID active: gacha bench, batches of " + batch +
+			(ok ? "" : " (hook FAILED)") + " (?wfdraws=" + batch + ")");
+	}
+
 	function applyDevAids() {
 		applyTraces();
 		forceGachaRarity();
+		gachaBench();
 		// Members take their opening gauge from the battle-continuation data:
 		//   skillPoint.setRatio(restore.getSkillPointRatio(index))
 		// A fresh battle has no entry, so that returns 0 and everyone starts empty.

@@ -6,12 +6,36 @@
 <title>WORLD FLIPPER Web Demo · Mod Runtime</title>
 <style>
 :root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:#171717;background:#f4f6f8}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at top,#fff 0,#f4f6f8 48%,#e8edf2 100%)}
-.shell{width:min(760px,100%);background:rgba(255,255,255,.94);border:1px solid #dfe5ea;border-radius:24px;box-shadow:0 18px 60px rgba(26,41,55,.13);overflow:hidden}
-.hero{padding:32px 32px 22px;border-bottom:1px solid #e7ebee}.eyebrow{font-size:12px;letter-spacing:.16em;font-weight:800;color:#71808c}.hero h1{font-size:30px;line-height:1.15;margin:8px 0 8px}.hero p{margin:0;color:#66727c;line-height:1.7}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;padding:24px 32px}.card{display:flex;flex-direction:column;min-height:218px;padding:22px;border:1px solid #dfe6eb;border-radius:18px;text-decoration:none;color:inherit;background:#fff;transition:.16s transform,.16s box-shadow,.16s border-color}.card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(29,48,65,.10);border-color:#b9c7d2}.tag{font-size:12px;font-weight:800;color:#667b8b}.card h2{font-size:21px;margin:8px 0}.card p{font-size:14px;color:#66727c;line-height:1.65;margin:0}.go{margin-top:auto;padding-top:20px;font-weight:800}.challenge{border-color:#9fb8ca;background:linear-gradient(155deg,#fff,#f4f9fc)}
-.note{margin:0 32px 28px;padding:16px 18px;border-radius:14px;background:#f5f7f9;color:#596772;font-size:13px;line-height:1.65}.note b{color:#293740}
-@media(max-width:620px){body{padding:0;background:#fff}.shell{min-height:100vh;border:0;border-radius:0;box-shadow:none}.hero{padding:28px 22px 20px}.grid{grid-template-columns:1fr;padding:20px 22px}.note{margin:0 22px 26px}}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:grid;place-items:start center;padding:24px;background:radial-gradient(circle at top,#fff 0,#f4f6f8 48%,#e8edf2 100%)}
+.shell{width:min(880px,100%);background:rgba(255,255,255,.94);border:1px solid #dfe5ea;border-radius:24px;box-shadow:0 18px 60px rgba(26,41,55,.13);overflow:hidden}
+.hero{padding:32px 32px 22px;border-bottom:1px solid #e7ebee}
+.eyebrow{font-size:12px;letter-spacing:.16em;font-weight:800;color:#71808c}
+.hero h1{font-size:30px;line-height:1.15;margin:8px 0 8px}
+.hero p{margin:0;color:#66727c;line-height:1.7}
+.modes{padding:24px 32px 8px;display:grid;gap:16px}
+.card{border:1px solid #dfe6eb;border-radius:18px;background:#fff;padding:20px 22px}
+.card.on{border-color:#8fb0c8;background:linear-gradient(155deg,#fff,#f3f9fd);box-shadow:0 10px 24px rgba(29,48,65,.08)}
+.card header{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.tag{font-size:11px;font-weight:800;color:#667b8b;letter-spacing:.1em}
+.card h2{font-size:20px;margin:6px 0}
+.card p.desc{font-size:14px;color:#66727c;line-height:1.65;margin:0 0 4px}
+.params{margin:14px 0 0;padding:14px 0 0;border-top:1px dashed #e2e8ed;display:grid;gap:10px}
+.param{display:grid;grid-template-columns:200px 1fr;gap:12px;align-items:start;font-size:13px}
+.param>label{color:#4a5763;font-weight:600;padding-top:3px}
+.param .hint{grid-column:2;color:#8a95a0;font-size:12px;line-height:1.5;margin-top:-4px}
+.param input[type=text]{width:100%;padding:5px 8px;border:1px solid #d5dde4;border-radius:7px;font:inherit}
+.param .row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.param .row label{display:inline-flex;gap:5px;align-items:center;color:#4a5763}
+.launch{display:flex;gap:12px;align-items:center;margin:16px 0 0;flex-wrap:wrap}
+.launch a{display:inline-block;padding:9px 20px;border-radius:10px;background:#2b3550;color:#fff;
+text-decoration:none;font-weight:800;font-size:14px}
+.launch a:hover{background:#3a4768}
+.launch code{font-size:11.5px;color:#7a8590;word-break:break-all}
+.note{margin:8px 32px 28px;padding:16px 18px;border-radius:14px;background:#f5f7f9;color:#596772;font-size:13px;line-height:1.7}
+.note b{color:#293740}.note code{background:#eceff2;padding:1px 5px;border-radius:4px;font-size:12px}
+@media(max-width:700px){body{padding:0;background:#fff}.shell{min-height:100vh;border:0;border-radius:0;box-shadow:none}
+.hero{padding:26px 20px 18px}.modes{padding:18px 20px 4px}.note{margin:6px 20px 24px}.param{grid-template-columns:1fr}.param .hint{grid-column:1}}
 </style>
 </head>
 <body>
@@ -19,23 +43,149 @@
   <section class="hero">
     <div class="eyebrow">WORLD FLIPPER · WEB TRIAL MOD RUNTIME</div>
     <h1>启动模式</h1>
-    <p>保留原版教程，同时允许直接进入官方挑战关卡选择界面。后续自制关卡将沿用同一套原生列表。</p>
+    <p>每个模式下面列出它自己可用的参数，勾选或填写后链接会同步更新——不用再记 URL 参数。
+       原版流程保持原样；其余模式的改动都可以用 <code>tools/*.py --revert</code> 退回。</p>
   </section>
-  <section class="grid">
-    <a class="card" href="game-index.html?wfmode=tutorial&wfbuild=0.3.3">
-      <div class="tag">ORIGINAL FLOW</div>
-      <h2>原版教程</h2>
-      <p>从序章开始运行官方 Web 体验版完整教程流程，行为保持原样。</p>
-      <div class="go">进入教程 →</div>
-    </a>
-    <a class="card challenge" href="game-index.html?wfmode=challenge&wfbuild=0.3.3">
-      <div class="tag">STAGE SELECT</div>
-      <h2>挑战 / 自制关卡</h2>
-      <p>跳过教程，直接载入教程结束后的 Trial 玩家数据，并进入官方原生关卡选择界面。</p>
-      <div class="go">选择关卡 →</div>
-    </a>
-  </section>
-  <div class="note"><b>v0.3.3：</b>修复 v0.3.2 的 hook 时序回归。bundle 是注册给 lime 的模块工厂，只有 <code>lime.embed()</code> 调用它时才真正执行，所以 <code>WF_INTERNALS</code> 在 embed 之前并不存在；v0.3.2 把 <code>applyHooks()</code> 放在了 embed 之前，AUTO 解锁静默失效，教程模式还因此撞上空表崩溃。现已调整顺序，并把假注册表单元测试换成跑真 bundle 的集成测试。</div>
+
+  <section class="modes" id="modes"></section>
+
+  <div class="note">
+    <b>抽卡模式的边界（已确认）：</b>它走的是
+    <code>SceneKind.TutorialLightBallMovie</code> →
+    <code>BallMovieKind.SingleMovie('gacha/tutorial_light')</code>，
+    动画全部由 <code>assets/production/gacha/tutorial_light.gacha.json</code> 驱动，
+    <b>不需要抽卡 master 数据</b>（那些表全是空的），播放过程<b>不发远程请求</b>。
+    唯一的远程调用是动画结束后 <code>gotoNextScene</code> 里的
+    <code>tutorialUpdateStep</code>，离线下可能失败——真失败了按 <code>report-off</code> 的做法关掉即可。
+    这条路径<b>拿不到角色</b>：<code>SingleMovieSource.getResultCharacterId()</code> 直接返回 None。
+  </div>
 </main>
+
+<script>
+// One place describing every mode and the parameters that actually apply to it.
+// The parameters were previously only in commit messages and my own head; a mode
+// whose switches are invisible gets tested with whatever URL was last pasted.
+var BUILD = "0.3.3";
+var MODES = [
+  {
+    id: "tutorial", tag: "ORIGINAL FLOW", title: "原版教程",
+    desc: "从序章开始跑官方完整教程流程，行为保持原样。3 个补丁（AUTO 按钮模式判定、暴露注册表、错误上报）。",
+    params: ["hub", "dev"]
+  },
+  {
+    id: "challenge", tag: "STAGE SELECT", title: "挑战 / 自制关卡", on: true,
+    desc: "跳过教程，载入 Trial 玩家 4 的教程后存档，进入官方原生关卡选择界面。" +
+          "第 4 关是 WFMOD 練習場（小怪房间 → boss 房间）。8 个补丁。",
+    params: ["hub", "dev", "fullskill", "fastskill", "stats", "trace"]
+  },
+  {
+    id: "gacha", tag: "BALL MOVIE", title: "抽卡动画",
+    desc: "直接进入抽卡落球动画（TutorialLightBallMovie）。固定种子已从配置里移除，每次落点不同；" +
+          "需要复现时用 tools/gacha_movie.py --seed <n> 钉回去。7 个补丁。",
+    params: ["hub", "dev", "trace"]
+  }
+];
+
+// A parameter is declared once and reused by whichever modes it applies to.
+var PARAMS = {
+  hub: {
+    label: "打开 WFMod Hub", kind: "flag", query: "wfhub", value: "1",
+    hint: "启动时就展开面板（不勾也能从右下角按钮打开）。读 master 数据，不碰游戏。"
+  },
+  dev: {
+    label: "?wfdev 直接填写", kind: "text", query: "wfdev",
+    hint: "下面的开关只是往这里拼字符串；要传别的组合可以直接写，逗号分隔。"
+  },
+  fullskill: {
+    label: "开场满技能槽", kind: "dev", token: "fullskill",
+    hint: "hook BattleContinuationData.getSkillPointRatio，只抬开场值。可写 fullskill:0.5。"
+  },
+  fastskill: {
+    label: "持续快速充能", kind: "dev", token: "fastskill",
+    hint: "hook MemberAbilityTotalizer.getTotalSkillGaugeCharging。可写 fastskill:2000。"
+  },
+  stats: {
+    label: "打印队员 hp/atk", kind: "dev", token: "stats",
+    hint: "在 MemberImpl 的 4 个候选方法上挂探针，谁被调用谁报告。"
+  },
+  trace: {
+    label: "trace 某个方法", kind: "text-dev", token: "trace",
+    hint: "类.方法[*预算][~字段1/字段2]，多个用 ; 分隔。例：" +
+          "pinball.scene.battle.battle.action.ActionHitArea.stepPos*30~x/y/r"
+  }
+};
+
+function el(tag, attrs, children) {
+  var node = document.createElement(tag);
+  Object.keys(attrs || {}).forEach(function (k) {
+    if (k === "text") node.textContent = attrs[k];
+    else if (k === "html") node.innerHTML = attrs[k];
+    else node.setAttribute(k, attrs[k]);
+  });
+  (children || []).forEach(function (c) { node.appendChild(c); });
+  return node;
+}
+
+function urlFor(mode, state) {
+  var query = ["wfmode=" + mode.id, "wfbuild=" + BUILD];
+  var dev = [];
+  mode.params.forEach(function (name) {
+    var spec = PARAMS[name];
+    var value = state[name];
+    if (!value) return;
+    if (spec.kind === "flag") query.push(spec.query + "=" + spec.value);
+    else if (spec.kind === "dev") dev.push(spec.token);
+    else if (spec.kind === "text-dev") dev.push(spec.token + ":" + value);
+    else if (spec.kind === "text") dev.push(value);
+  });
+  if (dev.length) query.push("wfdev=" + encodeURIComponent(dev.join(",")));
+  return "game-index.html?" + query.join("&");
+}
+
+MODES.forEach(function (mode) {
+  var state = {};
+  if (mode.id === "challenge") state.fullskill = true;   // the usual battle-testing default
+
+  var card = el("article", { class: "card" + (mode.on ? " on" : "") });
+  card.appendChild(el("header", {}, [el("span", { class: "tag", text: mode.tag })]));
+  card.appendChild(el("h2", { text: mode.title }));
+  card.appendChild(el("p", { class: "desc", text: mode.desc }));
+
+  var params = el("div", { class: "params" });
+  var link = el("a", { href: "#" , text: "启动 →" });
+  var shown = el("code", {});
+
+  function refresh() {
+    var href = urlFor(mode, state);
+    link.setAttribute("href", href);
+    shown.textContent = href;
+  }
+
+  mode.params.forEach(function (name) {
+    var spec = PARAMS[name];
+    var row = el("div", { class: "param" });
+    row.appendChild(el("label", { text: spec.label }));
+    var control;
+    if (spec.kind === "flag" || spec.kind === "dev") {
+      var box = el("input", { type: "checkbox" });
+      if (state[name]) box.checked = true;
+      box.addEventListener("change", function () { state[name] = box.checked; refresh(); });
+      control = el("div", { class: "row" }, [box]);
+    } else {
+      var text = el("input", { type: "text", placeholder: spec.token ? spec.token + ":…" : "" });
+      text.addEventListener("input", function () { state[name] = text.value.trim(); refresh(); });
+      control = text;
+    }
+    row.appendChild(control);
+    row.appendChild(el("div", { class: "hint", text: spec.hint }));
+    params.appendChild(row);
+  });
+
+  card.appendChild(params);
+  card.appendChild(el("div", { class: "launch" }, [link, shown]));
+  document.getElementById("modes").appendChild(card);
+  refresh();
+});
+</script>
 </body>
 </html>

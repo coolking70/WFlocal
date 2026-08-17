@@ -110,6 +110,26 @@ for (const patch of patches) {
 	}
 }
 
+// The picker and the patch table must agree on which modes exist. A mode the
+// picker offers but no patch serves boots the plain tutorial and looks like the
+// mode silently doing nothing; a mode with patches and no entry in the picker is
+// reachable only by remembering a URL.
+{
+	const picker = readFileSync(resolve(root, "WFTest/index.html"), "utf8");
+	const offered = [...picker.matchAll(/\bid: "([a-z]+)", tag:/g)].map((m) => m[1]);
+	const served = [...new Set(patches.flatMap((p) => p.modes))].sort();
+	const missing = served.filter((m) => !offered.includes(m));
+	const empty = offered.filter((m) => !served.includes(m));
+	if (!offered.length) {
+		fail("index.html: could not read the mode list");
+	} else if (missing.length || empty.length) {
+		if (missing.length) fail(`index.html offers no entry for mode(s) ${missing.join(", ")}`);
+		if (empty.length) fail(`index.html offers mode(s) ${empty.join(", ")} that no patch serves`);
+	} else {
+		console.log(`  ok   picker and patch table agree on the modes (${offered.join(", ")})`);
+	}
+}
+
 // Hooks must not be tied to the bundle's load event. The bundle boots itself and
 // its script never fires onload, so anything waiting on that never runs - which
 // is how the dev aids silently did nothing. The launcher has to wait for

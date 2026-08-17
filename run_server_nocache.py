@@ -17,7 +17,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent / "tools"))
 import apply_edit  # noqa: E402
 
 BUILD = "0.3.3"
-DEFAULT_PAGE = "game-index.html?wfmode=challenge&wfdev=fullskill"
+# The mode picker, not one hardcoded mode. It lists every mode with the parameters
+# that apply to it, which is where those switches should live: a flag that exists
+# only in a commit message gets tested with whatever URL was last pasted.
+DEFAULT_PAGE = "index.html"
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--port", type=int, default=8081)

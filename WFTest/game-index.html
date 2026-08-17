@@ -225,6 +225,15 @@
 			var REPORT_DEFAULTS = "this['" + esc("normalReport") + "']=!![];this['" + esc("saveCrashReport") + "']=!![];this['" +
 				esc("sendCrashReport") + "']=!![];";
 
+			// TutorialLightBallMovieScene.gotoNextScene() asks the tutorial repository
+			// for the step after this one. Entered from the boot router we are outside
+			// the tutorial's step state, so nextStep() returns undefined and
+			// resolveRoute crashes on it. Replaying the movie is both the fix and what
+			// a gacha test bench wants: each completion is a fresh draw, and the seed
+			// is now taken from the clock.
+			var GACHA_NEXT_HEAD = "'" + esc("gotoNextScene") + "':function(){var _0x18f012=this;this['" +
+				esc("remote") + "']['" + esc("tutorialUpdateStep") + "']";
+
 			var CLIENT_ERROR_CTOR = "var _0x34e26d=function(_0x44c93d,_0x94baad){this['" + esc("internalMessage") +
 				"']=_0x94baad;this['" + esc("code") + "']=_0x44c93d;};";
 
@@ -320,6 +329,21 @@
 						"together when it runs against a dummy remote.",
 					find: REPORT_DEFAULTS,
 					replace: "this['normalReport']=false;this['saveCrashReport']=false;this['sendCrashReport']=false;"
+				},
+				{
+					id: "gacha-loop",
+					modes: ["gacha"],
+					note: "TutorialLightBallMovieScene.gotoNextScene() resolves the next tutorial step, " +
+						"which does not exist when the scene is entered from the boot router: nextStep() " +
+						"returns undefined and getStepValues reads _hx_index off it. In gacha mode, replay " +
+						"the ball movie instead. The remote call it skips is tutorialUpdateStep, which the " +
+						"crash proved does not fail offline - it ran, and the crash was after it.",
+					find: GACHA_NEXT_HEAD,
+					replace: "'" + esc("gotoNextScene") + "':function(){var _0x18f012=this;" +
+						"if(window['WF_DEMO_BOOT_MODE']==='gacha'){" +
+						"this['changeSceneSimply'](_0x5881fa['Immediate'](_0x13863f['" +
+						esc("TutorialLightBallMovie") + "'](this['tutorialProgressKind'])));return;}" +
+						"this['" + esc("remote") + "']['" + esc("tutorialUpdateStep") + "']"
 				},
 				{
 					id: "clienterror-reporter",
